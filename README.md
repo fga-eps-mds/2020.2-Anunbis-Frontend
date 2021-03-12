@@ -6,6 +6,25 @@ O Anunbis é uma aplicação web cujo objetivo é criar um ambiente específico 
 A aplicação possui um front-end baseado em [React-Js](https://reactjs.org/) e back-end baseado em [Flask](https://flask.palletsprojects.com/en/1.1.x/).
 
 Para acessar o repositório do back-end basta clicar [aqui](https://github.com/fga-eps-mds/2020.2-Anunbis/).
+
+## Guia de instalação (Back-end)
+
+Essa aplicação tem seu ambiente configurado através de conteiners [Docker](https://www.docker.com), portanto, tem como pré-requisitos a instalação do [Docker](https://www.docker.com/get-started) e [Docker-compose](https://docs.docker.com/compose/install/).
+
+Também é necessário ter o [Git](https://git-scm.com) instalado para clonar o repositório.
+
+Clonar o repositório:
+
+`git clone https://github.com/fga-eps-mds/2020.2-Anunbis-Frontend.git`
+
+Execução do conteiner:
+
+`docker-compose up`
+
+Acesso  a aplicação:
+
+`localhost:3000`
+
 ## Equipe
 
 |**Foto**|**Nome**|**Email**|**Papel**|
