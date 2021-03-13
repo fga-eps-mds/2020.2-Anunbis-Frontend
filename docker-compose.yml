@@ -1,14 +1,13 @@
 version: '3.7'
 services:
-    react:
+    anunbis-react:
+        container_name: anunbis-react
+        stdin_open: true
         build:
-          ./
+            context: .
+            dockerfile: Dockerfile
         volumes:
-            - .:/home/node/app
-            - /home/node/app/node_modules
+            - '.:/app'
+            - '/app/node_modules'
         ports:
             - '3000:3000'
-        environment:
-            - NODE_ENV=development
-            - CHOKIDAR_USEPOLLING=true        
-        stdin_open: true
