@@ -3,4 +3,13 @@
     align-items: center;
     width: 1000px;
     height: 500px;
+    color: #000000;
+}
+
+.Forms{
+    
+}
+
+.Buttons{
+    display: flex;
 }
