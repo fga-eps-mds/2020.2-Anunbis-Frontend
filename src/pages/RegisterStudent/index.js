@@ -1,4 +1,5 @@
 import  {React, Component } from 'react';
+import BaseAutentication from '../../components/BaseAutentication';
 import './index.css'
 
 
@@ -7,9 +8,7 @@ export default class RegisterStudent extends Component{
     return (
       <div className="RegisterStudent">
         <header className="App-header">
-          <p>
-            Edit <code>src/App.js</code> and save to reload.
-        </p>
+          <BaseAutentication />
         </header>
       </div>
     );
