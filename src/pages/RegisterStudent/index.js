@@ -1,5 +1,5 @@
 import  React from 'react';
-import BaseAutentication from '../../components/BaseAutentication';
+import FormStudent from '../../components/FormStudent';
 import './index.css'
 
 
@@ -7,7 +7,7 @@ export default function RegisterStudent(){
     return (
       <div className="RegisterStudent">
         <header className="App-header">
-          <BaseAutentication />
+          <FormStudent />
         </header>
       </div>
     );
