@@ -4,7 +4,7 @@ export default class InputPassword extends Component{
     render(){
         return(
             <div>
-                <input type="password" defaultValue={this.props.text}>
+                <input type="password" placeholder={this.props.text}>
                 </input>
             </div>
 
