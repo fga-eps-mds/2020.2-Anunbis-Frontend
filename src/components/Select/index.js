@@ -6,7 +6,7 @@ export default function Select(props){
             <select id={props.id} name={props.name} ref={props.register}>
                 <option value="">Selecione o seu curso</option>
                 {props.options.map((item) => (
-                    <option value={item.id} key={item.id}>{item.name}</option>
+                    <option value={item.id_course} key={item.id_course}>{item.name}</option>
                 ))}
             </select>
         </div>
