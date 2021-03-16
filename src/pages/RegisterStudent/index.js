@@ -1,10 +1,9 @@
-import  {React, Component } from 'react';
+import  React from 'react';
 import BaseAutentication from '../../components/BaseAutentication';
 import './index.css'
 
 
-export default class RegisterStudent extends Component{
-  render() {
+export default function RegisterStudent(){
     return (
       <div className="RegisterStudent">
         <header className="App-header">
@@ -12,5 +11,4 @@ export default class RegisterStudent extends Component{
         </header>
       </div>
     );
-  }
 }

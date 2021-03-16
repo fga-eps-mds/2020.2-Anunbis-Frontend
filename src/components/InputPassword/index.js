@@ -1,14 +1,11 @@
-import { Component } from "react";
+import React from "react";
 
-export default class InputPassword extends Component{
-    render(){
-        return(
-            <div>
-                <input type="password" placeholder={this.props.text}>
-                </input>
-            </div>
+export default function InputPassword(props) {
+    return (
+        <div>
+            <input type="password" placeholder={props.text}>
+            </input>
+        </div>
 
-        );
-    }
-
+    );
 }
