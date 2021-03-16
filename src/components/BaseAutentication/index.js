@@ -9,13 +9,13 @@ export default function BaseAutentication() {
             <h4>
                 Cadastro de Aluno
                 </h4>
-            <div className="Forms">
+            <form className="Forms">
                 <Input type="text" text="Nome" />
                 <Input type="text" text="Curso" />
                 <Input type="text" text="Email Institucional" />
                 <Input type="password" text="Senha" />
                 <Input type="password" text="Confirmar Senha" />
-            </div>
+            </form>
 
             <div className="Buttons">
                 <Button text="CONFIRMAR" />
