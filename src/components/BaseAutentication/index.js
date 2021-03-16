@@ -1,4 +1,5 @@
 import { Component } from "react";
+import InputPassword from "../InputPassword";
 import InputText from "../InputText";
 import './index.css'; 
 
@@ -13,6 +14,8 @@ export default class BaseAutentication extends Component{
                     <InputText text="Nome"/>
                     <InputText text="Curso"/>
                     <InputText text="Email Institucional" />
+                    <InputPassword text="Senha" />
+                    <InputPassword text="Confirmar Senha" />
                 </div>
 
             </div>
