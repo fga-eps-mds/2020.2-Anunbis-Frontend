@@ -1,10 +1,15 @@
 import React, { useEffect } from 'react';
 import { useForm } from "react-hook-form";
-import Button from '../../components/Button';
+import { yupResolver } from '@hookform/resolvers/yup';
+
+import './index.css'
+import schema from './validations';
+
 import Form from '../../components/Form';
 import Input from '../../components/Input';
 import Select from '../../components/Select';
-import './index.css'
+import Button from '../../components/Button';
+
 
 // const courses = [
 //   { "id_course": "0", "name": "Eng De Software" },
@@ -17,7 +22,9 @@ import './index.css'
 
 export default function RegisterStudent() {
   const [courses, setCourses] = React.useState([])
-  const { register, handleSubmit } = useForm();
+  const { register, handleSubmit } = useForm({
+    resolver: yupResolver(schema),
+  });
   const onSubmit = data => console.log(data);
 
   useEffect(() => {
@@ -34,10 +41,11 @@ export default function RegisterStudent() {
   const fields = (
     <form className="Fields">
       <Input type="text" text="Nome" name="name" register={register} />
-      <Select id="courses" options={courses} name="course" register={register} />
+      <Select id="courses" options={courses} name="id_course" register={register} />
+      <Input type="text" text="Matrícula" name="reg_student" register={register} />
       <Input type="email" text="Email Institucional" name="email" register={register} />
       <Input type="password" text="Senha" name="password" register={register} />
-      <Input type="password" text="Confirmar Senha" name="co-password" register={register} />
+      <Input type="password" text="Confirmar Senha" name="co_password" register={register} />
     </form>
   );
   const buttons = (
