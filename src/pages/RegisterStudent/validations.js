@@ -28,6 +28,7 @@ const schema = yup.object().shape({
 
     co_password: yup
     .string()
+    .oneOf([yup.ref('password')], "Senhas devem ser iguais.")
     .required("Confirmação da senha deve ser preenchida."),
 });
 

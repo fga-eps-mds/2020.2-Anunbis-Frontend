@@ -22,9 +22,11 @@ import Button from '../../components/Button';
 
 export default function RegisterStudent() {
   const [courses, setCourses] = React.useState([])
+
   const { register, handleSubmit } = useForm({
     resolver: yupResolver(schema),
   });
+  
   const onSubmit = data => console.log(data);
 
   useEffect(() => {
