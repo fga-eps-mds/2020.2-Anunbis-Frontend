@@ -11,7 +11,7 @@
     max-height: 500px;
 }
 
-.Form {
+main {
     display: flex;
     flex-direction: row-reverse;
     align-items: flex-start;
@@ -25,7 +25,7 @@
     border-radius: 15px;
 }
 
-.Fields {
+.form {
     display: flex;
     flex-direction: column;
     align-items: flex-start;
@@ -34,7 +34,22 @@
     height: 300px;
 }
 
-.Button {
+.fields {
+    
+}
+
+.field{
+    
+}
+
+.field .error{
+    color: red;
+    font-size: 10px;
+    position: absolute;
+    transform: translateY(-15px);
+}
+
+.button {
     display: flex;
     flex-direction: row;
     align-items: flex-start;
