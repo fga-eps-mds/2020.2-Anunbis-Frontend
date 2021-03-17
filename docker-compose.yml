@@ -1,0 +1,13 @@
+version: '3.7'
+services:
+    anunbis-react:
+        container_name: anunbis-react
+        stdin_open: true
+        build:
+            context: .
+            dockerfile: Dockerfile
+        volumes:
+            - '.:/app'
+            - '/app/node_modules'
+        ports:
+            - '3000:3000'
