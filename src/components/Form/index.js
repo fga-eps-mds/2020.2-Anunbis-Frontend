@@ -3,17 +3,22 @@ import Button from "../Button";
 import './index.css';
 
 export default function Form(props) {
-    
+
     return (
         <div className="Form">
-            <h4>
-                {props.title}
-            </h4>
-            <div>
-                {props.fields}
+            <div className="divImg">
+                <img id="imagem" />
             </div>
-            <div className="Buttons">
-                <Button text="CANCELAR"/>
+            <div className="Fields">
+                <h4>
+                    {props.title}
+                </h4>
+                <div>
+                    {props.fields}
+                </div>
+                <div>
+                    {props.buttons}
+                </div>
             </div>
         </div>
     );

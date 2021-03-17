@@ -1,15 +1,56 @@
-.Form{
+.divImg {
+    display: flex;
+    box-sizing: border-box;
+    border-radius: 15px;
+    max-width: 500px;
+    max-height: 500px;
+    align-self: flex-end;
+}
+
+#imagem {
+    width: 500px;
+    height: 500px;
+    background-image: url("../../assets/Logo.jpg");
+    border-top-right-radius: 15px;
+    border-bottom-right-radius: 15px;
+}
+
+.Form {
+    display: flex;
+    flex-direction: row-reverse;
+    align-items: flex-start;
     background-color: #FFD54F;
-    align-items: center;
     width: 1000px;
     height: 500px;
+    max-width: 1000px;
+    max-height: 500px;
     color: #000000;
+    box-sizing: border-box;
+    border-radius: 15px;
 }
 
-.Fields{
-    
-}
-
-.Buttons{
+/* .Fields {
     display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    align-items: center;
+    width: 500px;
+    height: 300px;
 }
+
+.Button {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    align-items: center;
+    text-align: center;
+}
+
+Button{
+    background: #FFF9C4;
+    border: 1px solid rgba(255, 245, 157, 0.6);
+    box-sizing: border-box;
+    border-radius: 10px;
+    padding: 10px 5px;
+    margin-inline: 10px;
+} */
