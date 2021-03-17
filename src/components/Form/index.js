@@ -1,14 +1,11 @@
 import React from "react";
-import Button from "../Button";
 import './index.css';
 
 export default function Form(props) {
 
     return (
         <div className="Form">
-            <div className="divImg">
-                <img id="imagem" />
-            </div>
+            <div className="logo" />
             <div className="Fields">
                 <h4>
                     {props.title}

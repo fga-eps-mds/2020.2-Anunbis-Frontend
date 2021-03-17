@@ -1,18 +1,14 @@
-.divImg {
+.logo {
     display: flex;
     box-sizing: border-box;
-    border-radius: 15px;
-    max-width: 500px;
-    max-height: 500px;
     align-self: flex-end;
-}
-
-#imagem {
-    width: 500px;
-    height: 500px;
     background-image: url("../../assets/Logo.jpg");
     border-top-right-radius: 15px;
     border-bottom-right-radius: 15px;
+    width: 500px;
+    height: 500px;
+    max-width: 500px;
+    max-height: 500px;
 }
 
 .Form {

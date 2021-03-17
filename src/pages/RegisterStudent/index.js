@@ -7,11 +7,11 @@ import Select from '../../components/Select';
 import './index.css'
 
 // const courses = [
-//   { "id": "0", "name": "Eng De Software" },
-//   { "id": "1", "name": "Eng Automotiva" },
-//   { "id": "2", "name": "Eng Eletrônica" },
-//   { "id": "3", "name": "Eng Aeroespacial" },
-//   { "id": "4", "name": "Eng De Energias" }
+//   { "id_course": "0", "name": "Eng De Software" },
+//   { "id_course": "1", "name": "Eng Automotiva" },
+//   { "id_course": "2", "name": "Eng Eletrônica" },
+//   { "id_course": "3", "name": "Eng Aeroespacial" },
+//   { "id_course": "4", "name": "Eng De Energias" }
 // ];
 
 
@@ -32,7 +32,7 @@ export default function RegisterStudent() {
 
 
   const fields = (
-    <form className="Fields" onSubmit={handleSubmit(onSubmit)}>
+    <form className="Fields">
       <Input type="text" text="Nome" name="name" register={register} />
       <Select id="courses" options={courses} name="course" register={register} />
       <Input type="email" text="Email Institucional" name="email" register={register} />
@@ -41,15 +41,15 @@ export default function RegisterStudent() {
     </form>
   );
   const buttons = (
-    <form className="Button" onSubmit={handleSubmit(onSubmit)}>
+    <div className="Button">
       <Button text="CANCELAR" />
-      <Button text="CONFIRMAR" />
-    </form>
+      <Button text="CONFIRMAR" onClick={handleSubmit(onSubmit)}/>
+    </div>
   );
 
   return (
     <div className="RegisterStudent">
-      <header className="App-header">
+      <header className="Header">
         <Form title="Cadastro de Aluno" fields={fields} buttons={buttons} />
       </header>
     </div>
