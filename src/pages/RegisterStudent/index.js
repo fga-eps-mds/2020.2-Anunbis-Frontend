@@ -11,23 +11,14 @@ import Select from '../../components/Select';
 import Button from '../../components/Button';
 
 
-// const courses = [
-//   { "id_course": "0", "name": "Eng De Software" },
-//   { "id_course": "1", "name": "Eng Automotiva" },
-//   { "id_course": "2", "name": "Eng Eletrônica" },
-//   { "id_course": "3", "name": "Eng Aeroespacial" },
-//   { "id_course": "4", "name": "Eng De Energias" }
-// ];
-
-
 export default function RegisterStudent() {
   const [courses, setCourses] = React.useState([])
 
-  const { register, handleSubmit } = useForm({
-    resolver: yupResolver(schema),
-  });
-  
-  const onSubmit = data => console.log(data);
+  const { register, handleSubmit } = useForm(
+      {
+      resolver: yupResolver(schema),
+    }
+  );
 
   useEffect(() => {
     async function fetchData() {
@@ -37,7 +28,32 @@ export default function RegisterStudent() {
       setCourses(data);
     }
     fetchData();
-  }, [])
+  }, []);
+
+   function Submit(data) {
+    const url = 'http://localhost:5000/anunbis/api/student'
+    const body = {
+      reg_student: parseInt(data.reg_student),
+      name: data.name,
+      id_course: parseInt(data.id_course),
+      email: data.email,
+      password: data.password
+    }
+
+    fetch(url, {
+      method: 'post',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(body)
+    })
+    .then(response => response)
+    .then(rs => {
+      console.log(rs)
+      console.log(rs.json())
+      if(rs.ok)
+      console.log('ok')
+      if(rs.status === 409)
+        console.log("estudante ja cadastrado")
+    })};
 
 
   const fields = (
@@ -53,7 +69,7 @@ export default function RegisterStudent() {
   const buttons = (
     <div className="Button">
       <Button text="CANCELAR" />
-      <Button text="CONFIRMAR" onClick={handleSubmit(onSubmit)}/>
+      <Button text="CONFIRMAR" onClick={handleSubmit(Submit)} />
     </div>
   );
 
