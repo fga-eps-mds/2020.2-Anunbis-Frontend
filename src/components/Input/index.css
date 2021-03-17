@@ -1,0 +1,10 @@
+.Input input, select{
+    border: none;
+    border-bottom: 1px solid #000000;
+    background-color:#FFD54F;
+    margin: 15px 0;
+    max-width: 500px;
+    max-height: 400px;
+    align-self: right;
+    padding-right: 75px;
+}

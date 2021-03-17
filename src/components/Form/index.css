@@ -29,7 +29,7 @@
     border-radius: 15px;
 }
 
-/* .Fields {
+.Fields {
     display: flex;
     flex-direction: column;
     align-items: flex-start;
@@ -53,4 +53,4 @@ Button{
     border-radius: 10px;
     padding: 10px 5px;
     margin-inline: 10px;
-} */
+}

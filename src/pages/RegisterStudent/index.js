@@ -21,25 +21,28 @@ export default function RegisterStudent() {
   const onSubmit = data => console.log(data);
 
   useEffect(() => {
-    async function fetchData(){
-    const response = await fetch('http://localhost:5000/anunbis/api/course')
-    const data = await response.json()
-    
-    setCourses(data);
+    async function fetchData() {
+      const response = await fetch('http://localhost:5000/anunbis/api/course')
+      const data = await response.json()
+
+      setCourses(data);
     }
     fetchData();
   }, [])
-  
-  
+
+
   const fields = (
     <form className="Fields" onSubmit={handleSubmit(onSubmit)}>
       <Input type="text" text="Nome" name="name" register={register} />
       <Select id="courses" options={courses} name="course" register={register} />
-
       <Input type="email" text="Email Institucional" name="email" register={register} />
       <Input type="password" text="Senha" name="password" register={register} />
       <Input type="password" text="Confirmar Senha" name="co-password" register={register} />
-
+    </form>
+  );
+  const buttons = (
+    <form className="Button" onSubmit={handleSubmit(onSubmit)}>
+      <Button text="CANCELAR" />
       <Button text="CONFIRMAR" />
     </form>
   );
@@ -47,8 +50,8 @@ export default function RegisterStudent() {
   return (
     <div className="RegisterStudent">
       <header className="App-header">
-        <Form title="Cadastro de Aluno" fields={fields} />
+        <Form title="Cadastro de Aluno" fields={fields} buttons={buttons} />
       </header>
     </div>
-  );
+  )
 }
