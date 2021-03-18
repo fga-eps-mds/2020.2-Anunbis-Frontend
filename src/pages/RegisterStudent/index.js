@@ -17,19 +17,20 @@ export default function RegisterStudent() {
   const { register, handleSubmit, errors } = useForm({
     resolver: yupResolver(schema),
   });
-
+  console.log(process.env)
   useEffect(() => {
     async function fetchData() {
-      const response = await fetch('http://localhost:5000/anunbis/api/course')
+      const url = process.env.REACT_APP_API_HOST + "/course";
+      const response = await fetch(url)
       const data = await response.json()
 
       setCourses(data);
     }
     fetchData();
   }, []);
-
+  
    function onSubmit(data) {
-    const url = 'http://localhost:5000/anunbis/api/student'
+    const url = process.env.REACT_APP_API_HOST + "/student";
     const body = {
       reg_student: parseInt(data.reg_student),
       name: data.name,
@@ -47,10 +48,14 @@ export default function RegisterStudent() {
     .then(rs => {
       console.log(rs)
       console.log(rs.json())
-      if(rs.ok)
-      console.log('ok')
-      if(rs.status === 409)
-        console.log("estudante ja cadastrado")
+      if(rs.ok){
+        window.alert("Cadastradao com sucesso rapaziadaaaa")
+        console.log("Cadastradao com sucesso rapaziadaaaa")
+      }
+      if(rs.status === 409){
+        window.alert("Estudante ja cadastrado")
+        console.log("Estudante ja cadastrado")
+      }
     })};
 
   return (
