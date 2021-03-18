@@ -12,7 +12,7 @@ const schema = yup.object().shape({
 
     reg_student: yup
     .string()
-    .length(9)
+    .length(9, "Matrícula deve conter exatamente 9 dígitos.")
     .matches(/^[0-9]*$/, "Matricula deve conter somente números.")
     .required("Matricula deve ser preenchida."),
 

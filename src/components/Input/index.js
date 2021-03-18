@@ -5,7 +5,7 @@ export default function Input(props) {
 
     return (
         <div className="Input">
-            <input type={props.type} placeholder={props.text} value={props.value} name={props.name} ref={props.register}>
+            <input type={props.type} placeholder={props.text} value={props.value} name={props.name} ref={props.register} autoComplete="off" >
             </input>
         </div>
     );

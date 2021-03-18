@@ -13,7 +13,7 @@ const Field = ({errorMsg, children}) => {
 
 const Footer = ({children}) => {
     return (
-        <div className="button">
+        <div className="footer">
             {children}
         </div>
     )
@@ -21,7 +21,7 @@ const Footer = ({children}) => {
 
 function Form({title, children, onSubmit}) {
     return (
-        <main>
+        <main className="formulario">
             <div className="logo" />
             <form className="form" onSubmit={onSubmit}>
                 <h4>
