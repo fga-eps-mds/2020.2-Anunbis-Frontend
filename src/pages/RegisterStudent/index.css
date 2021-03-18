@@ -12,3 +12,12 @@
   font-size: calc(10px + 2vmin);
   color: white;
 }
+
+.errorDB{
+  display: flex;
+  color: #F44336;
+  font-size: 20px;
+  font-family: Arial, Helvetica, sans-serif;
+  justify-content: center;
+  padding-bottom: 5%;
+}

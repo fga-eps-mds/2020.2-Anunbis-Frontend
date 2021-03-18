@@ -13,7 +13,7 @@ import Button from '../../components/Button';
 
 export default function RegisterStudent() {
   const [courses, setCourses] = React.useState([])
-
+  const [errorDB, setErrorDB] = React.useState('')
   const { register, handleSubmit, errors } = useForm({
     resolver: yupResolver(schema),
   });
@@ -49,12 +49,10 @@ export default function RegisterStudent() {
       console.log(rs)
       console.log(rs.json())
       if(rs.ok){
-        window.alert("Cadastradao com sucesso rapaziadaaaa")
-        console.log("Cadastradao com sucesso rapaziadaaaa")
+        setErrorDB("")
       }
       if(rs.status === 409){
-        window.alert("Estudante ja cadastrado")
-        console.log("Estudante ja cadastrado")
+        setErrorDB("Estudante já cadastrado")
       }
     })};
 
@@ -68,6 +66,7 @@ export default function RegisterStudent() {
           <Form.Field errorMsg={errors.email?.message}><Input type="email" text="Email Institucional" name="email" register={register} /></Form.Field>
           <Form.Field errorMsg={errors.password?.message}><Input type="password" text="Senha" name="password" register={register} /></Form.Field>
           <Form.Field errorMsg={errors.co_password?.message}><Input type="password" text="Confirmar Senha" name="co_password" register={register} /></Form.Field>
+          <Form.Field><div className="errorDB">{errorDB}</div></Form.Field>
           <Form.Footer>
             <Button text="CANCELAR" />
             <Button text="CONFIRMAR" type="submit"/>
