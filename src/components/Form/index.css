@@ -14,8 +14,8 @@ main.formulario  {
     flex-direction: row-reverse;
     align-items: flex-start;
     background-color: #FFD54F;
-    width: 60vw;
-    height: 60vh;
+    width: 1000px;
+    height: 500px;
     color: #000000;
     box-sizing: border-box;
     border-radius: 15px;
