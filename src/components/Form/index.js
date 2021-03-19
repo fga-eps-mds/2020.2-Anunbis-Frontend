@@ -19,11 +19,14 @@ const Footer = ({children}) => {
     )
 }
 
-function Form({title, children, onSubmit}) {
+function Form({link, title, children, onSubmit}) {
     return (
         <main className="formulario">
             <div className="logo" />
             <form className="form" onSubmit={onSubmit}>
+                <div className="isStudent">
+                    <h4>{link}</h4>                
+                </div> 
                 <h4>
                     {title}
                 </h4>

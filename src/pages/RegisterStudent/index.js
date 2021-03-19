@@ -59,7 +59,7 @@ export default function RegisterStudent() {
   return (
     <div className="RegisterStudent">
       <header className="Header">
-        <Form title="Cadastro de Aluno" onSubmit={handleSubmit(onSubmit)}>
+        <Form title="Cadastro de Aluno" onSubmit={handleSubmit(onSubmit)} link="É professor?">
           <Form.Field errorMsg={errors.name?.message}><Input type="text" text="Nome" name="name" register={register} /></Form.Field>
           <Form.Field errorMsg={errors.id_course?.message}><Select id="courses" options={courses} name="id_course" register={register} /></Form.Field>
           <Form.Field errorMsg={errors.reg_student?.message}><Input type="text" text="Matrícula" name="reg_student" register={register} /></Form.Field>

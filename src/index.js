@@ -2,10 +2,11 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
 import RegisterStudent from './pages/RegisterStudent';
+import RegisterProfessor from './pages/RegisterProfessor'
 import reportWebVitals from './reportWebVitals';
 
 ReactDOM.render(
-    <RegisterStudent />,
+    <RegisterProfessor />,
   document.getElementById('root')
 );
 
