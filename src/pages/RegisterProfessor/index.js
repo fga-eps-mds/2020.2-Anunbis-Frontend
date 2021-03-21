@@ -14,7 +14,7 @@ export default function RegisterProfessor(){
     return (
         <div className="RegisterProfessor">
             <header className="Header">
-                <Form title="Cadastro de Professor" onSubmit={handleSubmit()} link="ALUNO?" >
+                <Form title="Cadastro de Professor" onSubmit={handleSubmit()} link="ALUNO?" endereco={`/cadastro/aluno`}>
                     <Form.Field><Input type="text" text="Nome" name="name" register={register} /></Form.Field>
                     <Form.Field><Input type="email" text="Email Institucional" name="email" register={register} /></Form.Field>
                     <Form.Field> <Input type="password" text="Senha" name="password" register={register} /></Form.Field>
