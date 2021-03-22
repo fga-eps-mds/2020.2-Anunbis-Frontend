@@ -13,10 +13,9 @@ import {
 
 ReactDOM.render(
     <Router>
-      <Switch> 
+      <Switch>
         <Route path="/cadastro/professor" component={RegisterProfessor}> <RegisterProfessor /> </Route>
-        <Route path="/cadastro/aluno" component={RegisterStudent}> <RegisterStudent /> </Route>
-      
+        <Route path="/" component={RegisterStudent}> <RegisterStudent /> </Route>
       </Switch>
 
     </Router>,
