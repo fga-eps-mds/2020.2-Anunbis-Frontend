@@ -3,3 +3,8 @@
     height: 10vh;
     background-color: #212121;
 }
+
+.Logo img {
+    max-height: 100%;
+    max-width: 20%;
+}
