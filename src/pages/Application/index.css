@@ -1,0 +1,9 @@
+.Content {
+    width: 100vw;
+    height: 90vh;
+    background-image: url("../../assets/BG_App.png");
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+}
