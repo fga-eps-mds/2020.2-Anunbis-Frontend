@@ -5,7 +5,8 @@ import RegisterStudent from './pages/RegisterStudent';
 import RegisterProfessor from './pages/RegisterProfessor';
 import ProfessorSearch from './pages/ProfessorSearch';
 import Application from './pages/Application';
-import reportWebVitals from './reportWebVitals';
+import Menu from './components/Menu'
+import reportWebVitals from './reportWebVitals'
 import {
   BrowserRouter as Router,
   Switch,
@@ -17,13 +18,13 @@ import {
 ReactDOM.render(
     <Router>
       <Switch>
+        <Route path="/" component={RegisterStudent} exact> <RegisterStudent /> </Route>
+        <Route path="/cadastro/professor" component={RegisterProfessor}> <RegisterProfessor /> </Route>
+        
+        {/* <Menu /> */}
         <Route path="/test" component={Application}> <Application /> </Route>
         <Route path="/professor/search/:professorName" component={ProfessorSearch}> <ProfessorSearch /> </Route>
-        <Route path="/cadastro/professor" component={RegisterProfessor}> <RegisterProfessor /> </Route>
-        <Route path="/" component={RegisterStudent}> <RegisterStudent /> </Route>
-        
       </Switch>
-
     </Router>,
   document.getElementById('root')
 );

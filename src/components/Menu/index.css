@@ -1,12 +1,15 @@
 .Menu {
-    width: 100vw;
-    height: 10vh;
     background-color: #212121;
-    display: block;
+    display: flex;
+    height: 7vh;
 }
 
 .Logo img {
     max-height: 100%;
-    max-width: 20%;
-    display: inline-block
+    max-width: 80%;
+    display: inline-block;
+}
+
+.Menu .ProfessorSearch{
+    display: inline-block;
 }

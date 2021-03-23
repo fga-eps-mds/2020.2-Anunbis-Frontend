@@ -10,7 +10,6 @@ const ProfessorItem = ({professor}) =>{
     </div>)
 }
 
-
 export default function ProfessorSearch(props) {
     const {professorName} = useParams();
     const [professors, setProfessors ]= useState([]);

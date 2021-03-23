@@ -1,6 +1,6 @@
-.Content {
+.Application .Base {
     width: 100vw;
-    height: 90vh;
+    height: 93vh;
     background-image: url("../../assets/BG_App.png");
     display: flex;
     align-items: center;
