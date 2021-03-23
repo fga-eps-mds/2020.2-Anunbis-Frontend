@@ -4,11 +4,8 @@ import './index.css'
 
 export default function Application (){
     return(
-        <div className="Application">
+        <div>
             <Menu />
-            <div className="Content">
-        
-            </div>
         </div>
     );
 }

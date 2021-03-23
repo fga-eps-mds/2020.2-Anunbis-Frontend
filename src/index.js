@@ -2,7 +2,9 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
 import RegisterStudent from './pages/RegisterStudent';
-import RegisterProfessor from './pages/RegisterProfessor'
+import RegisterProfessor from './pages/RegisterProfessor';
+import ProfessorSearch from './pages/ProfessorSearch';
+import Application from './pages/Application';
 import reportWebVitals from './reportWebVitals';
 import {
   BrowserRouter as Router,
@@ -11,11 +13,15 @@ import {
   Link
 } from "react-router-dom";
 
+
 ReactDOM.render(
     <Router>
       <Switch>
+        <Route path="/test" component={Application}> <Application /> </Route>
+        <Route path="/professor/search/:professorName" component={ProfessorSearch}> <ProfessorSearch /> </Route>
         <Route path="/cadastro/professor" component={RegisterProfessor}> <RegisterProfessor /> </Route>
         <Route path="/" component={RegisterStudent}> <RegisterStudent /> </Route>
+        
       </Switch>
 
     </Router>,
