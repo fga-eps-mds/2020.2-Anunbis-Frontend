@@ -22,3 +22,12 @@
 Button{
     margin-top: 30%;
 }
+
+.Erro {
+    display: flex;
+    color:black;
+    font-size: 15px;
+    font-family: Arial, Helvetica, sans-serif;
+    justify-content: center;
+    padding-bottom: 5%;
+}
