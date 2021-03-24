@@ -12,6 +12,7 @@ import {
   Route
 } from "react-router-dom";
 import LayoutApp from './components/LayoutApp';
+import Avaliation from './components/Avaliation';
 
 
 ReactDOM.render(
@@ -22,8 +23,9 @@ ReactDOM.render(
       <Route path="/cadastro/professor" component={RegisterProfessor}> <RegisterProfessor /> </Route>
 
       <LayoutApp>
-        <Route path="/test" component={Application}> <Application /> </Route>
+        <Route path="/test" component={Application} exact> <Application /> </Route>
         <Route path="/professor/search/:professorName" component={ProfessorSearch}> <ProfessorSearch /> </Route>
+        <Route path="/test/post" component={Avaliation}> <Avaliation /> </Route>
       </LayoutApp>
     </Switch>
   </Router>,
