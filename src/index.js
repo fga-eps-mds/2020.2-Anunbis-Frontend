@@ -3,9 +3,10 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import RegisterStudent from './pages/RegisterStudent';
 import reportWebVitals from './reportWebVitals';
+import Login from './pages/Login'
 
 ReactDOM.render(
-    <RegisterStudent />,
+    <Login />,
   document.getElementById('root')
 );
 
