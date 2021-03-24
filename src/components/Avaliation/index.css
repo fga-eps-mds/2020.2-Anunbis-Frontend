@@ -2,8 +2,8 @@
     text-align: center;
 }
 
-.avaliation .buttonClose{
-    margin-right: 0%;
+ .title .buttonClose{
+    margin-left: 70%;
     border-radius: 0%;
     height: 100%;
     background-color: red;
@@ -11,25 +11,34 @@
 
 .typePost .button{
     background-color: #FFF9C4;
+    /* selected{
+        background-color: #94906f69;
+    }   */
 }
 
-.button:hover {
-    background-color: #94906f69;
-}  
-   
-.avaliation .buttonPost{
+.typePost {
+    padding-top: 20px;
+    text-align: center;
+}
+
+.commentsPost{
+    padding-top: 20px;
+    padding-bottom: 50px;
+}   
+
+.avaliationContent .buttonPost{
     background-color: #26A69A;
 }
 
 textarea{
     resize: none;
     width: 80%;
-    height: 100%;
+    height: 150px;
     border-radius: 20px;
 }
 
 .avaliation .title{
-    width: 100%;
+    width: 522px;
     height: 5%;
     background-color: #212121;
     color: #FFFDE7;
@@ -40,11 +49,15 @@ textarea{
 
 .avaliation .avaliationContent{
     width: 100%;
+    height: 600px;
     background-color: #FFFDE7;
+    border-bottom-right-radius: 2%;
+    border-bottom-left-radius: 2%;
 }
 
 .avaliation Input{
-    width: 100%;
+    width: 80%;
     background-color: #FFFDE7;
+    padding-bottom: 10px;
 }
 
