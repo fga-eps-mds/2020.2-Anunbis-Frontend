@@ -1,36 +1,31 @@
 import * as yup from 'yup';
 
 const schema = yup.object().shape({
-    nameProfessor: yup
-    .string()
-    .trim()
-    .min(2, "Nome do professor deve conter pelo menos dois caracteres.")
-    .max(254, "Nome do professor deve ter no máximo 254 caracteres.")
-    .required("Nome do professor deve ser preenchido."),
+    // nameProfessor: yup
+    // .string()
+    // .trim()
+    // .required("Nome do professor deve ser preenchido.")
+    // .min(2, "Nome do professor deve conter pelo menos dois caracteres.")
+    // .max(254, "Nome do professor deve ter no máximo 254 caracteres."),
 
-    nameDiscipline: yup
+    id_course: yup
     .string()
-    .trim()
-    .min(2, "Nome da disciplina deve conter pelo menos dois caracteres.")
-    .max(254, "Nome da disciplina deve ter no máximo 254 caracteres.")
     .required("Nome da disciplina deve ser preenchido."),
+    
 
     note: yup
-    .number()
+    .number("Nota deve ser um número de 0 a 10.")
+    .transform(value => (isNaN(value) ? undefined : value))
+    .required("Nota deve ser preenchida.")
     .min(0,"Nota deve ser maior ou igual a 0.")
-    .max(10,"Nota deve ser menor ou igual a 10.")
-    .required("Nota deve ser preenchida."),
-    // .trim()
-    // .max(2, "Nota deve ser de 0 a 10")
-    // .matches(/^[0-9]*$/, "Nota deve conter somente números.")
-    // .required("Nota deve ser preenchida."),
-    
+    .max(10,"Nota deve ser menor ou igual a 10."),
+
     comments: yup
     .string()
     .trim()
+    .required("O comentário deve ser preenchido.")
     .min(10, "O comentário deve conter pelo menos dois caracteres.")
-    .max(254, "O comentário deve ter no máximo 254 caracteres.")
-    .required("O comentário deve ser preenchido."),
+    .max(254, "O comentário deve ter no máximo 254 caracteres."),
 
 })
 
