@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useContext} from "react";
 import Button from "../../components/Button";
 import Form from "../../components/Form";
 import Input from "../../components/Input";
@@ -7,9 +7,11 @@ import schema from "./validations"
 
 import { useForm } from "react-hook-form";
 import { yupResolver } from '@hookform/resolvers/yup';
+import AuthContext from '../../contexts/Auth'
 
 export default function Login() {
-    const [isAuthenticated, setAuthenticated] = React.useState(false);
+    const context = useContext(AuthContext);
+    const [acessToken, setAcessToken] = React.useState([]);
     const [erroLogin, setErroLogin] = React.useState('');
     const { register, handleSubmit, errors } = useForm({
       resolver: yupResolver(schema),
@@ -20,7 +22,7 @@ export default function Login() {
        email: data.email,
        password: data.password
     }
-
+     console.log(context);
      console.log(data);
      let url = process.env.REACT_APP_API_HOST + "/auth";
 
@@ -29,25 +31,19 @@ export default function Login() {
        headers: { 'Content-Type': 'application/json' },
        body: JSON.stringify(body)
      })
-     .then(response => response)
-     .then(rs => {
-        console.log(rs)
-        console.log(rs.json())
-        if (rs.ok)
-          setErroLogin("")
-        else
-          createSpanError();
-        })
-    };
-
-    function createSpanError() {
-      return (
-        <div>
-          {setErroLogin("Email ou Senha Inválidos")}
-          <Button id="closeSpan" type="button" onClick={setErroLogin} text="X" />
-        </div>
-      );
+     .then(response => {
+        context.Login(response);
+     })
     }
+
+    // function createSpanError() {
+    //   return (
+    //     <div>
+    //       {setErroLogin("Email ou Senha Inválidos")}
+    //       <Button id="closeSpan" type="button" onClick={setErroLogin} text="X" />
+    //     </div>
+    //   );
+    // }
 
     return (
       <div className="Login">
