@@ -19,9 +19,13 @@
 .Avaliations_TeacherBox {
     width: 90%;
     height: 60%;
-    display: flex;
+    /* display: flex;
     align-items: center;
     justify-content: space-around;
-    flex-direction: column;
+    flex-direction: colomn; */
+    display: grid;
+    grid-auto-flow: row;
+    grid-row-gap: 10px;
+    
     padding: 5%;
 }

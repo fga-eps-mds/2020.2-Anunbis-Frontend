@@ -20,7 +20,10 @@ function TeacherBox({ name, rating }) {
           <Post.Header name_course="Eng De Software" date="23/03/21" name_studant="Edu" rating="2.3"/>
           <Post.Content content="teste" />
         </Post>
-        {/* <Post name_course="Eng De Software" date="23/03/21" name_studant="Edu" rating="2.3"/> */}
+        <Post>
+          <Post.Header name_course="Eng De Software" date="23/03/21" name_studant="Edu" rating="2.3"/>
+          <Post.Content content="teste" />
+        </Post>
       </div>
     </div>
   );

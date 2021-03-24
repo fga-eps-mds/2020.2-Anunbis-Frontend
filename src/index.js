@@ -5,27 +5,28 @@ import RegisterStudent from './pages/RegisterStudent';
 import RegisterProfessor from './pages/RegisterProfessor';
 import ProfessorSearch from './pages/ProfessorSearch';
 import Application from './pages/Application';
-import Menu from './components/Menu'
 import reportWebVitals from './reportWebVitals'
 import {
   BrowserRouter as Router,
   Switch,
-  Route,
-  Link
+  Route
 } from "react-router-dom";
+import LayoutApp from './components/LayoutApp';
 
 
 ReactDOM.render(
-    <Router>
-      <Switch>
-        <Route path="/" component={RegisterStudent} exact> <RegisterStudent /> </Route>
-        <Route path="/cadastro/professor" component={RegisterProfessor}> <RegisterProfessor /> </Route>
-        
-        {/* <Menu /> */}
+  <Router>
+
+    <Switch>
+      <Route path="/" component={RegisterStudent} exact> <RegisterStudent /> </Route>
+      <Route path="/cadastro/professor" component={RegisterProfessor}> <RegisterProfessor /> </Route>
+
+      <LayoutApp>
         <Route path="/test" component={Application}> <Application /> </Route>
         <Route path="/professor/search/:professorName" component={ProfessorSearch}> <ProfessorSearch /> </Route>
-      </Switch>
-    </Router>,
+      </LayoutApp>
+    </Switch>
+  </Router>,
   document.getElementById('root')
 );
 
