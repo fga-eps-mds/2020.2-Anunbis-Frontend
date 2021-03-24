@@ -38,3 +38,9 @@
     min-height: 45%;
     margin-bottom: 5%;
 }
+
+.TeacherBox header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}

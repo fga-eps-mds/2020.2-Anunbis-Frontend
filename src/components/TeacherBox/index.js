@@ -2,6 +2,8 @@ import React from 'react';
 import Post from '../Post';
 import "./index.css"
 
+import Button from '../../components/Button';
+
 const Info_Teacher = ({ children }) => {
   return (
     <div className="Info_TeacherBox">
@@ -42,10 +44,13 @@ export default function TeacherBox({ name, rating, posts }) {
 
   return (
     <div className="TeacherBox">
+      <header>
       <Info_Teacher>
         {name}
         {rating}
       </Info_Teacher>
+      <Button text="AVALIAR"/>
+      </header>
       <Posts>
         {posts}
       </Posts>
