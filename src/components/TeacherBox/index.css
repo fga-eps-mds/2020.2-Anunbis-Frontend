@@ -5,20 +5,23 @@
     border-radius: 5%;   
 }
 
-.TeacherBox .Info {
+.Info_TeacherBox  {
     width: 45%;
-    height: 20%;
+    height: 10%;
     display: flex;
-    align-items: center;
-    justify-content: left;
+    align-items: left;
+    justify-content: space-evenly;
+    flex-direction: column;
     padding-left: 5%;
+    padding-top: 5%
 }
 
-.TeacherBox .Avaliations {
+.Avaliations_TeacherBox {
     width: 90%;
     height: 60%;
     display: flex;
     align-items: center;
-    justify-content: left;
+    justify-content: space-around;
+    flex-direction: column;
     padding: 5%;
 }
