@@ -10,7 +10,7 @@ export async function sendLogin(email, password){
        password: password
     }
 
-    fetch(url, {
+    await fetch(url, {
         method: 'post',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(body)
@@ -20,7 +20,9 @@ export async function sendLogin(email, password){
         console.log(data)
         if (data.access_token){
             localStorage.setItem('access_token', data.access_token);
+            localStorage.setItem('student', JSON.stringify(data.student));
         }
+        console.log(localStorage.getItem('student'))
       })
 }
 
