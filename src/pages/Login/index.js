@@ -7,12 +7,10 @@ import schema from "./validations"
 
 import { useForm } from "react-hook-form";
 import { yupResolver } from '@hookform/resolvers/yup';
-import AuthContext from '../../contexts/Auth'
+import isAuthenticated, {sendLogin} from '../../services/authentication'
 
 export default function Login() {
-    const context = useContext(AuthContext);
-    const [acessToken, setAcessToken] = React.useState([]);
-    const [erroLogin, setErroLogin] = React.useState('');
+    const [erroLogin, setErroLogin] = React.useState();
     const { register, handleSubmit, errors } = useForm({
       resolver: yupResolver(schema),
     });
@@ -22,34 +20,34 @@ export default function Login() {
        email: data.email,
        password: data.password
     }
-     console.log(context);
      console.log(data);
-     let url = process.env.REACT_APP_API_HOST + "/auth";
+     console.log(localStorage.getItem('acessToken'))
+     const url = process.env.REACT_APP_API_HOST + "/student";
+     
+     sendLogin(url, body);
 
-     fetch(url, {
-       method: 'post',
-       headers: { 'Content-Type': 'application/json' },
-       body: JSON.stringify(body)
-     })
-     .then(response => {
-        context.Login(response);
-     })
+     if (!isAuthenticated){
+      createSpanError();
+     }
     }
 
-    // function createSpanError() {
-    //   return (
-    //     <div>
-    //       {setErroLogin("Email ou Senha Inválidos")}
-    //       <Button id="closeSpan" type="button" onClick={setErroLogin} text="X" />
-    //     </div>
-    //   );
-    // }
+    function createSpanError() {
+      setErroLogin(
+       <div className="Erro">
+         Email ou Senha Inválidos
+         <Button id="closeSpan" type="button" onClick={fechaErro} text="X" />
+       </div>)
+     }
+     
+    function fechaErro(){
+      setErroLogin('');
+    }
 
     return (
       <div className="Login">
         <header className="Header">
           <Form onSubmit={handleSubmit(onSubmit)}>
-            <Form.Field><div className="Erro">{erroLogin}</div></Form.Field>
+            <Form.Field><div>{erroLogin}</div></Form.Field>
             <Form.Field errorMsg={errors.email?.message}><Input type="text" text="Email Instuticional" name="email" register={register} /> </Form.Field>
             <Form.Field errorMsg={errors.password?.message}><Input type="password" text="Senha" name="password" register={register} /> </Form.Field>
             <Form.Footer>
