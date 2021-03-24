@@ -11,7 +11,8 @@ export default function Input(props) {
             name={props.name} 
             ref={props.register} 
             autoComplete="off" 
-            onKeyPress={props.onkeydown}>
+            onKeyPress={props.onkeydown}
+            step={props.step}>
             </input>
         </div>
     );

@@ -6,8 +6,30 @@ import { yupResolver } from '@hookform/resolvers/yup';
 import schema from './validations';
 import Input from '../Input';
 import Form from '../Form';
+import Select from '../Select';
 
-export default function Avaliation({reg_student,id_professor,post_date,discipline_code}) {
+export default function Avaliation({
+    reg_student,
+    id_professor,
+    post_date
+    }) {
+
+        const disciplines = [{
+            discipline_code: 223,
+            name: "Vandor"
+        },
+        {
+            discipline_code: 223,
+            name: "Vandor"
+        }]
+        function testeDiscipline (disciplines) {
+            const disciplinesArray = [{}]
+            disciplines?.map((dis) => disciplinesArray.push({id_course:dis.discipline_code,name:dis.name}))
+            return(
+                disciplinesArray
+            );       
+        }
+        
     const { register, handleSubmit, errors } = useForm({
         resolver: yupResolver(schema),
     });
@@ -47,9 +69,9 @@ export default function Avaliation({reg_student,id_professor,post_date,disciplin
         </div>
         <div className="avaliationContent">
             <form onSubmit={handleSubmit(onSubmit)}>
-               <Form.Field errorMsg={errors.nameProfessor?.message}><Input type="text" text="Nome do Professor" name="nameProfessor" register={register} /></Form.Field> 
-               <Form.Field errorMsg={errors.nameDiscipline?.message}><Input type="text" text="Nome do Disciplina" name="nameDiscipline" register={register} /></Form.Field> 
-               <Form.Field errorMsg={errors.note?.message}><Input type="number" text="Nota" name="note" register={register} /></Form.Field> 
+               <Form.Field errorMsg={errors.nameProfessor?.message}><Input type="text" text="Nome do Professor" name="nameProfessor" register={register} value="sla"/></Form.Field> 
+               <Form.Field errorMsg={errors.nameDiscipline?.message}><Select id="diciplines" options={testeDiscipline(disciplines)} name="id_course" register={register} /></Form.Field> 
+               <Form.Field errorMsg={errors.note?.message}><Input type="number"  step="0.1" text="Nota" name="note" register={register} /></Form.Field> 
                 <div className="typePost">Postagem:<br/>
                     <button type="button" className={(`button ${isAnonymous? "selected": ""}`)} onClick={() => setIsAnonymous(true)}>ANÔNIMA</button>
                     <button type="button" className={(`button ${isAnonymous === false? "selected": ""}`)} onClick={() => setIsAnonymous(false)}>PÚBLICA</button>

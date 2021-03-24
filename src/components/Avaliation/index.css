@@ -1,44 +1,15 @@
 .avaliation {
+    width: 20%;
+    height: 70%;
     text-align: center;
+    initial-letter-align: initial;
+    background-color: #FFFDE7;
+    border-bottom-right-radius: 2%;
+    border-bottom-left-radius: 2%;
 }
 
- .title .buttonClose{
-    margin-left: 70%;
-    border-radius: 0%;
-    height: 100%;
-    background-color: red;
-}
-
-.typePost .button{
-    background-color: #FFF9C4;
-    /* selected{
-        background-color: #94906f69;
-    }   */
-}
-
-.typePost {
-    padding-top: 20px;
-    text-align: center;
-}
-
-.commentsPost{
-    padding-top: 20px;
-    padding-bottom: 50px;
-}   
-
-.avaliationContent .buttonPost{
-    background-color: #26A69A;
-}
-
-textarea{
-    resize: none;
-    width: 80%;
-    height: 150px;
-    border-radius: 20px;
-}
-
-.avaliation .title{
-    width: 522px;
+.avaliation .title {
+    width: 100%;
     height: 5%;
     background-color: #212121;
     color: #FFFDE7;
@@ -47,17 +18,59 @@ textarea{
     justify-content: center;
 }
 
-.avaliation .avaliationContent{
-    width: 100%;
-    height: 600px;
-    background-color: #FFFDE7;
-    border-bottom-right-radius: 2%;
-    border-bottom-left-radius: 2%;
+.avaliation .title .buttonClose{
+    border-radius: 0%;
+    height: 100%;
+    background-color: red;
 }
+.avaliation .title .buttonClose:hover{
+    background: rgba(255, 0, 0, 0.493);
+}
+
+.avaliation .avaliationContent .typePost .button{
+    background-color: #FFF9C4;
+}
+.avaliation .avaliationContent  .typePost .button:hover{
+    background: #969681;
+}
+.avaliation .avaliationContent .typePost .button.selected{
+    background: #969681;
+}
+
+.avaliation .avaliationContent .buttonPost{
+    background-color: #26A69A;
+}
+.avaliation .avaliationContent .buttonPost:hover{
+    background: #26a69965;
+}
+
+.avaliation .avaliationContent .typePost {
+    padding-top: 10%;
+    text-align: center;
+}
+
+.avaliation .avaliationContent .commentsPost{
+    padding-top: 10%;
+    padding-bottom: 50% ;
+    padding-left: 10%;
+    text-align: center;
+    width: 80%;  
+}
+.avaliation .avaliationContent .commentsPost textarea{
+    padding-top: 5%;
+    resize: none;
+    width: 80%;
+    height: 100%;
+    border-radius: 10%;
+}
+
+
+/* 
+
 
 .avaliation Input{
     width: 80%;
     background-color: #FFFDE7;
-    padding-bottom: 10px;
+    padding-bottom: 1%;
 }
-
+ */

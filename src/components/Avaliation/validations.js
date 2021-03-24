@@ -16,11 +16,14 @@ const schema = yup.object().shape({
     .required("Nome da disciplina deve ser preenchido."),
 
     note: yup
-    .string()
-    .trim()
-    .max(2, "Nota deve ser de 0 a 10")
-    .matches(/^[0-9]*$/, "Nota deve conter somente números.")
+    .number()
+    .min(0,"Nota deve ser maior ou igual a 0.")
+    .max(10,"Nota deve ser menor ou igual a 10.")
     .required("Nota deve ser preenchida."),
+    // .trim()
+    // .max(2, "Nota deve ser de 0 a 10")
+    // .matches(/^[0-9]*$/, "Nota deve conter somente números.")
+    // .required("Nota deve ser preenchida."),
     
     comments: yup
     .string()
