@@ -8,6 +8,12 @@ const schema = yup.object().shape({
     .max(254, "Nome deve ter no máximo 254 caracteres.")
     .required("Nome deve ser preenchido."),
 
+    reg_professor: yup
+    .string()
+    .trim()
+    .matches(/^[0-9]*$/, "Matricula deve conter somente números.")
+    .required("Matricula deve ser preenchida."),
+
     email: yup
     .string()
     .trim()
