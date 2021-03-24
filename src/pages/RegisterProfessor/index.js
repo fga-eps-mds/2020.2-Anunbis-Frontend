@@ -22,8 +22,22 @@ export default function RegisterProfessor(){
             reg_professor: data.reg_professor
         }
         console.log(body);
-      }
-        
+        fetch(url, {
+            method: 'post',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify(body)
+          })
+          .then(response => response)
+          .then(rs => {
+            console.log(rs)
+            console.log(rs.json())
+            if(rs.ok){
+              setErrorDB("")
+            }
+            if(rs.status === 409){
+              setErrorDB("Professor já cadastrado")
+            }
+          })};
 
     return (
         <div className="RegisterProfessor">
