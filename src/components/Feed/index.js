@@ -13,9 +13,9 @@ export default function Feed({ title, children }) {
   return (
     <div className="Feed">
       <Title>
-        {title}
+        Resultado da pesquisa "{title}"
       </Title>
-      <div className="Content">
+      <div className="Content_Feed">
         {children}
       </div>
     </div>

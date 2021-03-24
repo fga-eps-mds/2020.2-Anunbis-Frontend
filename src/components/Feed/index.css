@@ -4,7 +4,6 @@
     border-bottom-right-radius: 2%;
     border-bottom-left-radius: 2%;
     background-color: #FFFDE7;
-    
 }
 
 .Feed .Title {
@@ -17,10 +16,11 @@
     justify-content: center;
 }
 
-.Feed .Content {
-    width: 100%;
+.Content_Feed {
     height: 95%;
     display: flex;
+    flex-direction: column;
     align-items: center;
-    justify-content: center;
+    justify-content: space-around;
+    overflow-y: scroll;
 }

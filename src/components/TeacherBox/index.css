@@ -2,7 +2,8 @@
     width: 90%;
     height: 90%;
     background-color: #E5E5E5;
-    border-radius: 5%;   
+    border-radius: 5%;
+    margin-top: 5%;  
 }
 
 .Info_TeacherBox  {
@@ -19,13 +20,9 @@
 .Avaliations_TeacherBox {
     width: 90%;
     height: 60%;
-    /* display: flex;
+    display: flex;
     align-items: center;
-    justify-content: space-around;
-    flex-direction: colomn; */
-    display: grid;
-    grid-auto-flow: row;
-    grid-row-gap: 10px;
-    
+    justify-content: space-evenly;
+    flex-direction: column;
     padding: 5%;
 }
