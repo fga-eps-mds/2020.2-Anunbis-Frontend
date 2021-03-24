@@ -15,25 +15,38 @@ const Info_Teacher = ({ children }) => {
   );
 }
 
-function TeacherBox({ name, rating }) {
+const Posts = ({ children }) => {
+  
+  return (
+    <div className="Posts_TeacherBox">
+      {children?.map(post => {
+        return(
+      <span>
+      <Post>
+        <Post.Header 
+        name_course="Eng De Software" 
+        date={post.post_date} 
+        name_studant="Edu" 
+        rating={post.rating} />
+        <Post.Content content={post.content} />
+      </Post>
+    </span>)
+      })}
+    </div>
+  );
+}
+
+export default function TeacherBox({ name, rating, posts }) {
+
   return (
     <div className="TeacherBox">
       <Info_Teacher>
         {name}
         {rating}
       </Info_Teacher>
-      <div className="Avaliations_TeacherBox">
-        <Post>
-          <Post.Header name_course="Eng De Software" date="23/03/21" name_studant="Edu" rating="2.3" />
-          <Post.Content content="teste" />
-        </Post>
-        <Post>
-          <Post.Header name_course="Eng De Software" date="23/03/21" name_studant="Edu" rating="2.3" />
-          <Post.Content content="teste" />
-        </Post>
-      </div>
+      <Posts>
+      {posts}
+      </Posts>
     </div>
   );
 }
-
-export default TeacherBox;

@@ -31,7 +31,7 @@ export default function ProfessorSearch(props) {
     return (
         <div className="ProfessorSearch">
             <Feed title={professorName}>
-            {professors.map(prof => <TeacherBox name={prof.name} rating={prof.rating} posts={prof}></TeacherBox>)}  
+            {professors.map(prof => <TeacherBox name={prof.name} rating={prof.rating} posts={prof.posts}></TeacherBox>)}  
             </Feed>
         </div>
     );
