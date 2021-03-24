@@ -15,9 +15,9 @@ const ProfessorItem = ({ professor }) => {
     </div>)
 }
 
-export default function ProfessorSearch(props) {
+export default function ProfessorSearch() {
     const { professorName } = useParams();
-    const [professors, setProfessors] = useState([{}]);
+    const [professors, setProfessors] = useState([]);
 
     React.useEffect(async () => {
         const url = process.env.REACT_APP_API_HOST + "/professor/" + professorName;
@@ -28,10 +28,22 @@ export default function ProfessorSearch(props) {
         }
     }, []);
 
+    const Professors = (({ professors }) => {
+        return (
+            <div className="Professors">
+                {professors?.map(prof => {
+                    return (
+                        <TeacherBox name={prof.name} rating={prof.rating} posts={prof.posts}></TeacherBox>
+                    )
+                })}
+            </div>
+        );
+    });
+
     return (
         <div className="ProfessorSearch">
             <Feed title={professorName}>
-            {professors.map(prof => <TeacherBox name={prof.name} rating={prof.rating} posts={prof.posts}></TeacherBox>)}  
+                <Professors professors={professors} />
             </Feed>
         </div>
     );

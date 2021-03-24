@@ -9,28 +9,28 @@ const Info_Teacher = ({ children }) => {
         {children[0]}
       </span>
       <span>
-        Nota: {children[1]}
+        Nota: {children[1]?.toFixed(2)}
       </span>
     </div>
   );
 }
 
 const Posts = ({ children }) => {
-  
+
   return (
     <div className="Posts_TeacherBox">
       {children?.map(post => {
-        return(
-      <span>
-      <Post>
-        <Post.Header 
-        name_course="Eng De Software" 
-        date={post.post_date} 
-        name_studant="Edu" 
-        rating={post.rating} />
-        <Post.Content content={post.content} />
-      </Post>
-    </span>)
+        return (
+          <span>
+            <Post>
+              <Post.Header
+                name_course="Eng De Software"
+                date={post.post_date}
+                name_studant="Edu"
+                rating={post.rating} />
+              <Post.Content content={post.content} />
+            </Post>
+          </span>)
       })}
     </div>
   );
@@ -45,7 +45,7 @@ export default function TeacherBox({ name, rating, posts }) {
         {rating}
       </Info_Teacher>
       <Posts>
-      {posts}
+        {posts}
       </Posts>
     </div>
   );
