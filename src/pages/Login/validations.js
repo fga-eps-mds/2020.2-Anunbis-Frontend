@@ -5,6 +5,7 @@ const schema = yup.object().shape({
         .string()
         .trim()
         .lowercase()
+        .matches(/^[0-9]+@aluno.unb.br$/, "Insira um email válido")
         .max(90, "Email Inválido")
         .required("Email Inválido"),
     
