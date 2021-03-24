@@ -20,7 +20,6 @@ const Posts = ({ children }) => {
   return (
     <div className="Posts_TeacherBox">
       {children?.map(post => {
-        {console.log(post)}
         return (
           <span>
             <Post>

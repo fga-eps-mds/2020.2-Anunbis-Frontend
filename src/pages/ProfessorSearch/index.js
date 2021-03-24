@@ -26,12 +26,13 @@ export default function ProfessorSearch() {
         if (response.ok) {
             setProfessors(data);
         }
-    }, []);
+    }, [professorName]);
 
     const Professors = (({ professors }) => {
         return (
             <div className="Professors">
                 {professors?.map(prof => {
+                    
                     return (
                         <TeacherBox name={prof.name} rating={prof.rating} posts={prof.posts}></TeacherBox>
                     )
