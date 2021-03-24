@@ -16,15 +16,10 @@ export default function Login() {
     });
 
     function onSubmit(data) {
-     const body = {
-       email: data.email,
-       password: data.password
-    }
      console.log(data);
-     console.log(localStorage.getItem('acessToken'))
-     const url = process.env.REACT_APP_API_HOST + "/student";
-     
-     sendLogin(url, body);
+     console.log("token = " + localStorage.getItem('access_token'))
+
+     sendLogin(data.email, data.password);
 
      if (!isAuthenticated){
       createSpanError();
