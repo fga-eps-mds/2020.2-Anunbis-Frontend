@@ -18,12 +18,12 @@ ReactDOM.render(
   <Router>
 
     <Switch>
-      <Route path="/" component={RegisterStudent} exact> <RegisterStudent /> </Route>
-      <Route path="/cadastro/professor" component={RegisterProfessor}> <RegisterProfessor /> </Route>
+      <Route path="/" component={RegisterStudent} exact />
+      <Route path="/cadastro/professor" component={RegisterProfessor} />
 
       <LayoutApp>
-        <Route path="/test" component={Application}> <Application /> </Route>
-        <Route path="/professor/search/:professorName" component={ProfessorSearch}> <ProfessorSearch /> </Route>
+        <Route path="/test" component={Application} />
+        <Route path="/professor/search/:professorName" component={ProfessorSearch} />
       </LayoutApp>
     </Switch>
   </Router>,

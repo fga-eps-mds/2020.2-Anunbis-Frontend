@@ -5,34 +5,27 @@ import Feed from '../../components/Feed';
 import TeacherBox from '../../components/TeacherBox';
 
 
-
-const ProfessorItem = ({ professor }) => {
-    if (professor.length === 0) {
-        return (<div>Nenhum professor encontrado</div>)
-    }
-    return (<div>
-        {professor.name}
-    </div>)
-}
-
 export default function ProfessorSearch() {
     const { professorName } = useParams();
     const [professors, setProfessors] = useState([]);
 
-    React.useEffect(async () => {
-        const url = process.env.REACT_APP_API_HOST + "/professor/" + professorName;
-        const response = await fetch(url);
-        const data = await response.json();
-        if (response.ok) {
-            setProfessors(data);
+    React.useEffect(() => {
+        async function search() {
+            const url = process.env.REACT_APP_API_HOST + "/professor/" + professorName;
+            const response = await fetch(url);
+            const data = await response.json();
+            if (response.ok) {
+                setProfessors(data);
+            }
         }
+        search();
     }, [professorName]);
 
     const Professors = (({ professors }) => {
         return (
             <div className="Professors">
                 {professors?.map(prof => {
-                    
+
                     return (
                         <TeacherBox name={prof.name} rating={prof.rating} posts={prof.posts}></TeacherBox>
                     )
