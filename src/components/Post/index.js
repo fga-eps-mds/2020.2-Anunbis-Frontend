@@ -5,6 +5,7 @@ const Header = ({ children }) => {
     return (
         <div className="Header_Post">
             <div className="Info_Student">
+                [{children.discipline_code}] {children.discipline_name}<br />
                 {children.name_course}<br />
                     Data: {children.date}<br />
                 <div className="Name">

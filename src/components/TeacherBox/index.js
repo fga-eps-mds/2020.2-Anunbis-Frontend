@@ -20,13 +20,16 @@ const Posts = ({ children }) => {
   return (
     <div className="Posts_TeacherBox">
       {children?.map(post => {
+        {console.log(post)}
         return (
           <span>
             <Post>
               <Post.Header
-                name_course="Eng De Software"
+                discipline_code={post.discipline.discipline_code}
+                discipline_name={post.discipline.name}
+                name_course={post.student.course.name}
                 date={post.post_date}
-                name_studant="Edu"
+                name_studant={post.student?.name}
                 rating={post.rating} />
               <Post.Content content={post.content} />
             </Post>
