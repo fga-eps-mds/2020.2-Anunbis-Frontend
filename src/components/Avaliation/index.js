@@ -1,25 +1,42 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { useForm } from "react-hook-form";
 import './index.css'
+import { yupResolver } from '@hookform/resolvers/yup';
 
+import schema from './validations';
 import Input from '../Input';
-import Button from '../Button';
+import Form from '../Form';
 
 export default function Avaliation({reg_student,id_professor,post_date,discipline_code}) {
-    const { register, handleSubmit, errors } = useForm({});
+    const { register, handleSubmit, errors } = useForm({
+        resolver: yupResolver(schema),
+    });
     const [isAnonymous,setIsAnonymous] = React.useState(false);
-    //const onSubmit = (data) => alert(JSON.stringify(data));
-
+    
    function onSubmit(data) {
+       const url = process.env.REACT_APP_API_HOST + "/post"
+       
         const body = {
-            reg_student: parseInt(reg_student),
-            id_professor: parseInt(id_professor),
+            reg_student: parseInt("190038969"),
+            id_professor: parseInt("1"),
             content: data.comments,
-            post_date: post_date,
-            rating: data.note,
-            discipline_code: parseInt(discipline_code),
+            rating: parseFloat(data.note),
+            discipline_code:"FGA01",
             is_anonymous: isAnonymous
          }
+        
+         fetch(url,{
+             method: 'post',
+             headers: {'Content-type':'application/json'},
+             body: JSON.stringify(body)
+         })
+         .then(response => response)
+         .then(rs => {
+            console.log(rs)
+            console.log(rs.json())
+         })
+                
+            
          console.log(body)
         }
   return (
@@ -30,15 +47,15 @@ export default function Avaliation({reg_student,id_professor,post_date,disciplin
         </div>
         <div className="avaliationContent">
             <form onSubmit={handleSubmit(onSubmit)}>
-                <Input type="text" text="Nome do Professor" name="nameProfessor" register={register} />
-                <Input type="text" text="Nome do Disciplina" name="nameDiscipline" register={register} />
-                <Input type="text" text="Nota" name="note" register={register} />
+               <Form.Field errorMsg={errors.nameProfessor?.message}><Input type="text" text="Nome do Professor" name="nameProfessor" register={register} /></Form.Field> 
+               <Form.Field errorMsg={errors.nameDiscipline?.message}><Input type="text" text="Nome do Disciplina" name="nameDiscipline" register={register} /></Form.Field> 
+               <Form.Field errorMsg={errors.note?.message}><Input type="number" text="Nota" name="note" register={register} /></Form.Field> 
                 <div className="typePost">Postagem:<br/>
-                    <button type="button" className="button" onClick={() => setIsAnonymous(true)}>ANÔNIMA</button>
-                    <button type="button" className="button" onClick={() => setIsAnonymous(false)}>PÚBLICA</button>
+                    <button type="button" className={(`button ${isAnonymous? "selected": ""}`)} onClick={() => setIsAnonymous(true)}>ANÔNIMA</button>
+                    <button type="button" className={(`button ${isAnonymous === false? "selected": ""}`)} onClick={() => setIsAnonymous(false)}>PÚBLICA</button>
                 </div>
                 <div className="commentsPost">Descrição/Comentários:
-                    <textarea name="comments" ref={register} />
+                    <Form.Field errorMsg={errors.comments?.message}><textarea name="comments" ref={register} /></Form.Field> 
                 </div>
                 <button type="submit" className="buttonPost">POSTAR</button>
             </form>
