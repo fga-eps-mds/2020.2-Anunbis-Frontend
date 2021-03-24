@@ -7,8 +7,11 @@ function TeacherBox({name, rating}) {
   return (
     <div className="TeacherBox">
         <div className="Info">
-            {name}
+            {name}<br />
             {rating}
+        </div>
+        <div className="Avaliations">
+
         </div>
     </div>
   );

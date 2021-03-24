@@ -1,25 +1,23 @@
 import React from 'react';
 import "./index.css";
 
-const Content = ({ children}) => {
+const Title = ({ children }) => {
   return (
-      <div className="Content">
-          {children}
-      </div>
+    <div className="Title">
+      {children}
+    </div>
   )
 }
 
-Feed.Content = Content;
-
-export default function Feed({title, children}) {
+export default function Feed({ title, children }) {
   return (
-  <div className="Feed">
-      <div className="Title">
-          {title}
-      </div>
+    <div className="Feed">
+      <Title>
+        {title}
+      </Title>
       <div className="Content">
         {children}
       </div>
-  </div>
+    </div>
   );
 }
