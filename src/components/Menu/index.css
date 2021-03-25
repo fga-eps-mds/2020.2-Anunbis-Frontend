@@ -13,3 +13,12 @@
 .Menu .ProfessorSearch{
     display: inline-block;
 }
+
+.Menu input {
+    color: #FFFDE7;
+    border-bottom: 1px solid #FFFDE7;
+}
+
+.Menu input::-webkit-input-placeholder  {
+    color: rgba(255, 255, 255, 0.603);
+}

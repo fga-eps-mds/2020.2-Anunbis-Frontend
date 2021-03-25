@@ -9,15 +9,23 @@ const Title = ({ children }) => {
   )
 }
 
+const Content = ({ children }) => {
+  return (
+    <div className="Content_Feed">
+      {children}
+    </div>
+  )
+}
+
 export default function Feed({ title, children }) {
   return (
     <div className="Feed">
       <Title>
         Resultado da pesquisa "{title}"
       </Title>
-      <div className="Content_Feed">
+      <Content>
         {children}
-      </div>
+      </Content>
     </div>
   );
 }
