@@ -1,12 +1,13 @@
 import React from "react";
 
-export default function Select(props){
+
+export default function Select({ text, id, name, register, options}){
     return(
         <div className="Select">
-            <select id={props.id} name={props.name} ref={props.register}>
-                <option value="">Selecione o seu curso</option>
-                {props.options.map((item) => (
-                    <option value={item.id_course} key={item.id_course}>{item.name}</option>
+            <select id={id} name={name} ref={register}>
+                <option value="">{text}</option>
+                {options?.map((item) => (
+                    <option value={item.id} key={item.id}>{item.name}</option>
                 ))}
             </select>
         </div>

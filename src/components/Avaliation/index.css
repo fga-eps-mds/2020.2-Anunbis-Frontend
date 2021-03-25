@@ -1,0 +1,136 @@
+.avaliation {
+    width: 30%;
+    height: 70%;
+    text-align: center;
+    initial-letter-align: initial;
+    background-color: #FFFDE7;
+    border-bottom-right-radius: 2%;
+    border-bottom-left-radius: 2%;
+}
+
+.avaliation header {
+    width: 100%;
+    height: 5%;
+    background-color: #212121;
+    display: flex;
+    align-items: center;
+}
+.avaliation .title {
+    
+    color: #FFFDE7;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.avaliation .AvaliationFields {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+}
+
+.avaliation .field {
+    width: 80%;
+}
+
+.avaliation .nameProfessor {
+    color: rgba(61, 58, 58, 0.603);
+    border-bottom: 1px solid #000000;
+    margin-top: 5%;
+    margin-bottom: 5%;
+    width: 80%;
+    text-align: left;
+    font-size: 15px;
+}
+
+.avaliation .buttonClose {
+    border-radius: 0%;
+    background-color: #F44336;
+    color: #FFFDE7;
+    margin-right: 0px;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.avaliation .typePost {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+
+.avaliation .buttonTypePost {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    text-align: center;
+}
+
+.avaliation .Finalization {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+    text-align: center;
+}
+
+
+.avaliation .avaliationContent .commentsPost{
+    padding-top: 5%;
+    padding-bottom: 5%;
+    width: 80%;
+    height: 10%;
+    color: rgba(61, 58, 58, 0.603);
+}
+.avaliation .avaliationContent  textarea{
+    padding: 5%;
+    resize: none;
+    width: 80%;
+    height: 100%;
+    border-radius: 10px;
+}
+
+.avaliation .Field_Error {
+    font: 10px Ubuntu;
+    color: #F44336;
+}
+
+.avaliation input {
+    margin-bottom: 5%;
+}
+
+.avaliation .buttonClose:hover{
+    background: rgba(255, 0, 0, 0.493);
+}
+
+.avaliation .avaliationContent .nameProfessor{
+    border-color: black;
+}
+
+.avaliation .avaliationContent .button{
+    background-color: #FFF9C4;
+}
+.avaliation .avaliationContent .button:hover{
+    background: #969681;
+}
+.avaliation .avaliationContent .button.selected{
+    background: #969681;
+}
+
+.avaliation .avaliationContent .buttonPost{
+    background-color: #26A69A;
+    color: white;
+}
+.avaliation .avaliationContent .buttonPost:hover{
+    background: #26a69965;
+}
+
+.avaliation .avaliationContent .typePost {
+    padding-top: 10%;
+    padding-left: 8%;
+    text-align: initial;
+    color: rgba(61, 58, 58, 0.603);
+}
+
+
