@@ -1,5 +1,6 @@
 import React from "react";
 import './index.css';
+import { Link } from 'react-router-dom';
 
 
 const Field = ({errorMsg, children}) => {
@@ -19,11 +20,14 @@ const Footer = ({children}) => {
     )
 }
 
-function Form({title, children, onSubmit}) {
+function Form({endereco, link, title, children, onSubmit}) {
     return (
         <main className="formulario">
             <div className="logo" />
             <form className="form" onSubmit={onSubmit}>
+                <div className="isStudent">
+                    <Link to={endereco}><h4>{link}</h4></Link>                
+                </div> 
                 <h4>
                     {title}
                 </h4>
