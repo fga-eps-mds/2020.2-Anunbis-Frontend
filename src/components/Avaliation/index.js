@@ -5,14 +5,13 @@ import { yupResolver } from '@hookform/resolvers/yup';
 
 import schema from './validations';
 import Input from '../Input';
-import Form from '../Form';
 import Select from '../Select';
 
 const Field = ({errorMsg, children}) => {
     return (
         <div className="field">
             {children}
-            <div className="field error">{errorMsg}</div>
+            <div className="Field_Error">{errorMsg}</div>
         </div>
     )
 }
@@ -20,20 +19,21 @@ const Field = ({errorMsg, children}) => {
 export default function Avaliation({
     reg_student,
     id_professor,
-    name_professor
+    name_professor,
+    disciplines
     }) {
 
-        const disciplines = [{
-            discipline_code: 223,
-            name: "Vandor"
-        },
-        {
-            discipline_code: 123,
-            name: "Vandor"
-        }]
-        function testeDiscipline (disciplines) {
+        //  const disciplines = [{
+        //      discipline_code: 223,
+        //      name: "Vandor"
+        //  },
+        //  {
+        //      discipline_code: 123,
+        //      name: "Vandor"
+        //  }]
+        function disciplines_Options (disciplines) {
             const disciplinesArray = [{}]
-            disciplines?.map((dis) => disciplinesArray.push({id_course:dis.discipline_code,name:dis.name}))
+            disciplines?.map((dis) => disciplinesArray.push({id:dis.discipline_code,name:dis.name}))
             return(
                 disciplinesArray
             );       
@@ -48,11 +48,11 @@ export default function Avaliation({
        const url = process.env.REACT_APP_API_HOST + "/post"
         console.log(data)
         const body = {
-            reg_student: parseInt("190038969"),
-            id_professor: parseInt("1"),
+            reg_student: parseInt(reg_student),
+            id_professor: parseInt(id_professor),
             content: data.comments,
             rating: parseFloat(data.note),
-            discipline_code:"FGA01",
+            discipline_code: "FGA01",
             is_anonymous: isAnonymous
          }
         
@@ -72,23 +72,29 @@ export default function Avaliation({
         }
   return (
     <div className="avaliation">
-        <div className="title">
-            Avaliação
+        <header>
+            <div className="title">
+                Avaliação
+            </div>
             <button type="button" className="buttonClose">X</button>
-        </div>
+        </header>
         <div className="avaliationContent">
             <form onSubmit={handleSubmit(onSubmit)}>
-               <div className="nameProfessor">{name_professor}dsf</div>
-               <Field errorMsg={errors.id_course?.message}><Select id="diciplines" options={testeDiscipline(disciplines)} name="id_course" register={register} /></Field> 
+                <div className="AvaliationFields">
+               <div className="nameProfessor">{name_professor}</div>
+               <Field errorMsg={errors.id_course?.message}><Select id="diciplines" options={disciplines_Options(disciplines)} name="disciplines" register={register} /></Field> 
                <Field errorMsg={errors.note?.message}><Input type="number"  step="0.1" text="Nota" name="note" register={register} /></Field> 
-                <div className="typePost">Postagem:<br/>
+                </div>
+                <div className="typePost">Postagem:<br/></div>
+                <div className="buttonTypePost">
                     <button type="button" className={(`button ${isAnonymous === false? "selected": ""}`)} onClick={() => setIsAnonymous(false)}>PÚBLICA</button>
                     <button type="button" className={(`button ${isAnonymous? "selected": ""}`)} onClick={() => setIsAnonymous(true)}>ANÔNIMA</button>
                 </div>
-                <div className="commentsPost">Descrição/Comentários:
-                    <Field errorMsg={errors.comments?.message}><textarea name="comments" ref={register} /></Field> 
-                </div>
+                <div className="Finalization">
+                <div className="commentsPost">Descrição/Comentários:</div>
+                <Field errorMsg={errors.comments?.message}><textarea name="comments" ref={register} /></Field> 
                 <button type="submit" className="buttonPost">POSTAR</button>
+                </div>
             </form>
         </div>
     </div>
