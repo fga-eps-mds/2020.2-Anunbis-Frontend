@@ -1,6 +1,5 @@
 import React from "react";
 import './index.css';
-import { Link } from 'react-router-dom';
 
 
 const Field = ({errorMsg, children}) => {
@@ -8,6 +7,15 @@ const Field = ({errorMsg, children}) => {
         <div className="field">
             {children}
             <div className="field error">{errorMsg}</div>
+        </div>
+    )
+}
+
+const Header = ({title, children}) => {
+    return(
+        <div className= "header">
+            <div className="links">{children}</div>
+            <h4>{title}</h4>
         </div>
     )
 }
@@ -20,17 +28,11 @@ const Footer = ({children}) => {
     )
 }
 
-function Form({endereco, link, title, children, onSubmit}) {
+function Form({children, onSubmit}) {
     return (
         <main className="formulario">
             <div className="logo" />
-            <form className="form" onSubmit={onSubmit}>
-                <div className="isStudent">
-                    <Link to={endereco}><h4>{link}</h4></Link>                
-                </div> 
-                <h4>
-                    {title}
-                </h4>
+            <form className="form" onSubmit={onSubmit}> 
                 <div className="fields">
                     {children}
                 </div>
@@ -42,4 +44,5 @@ function Form({endereco, link, title, children, onSubmit}) {
 
 Form.Field = Field;
 Form.Footer = Footer;
+Form.Header = Header;
 export default Form;

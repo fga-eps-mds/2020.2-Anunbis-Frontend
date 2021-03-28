@@ -1,6 +1,6 @@
 import React from 'react';
 
-export default function isAuthenticated(){
+const isAuthenticated = () => {
   return (localStorage.getItem('access_token') != null) ? true : false;
 }
 
@@ -31,3 +31,5 @@ export async function sendLogin(email, password){
 export function logOut(){
   localStorage.removeItem('access_token', 'student');
 }
+
+export default isAuthenticated;

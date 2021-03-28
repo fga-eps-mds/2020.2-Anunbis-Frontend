@@ -4,8 +4,7 @@ import Form from "../../components/Form";
 import Input from "../../components/Input";
 import "./index.css";
 import schema from "./validations"
-import { useHistory } from 'react-router-dom';
-
+import { useHistory, Link } from 'react-router-dom';
 import { useForm } from "react-hook-form";
 import { yupResolver } from '@hookform/resolvers/yup';
 import isAuthenticated, {sendLogin, logOut} from '../../services/authentication'
@@ -23,8 +22,6 @@ export default function Login() {
     })
 
     function onSubmit(data) {
-     console.log(data);
-
      sendLogin(data.email, data.password);
 
      setTimeout(function(){
@@ -47,12 +44,18 @@ export default function Login() {
       <div className="Login">
         <header className="Header">
           <Form onSubmit={handleSubmit(onSubmit)}>
+            <Form.Header>
+            <Link className="btnLogin_log" to="/login">LOGIN</Link>
+            <Link className="btnCadastro_log" to="/">CADASTRO</Link>
+          </Form.Header>
+          <div className="body">
             <Form.Field><div>{erroLogin}</div></Form.Field>
             <Form.Field errorMsg={errors.email?.message}><Input type="text" text="Email Instuticional" name="email" register={register} /> </Form.Field>
             <Form.Field errorMsg={errors.password?.message}><Input type="password" text="Senha" name="password" register={register} /> </Form.Field>
             <Form.Footer>
               <Button text="CONFIRMAR" />
             </Form.Footer>
+          </div>
           </Form>
         </header>
       </div>
