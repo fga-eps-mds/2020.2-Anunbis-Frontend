@@ -30,11 +30,13 @@ main.formulario  {
     height: 100%;
 }
 
-/* .fields {
-    
+.formulario .fields {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
-.field{
+/*.field{
     
 } */
 
@@ -51,6 +53,7 @@ main.formulario  {
     align-items: flex-start;
     align-items: center;
     text-align: center;
+    width: fit-content;
 }
 
 Button{
