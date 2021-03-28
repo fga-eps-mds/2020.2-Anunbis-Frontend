@@ -17,13 +17,14 @@ export default function Login() {
 
     function onSubmit(data) {
      console.log(data);
-     console.log("token = " + localStorage.getItem('access_token'))
 
      sendLogin(data.email, data.password);
 
-     if (!isAuthenticated){
-      createSpanError();
-     }
+     setTimeout(function(){
+      console.log("token = " + localStorage.getItem('access_token'));
+      if (!isAuthenticated())
+        createSpanError();
+     }, 100);
     }
 
     function createSpanError() {
@@ -37,7 +38,6 @@ export default function Login() {
     function fechaErro(){
       setErroLogin('');
     }
-
     return (
       <div className="Login">
         <header className="Header">
