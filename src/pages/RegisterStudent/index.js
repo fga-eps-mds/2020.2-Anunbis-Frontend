@@ -1,6 +1,7 @@
 import React, { useEffect } from 'react';
 import { useForm } from "react-hook-form";
 import { yupResolver } from '@hookform/resolvers/yup';
+import { Link } from 'react-router-dom';
 
 import './index.css'
 import schema from './validations';
@@ -69,7 +70,12 @@ export default function RegisterStudent() {
   return (
     <div className="RegisterStudent">
       <header className="Header">
-        <Form title="Cadastro de Aluno" onSubmit={handleSubmit(onSubmit)} link="PROFESSOR?" endereco={`/cadastro/professor`}>
+        <Form onSubmit={handleSubmit(onSubmit)} link="PROFESSOR?" endereco={`/cadastro/professor`}>
+          <Form.Header title="Cadastro de Aluno">
+            <Link className="btnLogin"to="/login">LOGIN</Link>
+            <Link className="btnCadastro"to="/">CADASTRO</Link>
+            <Link className="btnProfessor"to="/cadastro/professor">PROFESSOR?</Link>
+          </Form.Header>
           <Form.Field errorMsg={errors.name?.message}><Input type="text" text="Nome" name="name" register={register} /></Form.Field>
           <Form.Field errorMsg={errors.id_course?.message}><Select id="courses" options={courses_Options(courses)} name="id_course" register={register} /></Form.Field>
           <Form.Field errorMsg={errors.reg_student?.message}><Input type="text" text="Matrícula" name="reg_student" register={register} /></Form.Field>
