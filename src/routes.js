@@ -15,7 +15,7 @@ import LayoutApp from './components/LayoutApp';
 
 const PrivateRoute = ({ component: Component, ...rest }) => (
     <Route {...rest} render={props => (
-        isAuthenticated ? (
+        isAuthenticated() ? (
             <Component {...props} />
         ) : (
             <Redirect to={{ pathname: '/login', state: { from: props.location } }} />
