@@ -6,9 +6,10 @@ import Form from '../../components/Form';
 import Input from '../../components/Input';
 import Button from '../../components/Button';
 import schema from './validations';
-import { Link } from 'react-router-dom';
+import { Link, useHistory } from 'react-router-dom';
 
 export default function RegisterProfessor() {
+  const history = useHistory();
   const [errorDB, setErrorDB] = React.useState('');
   const { register, handleSubmit, errors } = useForm({
     resolver: yupResolver(schema),
@@ -34,6 +35,7 @@ export default function RegisterProfessor() {
         console.log(rs.json())
         if (rs.ok) {
           setErrorDB("")
+          history.push("/login")
         }
         if (rs.status === 409) {
           setErrorDB("Professor já cadastrado")

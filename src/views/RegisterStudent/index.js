@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
 import { useForm } from "react-hook-form";
 import { yupResolver } from '@hookform/resolvers/yup';
-import { Link } from 'react-router-dom';
+import { Link, useHistory } from 'react-router-dom';
 
 import './index.css'
 import schema from './validations';
@@ -13,6 +13,7 @@ import Button from '../../components/Button';
 
 
 export default function RegisterStudent() {
+  const history = useHistory();
   const [courses, setCourses] = React.useState([])
   const [errorDB, setErrorDB] = React.useState('')
   const { register, handleSubmit, errors } = useForm({
@@ -61,6 +62,7 @@ export default function RegisterStudent() {
       console.log(rs.json())
       if(rs.ok){
         setErrorDB("")
+        history.push("/login")
       }
       if(rs.status === 409){
         setErrorDB("Estudante já cadastrado")
