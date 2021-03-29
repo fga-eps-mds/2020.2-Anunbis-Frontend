@@ -17,6 +17,7 @@ const Field = ({errorMsg, children}) => {
 }
 
 export default function Avaliation({
+    onClick,
     reg_student,
     id_professor,
     name_professor,
@@ -76,7 +77,7 @@ export default function Avaliation({
             <div className="title">
                 Avaliação
             </div>
-            <button type="button" className="buttonClose">X</button>
+            <button type="button" className="buttonClose" onClick={onClick}>X</button>
         </header>
         <div className="avaliationContent">
             <form onSubmit={handleSubmit(onSubmit)}>

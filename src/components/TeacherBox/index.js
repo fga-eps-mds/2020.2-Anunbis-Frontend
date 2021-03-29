@@ -3,6 +3,7 @@ import Post from '../Post';
 import "./index.css"
 
 import Button from '../../components/Button';
+import Avaliation from '../../components/Avaliation';
 
 const Info_Teacher = ({ children }) => {
   return (
@@ -40,8 +41,8 @@ const Posts = ({ children }) => {
   );
 }
 
-export default function TeacherBox({ name, rating, posts }) {
-
+export default function TeacherBox({ onClick,name, rating, posts }) {
+  
   return (
     <div className="TeacherBox">
       <header>
@@ -49,7 +50,7 @@ export default function TeacherBox({ name, rating, posts }) {
         {name}
         {rating}
       </Info_Teacher>
-      <Button text="AVALIAR"/>
+      <Button text="AVALIAR" onClick={onClick}/>
       </header>
       <Posts>
         {posts}

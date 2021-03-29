@@ -3,11 +3,13 @@ import './index.css'
 import { useParams } from "react-router-dom";
 import Feed from '../../components/Feed';
 import TeacherBox from '../../components/TeacherBox';
+import Avaliation from '../../components/Avaliation';
 
 
 export default function ProfessorSearch() {
     const { professorName } = useParams();
     const [professors, setProfessors] = useState([]);
+    const [boxAvaliation, setBoxAvaliation] = React.useState('');
 
     React.useEffect(() => {
         async function search() {
@@ -21,13 +23,22 @@ export default function ProfessorSearch() {
         search();
     }, [professorName]);
 
+    
+
+   function makeAvaliation(){
+       setBoxAvaliation (
+        <div className="avaliationProfBox">
+        <Avaliation onClick={() => setBoxAvaliation('')}/>
+        </div>)
+    }
+
     const Professors = (({ professors }) => {
         return (
             <div className="Professors">
                 {professors?.map(prof => {
 
                     return (
-                        <TeacherBox name={prof.name} rating={prof.rating} posts={prof.posts}></TeacherBox>
+                        <TeacherBox onClick={makeAvaliation} name={prof.name} rating={prof.rating} posts={prof.posts}></TeacherBox>
                     )
                 })}
             </div>
@@ -36,6 +47,7 @@ export default function ProfessorSearch() {
 
     return (
         <div className="ProfessorSearch">
+            {boxAvaliation}
             <Feed title={professorName}>
                 <Professors professors={professors} />
             </Feed>
