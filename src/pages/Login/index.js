@@ -1,12 +1,13 @@
 import React, {useContext, useEffect} from "react";
-import Button from "../../components/Button";
-import Form from "../../components/Form";
-import Input from "../../components/Input";
-import "./index.css";
-import schema from "./validations"
 import { useHistory, Link } from 'react-router-dom';
 import { useForm } from "react-hook-form";
 import { yupResolver } from '@hookform/resolvers/yup';
+
+import "./index.css";
+import schema from "./validations"
+import Button from "../../components/Button";
+import Form from "../../components/Form";
+import Input from "../../components/Input";
 import isAuthenticated, {sendLogin, logOut} from '../../services/authentication'
 
 export default function Login() {
