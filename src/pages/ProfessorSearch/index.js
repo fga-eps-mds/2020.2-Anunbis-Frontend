@@ -21,7 +21,7 @@ export default function ProfessorSearch() {
             }
         }
         search();
-    }, [professorName]);
+    }, [professorName, professors]);
 
     
 
@@ -30,7 +30,7 @@ export default function ProfessorSearch() {
         <div className="avaliationProfBox">
         <Avaliation
         close={() => setBoxAvaliation('')}
-        reg_student={190012307} //Escreva a matricula de um usuario cadastrado
+        reg_student={JSON.parse(localStorage.getItem('student')).reg_student}
         id_professor={id_professor}
         name_professor={name}
         disciplines={disciplines}

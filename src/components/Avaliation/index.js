@@ -54,7 +54,9 @@ export default function Avaliation({
          })
          .then(response => response)
          .then(rs => {
-            //console.log(rs)
+            if(rs.status === 201){
+                console.log("ok")
+            }
          })
         }
   return (
