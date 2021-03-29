@@ -25,10 +25,16 @@ export default function ProfessorSearch() {
 
     
 
-   function makeAvaliation(){
+   function makeAvaliation(id_professor, name, disciplines){
        setBoxAvaliation (
         <div className="avaliationProfBox">
-        <Avaliation onClick={() => setBoxAvaliation('')}/>
+        <Avaliation
+        close={() => setBoxAvaliation('')}
+        reg_student={190012307} //Escreva a matricula de um usuario cadastrado
+        id_professor={id_professor}
+        name_professor={name}
+        disciplines={disciplines}
+        />
         </div>)
     }
 
@@ -36,9 +42,8 @@ export default function ProfessorSearch() {
         return (
             <div className="Professors">
                 {professors?.map(prof => {
-
                     return (
-                        <ProfessorBox onClick={makeAvaliation} name={prof.name} rating={prof.rating} posts={prof.posts}></ProfessorBox>
+                        <ProfessorBox onClick={() => makeAvaliation(prof.id_professor, prof.name, prof.disciplines)} name={prof.name} rating={prof.rating} posts={prof.posts}></ProfessorBox>
                     )
                 })}
             </div>

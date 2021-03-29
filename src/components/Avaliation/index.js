@@ -17,21 +17,12 @@ const Field = ({errorMsg, children}) => {
 }
 
 export default function Avaliation({
-    onClick,
+    close,
     reg_student,
     id_professor,
     name_professor,
     disciplines
     }) {
-
-        //  const disciplines = [{
-        //      discipline_code: 223,
-        //      name: "Vandor"
-        //  },
-        //  {
-        //      discipline_code: 123,
-        //      name: "Vandor"
-        //  }]
         function disciplines_Options (disciplines) {
             const disciplinesArray = [{}]
             disciplines?.map((dis) => disciplinesArray.push({id:dis.discipline_code,name:dis.name}))
@@ -47,13 +38,12 @@ export default function Avaliation({
     
    function onSubmit(data) {
        const url = process.env.REACT_APP_API_HOST + "/post"
-        console.log(data)
         const body = {
             reg_student: parseInt(reg_student),
             id_professor: parseInt(id_professor),
             content: data.comments,
             rating: parseFloat(data.note),
-            discipline_code: "FGA01",
+            discipline_code: data.id_course,
             is_anonymous: isAnonymous
          }
         
@@ -64,12 +54,8 @@ export default function Avaliation({
          })
          .then(response => response)
          .then(rs => {
-            console.log(rs)
-            console.log(rs.json())
+            //console.log(rs)
          })
-                
-            
-         console.log(body)
         }
   return (
     <div className="avaliation">
@@ -77,13 +63,13 @@ export default function Avaliation({
             <div className="title">
                 Avaliação
             </div>
-            <button type="button" className="buttonClose" onClick={onClick}>X</button>
+            <button type="button" className="buttonClose" onClick={close}>X</button>
         </header>
         <div className="avaliationContent">
             <form onSubmit={handleSubmit(onSubmit)}>
                 <div className="AvaliationFields">
                <div className="nameProfessor">{name_professor}</div>
-               <Field errorMsg={errors.id_course?.message}><Select id="diciplines" options={disciplines_Options(disciplines)} name="disciplines" register={register} /></Field> 
+               <Field errorMsg={errors.id_course?.message}><Select id="diciplines" options={disciplines_Options(disciplines)} name="id_course" register={register} /></Field> 
                <Field errorMsg={errors.note?.message}><Input type="number"  step="0.1" text="Nota" name="note" register={register} /></Field> 
                 </div>
                 <div className="typePost">Postagem:<br/></div>
