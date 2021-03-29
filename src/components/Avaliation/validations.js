@@ -24,7 +24,7 @@ const schema = yup.object().shape({
     .string()
     .trim()
     .required("O comentário deve ser preenchido.")
-    .min(10, "O comentário deve conter pelo menos dois caracteres.")
+    .min(10, "O comentário deve conter pelo menos dez caracteres.")
     .max(254, "O comentário deve ter no máximo 254 caracteres."),
 
 })
