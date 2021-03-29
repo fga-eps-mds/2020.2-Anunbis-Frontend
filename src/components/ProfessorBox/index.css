@@ -1,4 +1,4 @@
-.TeacherBox {
+.ProfessorBox {
     width: 90%;
     height: 90%;
     min-height: 60%;
@@ -11,7 +11,7 @@
     justify-content: space-around;
 }
 
-.Info_TeacherBox  {
+.Info_ProfessorBox  {
     width: 45%;
     height: 10%;
     display: flex;
@@ -21,7 +21,7 @@
     padding-left: 5%;
 }
 
-.Posts_TeacherBox {
+.Posts_ProfessorBox {
     width: 100%;
     height: 80%;
     display: flex;
@@ -31,7 +31,7 @@
     overflow-y: auto;
 }
 
-.Posts_TeacherBox span{
+.Posts_ProfessorBox span{
     width: 90%;
     min-width: 90%;
     height: 45%;
@@ -39,7 +39,7 @@
     margin-bottom: 5%;
 }
 
-.TeacherBox header {
+.ProfessorBox header {
     display: flex;
     align-items: center;
     justify-content: space-between;
