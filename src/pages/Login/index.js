@@ -30,7 +30,7 @@ export default function Login() {
         createSpanError();
       else 
         history.push("/home");
-     }, 100);
+     }, 300);
     }
 
     function createSpanError() {

@@ -2,12 +2,11 @@ import React from 'react';
 import Post from '../Post';
 import "./index.css"
 
-import Button from '../../components/Button';
-import Avaliation from '../../components/Avaliation';
+import Button from '../Button';
 
 const Info_Teacher = ({ children }) => {
   return (
-    <div className="Info_TeacherBox">
+    <div className="Info_ProfessorBox">
       <span>
         {children[0]}
       </span>
@@ -21,7 +20,7 @@ const Info_Teacher = ({ children }) => {
 const Posts = ({ children }) => {
 
   return (
-    <div className="Posts_TeacherBox">
+    <div className="Posts_ProfessorBox">
       {children?.map(post => {
         return (
           <span>
@@ -41,10 +40,10 @@ const Posts = ({ children }) => {
   );
 }
 
-export default function TeacherBox({ onClick,name, rating, posts }) {
+export default function ProfessorBox({onClick,name, rating, posts }) {
   
   return (
-    <div className="TeacherBox">
+    <div className="ProfessorBox">
       <header>
       <Info_Teacher>
         {name}

@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import './index.css'
 import { useParams } from "react-router-dom";
 import Feed from '../../components/Feed';
-import TeacherBox from '../../components/TeacherBox';
+import ProfessorBox from '../../components/ProfessorBox';
 import Avaliation from '../../components/Avaliation';
 
 
@@ -38,7 +38,7 @@ export default function ProfessorSearch() {
                 {professors?.map(prof => {
 
                     return (
-                        <TeacherBox onClick={makeAvaliation} name={prof.name} rating={prof.rating} posts={prof.posts}></TeacherBox>
+                        <ProfessorBox onClick={makeAvaliation} name={prof.name} rating={prof.rating} posts={prof.posts}></ProfessorBox>
                     )
                 })}
             </div>
