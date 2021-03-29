@@ -4,11 +4,10 @@
     border-bottom: 1px solid #000000;
     background-color: #ffffff00;
     margin: 15px 0;
-    width: 100%;
+    width: 15vw;
     height: 100%;
     align-self: right;
     outline: none;
-    
 }
 
 .Input input::-webkit-input-placeholder {
