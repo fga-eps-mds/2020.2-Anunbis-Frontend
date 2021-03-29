@@ -1,6 +1,6 @@
-import RegisterStudent from './pages/RegisterStudent';
-import Login from './pages/Login'
-import RegisterProfessor from './pages/RegisterProfessor'
+import RegisterStudent from './views/RegisterStudent';
+import Login from './views/Login'
+import RegisterProfessor from './views/RegisterProfessor'
 
 import {
     BrowserRouter as Router,
