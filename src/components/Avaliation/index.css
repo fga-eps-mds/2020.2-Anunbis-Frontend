@@ -51,6 +51,7 @@
     background-color: #F44336;
     color: #FFFDE7;
     margin-right: 0px;
+    margin-top: 0px;
     height: 100%;
     display: flex;
     align-items: center;
@@ -76,7 +77,7 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    /*justify-content: space-around;*/
+    justify-content: space-around;
     text-align: center;
     max-height: 30%;
 }
@@ -128,6 +129,7 @@
 .avaliation .avaliationContent .buttonPost{
     background-color: #26A69A;
     color: white;
+    margin-top: 5%;
 }
 .avaliation .avaliationContent .buttonPost:hover{
     background: #26a69965;
