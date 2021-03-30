@@ -27,14 +27,17 @@ main.formulario  {
     align-items: flex-start;
     align-items: center;
     width: 50%;
+}
+
+.formulario .fields {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
     height: 100%;
 }
 
-/* .fields {
-    
-}
-
-.field{
+/*.field{
     
 } */
 
@@ -51,6 +54,7 @@ main.formulario  {
     align-items: flex-start;
     align-items: center;
     text-align: center;
+    width: fit-content;
 }
 
 Button{
@@ -63,13 +67,19 @@ Button{
     box-shadow: 2px 2px grey;
 }
 
-.formulario .isStudent{
-    color: rgba(61, 58, 58, 0.603);
+.formulario .header{
     display: flex;
-    flex-direction: row-reverse;
-    align-items: flex-start;
+    flex-direction: column;
+    align-items: center;
     width: 100%;
-    height: 2%;
-    font-size: 12px;
-    margin-right: 20%;
+}
+
+.formulario .links{
+    width: 100%;
+    display:flex;
+    flex-direction: row;
+    align-items: center;
+    font-size:14px;
+    margin-top:10px;
+    margin-bottom: -2%;
 }

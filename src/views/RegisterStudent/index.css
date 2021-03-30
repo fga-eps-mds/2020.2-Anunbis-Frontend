@@ -16,8 +16,26 @@
 .errorDB{
   display: flex;
   color: #F44336;
-  font-size: 20px;
+  font-size: 18px;
   font-family: Arial, Helvetica, sans-serif;
   justify-content: center;
-  padding-bottom: 5%;
+  margin-bottom: -5%;
+}
+
+.btnLogin{
+  margin-left: 20%;
+  margin-right: 50px;
+  color: black;
+  text-decoration: none;
+}
+
+.btnCadastro{
+  margin-right: 25%;
+  color: black;
+}
+
+.btnProfessor{
+  align-items: flex-end;
+  color: black;
+  text-decoration: none;
 }

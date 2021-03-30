@@ -1,6 +1,9 @@
 .avaliation {
-    width: 30%;
-    height: 70%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    height: 100%;
     text-align: center;
     initial-letter-align: initial;
     background-color: #FFFDE7;
@@ -14,9 +17,9 @@
     background-color: #212121;
     display: flex;
     align-items: center;
+    flex-direction: row;
 }
 .avaliation .title {
-    
     color: #FFFDE7;
     margin-left: auto;
     margin-right: auto;
@@ -48,10 +51,12 @@
     background-color: #F44336;
     color: #FFFDE7;
     margin-right: 0px;
+    margin-top: 0px;
     height: 100%;
     display: flex;
     align-items: center;
     justify-content: center;
+    max-height: 100%;
 }
 
 .avaliation .typePost {
@@ -65,6 +70,7 @@
     align-items: center;
     justify-content: space-around;
     text-align: center;
+    margin-top: -20%;
 }
 
 .avaliation .Finalization {
@@ -73,9 +79,11 @@
     align-items: center;
     justify-content: space-around;
     text-align: center;
+    max-height: 30%;
 }
-
-
+.avaliation .avaliationContent{
+    width: 80%;
+}
 .avaliation .avaliationContent .commentsPost{
     padding-top: 5%;
     padding-bottom: 5%;
@@ -121,6 +129,7 @@
 .avaliation .avaliationContent .buttonPost{
     background-color: #26A69A;
     color: white;
+    margin-top: 5%;
 }
 .avaliation .avaliationContent .buttonPost:hover{
     background: #26a69965;

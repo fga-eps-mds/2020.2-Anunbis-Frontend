@@ -1,6 +1,7 @@
 import React, { useEffect } from 'react';
 import { useForm } from "react-hook-form";
 import { yupResolver } from '@hookform/resolvers/yup';
+import { Link, useHistory } from 'react-router-dom';
 
 import './index.css'
 import schema from './validations';
@@ -12,6 +13,7 @@ import Button from '../../components/Button';
 
 
 export default function RegisterStudent() {
+  const history = useHistory();
   const [courses, setCourses] = React.useState([])
   const [errorDB, setErrorDB] = React.useState('')
   const { register, handleSubmit, errors } = useForm({
@@ -60,6 +62,7 @@ export default function RegisterStudent() {
       console.log(rs.json())
       if(rs.ok){
         setErrorDB("")
+        history.push("/login")
       }
       if(rs.status === 409){
         setErrorDB("Estudante já cadastrado")
@@ -69,7 +72,12 @@ export default function RegisterStudent() {
   return (
     <div className="RegisterStudent">
       <header className="Header">
-        <Form title="Cadastro de Aluno" onSubmit={handleSubmit(onSubmit)} link="PROFESSOR?" endereco={`/cadastro/professor`}>
+        <Form onSubmit={handleSubmit(onSubmit)} link="PROFESSOR?" endereco={`/cadastro/professor`}>
+          <Form.Header title="Cadastro de Aluno">
+            <Link className="btnLogin"to="/login">LOGIN</Link>
+            <Link className="btnCadastro"to="/">CADASTRO</Link>
+            <Link className="btnProfessor"to="/cadastro/professor">PROFESSOR?</Link>
+          </Form.Header>
           <Form.Field errorMsg={errors.name?.message}><Input type="text" text="Nome" name="name" register={register} /></Form.Field>
           <Form.Field errorMsg={errors.id_course?.message}><Select id="courses" options={courses_Options(courses)} name="id_course" register={register} /></Form.Field>
           <Form.Field errorMsg={errors.reg_student?.message}><Input type="text" text="Matrícula" name="reg_student" register={register} /></Form.Field>

@@ -16,7 +16,6 @@
 .Login Form{
     width: 100%;
     height: 100%;
-    margin-top: 10%;
 }
 
 Button{
@@ -29,6 +28,25 @@ Button:hover{
     cursor: pointer;
 }
 
+.Login .body{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 75px;
+}
+
+.btnCadastro_log{
+    text-decoration: none;
+    margin-right: 25%;
+    color: black;
+}
+
+.btnLogin_log{
+    text-decoration: underline;
+    margin-left: 20%;
+    margin-right: 50px;
+    color: black;
+}
 
 .Erro{
     display: flex;
