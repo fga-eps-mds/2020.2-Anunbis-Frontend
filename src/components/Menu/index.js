@@ -13,7 +13,7 @@ const ProfessorSearch = () =>{
            history.push("/professor/search/" + data.target.value.trim()) 
     }
 
-    return (<ProfessorSearchStyle><Input type="text" text="Informe o nome do professor" onkeydown={onSubmit}/></ProfessorSearchStyle>)
+    return (<ProfessorSearchStyle><Input type="text" width="400px" text="Informe o nome do professor" onkeydown={onSubmit}/></ProfessorSearchStyle>)
 }
 
 

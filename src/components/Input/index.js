@@ -7,7 +7,7 @@ const InputStyle = styled.input`
     border-bottom: 1px solid #000000;
     background-color: #ffffff00;
     margin: 15px 0;
-    width: inherit;
+    width: ${props => props.width ? props.width : "inherit"};
     height: inherit;
     align-self: right;
     outline: none;
@@ -35,7 +35,8 @@ export default function Input(props) {
                 ref={props.register} 
                 autoComplete="off" 
                 onKeyPress={props.onkeydown}
-                step={props.step} />
+                step={props.step} 
+                width={props.width}/>
         </div>
     );
 }
