@@ -1,10 +1,11 @@
 import React from "react";
 import styled from 'styled-components';
+import BG_FGA from "../../assets/BG_FGA.png";
+import Logo from "../../assets/Logo.jpg";
 
 const Background = styled.div`
     height: 100vh;
-    background-color: white;
-    background-image: url("/../../assets/BG_FGA.png");
+    background-image: url(${BG_FGA});
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -21,14 +22,12 @@ const Base = styled.div`
     justify-content: space-around;
 `;
 
-const Imagem = styled.div`
-    background-color: black;
+const Imagem = styled.img`
     height: 450px;
     width: 400px;
     border-top-right-radius: 20px;
     border-bottom-right-radius: 20px;
-    background-image: url("../../assets/Logo.jpg");
-
+    object-fit: cover;
 `;
 
 const Main = styled.div`
@@ -43,7 +42,7 @@ export default function LayoutAutentication({children}){
                 <Main>
                 {children}
                 </Main>
-                <Imagem />
+                <Imagem src={Logo} alt="Logo"/>
             </Base>
         </Background>
     );
