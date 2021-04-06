@@ -1,12 +1,58 @@
 import React from 'react';
+import styled from 'styled-components';
 import { useForm } from "react-hook-form";
 import { yupResolver } from '@hookform/resolvers/yup';
-import './index.css';
 import Form from '../../components/Form';
 import Input from '../../components/Input';
 import Button from '../../components/Button';
 import schema from './validations';
 import { Link, useHistory } from 'react-router-dom';
+
+const Header = ({children, title}) => {
+  const Conteiner = styled.div`
+      width: 400px;
+  `;
+
+  const Links = styled.div`
+      width: 400px;
+      display:flex;
+      flex-direction: row;
+      align-items: center;
+      font-size:14px;
+      margin-top:10px;
+  `;
+
+  const Title = styled.h4`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 20px;
+  margin-bottom: 10px;
+  `;
+
+  return(
+      <Conteiner>
+          <Links>
+          {children}
+          </Links>
+          <Title>{title}</Title>
+      </Conteiner>
+  )
+}
+
+const Content = styled.div`
+height: 450px;
+width: 400px;
+display:flex;
+justify-content: center;
+align-items: center;
+flex-direction: column;
+
+Form {
+  height: 300px;
+  width: 300px;
+}
+`;
 
 export default function RegisterProfessor() {
   const history = useHistory();
@@ -23,7 +69,6 @@ export default function RegisterProfessor() {
       password: data.password,
       reg_professor: data.reg_professor
     }
-    console.log(body);
     fetch(url, {
       method: 'post',
       headers: { 'Content-Type': 'application/json' },
@@ -31,8 +76,6 @@ export default function RegisterProfessor() {
     })
       .then(response => response)
       .then(rs => {
-        console.log(rs)
-        console.log(rs.json())
         if (rs.ok) {
           setErrorDB("")
           history.push("/login")
@@ -43,15 +86,17 @@ export default function RegisterProfessor() {
       })
   };
 
+  
+
   return (
-    <div className="RegisterProfessor">
-      <header className="Header">
+    <Content>
+      <Header title="Cadastro de Professor">
+        <Link className="btnLogin" to="/login">LOGIN</Link>
+        <Link className="btnCadastro" to="/">CADASTRO</Link>
+        <Link className="btnProfessor" to="/">ALUNO?</Link>
+      </Header>
+      
         <Form onSubmit={handleSubmit(onSubmit)}>
-          <Form.Header title="Cadastro de Professor">
-            <Link className="btnLogin" to="/login">LOGIN</Link>
-            <Link className="btnCadastro" to="/">CADASTRO</Link>
-            <Link className="btnProfessor" to="/">ALUNO?</Link>
-          </Form.Header>
           <Form.Field errorMsg={errors.name?.message}><Input type="text" text="Nome" name="name" register={register} /></Form.Field>
           <Form.Field errorMsg={errors.reg_professor?.message}><Input type="text" text="Matrícula" name="reg_professor" register={register} /></Form.Field>
           <Form.Field errorMsg={errors.email?.message}><Input type="email" text="Email Institucional" name="email" register={register} /></Form.Field>
@@ -63,7 +108,6 @@ export default function RegisterProfessor() {
             <Button text="CONFIRMAR" type="submit" />
           </Form.Footer>
         </Form>
-      </header>
-    </div>
+    </Content>
   )
 }
