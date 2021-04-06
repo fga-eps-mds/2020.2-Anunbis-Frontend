@@ -1,21 +1,22 @@
 import React from 'react';
 import './index.css';
+import styled from 'styled-components';
 
 const Header = ({ children }) => {
     return (
-        <div className="Header_Post">
-            <div className="Info_Student">
+        <Header_Post>
+            <Info_Student>
                 [{children.discipline_code}] {children.discipline_name}<br />
                 {children.name_course}<br />
                     Data: {children.date}<br />
-                <div className="Name">
+                <Name>
                     {children.name_studant}
-                </div>
-            </div>
-            <div className="Rating">
+                </Name>
+            </Info_Student>
+            <Rating>
                 Nota: {children.rating}
-            </div>
-        </div>
+            </Rating>
+        </Header_Post>
     )
 }
 
@@ -29,13 +30,53 @@ const Content = ({ children }) => {
 
 export default function Post({ children }) {
     return (
-        <div className="Post">
+        <PostStyle>
             <Header>
                 {children[0].props}
             </Header>
             <Content>
                 {children[1].props}
             </Content>
-        </div>
+        </PostStyle>
     );
 }
+
+const PostStyle = styled.div`
+    background-color: #FFD54F;
+    width: 350px;
+    height: 90px;
+    margin-bottom: 10px;
+    display: flex;
+    justify-content: space-evenly;
+    flex-direction: column;
+`;
+
+const Header_Post = styled.div`
+    display: block;
+    height: 32px;
+    display: flex;
+    justify-content: space-between;
+`;
+
+const Info_Student = styled.div`
+    height: 32px;
+    font: 9px Roboto;
+    padding-left: 10px;
+`;
+
+const Name = styled.div`
+    color: #696969;
+`;
+
+const Rating = styled.div`
+    padding: 2%;
+`;
+
+const Content_Post = styled.div`
+    background-color: #FFFDE7;
+    width: 315px;
+    height: 45px;
+    margin-left: auto;
+    margin-right: auto;
+    font: 10px Roboto;
+`;
