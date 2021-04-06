@@ -85,8 +85,8 @@ export default function Login() {
   return (
     <Content>
       <Header>
-        <Link className="btnLogin" to="/login">LOGIN</Link>
-        <Link className="btnCadastro" to="/">CADASTRO</Link>
+        <Link className="btnLogin" to="/user/login">LOGIN</Link>
+        <Link className="btnCadastro" to="/user/student">CADASTRO</Link>
       </Header>
       <Form onSubmit={handleSubmit(onSubmit)}>
         <Form.Field><div>{erroLogin}</div></Form.Field>

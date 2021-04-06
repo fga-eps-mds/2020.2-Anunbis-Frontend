@@ -1,7 +1,6 @@
 import RegisterStudent from './views/RegisterStudent';
 import Login from './views/Login';
 import RegisterProfessor from './views/RegisterProfessor';
-import Application from './views/Application';
 import ProfessorSearch from './views/ProfessorSearch';
 import isAuthenticated from './services/authentication/index';
 import LayoutAutentication from './components/LayoutAutentication';
@@ -19,7 +18,7 @@ const PrivateRoute = ({ component: Component, ...rest }) => (
         isAuthenticated() ? (
             <Component {...props} />
         ) : (
-            <Redirect to={{ pathname: '/login', state: { from: props.location } }} />
+            <Redirect to={{ pathname: '/user/login', state: { from: props.location } }} />
         )
     )} />
 );
@@ -27,15 +26,25 @@ const PrivateRoute = ({ component: Component, ...rest }) => (
 const Routes = () => (
     <Router>
         <Switch>
-            <LayoutAutentication>
-            <Route exact path="/" component={RegisterStudent}/>
-            <Route path="/login" component={Login}/>
-            <Route path="/cadastro/professor" component={RegisterProfessor} />
-            </LayoutAutentication>
-            <LayoutApp>
-                <PrivateRoute path="/home" component={Application} />
-                <PrivateRoute path="/professor/search/:professorName" component={ProfessorSearch} />
-            </LayoutApp>
+
+            <Route path="/user/">
+                <LayoutAutentication>
+                    <Switch>
+                        <Route exact path="/user/student" component={RegisterStudent} />
+                        <Route path="/user/login" exact component={Login} />
+                        <Route path="/user/professor" component={RegisterProfessor} />
+                    </Switch>
+                </LayoutAutentication>
+            </Route>
+
+            <Route path="/">
+                <LayoutApp>
+                    <Switch>
+                        <PrivateRoute path="/professor/search/:professorName" component={ProfessorSearch} />
+                    </Switch>
+                </LayoutApp>
+            </Route>
+
         </Switch>
     </Router>
 );

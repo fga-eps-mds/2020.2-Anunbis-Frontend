@@ -130,9 +130,9 @@ export default function RegisterStudent() {
   return (
     <Content>
       <Header title="Cadastro de Aluno">
-        <Link className="btnLogin" to="/login">LOGIN</Link>
-        <Link className="btnCadastro" to="/">CADASTRO</Link>
-        <Link className="btnProfessor" to="/cadastro/professor">PROFESSOR?</Link>
+        <Link className="btnLogin" to="/user/login">LOGIN</Link>
+        <Link className="btnCadastro" to="/user/student">CADASTRO</Link>
+        <Link className="btnProfessor" to="/user/professor">PROFESSOR?</Link>
       </Header>
       <Form onSubmit={handleSubmit(onSubmit)}>
         <Form.Field errorMsg={errors.name?.message}><Input type="text" text="Nome" name="name" register={register} /></Form.Field>

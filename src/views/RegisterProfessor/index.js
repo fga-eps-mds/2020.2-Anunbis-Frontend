@@ -88,7 +88,7 @@ export default function RegisterProfessor() {
       .then(rs => {
         if (rs.ok) {
           setErrorDB("")
-          history.push("/login")
+          history.push("/user/login")
         }
         if (rs.status === 409) {
           setErrorDB("Professor já cadastrado")
@@ -101,9 +101,9 @@ export default function RegisterProfessor() {
   return (
     <Content>
       <Header title="Cadastro de Professor">
-        <Link className="btnLogin" to="/login">LOGIN</Link>
-        <Link className="btnCadastro" to="/">CADASTRO</Link>
-        <Link className="btnStudent" to="/">ALUNO?</Link>
+        <Link className="btnLogin" to="/user/login">LOGIN</Link>
+        <Link className="btnCadastro" to="/user/student">CADASTRO</Link>
+        <Link className="btnStudent" to="/user/student">ALUNO?</Link>
       </Header>
 
       <Form onSubmit={handleSubmit(onSubmit)}>
