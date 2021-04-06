@@ -3,6 +3,7 @@ import './index.css'
 import Name_Logo from "../../assets/Name_Logo.png";
 import Input from '../Input';
 import {useHistory} from "react-router-dom";
+import styled from 'styled-components';
 
 const ProfessorSearch = () =>{
     const history =  useHistory()
@@ -12,17 +13,48 @@ const ProfessorSearch = () =>{
            history.push("/professor/search/" + data.target.value.trim()) 
     }
 
-    return (<div className="ProfessorSearch"><Input type="text" text="Informe o nome do professor" onkeydown={onSubmit}/></div>)
+    return (<ProfessorSearchStyle><Input type="text" text="Informe o nome do professor" onkeydown={onSubmit}/></ProfessorSearchStyle>)
 }
 
 
 export default function Menu() {
     return (
-        <div className="Menu">
-            <div className="Logo">
-                <img src={Name_Logo} alt="logo"></img>
-            </div>
+        <MenuBar>
+            <Logo>
+                <ImageLogo src={Name_Logo} alt="logo"></ImageLogo>
+            </Logo>
             <ProfessorSearch />
-        </div>
+        </MenuBar>
     );
 }
+
+
+const MenuBar = styled.div`
+    background-color: #212121;
+    display: flex;
+    height: 40px;
+`;
+
+const Logo = styled.div`
+    width: 280px;
+`;
+
+const ImageLogo = styled.img`
+        max-width: 190px;
+        display: inline-block;
+`;
+
+const ProfessorSearchStyle = styled.div`
+    display: inline-block;
+    height: 30px;
+    width: 400px;
+    Input {
+        
+        color: #FFFDE7;
+        border-bottom: 1px solid #FFFDE7;
+    }
+    input::-webkit-input-placeholder  {
+        height: 30px;
+    color: rgba(255, 255, 255, 0.603);
+}
+`;
