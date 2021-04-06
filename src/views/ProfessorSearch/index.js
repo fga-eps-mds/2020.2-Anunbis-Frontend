@@ -12,7 +12,7 @@ export default function ProfessorSearch() {
     const [boxAvaliation, setBoxAvaliation] = React.useState('');
 
     React.useEffect(() => {
-        async function search() {
+        async function fetchData() {
             const url = process.env.REACT_APP_API_HOST + "/professor/" + professorName;
             const response = await fetch(url);
             const data = await response.json();
@@ -20,8 +20,8 @@ export default function ProfessorSearch() {
                 setProfessors(data);
             }
         }
-        search();
-    }, [professorName, professors]);
+        fetchData();
+    }, [professorName]);
 
     
 
