@@ -1,21 +1,27 @@
 import React from 'react';
-import './index.css';
+import styled from 'styled-components';
 import Menu from '../Menu';
+import bg_app from "../../assets/BG_App.png";
+
+const Main = styled.main`
+    width: inherit;
+    height: 100vh;
+    background-image: url(${bg_app});
+    display: flex;
+    align-items: center;
+    justify-content: center;
+`
 
 
 export default function LayoutApp({children}) {
   return (
-  <div className="LayoutApp">
+  <div>
       <header>
          <Menu />
       </header>
-      <main>
+      <Main>
           {children}
-      </main>
-      <footer>
-      </footer>
-      
-      
+      </Main>
   </div>
       );
 }
