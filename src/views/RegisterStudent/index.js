@@ -17,7 +17,6 @@ const Header = ({ children, title }) => {
   const Links = styled.div`
       width: 400px;
       display:flex;
-      flex-direction: row;
       align-items: center;
       justify-content: space-evenly;
       font-size:14px;
