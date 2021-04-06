@@ -4,14 +4,15 @@ import RegisterProfessor from './views/RegisterProfessor';
 import Application from './views/Application';
 import ProfessorSearch from './views/ProfessorSearch';
 import isAuthenticated from './services/authentication/index';
-
+import LayoutAutentication from './components/LayoutAutentication';
+import LayoutApp from './components/LayoutApp';
 import {
     BrowserRouter as Router,
     Switch,
     Route,
     Redirect
 } from "react-router-dom";
-import LayoutApp from './components/LayoutApp';
+
 
 const PrivateRoute = ({ component: Component, ...rest }) => (
     <Route {...rest} render={props => (
@@ -26,11 +27,11 @@ const PrivateRoute = ({ component: Component, ...rest }) => (
 const Routes = () => (
     <Router>
         <Switch>
-            <Route exact path="/" component={RegisterStudent}> <RegisterStudent /> </Route>
-
-            <Route path="/login" component={Login}> <Login /> </Route>
-
-            <Route path="/cadastro/professor" component={RegisterProfessor}> <RegisterProfessor /> </Route>
+            <LayoutAutentication>
+            <Route exact path="/" component={RegisterStudent}/>
+            <Route path="/login" component={Login}/>
+            <Route path="/cadastro/professor" component={RegisterProfessor} />
+            </LayoutAutentication>
             <LayoutApp>
                 <PrivateRoute path="/home" component={Application} />
                 <PrivateRoute path="/professor/search/:professorName" component={ProfessorSearch} />
