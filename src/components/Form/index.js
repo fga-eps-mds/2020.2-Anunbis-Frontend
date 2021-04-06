@@ -4,10 +4,11 @@ import styled from 'styled-components';
 
 const Field = ({ errorMsg, children }) => {
     const Conteiner = styled.div`
-        display: flex;
-        flex-direction: column;
-        align-items: center;
         height: 40px;
+
+        input {
+            margin: 0px;
+        }
     `;
 
     const Erro = styled.div`
@@ -17,7 +18,7 @@ const Field = ({ errorMsg, children }) => {
 
     return (
         <Conteiner>
-            {children}<br/>
+            {children}
             <Erro>{errorMsg}</Erro>
         </Conteiner>
     )
@@ -32,6 +33,7 @@ const Content = styled.form`
 
 const Footer = ({ children }) => {
     const Content = styled.div`
+    width: 200px;
     display: flex;
     align-items: center;
     justify-content: space-around;
