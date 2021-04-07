@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react';
-import styled ,{ css }from 'styled-components';
+import styled from 'styled-components';
 import { useForm } from "react-hook-form";
 import { yupResolver } from '@hookform/resolvers/yup';
 import { Link, useHistory } from 'react-router-dom';
@@ -21,21 +21,16 @@ const Links = styled.div`
   font-size:14px;
   margin-top: 15px;
 
-    ${({cssLinks}) =>
-    cssLinks &&
-      css`
-          .btnCadastro {
-            margin-right: 10px;
-            color: #212121;
-          }
 
-          .btnLogin, .btnProfessor{
-            margin-left: 20px;
-            margin-right: 20px;
-            text-decoration: none;
-            color: #212121;
-          }
-    `}
+  .btnCadastro {
+    margin-right: 70px;
+    color: #212121;
+  }
+
+  .btnLogin, .btnProfessor{
+    text-decoration: none;
+    color: #212121;
+  }
 `;
 
 const Title = styled.h4`
@@ -46,10 +41,10 @@ const Title = styled.h4`
   margin-top: 40px;
 `;
 
-const Header = ({ children, title, cssLinks }) => {
+const Header = ({ children, title }) => {
   return (
     <Conteiner>
-      <Links cssLinks={cssLinks} >
+      <Links>
         {children}
       </Links>
       <Title>{title}</Title>
@@ -140,8 +135,8 @@ export default function RegisterStudent() {
 
   return (
     <Content>
-      <Header title="Cadastro de Aluno" cssLinks>
-      <Link className="btnLogin" to="/user/login">LOGIN</Link>
+      <Header title="Cadastro de Aluno">
+        <Link className="btnLogin" to="/user/login">LOGIN</Link>
         <Link className="btnCadastro" to="/user/student">CADASTRO</Link>
         <Link className="btnProfessor" to="/user/professor">PROFESSOR?</Link>
       </Header>

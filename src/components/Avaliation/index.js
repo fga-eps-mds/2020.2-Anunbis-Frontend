@@ -104,7 +104,7 @@ export default function Avaliation({
           <Container width="347px">
               <Form onSubmit={handleSubmit(onSubmit)}>
                   <p>{name_professor}</p>
-                    <Form.Field errorMsg={errors.id_course?.message}><Select id="diciplines" options={disciplines_Options(disciplines)} name="id_course" register={register} /></Form.Field> 
+                    <Form.Field errorMsg={errors.id_course?.message}><Select id="diciplines" backColor="#FFFDE7" text="Selecione um Curso" options={disciplines_Options(disciplines)} name="id_course" register={register} /></Form.Field> 
                     <Form.Field errorMsg={errors.note?.message}><Input type="number" step="0.1" text="Nota" name="note" register={register} width="90px"/></Form.Field> 
                   <p>Postagem:</p>
                   <Container direction="row" heigth="30px" align="center">
