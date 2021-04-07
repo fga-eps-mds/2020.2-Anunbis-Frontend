@@ -9,12 +9,14 @@ const SelectStyle = styled.select`
     height: inherit;
     align-self: right;
     width: ${props => props.width ? props.width : "inherit"};
+    color: rgba(61, 58, 58, 0.603);
 `;
 
 export default function Select({ text, id, name, register, options, backColor, width}){
     return(
         <div className="Select">
             <SelectStyle id={id} name={name} ref={register} backColor={backColor} width={width}>
+                <option value="" disabled selected>{text}</option>
                 {options?.map((item) => (
                     <option value={item.id} key={item.id}>{item.name}</option>
                 ))}
