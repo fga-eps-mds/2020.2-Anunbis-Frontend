@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react';
-import styled from 'styled-components';
+import styled ,{ css }from 'styled-components';
 import { useForm } from "react-hook-form";
 import { yupResolver } from '@hookform/resolvers/yup';
 import { Link, useHistory } from 'react-router-dom';
@@ -21,16 +21,21 @@ const Links = styled.div`
   font-size:14px;
   margin-top: 15px;
 
+    ${({cssLinks}) =>
+    cssLinks &&
+      css`
+          .btnCadastro {
+            margin-right: 10px;
+            color: #212121;
+          }
 
-  .btnCadastro {
-    margin-right: 70px;
-    color: #212121;
-  }
-
-  .btnLogin, .btnProfessor{
-    text-decoration: none;
-    color: #212121;
-  }
+          .btnLogin, .btnProfessor{
+            margin-left: 20px;
+            margin-right: 20px;
+            text-decoration: none;
+            color: #212121;
+          }
+    `}
 `;
 
 const Title = styled.h4`
@@ -41,10 +46,10 @@ const Title = styled.h4`
   margin-top: 40px;
 `;
 
-const Header = ({ children, title }) => {
+const Header = ({ children, title, cssLinks }) => {
   return (
     <Conteiner>
-      <Links>
+      <Links cssLinks={cssLinks} >
         {children}
       </Links>
       <Title>{title}</Title>
@@ -135,14 +140,14 @@ export default function RegisterStudent() {
 
   return (
     <Content>
-      <Header title="Cadastro de Aluno">
-        <Link className="btnLogin" to="/user/login">LOGIN</Link>
+      <Header title="Cadastro de Aluno" cssLinks>
+      <Link className="btnLogin" to="/user/login">LOGIN</Link>
         <Link className="btnCadastro" to="/user/student">CADASTRO</Link>
         <Link className="btnProfessor" to="/user/professor">PROFESSOR?</Link>
       </Header>
       <Form onSubmit={handleSubmit(onSubmit)}>
         <Form.Field errorMsg={errors.name?.message}><Input type="text" text="Nome" name="name" register={register} /></Form.Field>
-        <Form.Field errorMsg={errors.id_course?.message}><Select id="courses" options={courses_Options(courses)} name="id_course" register={register} /></Form.Field>
+        <Form.Field errorMsg={errors.id_course?.message}><Select id="courses" backColor="#FFD54F" text="Selecione um Curso" options={courses_Options(courses)} name="id_course" register={register} /></Form.Field>
         <Form.Field errorMsg={errors.reg_student?.message}><Input type="text" text="Matrícula" name="reg_student" register={register} /></Form.Field>
         <Form.Field errorMsg={errors.email?.message}><Input type="email" text="Email Institucional" name="email" register={register} /></Form.Field>
         <Form.Field errorMsg={errors.password?.message}><Input type="password" text="Senha" name="password" register={register} /></Form.Field>
