@@ -15,23 +15,26 @@ const Content = styled.div`
 height: 450px;
 width: 400px;
 display:flex;
-justify-content: space-evenly;
+justify-content: space-between;
 align-items: center;
 flex-direction: column;
-
-Form {
+  Form {
   height: 300px;
   width: 300px;
+
+  Button{
+    margin-top: 30px;
+  }
 }
 `;
 
-const Header = ({ children }) => {
-
-  const Conteiner = styled.div`
+const Conteiner = styled.div`
       width: 400px;
+      height: 15px;
       display:flex;
       align-items: center;
       font-size:14px;
+      margin-top: 15px;
 
       .btnCadastro {
         text-decoration: none;
@@ -43,13 +46,42 @@ const Header = ({ children }) => {
         margin: 35px;
       }
   `;
-
+const Header = ({ children }) => {
   return (
     <Conteiner>
       {children}
     </Conteiner>
   )
 }
+
+const Erro = styled.div`
+    position:absolute;
+    color:black;
+    font-size: 14px;
+    font-family: Arial, Helvetica, sans-serif;
+    justify-content: center;
+    padding-bottom: 5%;
+    height: 5px; 
+
+    background: #f3c2c2;
+    border: 1px solid rgba(255, 245, 157, 0.6);
+    box-sizing: border-box;
+    border-radius: 5px;
+    padding: 8px 5px;
+    margin-inline: 15px;
+    box-shadow: 2px 2px grey;
+
+    Button{
+      background: #f3c2c2;
+      color: #cf5858;
+      border: none;
+      box-sizing: border-box;
+      border-radius: 3px;
+      padding: 5px 5px;
+      margin-inline: 15px;
+      margin-right: 2%;
+    }
+`
 
 export default function Login() {
   const history = useHistory();
@@ -76,10 +108,10 @@ export default function Login() {
 
   function createSpanError() {
     setErroLogin(
-      <div className="Erro">
+      <Erro>
         Email ou Senha Inválidos
-         <Button id="closeSpan" type="button" onClick={() => setErroLogin('')} text="X" />
-      </div>)
+        <Button type="button" onClick={() => setErroLogin('')} text="X" />
+      </Erro>)
   }
 
   return (
@@ -93,7 +125,7 @@ export default function Login() {
         <Form.Field errorMsg={errors.email?.message}><Input type="text" text="Email Instuticional" name="email" register={register} /> </Form.Field>
         <Form.Field errorMsg={errors.password?.message}><Input type="password" text="Senha" name="password" register={register} /> </Form.Field>
         <Form.Footer>
-          <Button text="CONFIRMAR" />
+          <Button text="CONFIRMAR" backColor="#FFF9C4"/>
         </Form.Footer>
       </Form>
     </Content>

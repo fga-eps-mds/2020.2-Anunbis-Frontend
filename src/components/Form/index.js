@@ -31,7 +31,7 @@ const Content = styled.form`
 
 const Footer = ({ children }) => {
     const Content = styled.div`
-    width: inherit;
+    width: fit-content;
     display: flex;
     align-items: center;
     justify-content: space-around;

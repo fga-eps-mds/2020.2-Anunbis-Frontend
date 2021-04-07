@@ -9,37 +9,39 @@ import Input from '../../components/Input';
 import Select from '../../components/Select';
 import Button from '../../components/Button';
 
-const Header = ({ children, title }) => {
-  const Conteiner = styled.div`
-      width: 400px;
-  `;
+const Conteiner = styled.div`
+  width: 400px;
+`;
 
-  const Links = styled.div`
-      width: 400px;
-      display:flex;
-      align-items: center;
-      justify-content: space-evenly;
-      font-size:14px;
+const Links = styled.div`
+  width: 400px;
+  display:flex;
+  align-items: center;
+  justify-content: space-evenly;
+  font-size:14px;
+  margin-top: 15px;
 
 
-      .btnCadastro {
-        margin-right: 70px;
-        color: #212121;
-      }
+  .btnCadastro {
+    margin-right: 70px;
+    color: #212121;
+  }
 
-      .btnLogin, .btnProfessor{
-        text-decoration: none;
-        color: #212121;
-      }
-  `;
+  .btnLogin, .btnProfessor{
+    text-decoration: none;
+    color: #212121;
+  }
+`;
 
-  const Title = styled.h4`
+const Title = styled.h4`
   display: flex;
   justify-content: center;
   align-items: center;
-  margin-bottom: 0px;
-  `;
+  margin-bottom:20px;
+  margin-top: 40px;
+`;
 
+const Header = ({ children, title }) => {
   return (
     <Conteiner>
       <Links>
@@ -51,16 +53,20 @@ const Header = ({ children, title }) => {
 }
 
 const Content = styled.div`
-height: 450px;
-width: 400px;
-display:flex;
-justify-content: space-evenly;
-align-items: center;
-flex-direction: column;
+  height: 450px;
+  width: 400px;
+  display:flex;
+  align-items: center;
+  flex-direction: column;
 
 Form {
   height: 300px;
   width: 300px;
+  Input, Select{
+    margin-bottom: 10px;
+    width: 180px;
+  }
+  
 }
 
 select {
@@ -143,8 +149,8 @@ export default function RegisterStudent() {
         <Form.Field errorMsg={errors.co_password?.message}><Input type="password" text="Confirmar Senha" name="co_password" register={register} /></Form.Field>
         <Form.Field><div className="errorDB">{errorDB}</div></Form.Field>
         <Form.Footer>
-          <Button text="CANCELAR" />
-          <Button text="CONFIRMAR" type="submit" />
+          <Button text="CANCELAR" backColor="#FFF9C4" padding="12px 8px" />
+          <Button text="CONFIRMAR" type="submit" backColor="#FFF9C4" padding="12px 8px" />
         </Form.Footer>
       </Form>
     </Content>
