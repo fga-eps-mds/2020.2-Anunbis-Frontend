@@ -1,10 +1,19 @@
 import React from 'react';
 import styled from 'styled-components';
 
+const Container = styled.div`
+width: 450px;
+height: 500px;
+border-bottom-right-radius: 2%;
+border-bottom-left-radius: 2%;
+background-color: #FFFDE7;
+align-self: center;
+`
+
 const Title = ({ children }) => {
   const Title = styled.div`
     width: inherit;
-    height: 5%;
+    height: 25px;
     background-color: #212121;
     color: #FFFDE7;
     display: flex;
@@ -21,7 +30,7 @@ const Title = ({ children }) => {
 
 const Content = ({ children }) => {
   const Content = styled.div`
-    height: inherit;
+    height: 450px;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -37,21 +46,15 @@ const Content = ({ children }) => {
 }
 
 export default function Feed({ title, children }) {
-  const Feed = styled.div`
-    width: 450px;
-    height: 600px;
-    border-bottom-right-radius: 2%;
-    border-bottom-left-radius: 2%;
-    background-color: #FFFDE7;
-  `
+
   return (
-    <Feed>
+    <Container>
       <Title>
         Resultado da pesquisa "{title}"
       </Title>
       <Content>
         {children}
       </Content>
-    </Feed>
+    </Container>
   );
 }

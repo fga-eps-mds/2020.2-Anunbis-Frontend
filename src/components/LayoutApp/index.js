@@ -4,14 +4,12 @@ import Menu from '../Menu';
 import bg_app from "../../assets/BG_App.png";
 
 const Main = styled.main`
-    width: inherit;
     height: 100vh;
     background-image: url(${bg_app});
     display: flex;
     align-items: center;
     justify-content: center;
 `
-
 
 export default function LayoutApp({children}) {
   return (

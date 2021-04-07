@@ -4,7 +4,7 @@ import styled from 'styled-components';
 
 const Field = ({ errorMsg, children }) => {
     const Conteiner = styled.div`
-        height: 40px;
+        height: fit-content;
 
         input {
             margin: 0px;
@@ -33,10 +33,11 @@ const Content = styled.form`
 
 const Footer = ({ children }) => {
     const Content = styled.div`
-    width: 200px;
+    width: inherit;
     display: flex;
     align-items: center;
     justify-content: space-around;
+    align-self:center;
     `;
 
     return (

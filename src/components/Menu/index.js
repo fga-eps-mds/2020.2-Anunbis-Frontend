@@ -33,6 +33,8 @@ const MenuBar = styled.div`
     background-color: #212121;
     display: flex;
     height: 40px;
+    position: absolute;
+    width: 100vw;
 `;
 
 const Logo = styled.div`
@@ -46,7 +48,7 @@ const ImageLogo = styled.img`
 
 const ProfessorSearchStyle = styled.div`
     display: inline-block;
-    height: 30px;
+    height: 40px;
     width: 400px;
     Input {
         

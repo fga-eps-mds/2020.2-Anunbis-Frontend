@@ -2,19 +2,54 @@ import React, { useEffect } from 'react';
 import { useForm } from "react-hook-form";
 import './index.css'
 import { yupResolver } from '@hookform/resolvers/yup';
+import styled from 'styled-components';
 
 import schema from './validations';
 import Input from '../Input';
 import Select from '../Select';
+import Button from '../Button';
+import Form from '../Form';
 
-const Field = ({errorMsg, children}) => {
-    return (
-        <div className="field">
-            {children}
-            <div className="Field_Error">{errorMsg}</div>
-        </div>
-    )
-}
+const Container = styled.div`
+    display: flex;
+    flex-direction: ${props => props.direction ? props.direction : "column"};
+
+    width: ${props => props.width ? props.width : "372px"};
+    height: ${props => props.heigth ? props.heigth : "380px"};
+
+    align-self: flex-end;
+    justify-content: center;
+    
+    border-bottom-right-radius: 2%;
+    border-bottom-left-radius: 2%;
+    background-color: ${props => props.backColor ? props.backColor : "#FFFDE7"};
+
+    Form{
+        align-items: ${props => props.align ? props.align : ""};
+        align-items: flex-start;
+        p, Input{
+            margin-top: 10px;   
+        }
+    }
+`
+const Title = styled.div`
+    width: 50px;
+    display:flex;
+    color: #FFFDE7;
+    margin-left: auto;
+    margin-right: auto;
+`
+
+const TxtArea = styled.textarea`
+    width: 330px;
+    height: 70px;
+    border-radius: 10px;
+    background-color: #FFFDE7;
+
+    &:focus{
+        outline-width: 0;
+    }
+`
 
 export default function Avaliation({
     close,
@@ -29,8 +64,7 @@ export default function Avaliation({
             return(
                 disciplinesArray
             );       
-        }
-        
+        } 
     const { register, handleSubmit, errors } = useForm({
         resolver: yupResolver(schema),
     });
@@ -46,7 +80,6 @@ export default function Avaliation({
             discipline_code: data.id_course,
             is_anonymous: isAnonymous
          }
-        
          fetch(url,{
              method: 'post',
              headers: {'Content-type':'application/json'},
@@ -60,32 +93,26 @@ export default function Avaliation({
          })
         }
   return (
-    <div className="avaliation">
-        <header>
-            <div className="title">
-                Avaliação
-            </div>
-            <button type="button" className="buttonClose" onClick={close}>X</button>
-        </header>
-        <div className="avaliationContent">
-            <form onSubmit={handleSubmit(onSubmit)}>
-                <div className="AvaliationFields">
-               <div className="nameProfessor">{name_professor}</div>
-               <Field errorMsg={errors.id_course?.message}><Select id="diciplines" options={disciplines_Options(disciplines)} name="id_course" register={register} /></Field> 
-               <Field errorMsg={errors.note?.message}><Input type="number"  step="0.1" text="Nota" name="note" register={register} /></Field> 
-                </div>
-                <div className="typePost">Postagem:<br/></div>
-                <div className="buttonTypePost">
-                    <button type="button" className={(`button ${isAnonymous === false? "selected": ""}`)} onClick={() => setIsAnonymous(false)}>PÚBLICA</button>
-                    <button type="button" className={(`button ${isAnonymous? "selected": ""}`)} onClick={() => setIsAnonymous(true)}>ANÔNIMA</button>
-                </div>
-                <div className="Finalization">
-                <div className="commentsPost">Descrição/Comentários:</div>
-                <Field errorMsg={errors.comments?.message}><textarea name="comments" ref={register} /></Field> 
-                <button type="submit" className="buttonPost">POSTAR</button>
-                </div>
-            </form>
-        </div>
-    </div>
+    <Container>
+        <Container direction="row" width="inherit" heigth="20px" backColor="#212121">
+            <Title>Avaliacao</Title>
+            <Button onClick={close} text="X" radius="0px" padding="2px 5px" backColor="palevioletred"/>
+        </Container>
+          <Container width="347px">
+              <Form onSubmit={handleSubmit(onSubmit)}>
+                  <p>{name_professor}</p>
+                    <Form.Field errorMsg={errors.id_course?.message}><Select id="diciplines" options={disciplines_Options(disciplines)} name="id_course" register={register} /></Form.Field> 
+                    <Form.Field errorMsg={errors.note?.message}><Input type="number" step="0.1" text="Nota" name="note" register={register} width="90px"/></Form.Field> 
+                  <p>Postagem:</p>
+                  <Container direction="row" heigth="30px" align="center">
+                      <Button type="button" padding="7px 10px" text="PÚBLICA" backColor={isAnonymous ? "#FFF9C4" : "#969681"} onClick={() => setIsAnonymous(false)} />
+                      <Button type="button" padding="7px 10px" text="ANÔNIMA" backColor={isAnonymous ? "#969681" : "#FFF9C4"} onClick={() => setIsAnonymous(true)} />
+                  </Container>
+                  <p>Descrição/Comentários:</p>
+                    <Form.Field errorMsg={errors.comments?.message}><TxtArea name="comments" ref={register} /></Form.Field> 
+                <Form.Footer><Button type="submit" text="POSTAR" backColor="#26A69A" /></Form.Footer>
+              </Form>
+          </Container>
+      </Container>
   );
 }

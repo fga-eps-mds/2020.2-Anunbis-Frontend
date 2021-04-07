@@ -41,7 +41,7 @@ const Posts = ({ children }) => {
   );
 }
 
-export default function ProfessorBox({onClick,name, rating, posts }) {
+export default function ProfessorBox({onClick, name, rating, posts }) {
   
   return (
     <ProfessorBoxStyle>
