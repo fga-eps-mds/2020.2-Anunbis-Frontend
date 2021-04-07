@@ -1,5 +1,4 @@
 import React from 'react';
-import './index.css'
 import Name_Logo from "../../assets/Name_Logo.png";
 import Input from '../Input';
 import {useHistory} from "react-router-dom";
@@ -33,8 +32,6 @@ const MenuBar = styled.div`
     background-color: #212121;
     display: flex;
     height: 40px;
-    position: absolute;
-    width: 100vw;
 `;
 
 const Logo = styled.div`

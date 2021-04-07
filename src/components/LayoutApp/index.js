@@ -3,23 +3,27 @@ import styled from 'styled-components';
 import Menu from '../Menu';
 import bg_app from "../../assets/BG_App.png";
 
-const Main = styled.main`
+const Container = styled.div`
     height: 100vh;
     background-image: url(${bg_app});
     display: flex;
-    align-items: center;
+    flex-direction: column;
+`
+
+const Main = styled.main`
+    padding-top: 20px;
+    display: flex;
+    align-items: space-around;
     justify-content: center;
 `
 
-export default function LayoutApp({children}) {
-  return (
-  <div>
-      <header>
-         <Menu />
-      </header>
-      <Main>
-          {children}
-      </Main>
-  </div>
-      );
+export default function LayoutApp({ children }) {
+    return (
+        <Container>
+            <Menu />
+            <Main>
+                {children}
+            </Main>
+        </Container>
+    );
 }
