@@ -2,16 +2,24 @@ import React from 'react';
 import styled from 'styled-components';
 
 const Container = styled.div`
-width: 450px;
-height: 500px;
-border-bottom-right-radius: 2%;
-border-bottom-left-radius: 2%;
-background-color: #FFFDE7;
-align-self: center;
+  width: 450px;
+  height: 450px;
+  border-bottom-right-radius: 2%;
+  border-bottom-left-radius: 2%;
+  background-color: #FFFDE7;
+  justify-content: center;
 `
 
-const Title = ({ children }) => {
-  const Title = styled.div`
+const DivContent = styled.div`
+    height: 400px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+    overflow-y: auto;
+`;
+
+const DivTitle = styled.div`
     width: inherit;
     height: 25px;
     background-color: #212121;
@@ -21,32 +29,23 @@ const Title = ({ children }) => {
     justify-content: center;
   `;
 
+const Title = ({ children }) => {
   return (
-    <Title>
+    <DivTitle>
       {children}
-    </Title>
+    </DivTitle>
   )
 }
 
 const Content = ({ children }) => {
-  const Content = styled.div`
-    height: 450px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: space-around;
-    overflow-y: auto;
-`;
-
   return (
-    <Content>
+    <DivContent>
       {children}
-    </Content>
+    </DivContent>
   )
 }
 
 export default function Feed({ title, children }) {
-
   return (
     <Container>
       <Title>

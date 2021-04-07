@@ -15,8 +15,8 @@
 
 .ProfessorSearch .avaliationProfBox{
         position: absolute;
-        width: 40%;
-        height: 80%;
+        width: 450px;
+        height: 300px;
         display: flex;
         align-items: center;
         justify-content: center;

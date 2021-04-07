@@ -45,12 +45,12 @@ const TxtArea = styled.textarea`
     height: 70px;
     border-radius: 10px;
     background-color: #FFFDE7;
+    resize: none;
 
     &:focus{
         outline-width: 0;
     }
 `
-
 export default function Avaliation({
     close,
     reg_student,
@@ -80,6 +80,7 @@ export default function Avaliation({
             discipline_code: data.id_course,
             is_anonymous: isAnonymous
          }
+         console.log(data);
          fetch(url,{
              method: 'post',
              headers: {'Content-type':'application/json'},
@@ -88,10 +89,12 @@ export default function Avaliation({
          .then(response => response)
          .then(rs => {
             if(rs.status === 201){
-                console.log("ok")
-            }
+                console.log("ok");
+                close();
+            } 
          })
         }
+        
   return (
     <Container>
         <Container direction="row" width="inherit" heigth="20px" backColor="#212121">

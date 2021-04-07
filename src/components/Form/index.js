@@ -1,21 +1,19 @@
 import React from "react";
 import styled from 'styled-components';
 
-
-const Field = ({ errorMsg, children }) => {
-    const Conteiner = styled.div`
+const Conteiner = styled.div`
         height: fit-content;
 
         input {
             margin: 0px;
         }
-    `;
-
-    const Erro = styled.div`
+    `
+const Erro = styled.div`
     color: #F44336;
     font-size: 10px;
-    `;
+`;
 
+const Field = ({ errorMsg, children }) => {
     return (
         <Conteiner>
             {children}
