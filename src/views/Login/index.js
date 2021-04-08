@@ -15,16 +15,15 @@ const Content = styled.div`
 height: 450px;
 width: 400px;
 display:flex;
+justify-content: space-between;
 align-items: center;
 flex-direction: column;
   Form {
   height: 300px;
   width: 300px;
-  margin-top: 60px;
-  justify-content: space-evenly;
 
   Button{
-    margin: 0px;
+    margin-top: 30px;
   }
 }
 `;
@@ -56,20 +55,16 @@ const Header = ({ children }) => {
 }
 
 const Erro = styled.div`
-    position:absolute;
+    display: flex;
+    flex-direction: row;
     color:black;
     font-size: 14px;
     font-family: Arial, Helvetica, sans-serif;
-    justify-content: center;
-    padding-bottom: 5%;
-    height: 5px; 
 
     background: #f3c2c2;
     border: 1px solid rgba(255, 245, 157, 0.6);
     box-sizing: border-box;
     border-radius: 5px;
-    padding: 8px 5px;
-    margin-inline: 15px;
     box-shadow: 2px 2px grey;
 
     Button{
@@ -79,8 +74,7 @@ const Erro = styled.div`
       box-sizing: border-box;
       border-radius: 3px;
       padding: 5px 5px;
-      margin-inline: 15px;
-      margin-right: 2%;
+      margin-right: 2px;
     }
 `
 
@@ -96,15 +90,12 @@ export default function Login() {
     logOut();
   })
 
-  function onSubmit(data) {
-    sendLogin(data.email, data.password);
-
-    setTimeout(function () {
-      if (!isAuthenticated())
-        createSpanError();
-      else
-        history.push("/home");
-    }, 300);
+  async function onSubmit(data) {
+    await sendLogin(data.email, data.password);
+    if (isAuthenticated())
+      history.push("/home");
+    else
+      createSpanError();  
   }
 
   function createSpanError() {

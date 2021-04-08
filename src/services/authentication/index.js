@@ -1,9 +1,3 @@
-import React from 'react';
-
-const isAuthenticated = () => {
-  return (localStorage.getItem('access_token') != null) ? true : false;
-}
-
 export async function sendLogin(email, password){
     const url = process.env.REACT_APP_API_HOST + "/login";
     const body = {
@@ -32,4 +26,6 @@ export function logOut(){
   localStorage.removeItem('access_token', 'student');
 }
 
-export default isAuthenticated;
+export default function isAuthenticated() {
+  return (localStorage.getItem('access_token') != null) ? true : false;
+};
