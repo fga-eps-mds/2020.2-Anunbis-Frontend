@@ -81,4 +81,6 @@ const Content_Post = styled.div`
     font: 11px Roboto;
     padding-left: 5px;
     border-radius: 5px;
+    overflow-y: auto;
+    word-break: break-all;
 `;
