@@ -1,9 +1,23 @@
 import React, { useState } from 'react';
-import './index.css'
+import styled from 'styled-components';
 import { useParams } from "react-router-dom";
 import Feed from '../../components/Feed';
 import ProfessorBox from '../../components/ProfessorBox';
 import Avaliation from '../../components/Avaliation';
+
+const Content = styled.div`
+display: flex;
+align-items: center;
+`
+const AvaliationProfBox = styled.div`
+        position: absolute;
+        width: 450px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+`
+;
+
 
 
 export default function ProfessorSearch() {
@@ -12,7 +26,7 @@ export default function ProfessorSearch() {
     const [boxAvaliation, setBoxAvaliation] = React.useState('');
 
     React.useEffect(() => {
-        async function search() {
+        async function fetchData() {
             const url = process.env.REACT_APP_API_HOST + "/professor/" + professorName;
             const response = await fetch(url);
             const data = await response.json();
@@ -20,42 +34,54 @@ export default function ProfessorSearch() {
                 setProfessors(data);
             }
         }
-        search();
-    }, [professorName, professors]);
+        fetchData();
+    }, [professorName]);
 
-    
 
-   function makeAvaliation(id_professor, name, disciplines){
-       setBoxAvaliation (
-        <div className="avaliationProfBox">
-        <Avaliation
-        close={() => setBoxAvaliation('')}
-        reg_student={JSON.parse(localStorage.getItem('student')).reg_student}
-        id_professor={id_professor}
-        name_professor={name}
-        disciplines={disciplines}
-        />
-        </div>)
+
+    function makeAvaliation(id_professor, name, disciplines) {
+        setBoxAvaliation(
+            <Avaliation
+                close={() => setBoxAvaliation('')}
+                reg_student={JSON.parse(localStorage.getItem('student')).reg_student}
+                id_professor={id_professor}
+                name_professor={name}
+                disciplines={disciplines}
+            />
+        )
     }
 
     const Professors = (({ professors }) => {
-        return (
-            <div className="Professors">
+        const Conteiner = styled.div`
+        height: 400px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: flex-start;
+        `;
+
+
+         return (
+            
+                <Feed title={professorName}>
+                    <Conteiner>
                 {professors?.map(prof => {
                     return (
                         <ProfessorBox onClick={() => makeAvaliation(prof.id_professor, prof.name, prof.disciplines)} name={prof.name} rating={prof.rating} posts={prof.posts}></ProfessorBox>
                     )
                 })}
-            </div>
-        );
+                </Conteiner>
+                </Feed>
+            
+         );
     });
 
     return (
-        <div className="ProfessorSearch">
-            {boxAvaliation}
-            <Feed title={professorName}>
-                <Professors professors={professors} />
-            </Feed>
-        </div>
+        <Content>
+            <AvaliationProfBox>
+                {boxAvaliation}
+            </AvaliationProfBox>
+                <Professors professors={professors}/>
+        </Content>
     );
 }

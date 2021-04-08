@@ -1,24 +1,24 @@
 import RegisterStudent from './views/RegisterStudent';
 import Login from './views/Login';
 import RegisterProfessor from './views/RegisterProfessor';
-import Application from './views/Application';
 import ProfessorSearch from './views/ProfessorSearch';
 import isAuthenticated from './services/authentication/index';
-
+import LayoutAutentication from './components/LayoutAutentication';
+import LayoutApp from './components/LayoutApp';
 import {
     BrowserRouter as Router,
     Switch,
     Route,
     Redirect
 } from "react-router-dom";
-import LayoutApp from './components/LayoutApp';
+
 
 const PrivateRoute = ({ component: Component, ...rest }) => (
     <Route {...rest} render={props => (
         isAuthenticated() ? (
             <Component {...props} />
         ) : (
-            <Redirect to={{ pathname: '/login', state: { from: props.location } }} />
+            <Redirect to={{ pathname: '/user/login', state: { from: props.location } }} />
         )
     )} />
 );
@@ -26,15 +26,25 @@ const PrivateRoute = ({ component: Component, ...rest }) => (
 const Routes = () => (
     <Router>
         <Switch>
-            <Route exact path="/" component={RegisterStudent}> <RegisterStudent /> </Route>
 
-            <Route path="/login" component={Login}> <Login /> </Route>
+            <Route path="/user/">
+                <LayoutAutentication>
+                    <Switch>
+                        <Route exact path="/user/student" component={RegisterStudent} />
+                        <Route path="/user/login" exact component={Login} />
+                        <Route path="/user/professor" component={RegisterProfessor} />
+                    </Switch>
+                </LayoutAutentication>
+            </Route>
 
-            <Route path="/cadastro/professor" component={RegisterProfessor}> <RegisterProfessor /> </Route>
-            <LayoutApp>
-                <PrivateRoute path="/home" component={Application} />
-                <PrivateRoute path="/professor/search/:professorName" component={ProfessorSearch} />
-            </LayoutApp>
+            <Route path="/">
+                <LayoutApp>
+                    <Switch>
+                        <PrivateRoute path="/professor/search/:professorName" component={ProfessorSearch} />
+                    </Switch>
+                </LayoutApp>
+            </Route>
+
         </Switch>
     </Router>
 );

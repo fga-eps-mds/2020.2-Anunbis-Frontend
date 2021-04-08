@@ -1,8 +1,0 @@
-.LayoutApp main {
-    width: 100vw;
-    height: 93vh;
-    background-image: url("../../assets/BG_App.png");
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}

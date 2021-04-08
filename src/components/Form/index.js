@@ -1,48 +1,63 @@
 import React from "react";
-import './index.css';
+import styled from 'styled-components';
 
+const Conteiner = styled.div`
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+        height: fit-content;
 
-const Field = ({errorMsg, children}) => {
+        input {
+            margin: 0px;
+        }
+    `
+const Erro = styled.div`
+    color: #F44336;
+    font-size: 10px;
+`;
+
+const Field = ({ errorMsg, children }) => {
     return (
-        <div className="field">
+        <Conteiner>
             {children}
-            <div className="field error">{errorMsg}</div>
-        </div>
+            <Erro>{errorMsg}</Erro>
+        </Conteiner>
     )
 }
 
-const Header = ({title, children}) => {
-    return(
-        <div className= "header">
-            <div className="links">{children}</div>
-            <h4>{title}</h4>
-        </div>
-    )
-}
+const Content = styled.form`
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+    `;
 
-const Footer = ({children}) => {
+const Footer = ({ children }) => {
+    const Content = styled.div`
+    width: fit-content;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    align-self:center;
+    `;
+
     return (
-        <div className="footer">
+        <Content>
             {children}
-        </div>
+        </Content>
     )
 }
 
-function Form({children, onSubmit}) {
+function Form({ children, onSubmit }) {
     return (
-        <main className="formulario">
-            <div className="logo" />
-            <form className="form" onSubmit={onSubmit}> 
-                <div className="fields">
-                    {children}
-                </div>
-            </form>
-        </main>
+        <Content onSubmit={onSubmit}>
+            {children}
+        </Content>
+
     );
 }
 
 
 Form.Field = Field;
 Form.Footer = Footer;
-Form.Header = Header;
 export default Form;
