@@ -1,23 +1,51 @@
-import RegisterStudent from './pages/RegisterStudent';
-import Login from './pages/Login'
-import RegisterProfessor from './pages/RegisterProfessor'
-
+import RegisterStudent from './views/RegisterStudent';
+import Login from './views/Login';
+import RegisterProfessor from './views/RegisterProfessor';
+import ProfessorSearch from './views/ProfessorSearch';
+import isAuthenticated from './services/authentication/index';
+import LayoutAutentication from './components/LayoutAutentication';
+import LayoutApp from './components/LayoutApp';
 import {
     BrowserRouter as Router,
     Switch,
     Route,
+    Redirect
 } from "react-router-dom";
+
+
+const PrivateRoute = ({ component: Component, ...rest }) => (
+    <Route {...rest} render={props => (
+        isAuthenticated() ? (
+            <Component {...props} />
+        ) : (
+            <Redirect to={{ pathname: '/user/login', state: { from: props.location } }} />
+        )
+    )} />
+);
 
 const Routes = () => (
     <Router>
         <Switch>
-            <Route exact path="/" component={RegisterStudent}> <RegisterStudent /> </Route>
 
-            <Route path="/login" component={Login}> <Login /> </Route>
+            <Route path="/user/">
+                <LayoutAutentication>
+                    <Switch>
+                        <Route exact path="/user/student" component={RegisterStudent} />
+                        <Route path="/user/login" exact component={Login} />
+                        <Route path="/user/professor" component={RegisterProfessor} />
+                    </Switch>
+                </LayoutAutentication>
+            </Route>
 
-            <Route path="/cadastro/professor" component={RegisterProfessor}> <RegisterProfessor /> </Route>
-  
+            <Route path="/">
+                <LayoutApp>
+                    <Switch>
+                        <PrivateRoute path="/professor/search/:professorName" component={ProfessorSearch} />
+                    </Switch>
+                </LayoutApp>
+            </Route>
+
         </Switch>
     </Router>
-)
+);
 export default Routes;
