@@ -1,6 +1,5 @@
 import React from 'react';
 import Post from '../Post';
-import "./index.css"
 import styled from 'styled-components';
 
 import Button from '../Button';

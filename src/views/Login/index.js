@@ -15,15 +15,16 @@ const Content = styled.div`
 height: 450px;
 width: 400px;
 display:flex;
-justify-content: space-between;
 align-items: center;
 flex-direction: column;
   Form {
   height: 300px;
   width: 300px;
+  margin-top: 60px;
+  justify-content: space-evenly;
 
   Button{
-    margin-top: 30px;
+    margin: 0px;
   }
 }
 `;

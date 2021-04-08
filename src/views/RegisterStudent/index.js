@@ -63,9 +63,9 @@ Form {
   height: 300px;
   width: 300px;
   Input, Select{
-    margin-bottom: 10px;
-    width: 180px;
-  }
+      margin-bottom: 5px;
+      width: 180px;
+    }
   
 }
 
@@ -86,7 +86,7 @@ export default function RegisterStudent() {
   console.log(process.env)
 
   function courses_Options(courses) {
-    const coursesArray = [{}]
+    const coursesArray = []
     courses?.map((course) => coursesArray.push({ id: course.id_course, name: course.name }))
     return (
       coursesArray

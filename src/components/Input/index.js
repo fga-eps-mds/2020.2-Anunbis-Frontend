@@ -27,7 +27,6 @@ const InputStyle = styled.input`
 
 export default function Input(props) {
     return (
-        <div>
             <InputStyle type={props.type} 
                 placeholder={props.text} 
                 value={props.value} 
@@ -37,6 +36,5 @@ export default function Input(props) {
                 onKeyPress={props.onkeydown}
                 step={props.step} 
                 width={props.width}/>
-        </div>
     );
 }

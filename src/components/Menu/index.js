@@ -44,13 +44,20 @@ const ImageLogo = styled.img`
 `;
 
 const ProfessorSearchStyle = styled.div`
-    display: inline-block;
+    display: flex;
+    align-items: center;
     height: 40px;
     width: 400px;
     Input {
         
         color: #FFFDE7;
         border-bottom: 1px solid #FFFDE7;
+        margin: 0px;
+        
+    }
+
+    input {
+            height: 18px;
     }
     input::-webkit-input-placeholder  {
         height: 30px;

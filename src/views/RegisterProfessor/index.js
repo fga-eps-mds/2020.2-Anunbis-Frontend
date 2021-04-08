@@ -60,8 +60,8 @@ const Content = styled.div`
   Form {
     height: 300px;
     width: 300px;
-    Input, Select{
-      margin-bottom: 15px;
+    Input{
+      margin-bottom: 5px;
       width: 180px;
     }
     Button{

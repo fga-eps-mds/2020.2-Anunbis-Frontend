@@ -17,6 +17,7 @@ export default function Select({ text, id, name, register, options, backColor, w
         <div className="Select">
             <SelectStyle id={id} name={name} ref={register} backColor={backColor} width={width}>
                 <option value="" disabled selected>{text}</option>
+                {console.log(options)}
                 {options?.map((item) => (
                     <option value={item.id} key={item.id}>{item.name}</option>
                 ))}

@@ -2,6 +2,9 @@ import React from "react";
 import styled from 'styled-components';
 
 const Conteiner = styled.div`
+        display: flex;
+        align-items: center;
+        flex-direction: column;
         height: fit-content;
 
         input {
@@ -25,8 +28,8 @@ const Field = ({ errorMsg, children }) => {
 const Content = styled.form`
     display: flex;
     flex-direction: column;
-    align-items: flex-start;
     align-items: center;
+    justify-content: space-around;
     `;
 
 const Footer = ({ children }) => {

@@ -1,6 +1,5 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import { useForm } from "react-hook-form";
-import './index.css'
 import { yupResolver } from '@hookform/resolvers/yup';
 import styled from 'styled-components';
 
@@ -32,6 +31,14 @@ const Container = styled.div`
         }
     }
 `
+const NameProfessor = styled.p`
+    color: rgba(61, 58, 58, 0.603);
+    border-bottom: 1px solid #000000;
+    width: 252px;
+    text-align: left;
+    font-size: 15px;
+`
+
 const Title = styled.div`
     width: 50px;
     display:flex;
@@ -59,7 +66,7 @@ export default function Avaliation({
     disciplines
     }) {
         function disciplines_Options (disciplines) {
-            const disciplinesArray = [{}]
+            const disciplinesArray = []
             disciplines?.map((dis) => disciplinesArray.push({id:dis.discipline_code,name:dis.name}))
             return(
                 disciplinesArray
@@ -103,7 +110,7 @@ export default function Avaliation({
         </Container>
           <Container width="347px">
               <Form onSubmit={handleSubmit(onSubmit)}>
-                  <p>{name_professor}</p>
+                  <NameProfessor>{name_professor}</NameProfessor>
                     <Form.Field errorMsg={errors.id_course?.message}><Select id="diciplines" backColor="#FFFDE7" text="Selecione um Curso" options={disciplines_Options(disciplines)} name="id_course" register={register} /></Form.Field> 
                     <Form.Field errorMsg={errors.note?.message}><Input type="number" step="0.1" text="Nota" name="note" register={register} width="90px"/></Form.Field> 
                   <p>Postagem:</p>
