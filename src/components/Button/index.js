@@ -17,7 +17,7 @@ const Btn = styled.button`
 
 export default function Button(props) {
     return (
-            <Btn type={props.type} onClick={props.onClick} backColor={props.backColor} padding={props.padding} radius={props.radius}>
+            <Btn type={props.type} onClick={props.onClick} backColor={props.backColor} padding={props.padding} radius={props.radius} className={props.className}>
                 {props.text}
             </Btn>
     );
