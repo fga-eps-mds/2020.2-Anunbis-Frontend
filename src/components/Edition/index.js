@@ -6,8 +6,8 @@ const Container = styled.div`
     display: ${props => props.display?props.display:{}};
     flex-direction: column;
     align-items: center;
-    width: ${props => props.width?props.width:'480px'};
-    height: ${props => props.height?props.height:'510px'};
+    width: ${props => props.width?props.width:'460px'};
+    height: ${props => props.height?props.height:'460px'};
     background-color: ${props => props.backColor?props.backColor:{}};
     border-radius: 20px;
     /* justify-content: center; */
@@ -38,6 +38,12 @@ const Title = styled.h4`
 
 export default function Edition(){
 
+    const student = {
+        name: JSON.parse(localStorage.getItem('student')).name,
+        email: JSON.parse(localStorage.getItem('student')).email,
+        course: JSON.parse(localStorage.getItem('student')).id_course
+    }
+
     return (
     <Container display='flex' backColor='#E0E0E0'>
     
@@ -46,10 +52,12 @@ export default function Edition(){
     </Title>
     
     <Container backColor='#FFFFFF' width='240px' height='115px'>
-        <p>Nome Completo: </p>
-        <p>E-mail: </p>
-        <p>Curso: </p>
+        <p>Nome Completo: {student.name}</p>
+        <p>E-mail: {student.email}</p>
+        <p>Curso: {student.course}</p>
     </Container>
+
+    {console.log(localStorage.getItem("student"))}
 
     <Button text='ALTERAR SENHA' backColor='#FFF9C4' padding='5px' onClick={()=>console.log("teste")}/>
 
