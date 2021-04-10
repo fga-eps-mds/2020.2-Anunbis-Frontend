@@ -3,26 +3,27 @@ import Name_Logo from "../../assets/Name_Logo.png";
 import Input from '../Input';
 import {useHistory} from "react-router-dom";
 import styled from 'styled-components';
+import Button from '../Button'
 
-const ProfessorSearch = () =>{
-    const history =  useHistory()
-
+function ProfessorSearch ({history}) {
     const onSubmit = (data) => {
         if(data.key === 'Enter' && data.target.value.trim().length > 0)
-           history.push("/professor/search/" + data.target.value.trim()) 
+            history.push("/professor/search/" + data.target.value.trim())
     }
-
     return (<ProfessorSearchStyle><Input type="text" width="400px" text="Informe o nome do professor" onkeydown={onSubmit}/></ProfessorSearchStyle>)
 }
 
-
 export default function Menu() {
+
+    const history = useHistory();
+
     return (
         <MenuBar>
             <Logo>
                 <ImageLogo src={Name_Logo} alt="logo"></ImageLogo>
             </Logo>
-            <ProfessorSearch />
+            <ProfessorSearch history={history}/>
+            <BtnEdition text='ººº' padding='5px 5px' backColor='#212121' onClick={() => history.push("/profile")}/>
         </MenuBar>
     );
 }
@@ -64,3 +65,13 @@ const ProfessorSearchStyle = styled.div`
     color: rgba(255, 255, 255, 0.603);
 }
 `;
+
+const BtnEdition = styled (Button)`
+    margin-left: auto;
+    letter-spacing: 1.5px;
+    color: #FFD54F;
+    border: none;
+    box-shadow: none;
+    display: flex;
+    align-self: flex-end;
+`
