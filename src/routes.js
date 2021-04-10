@@ -11,7 +11,7 @@ import {
     Route,
     Redirect
 } from "react-router-dom";
-
+import Edition from './components/Edition';
 
 const PrivateRoute = ({ component: Component, ...rest }) => (
     <Route {...rest} render={props => (
@@ -40,6 +40,7 @@ const Routes = () => (
             <Route path="/">
                 <LayoutApp>
                     <Switch>
+                        <PrivateRoute path="/profile" component={Edition} />
                         <PrivateRoute path="/professor/search/:professorName" component={ProfessorSearch} />
                     </Switch>
                 </LayoutApp>
