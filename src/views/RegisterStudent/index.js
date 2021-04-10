@@ -8,6 +8,7 @@ import Form from '../../components/Form';
 import Input from '../../components/Input';
 import Select from '../../components/Select';
 import Button from '../../components/Button';
+import api from '../../services/Api';
 
 const Conteiner = styled.div`
   width: 400px;
@@ -83,7 +84,6 @@ export default function RegisterStudent() {
     resolver: yupResolver(schema),
   });
 
-  console.log(process.env)
 
   function courses_Options(courses) {
     const coursesArray = []
@@ -94,18 +94,15 @@ export default function RegisterStudent() {
   }
 
   useEffect(() => {
-    async function fetchData() {
-      const url = process.env.REACT_APP_API_HOST + "/course";
-      const response = await fetch(url)
-      const data = await response.json()
-
-      setCourses(data);
+    {
+      api.get("/course")
+        .then(response => {
+          setCourses(response.data);
+        })
     }
-    fetchData();
   }, []);
 
   function onSubmit(data) {
-    const url = process.env.REACT_APP_API_HOST + "/student";
     const body = {
       reg_student: parseInt(data.reg_student),
       name: data.name,
@@ -114,23 +111,18 @@ export default function RegisterStudent() {
       password: data.password
     }
 
-    fetch(url, {
-      method: 'post',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify(body)
-    })
-      .then(response => response)
-      .then(rs => {
-        console.log(rs)
-        console.log(rs.json())
-        if (rs.ok) {
-          setErrorDB("")
-          history.push("/login")
-        }
-        if (rs.status === 409) {
-          setErrorDB("Estudante já cadastrado")
+
+    api.post("/student", body)
+      .then(response => {
+        if (response.status === 201) {
+          history.push("/user/login")
         }
       })
+      .catch(error => {
+        if (error.response.status === 409) {
+          setErrorDB("Estudante já cadastrado")
+        }
+      });
   };
 
   return (
