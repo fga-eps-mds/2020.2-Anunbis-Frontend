@@ -8,6 +8,7 @@ import Input from '../Input';
 import Select from '../Select';
 import Button from '../Button';
 import Form from '../Form';
+import api from '../../services/Api';
 
 const Container = styled.div`
     display: flex;
@@ -78,7 +79,6 @@ export default function Avaliation({
     const [isAnonymous,setIsAnonymous] = React.useState(false);
     
    function onSubmit(data) {
-       const url = process.env.REACT_APP_API_HOST + "/post"
         const body = {
             reg_student: parseInt(reg_student),
             id_professor: parseInt(id_professor),
@@ -87,18 +87,12 @@ export default function Avaliation({
             discipline_code: data.id_course,
             is_anonymous: isAnonymous
          }
-         console.log(data);
-         fetch(url,{
-             method: 'post',
-             headers: {'Content-type':'application/json'},
-             body: JSON.stringify(body)
-         })
-         .then(response => response)
-         .then(rs => {
-            if(rs.status === 201){
-                console.log("ok");
+
+         api.post("/post", body)
+         .then(response => {
+             if(response.status === 201){
                 close();
-            } 
+             }
          })
         }
         

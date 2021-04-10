@@ -4,6 +4,7 @@ import { useParams } from "react-router-dom";
 import Feed from '../../components/Feed';
 import ProfessorBox from '../../components/ProfessorBox';
 import Avaliation from '../../components/Avaliation';
+import api from '../../services/Api';
 
 const Content = styled.div`
 display: flex;
@@ -16,7 +17,7 @@ const AvaliationProfBox = styled.div`
         align-items: center;
         justify-content: center;
 `
-;
+    ;
 
 
 
@@ -24,25 +25,26 @@ export default function ProfessorSearch() {
     const { professorName } = useParams();
     const [professors, setProfessors] = useState([]);
     const [boxAvaliation, setBoxAvaliation] = React.useState('');
+    const [reload, setReload] = useState(false)
 
     React.useEffect(() => {
-        async function fetchData() {
-            const url = process.env.REACT_APP_API_HOST + "/professor/" + professorName;
-            const response = await fetch(url);
-            const data = await response.json();
-            if (response.ok) {
-                setProfessors(data);
-            }
-        }
-        fetchData();
-    }, [professorName]);
+        api.get("/professor/" + professorName)
+            .then(response => {
+                if (response.status === 200) {
+                    setProfessors(response.data);
+                }
+            })
+    }, [professorName, reload]);
 
-
+    function closeAvaliation() {
+        setBoxAvaliation('');
+        setReload(!reload);
+    }
 
     function makeAvaliation(id_professor, name, disciplines) {
         setBoxAvaliation(
             <Avaliation
-                close={() => setBoxAvaliation('')}
+                close={() => closeAvaliation()}
                 reg_student={JSON.parse(localStorage.getItem('student')).reg_student}
                 id_professor={id_professor}
                 name_professor={name}
@@ -61,19 +63,19 @@ export default function ProfessorSearch() {
         `;
 
 
-         return (
-            
-                <Feed title={professorName}>
-                    <Conteiner>
-                {professors?.map(prof => {
-                    return (
-                        <ProfessorBox onClick={() => makeAvaliation(prof.id_professor, prof.name, prof.disciplines)} name={prof.name} rating={prof.rating} posts={prof.posts}></ProfessorBox>
-                    )
-                })}
+        return (
+
+            <Feed title={professorName}>
+                <Conteiner>
+                    {professors?.map(prof => {
+                        return (
+                            <ProfessorBox onClick={() => makeAvaliation(prof.id_professor, prof.name, prof.disciplines)} name={prof.name} rating={prof.rating} posts={prof.posts}></ProfessorBox>
+                        )
+                    })}
                 </Conteiner>
-                </Feed>
-            
-         );
+            </Feed>
+
+        );
     });
 
     return (
@@ -81,7 +83,7 @@ export default function ProfessorSearch() {
             <AvaliationProfBox>
                 {boxAvaliation}
             </AvaliationProfBox>
-                <Professors professors={professors}/>
+            <Professors professors={professors} />
         </Content>
     );
 }
