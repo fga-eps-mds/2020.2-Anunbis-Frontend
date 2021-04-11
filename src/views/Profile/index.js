@@ -108,7 +108,6 @@ export default function Profile(){
                     <Button backColor='#26A69A' padding='10px 7px' text='SIM' onClick={() => {logOut(); history.push('/user/login')}}/>
                     <Button backColor='#26A69A' padding='10px 7px' text='NÃO' onClick={() => setExcludeAccount('')}/>
                 </BtsExclude>
-
             </ContentExclude>)
         )
     }
