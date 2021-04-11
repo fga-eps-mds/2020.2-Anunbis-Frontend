@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import styled from 'styled-components';
 import Button from '../../components/Button';
 import ResetPassword from '../../components/ResetPassword';
@@ -78,14 +78,36 @@ const Title = styled.h4`
 `;
 
 export default function Profile(){
-
     const student = {
         name: JSON.parse(localStorage.getItem('student')).name,
         email: JSON.parse(localStorage.getItem('student')).email,
-        course: JSON.parse(localStorage.getItem('student')).id_course
+        id_course: JSON.parse(localStorage.getItem('student')).id_course
     }
-
     const [resetPassword, setResetPassword] = React.useState("");
+    const [courses, setCourses] = React.useState([]);
+
+    function course_Student(courses) {
+        let course_Student = "";
+        courses?.map((course) => {
+            if (course.id_course == student.id_course){
+                course_Student = course.name;
+            }
+        }
+        );
+        return course_Student;
+      }
+    
+    
+    useEffect(() => {
+        async function fetchData() {
+          const url = process.env.REACT_APP_API_HOST + "/course";
+          const response = await fetch(url)
+          const data = await response.json()
+    
+          setCourses(data);
+        }
+        fetchData();
+      }, []);
 
     function makeResetPassword() {
         return(
@@ -124,7 +146,7 @@ export default function Profile(){
     <Container backColor='#FFFFFF' width='240px' height='115px'>
         <p>Nome Completo: {student.name}</p>
         <p>E-mail: {student.email}</p>
-        <p>Curso: {student.course}</p>
+        <p>Curso: {course_Student(courses)}</p>
     </Container>
 
     {console.log(localStorage.getItem("student"))}
