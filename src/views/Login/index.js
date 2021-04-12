@@ -9,7 +9,7 @@ import schema from "./validations"
 import Button from "../../components/Button";
 import Form from "../../components/Form";
 import Input from "../../components/Input";
-import isAuthenticated, { sendLogin, logOut } from '../../services/authentication'
+import isAuthenticated, { sendLogin, logOut } from '../../services/Auth'
 
 const Content = styled.div`
 height: 450px;
@@ -86,16 +86,18 @@ export default function Login() {
     resolver: yupResolver(schema),
   });
 
-  useEffect(() => {
-    logOut();
-  })
+  // useEffect(() => {
+  //   logOut();
+  // })
 
-  async function onSubmit(data) {
-    await sendLogin(data.email, data.password);
-    if (isAuthenticated())
-      history.push("/home");
-    else
-      createSpanError();  
+  function onSubmit(data) {
+    sendLogin(data.email, data.password, () => {
+      if (isAuthenticated())
+        history.push("/home");
+      else
+        createSpanError();
+    });
+
   }
 
   function createSpanError() {
@@ -117,7 +119,7 @@ export default function Login() {
         <Form.Field errorMsg={errors.email?.message}><Input type="text" text="Email Instuticional" name="email" register={register} /> </Form.Field>
         <Form.Field errorMsg={errors.password?.message}><Input type="password" text="Senha" name="password" register={register} /> </Form.Field>
         <Form.Footer>
-          <Button text="CONFIRMAR" backColor="#FFF9C4"/>
+          <Button text="CONFIRMAR" backColor="#FFF9C4" />
         </Form.Footer>
       </Form>
     </Content>

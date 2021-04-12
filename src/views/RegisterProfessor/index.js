@@ -7,7 +7,7 @@ import Input from '../../components/Input';
 import Button from '../../components/Button';
 import schema from './validations';
 import { Link, useHistory } from 'react-router-dom';
-
+import api from '../../services/Api';
 
 const Conteiner = styled.div`
   width: 400px;
@@ -78,29 +78,25 @@ export default function RegisterProfessor() {
   });
 
   function onSubmit(data) {
-    const url = process.env.REACT_APP_API_HOST + "/professor";
     const body = {
       name: data.name,
       email: data.email,
       password: data.password,
       reg_professor: data.reg_professor
     }
-    fetch(url, {
-      method: 'post',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify(body)
-    })
-      .then(response => response)
-      .then(rs => {
-        if (rs.ok) {
-          setErrorDB("")
+
+    api.post("/professor", body)
+      .then(response => {
+        if (response.status === 201) {
           history.push("/user/login")
         }
-        if (rs.status === 409) {
+      })
+      .catch(error => {
+        if (error.response.status === 409) {
           setErrorDB("Professor já cadastrado")
         }
-      })
-  };
+      });
+  }
 
 
   return (
@@ -119,8 +115,8 @@ export default function RegisterProfessor() {
         <Form.Field errorMsg={errors.co_password?.message}><Input type="password" text="Confirmar Senha" name="co_password" register={register} /></Form.Field>
         <Form.Field><div className="errorDB">{errorDB}</div></Form.Field>
         <Form.Footer>
-          <Button text="CANCELAR" backColor="#FFF9C4"/>
-          <Button text="CONFIRMAR" type="submit" backColor="#FFF9C4"/>
+          <Button text="CANCELAR" backColor="#FFF9C4" />
+          <Button text="CONFIRMAR" type="submit" backColor="#FFF9C4" />
         </Form.Footer>
       </Form>
     </Content>
