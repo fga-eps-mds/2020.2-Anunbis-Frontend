@@ -8,14 +8,15 @@ import Input from '../Input';
 import Select from '../Select';
 import Button from '../Button';
 import Form from '../Form';
+import FeedPopup from '../FeedPopup';
 import api from '../../services/Api';
 
 const Container = styled.div`
     display: flex;
     flex-direction: ${props => props.direction ? props.direction : "column"};
 
-    width: ${props => props.width ? props.width : "372px"};
-    height: ${props => props.heigth ? props.heigth : "380px"};
+    width: ${props => props.width ? props.width : "372"};
+    height: ${props => props.heigth ? props.heigth : "360px"};
 
     align-self: flex-end;
     justify-content: center;
@@ -97,12 +98,8 @@ export default function Avaliation({
         }
         
   return (
-    <Container>
-        <Container direction="row" width="inherit" heigth="20px" backColor="#212121">
-            <Title>Avaliacao</Title>
-            <Button onClick={close} text="X" radius="0px" padding="2px 5px" backColor="palevioletred"/>
-        </Container>
-          <Container width="347px">
+    <FeedPopup close={close}>
+          <Container>
               <Form onSubmit={handleSubmit(onSubmit)}>
                   <NameProfessor>{name_professor}</NameProfessor>
                     <Form.Field errorMsg={errors.id_course?.message}><Select id="diciplines" backColor="#FFFDE7" text="Selecione um Curso" options={disciplines_Options(disciplines)} name="id_course" register={register} /></Form.Field> 
@@ -117,6 +114,6 @@ export default function Avaliation({
                 <Form.Footer><Button type="submit" text="POSTAR" backColor="#26A69A" /></Form.Footer>
               </Form>
           </Container>
-      </Container>
+      </FeedPopup>
   );
 }
