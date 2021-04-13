@@ -1,3 +1,4 @@
+import React from 'react';
 import styled from 'styled-components';
 import Button from '../Button';
 import Checkbox from '../Checkbox';
@@ -22,6 +23,20 @@ const Header = styled.div`
     }
 `;
 
+const TxtArea = styled.textarea`
+    width: 330px;
+    height: 70px;
+    border-radius: 10px;
+    background-color: #FFFDE7;
+    resize: none;
+
+    &:focus{
+        outline-width: 0;
+    }
+`
+
+const Details = styled.div``;
+
 
 
 export default function Report() {
@@ -29,12 +44,16 @@ export default function Report() {
     return (
         <FeedPopup title="Denuncia">
             <Options>
-                Motivo da Denuncia:<br />
+                <p>Motivo da Denuncia:</p>
                 <Checkbox text="Linguagem ofensiva" />
                 <Checkbox text="Comentário preconceituoso" />
                 <Checkbox text="Críticas não relacionadas a disciplina" />
                 <Checkbox text="Outros" />
             </Options>
+            <Details>
+                <p>Detalhe os motivos:</p>
+                <TxtArea/>
+            </Details>
             <Header>
                 <Button text="DENUNCIAR" backColor="#F44336" />
             </Header>
