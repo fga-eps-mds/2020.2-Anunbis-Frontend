@@ -5,6 +5,93 @@ import ResetPassword from '../../components/ResetPassword';
 import {logOut} from '../../services/authentication'
 import {useHistory} from "react-router-dom";
 
+export default function Profile(){
+    const student = {
+        name: JSON.parse(localStorage.getItem('student')).name,
+        email: JSON.parse(localStorage.getItem('student')).email,
+        id_course: JSON.parse(localStorage.getItem('student')).id_course
+    }
+    const [resetPassword, setResetPassword] = React.useState("");
+    const [courses, setCourses] = React.useState([]);
+
+    function course_Student(courses) {
+        let course_Student = "";
+        courses?.slice(0, 5).map((course) => {
+            console.log("teste ");
+            if (course.id_course == student.id_course){
+                return course_Student = course.name;     
+            }
+        }
+        );
+        return course_Student;
+      }
+    
+    useEffect(() => {
+        async function fetchData() {
+          const url = process.env.REACT_APP_API_HOST + "/course";
+          const response = await fetch(url)
+          const data = await response.json()
+    
+          setCourses(data);
+        }
+        fetchData();
+      }, []);
+
+    function makeResetPassword() {
+        return(
+            setResetPassword(<ResetPassword onClick={() => setResetPassword("")} student={student} />)
+        )
+    }
+
+    const [excludeAccount, setExcludeAccount] = React.useState("");
+    const history = useHistory();
+
+    function makeExcludeAccount(){
+        return(
+            setExcludeAccount(
+            <ContentExclude >
+                <header>
+                Tem certeza?
+                </header>
+                
+                <BtsExclude>
+                    <Button backColor='#26A69A' padding='10px 7px' text='SIM' onClick={() => {logOut(); history.push('/user/login')}}/>
+                    <Button backColor='#26A69A' padding='10px 7px' text='NÃO' onClick={() => setExcludeAccount('')}/>
+                </BtsExclude>
+            </ContentExclude>)
+        )
+    }
+
+    return (
+    <Container display='flex' backColor='#E0E0E0'>
+    {resetPassword}
+    {excludeAccount}
+
+    <Title>
+        Configurações de conta
+    </Title>
+    
+    <Container backColor='#FFFFFF' width='240px' height='115px'>
+        <p>Nome Completo: {student.name}</p>
+        <p>E-mail: {student.email}</p>
+        <p>Curso: {course_Student(courses)}</p>
+    </Container>
+
+    {console.log(localStorage.getItem("student"))}
+
+    <BtnReset text='ALTERAR SENHA' backColor='#FFF9C4' padding='5px' onClick={()=> makeResetPassword()}/>
+
+    <Container txtAlign='center' backColor='#FFFFFF' width='430px' height='115px'>
+        <p>Quantidade de avaliações realizadas: </p>
+        <p>Quantidade de pessoas que concordaram com suas avaliações: </p>
+        <p>Quantidade de pessoas que discordaram com suas avaliações: </p>
+    </Container>
+
+    <BtnExcluir text='EXCLUIR CONTA' backColor='#F44336' padding='5px' onClick={()=> makeExcludeAccount()}/>
+
+    </Container>)
+}
+
 const Container = styled.div`
     display: ${props => props.display?props.display:''};
     flex-direction:column;
@@ -76,90 +163,3 @@ const Title = styled.h4`
   margin-bottom:20px;
   margin-top: 40px;
 `;
-
-export default function Profile(){
-    const student = {
-        name: JSON.parse(localStorage.getItem('student')).name,
-        email: JSON.parse(localStorage.getItem('student')).email,
-        id_course: JSON.parse(localStorage.getItem('student')).id_course
-    }
-    const [resetPassword, setResetPassword] = React.useState("");
-    const [courses, setCourses] = React.useState([]);
-
-    function course_Student(courses) {
-        let course_Student = "";
-        courses?.map((course) => {
-            if (course.id_course == student.id_course){
-                course_Student = course.name;
-            }
-        }
-        );
-        return course_Student;
-      }
-    
-    
-    useEffect(() => {
-        async function fetchData() {
-          const url = process.env.REACT_APP_API_HOST + "/course";
-          const response = await fetch(url)
-          const data = await response.json()
-    
-          setCourses(data);
-        }
-        fetchData();
-      }, []);
-
-    function makeResetPassword() {
-        return(
-            setResetPassword(<ResetPassword onClick={() => setResetPassword("")} student={student} />)
-        )
-    }
-
-    const [excludeAccount, setExcludeAccount] = React.useState("");
-    const history = useHistory();
-
-    function makeExcludeAccount(){
-        return(
-            setExcludeAccount(
-            <ContentExclude >
-                <header>
-                Tem certeza?
-                </header>
-                
-                <BtsExclude>
-                    <Button backColor='#26A69A' padding='10px 7px' text='SIM' onClick={() => {logOut(); history.push('/user/login')}}/>
-                    <Button backColor='#26A69A' padding='10px 7px' text='NÃO' onClick={() => setExcludeAccount('')}/>
-                </BtsExclude>
-            </ContentExclude>)
-        )
-    }
-
-    return (
-    <Container display='flex' backColor='#E0E0E0'>
-    {resetPassword}
-    {excludeAccount}
-
-    <Title>
-        Configurações de conta
-    </Title>
-    
-    <Container backColor='#FFFFFF' width='240px' height='115px'>
-        <p>Nome Completo: {student.name}</p>
-        <p>E-mail: {student.email}</p>
-        <p>Curso: {course_Student(courses)}</p>
-    </Container>
-
-    {console.log(localStorage.getItem("student"))}
-
-    <BtnReset text='ALTERAR SENHA' backColor='#FFF9C4' padding='5px' onClick={()=> makeResetPassword()}/>
-
-    <Container txtAlign='center' backColor='#FFFFFF' width='430px' height='115px'>
-        <p>Quantidade de avaliações realizadas: </p>
-        <p>Quantidade de pessoas que concordaram com suas avaliações: </p>
-        <p>Quantidade de pessoas que discordaram com suas avaliações: </p>
-    </Container>
-
-    <BtnExcluir text='EXCLUIR CONTA' backColor='#F44336' padding='5px' onClick={()=> makeExcludeAccount()}/>
-
-    </Container>)
-}
