@@ -17,21 +17,22 @@ const Info_Teacher = ({ children }) => {
   );
 }
 
-const Posts = ({ children }) => {
+const Posts = ({ children, report}) => {
 
   return (
     <Posts_ProfessorBox>
       {children?.map(post => {
         return (
           <span>
-            <Post>
+            <Post report={report}>
               <Post.Header
                 discipline_code={post.discipline.discipline_code}
                 discipline_name={post.discipline.name}
                 name_course={post.student.course.name}
                 date={post.post_date}
                 name_studant={post.student?.name}
-                rating={post.rating} />
+                rating={post.rating}
+                report={report} />
               <Post.Content content={post.content} />
             </Post>
           </span>)
@@ -40,7 +41,7 @@ const Posts = ({ children }) => {
   );
 }
 
-export default function ProfessorBox({onClick, name, rating, posts }) {
+export default function ProfessorBox({onClick, report, name, rating, posts }) {
   
   return (
     <ProfessorBoxStyle>
@@ -51,7 +52,7 @@ export default function ProfessorBox({onClick, name, rating, posts }) {
         </Info_Teacher>
         <Button text="AVALIAR" onClick={onClick}/>
       </HeaderStyle>
-      <Posts>
+      <Posts report={report}>
         {posts}
       </Posts>
     </ProfessorBoxStyle>

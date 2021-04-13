@@ -1,7 +1,8 @@
 import React from 'react';
 import styled from 'styled-components';
+import Button from '../Button';
 
-const Header = ({ children }) => {
+const Header = ({ children, report }) => {
     return (
         <Header_Post>
             <Info_Student>
@@ -15,6 +16,7 @@ const Header = ({ children }) => {
             <Rating>
                 Nota: {children.rating}
             </Rating>
+            <Button type="button" text="ººº" backColor="rgba(255, 0, 0, 0)" onClick={report} />
         </Header_Post>
     )
 }
@@ -27,10 +29,10 @@ const Content = ({ children }) => {
     )
 }
 
-export default function Post({ children }) {
+export default function Post({ children, report }) {
     return (
         <PostStyle>
-            <Header>
+            <Header report={report}>
                 {children[0].props}
             </Header>
             <Content>
@@ -56,6 +58,13 @@ const Header_Post = styled.div`
     height: 40px;
     display: flex;
     justify-content: space-between;
+
+    button {
+    border: none;
+    height: 15px;
+    padding: 0px;
+    letter-spacing: 2px;
+    }
 `;
 
 const Info_Student = styled.div`

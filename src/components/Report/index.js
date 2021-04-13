@@ -13,7 +13,7 @@ label{
 }
 `;
 
-const Header = styled.div`
+const Footer = styled.div`
     display:flex;
     justify-content: center;
 
@@ -39,10 +39,10 @@ const Details = styled.div``;
 
 
 
-export default function Report() {
+export default function Report({close}) {
 
     return (
-        <FeedPopup title="Denuncia">
+        <FeedPopup title="Denuncia" close={close}>
             <Options>
                 <p>Motivo da Denuncia:</p>
                 <Checkbox text="Linguagem ofensiva" />
@@ -54,9 +54,9 @@ export default function Report() {
                 <p>Detalhe os motivos:</p>
                 <TxtArea/>
             </Details>
-            <Header>
+            <Footer>
                 <Button text="DENUNCIAR" backColor="#F44336" />
-            </Header>
+            </Footer>
         </FeedPopup>
     );
 }
