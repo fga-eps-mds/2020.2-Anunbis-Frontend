@@ -98,7 +98,7 @@ export default function Avaliation({
         }
         
   return (
-    <FeedPopup close={close}>
+    <FeedPopup title="Avaliação"close={close}>
           <Container>
               <Form onSubmit={handleSubmit(onSubmit)}>
                   <NameProfessor>{name_professor}</NameProfessor>

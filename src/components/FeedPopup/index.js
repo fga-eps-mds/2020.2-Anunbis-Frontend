@@ -22,6 +22,7 @@ const Header = styled.div`
     Button {
         margin-inline: 0px;
         color: #FFFDE7;
+        border: 0px;
     }
 `;
 
@@ -38,12 +39,12 @@ align-self: center;
 justify-content: center;
 `;
 
-export default function FeedPopup({close, children}) {
+export default function FeedPopup({close, title, children}) {
 
     return (
         <Container>
             <Header>
-                <Title>Avaliacao</Title>
+                <Title>{title}</Title>
                 <Button onClick={close} text="X" radius="0px" padding="2px 5px" backColor="#F44336" />
             </Header>
             <Content>
