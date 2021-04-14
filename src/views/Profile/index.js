@@ -2,110 +2,88 @@ import React, { useEffect } from 'react';
 import styled from 'styled-components';
 import Button from '../../components/Button';
 import ResetPassword from '../../components/ResetPassword';
-import {logOut} from '../../services/authentication'
-import {useHistory} from "react-router-dom";
+import { logOut } from '../../services/authentication'
+import { useHistory } from "react-router-dom";
 
-export default function Profile(){
-    const student = {
-        name: JSON.parse(localStorage.getItem('student')).name,
-        email: JSON.parse(localStorage.getItem('student')).email,
-        id_course: JSON.parse(localStorage.getItem('student')).id_course
+export default function Profile() {
+  const history = useHistory();
+  const [excludeAccount, setExcludeAccount] = React.useState("");
+  const [resetPassword, setResetPassword] = React.useState("");
+  const [courses, setCourses] = React.useState([]);
+  const student = {
+      name: JSON.parse(localStorage.getItem('student')).name,
+      email: JSON.parse(localStorage.getItem('student')).email,
+      id_course: JSON.parse(localStorage.getItem('student')).id_course
+  }
+
+  useEffect(() => {
+    async function fetchData() {
+      const url = process.env.REACT_APP_API_HOST + "/course";
+      const response = await fetch(url)
+      const data = await response.json()
+      setCourses(data);
     }
-    const [resetPassword, setResetPassword] = React.useState("");
-    const [courses, setCourses] = React.useState([]);
+    fetchData();
+  }, []);
 
-    function course_Student(courses) {
-        let course_Student = "";
-        courses?.slice(0, 5).map((course) => {
-            console.log("teste ");
-            if (course.id_course == student.id_course){
-                return course_Student = course.name;     
-            }
-        }
-        );
-        return course_Student;
-      }
-    
-    useEffect(() => {
-        async function fetchData() {
-          const url = process.env.REACT_APP_API_HOST + "/course";
-          const response = await fetch(url)
-          const data = await response.json()
-    
-          setCourses(data);
-        }
-        fetchData();
-      }, []);
-
-    function makeResetPassword() {
-        return(
-            setResetPassword(<ResetPassword onClick={() => setResetPassword("")} student={student} />)
-        )
+  function getCourseName() {
+    let cont = 0;
+    while (cont < courses.length) {
+      if (courses[cont++].id_course == student.id_course)
+        return courses[cont - 1].name;
     }
+  }
 
-    const [excludeAccount, setExcludeAccount] = React.useState("");
-    const history = useHistory();
+  function makeResetPassword() {
+      return setResetPassword(<ResetPassword onClick={() => setResetPassword("")} student={student} />)
+  }
 
-    function makeExcludeAccount(){
-        return(
-            setExcludeAccount(
-            <ContentExclude >
-                <header>
-                Tem certeza?
-                </header>
-                
-                <BtsExclude>
-                    <Button backColor='#26A69A' padding='10px 7px' text='SIM' onClick={() => {logOut(); history.push('/user/login')}}/>
-                    <Button backColor='#26A69A' padding='10px 7px' text='NÃO' onClick={() => setExcludeAccount('')}/>
-                </BtsExclude>
-            </ContentExclude>)
-        )
-    }
-
+  function makeExcludeAccount() {
     return (
-    <Container display='flex' backColor='#E0E0E0'>
-    {resetPassword}
-    {excludeAccount}
+      setExcludeAccount(
+        <ContentExclude >
+          <header>Tem certeza</header>
+          <BtsExclude>
+            <Button backColor='#26A69A' padding='10px 10px' text='SIM' onClick={() => { logOut(); history.push('/user/login') }} />
+            <Button backColor='#26A69A' padding='10px 7px' text='NÃO' onClick={() => setExcludeAccount('')} />
+          </BtsExclude>
+        </ContentExclude>)
+      )
+  }
 
-    <Title>
-        Configurações de conta
-    </Title>
-    
-    <Container backColor='#FFFFFF' width='240px' height='115px'>
+  return (
+    <Container display='flex' backColor='#E0E0E0'>
+      {resetPassword}
+      {excludeAccount}
+      <Title>Configurações de conta</Title>
+      <Container backColor='#FFFFFF' width='240px' height='115px'>
         <p>Nome Completo: {student.name}</p>
         <p>E-mail: {student.email}</p>
-        <p>Curso: {course_Student(courses)}</p>
-    </Container>
-
-    {console.log(localStorage.getItem("student"))}
-
-    <BtnReset text='ALTERAR SENHA' backColor='#FFF9C4' padding='5px' onClick={()=> makeResetPassword()}/>
-
-    <Container txtAlign='center' backColor='#FFFFFF' width='430px' height='115px'>
+        <p>Curso: {getCourseName()}</p>
+      </Container>
+      <BtnReset text='ALTERAR SENHA' backColor='#FFF9C4' padding='5px' onClick={() => makeResetPassword()} />
+      <Container txtAlign='center' backColor='#FFFFFF' width='430px' height='115px'>
         <p>Quantidade de avaliações realizadas: </p>
         <p>Quantidade de pessoas que concordaram com suas avaliações: </p>
         <p>Quantidade de pessoas que discordaram com suas avaliações: </p>
-    </Container>
-
-    <BtnExcluir text='EXCLUIR CONTA' backColor='#F44336' padding='5px' onClick={()=> makeExcludeAccount()}/>
-
+      </Container>
+      <BtnExcluir text='EXCLUIR CONTA' backColor='#F44336' padding='5px' onClick={() => makeExcludeAccount()} />
     </Container>)
 }
 
 const Container = styled.div`
-    display: ${props => props.display?props.display:''};
+    display: ${props => props.display ? props.display : ''};
     flex-direction:column;
     align-items: center;
-    width: ${props => props.width?props.width:'460px'};
-    height: ${props => props.height?props.height:'460px'};
-    background-color: ${props => props.backColor?props.backColor:''};
+    width: ${props => props.width ? props.width : '460px'};
+    height: ${props => props.height ? props.height : '460px'};
+    background-color: ${props => props.backColor ? props.backColor : ''};
     border-radius: 20px;
-    text-align: ${props => props.txtAlign?props.txtAlign:''};
-    /* justify-content: center; */
+    text-align: ${props => props.txtAlign ? props.txtAlign : ''};
 
     p{
-        font-size: 14px;
-        margin-left: 5px;
+      font-size: 14px;
+      margin-left: 5px;
     }
 
 `;
@@ -121,13 +99,12 @@ const ContentExclude = styled.div`
     border-radius: 10px;
 
     header{
-        border-top-left-radius: 10px;
-        border-top-right-radius: 10px;
-        background-color: #212121;
-        color: white;
-        text-align: center;
+      border-top-left-radius: 10px;
+      border-top-right-radius: 10px;
+      background-color: #212121;
+      color: white;
+      text-align: center;
     }
-
 `
 
 const BtsExclude = styled.div`
@@ -140,9 +117,8 @@ const BtsExclude = styled.div`
     border-radius: 10px;
 
     Button{
-        color: white;
+      color: white;
     }
-
 `
 
 const BtnReset = styled(Button)`
@@ -157,9 +133,8 @@ const BtnExcluir = styled(Button)`
 `
 
 const Title = styled.h4`
-  display: flex;
-  justify-content: center;
-  /* align-items: center; */
-  margin-bottom:20px;
-  margin-top: 40px;
+    display: flex;
+    justify-content: center;
+    margin-bottom:20px;
+    margin-top: 40px;
 `;

@@ -48,21 +48,20 @@ export default function Menu() {
     );
 }
 
-
 const MenuBar = styled.div`
     background-color: #212121;
     display: flex;
     height: 40px;
-`;
+`
 
 const Logo = styled.div`
     width: 280px;
-`;
+`
 
 const ImageLogo = styled.img`
         max-width: 190px;
         display: inline-block;
-`;
+`
 
 const ProfessorSearchStyle = styled.div`
     display: flex;
@@ -70,21 +69,18 @@ const ProfessorSearchStyle = styled.div`
     height: 40px;
     width: 400px;
     Input {
-        
         color: #FFFDE7;
         border-bottom: 1px solid #FFFDE7;
-        margin: 0px;
-        
+        margin: 0px;   
     }
-
     input {
             height: 18px;
     }
     input::-webkit-input-placeholder  {
         height: 30px;
-    color: rgba(255, 255, 255, 0.603);
-}
-`;
+        color: rgba(255, 255, 255, 0.603);
+    }
+`
 
 const BtnEdition = styled (Button)`
     margin-top: 10px;
@@ -93,7 +89,6 @@ const BtnEdition = styled (Button)`
     border: none;
     box-shadow: none;
 `
-
 const Container = styled.div`
     background-color: inherit;
     display: flex;
