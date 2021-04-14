@@ -2,7 +2,7 @@ import React, { useEffect } from 'react';
 import styled from 'styled-components';
 import Button from '../../components/Button';
 import ResetPassword from '../../components/ResetPassword';
-import { logOut } from '../../services/authentication'
+import { logOut } from '../../services/Auth'
 import { useHistory } from "react-router-dom";
 
 export default function Profile() {
@@ -85,7 +85,6 @@ const Container = styled.div`
       font-size: 14px;
       margin-left: 5px;
     }
-
 `;
 
 const ContentExclude = styled.div`

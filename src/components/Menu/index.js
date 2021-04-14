@@ -5,7 +5,7 @@ import {useHistory} from "react-router-dom";
 import styled from 'styled-components';
 import Button from '../Button'
 import MenuOptions from '../MenuOptions';
-import {logOut} from '../../services/authentication'
+import {logOut} from '../../services/Auth'
 
 function ProfessorSearch ({history}) {
     const onSubmit = (data) => {
