@@ -86,21 +86,18 @@ export default function Login() {
     resolver: yupResolver(schema),
   });
 
-  // useEffect(() => {
-  //   logOut();
-  // })
+  useEffect(() => {
+    logOut();
+  })
 
   function onSubmit(data) {
     setCursor("wait");
     sendLogin(data.email, data.password, () => {
-      if (isAuthenticated()){
+      if (isAuthenticated())
         history.push("/home");
-        setCursor("");
-      }
-      else{
-        createSpanError();
-        setCursor("");
-      }
+    }, () => {
+      createSpanError();
+      setCursor("");
     });
   }
 

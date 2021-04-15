@@ -2,50 +2,60 @@ import React, { useEffect } from 'react';
 import styled from 'styled-components';
 import Button from '../../components/Button';
 import ResetPassword from '../../components/ResetPassword';
-import { logOut } from '../../services/Auth'
 import { useHistory } from "react-router-dom";
+import api from '../../services/Api';
 
 export default function Profile() {
   const history = useHistory();
-  const [excludeAccount, setExcludeAccount] = React.useState("");
+  const [excludeAcc, setExcludeAcc] = React.useState("");
   const [resetPassword, setResetPassword] = React.useState("");
   const [courses, setCourses] = React.useState([]);
   const student = {
-      name: JSON.parse(localStorage.getItem('student')).name,
-      email: JSON.parse(localStorage.getItem('student')).email,
-      id_course: JSON.parse(localStorage.getItem('student')).id_course
+    name: JSON.parse(localStorage.getItem('student')).name,
+    email: JSON.parse(localStorage.getItem('student')).email,
+    id_course: JSON.parse(localStorage.getItem('student')).id_course,
+    reg_student: JSON.parse(localStorage.getItem('student')).reg_student,
   }
 
   useEffect(() => {
-    async function fetchData() {
-      const url = process.env.REACT_APP_API_HOST + "/course";
-      const response = await fetch(url)
-      const data = await response.json()
-      setCourses(data);
-    }
-    fetchData();
+    api.get('/course')
+    .then(response => {
+      setCourses(response.data);
+    })
   }, []);
 
   function getCourseName() {
     let cont = 0;
-    while (cont < courses.length) {
-      if (courses[cont++].id_course == student.id_course)
-        return courses[cont - 1].name;
-    }
+      while (cont < courses.length) {
+        if (courses[cont++].id_course == student.id_course)
+          return courses[cont - 1].name;
+      }
   }
 
   function makeResetPassword() {
       return setResetPassword(<ResetPassword onClick={() => setResetPassword("")} student={student} />)
   }
 
-  function makeExcludeAccount() {
+  function excludeAccount(){
+    api.delete("/student/" + student.reg_student)
+    .then(response => {
+      //console.log(response);
+      history.push('/user/login') 
+    })
+    .catch(error =>  {
+      console.log(error.response);
+    }
+    )
+  }
+
+  function makeSure() {
     return (
-      setExcludeAccount(
+      setExcludeAcc(
         <ContentExclude >
-          <header>Tem certeza</header>
+          <header>Tem certeza?</header>
           <BtsExclude>
-            <Button backColor='#26A69A' padding='10px 10px' text='SIM' onClick={() => { logOut(); history.push('/user/login') }} />
-            <Button backColor='#26A69A' padding='10px 7px' text='NÃO' onClick={() => setExcludeAccount('')} />
+            <Button backColor='#26A69A' padding='10px 10px' text='SIM' onClick={() => excludeAccount()} />
+            <Button backColor='#26A69A' padding='10px 7px' text='NÃO' onClick={() => setExcludeAcc('')} />
           </BtsExclude>
         </ContentExclude>)
       )
@@ -54,7 +64,7 @@ export default function Profile() {
   return (
     <Container display='flex' backColor='#E0E0E0'>
       {resetPassword}
-      {excludeAccount}
+      {excludeAcc}
       <Title>Configurações de conta</Title>
       <Container backColor='#FFFFFF' width='240px' height='115px'>
         <p>Nome Completo: {student.name}</p>
@@ -67,7 +77,7 @@ export default function Profile() {
         <p>Quantidade de pessoas que concordaram com suas avaliações: </p>
         <p>Quantidade de pessoas que discordaram com suas avaliações: </p>
       </Container>
-      <BtnExcluir text='EXCLUIR CONTA' backColor='#F44336' padding='5px' onClick={() => makeExcludeAccount()} />
+      <BtnExcluir text='EXCLUIR CONTA' backColor='#F44336' padding='5px' onClick={() => makeSure()} />
     </Container>)
 }
 

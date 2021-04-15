@@ -4,7 +4,7 @@ export function getToken() {
   return localStorage.getItem('access_token');
 }
 
-export async function sendLogin(email, password, callback) {
+export async function sendLogin(email, password, callback, errorCallback) {
   const body = {
     email: email,
     password: password
@@ -21,6 +21,7 @@ export async function sendLogin(email, password, callback) {
         localStorage.removeItem('access_token', 'student');
     })
     .then(() => callback())
+    .catch(() => errorCallback())
 }
 
 export function logOut() {
