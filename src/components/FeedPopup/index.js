@@ -3,7 +3,8 @@ import Button from '../Button';
 
 const Container = styled.div`
     width: 372px;
-    height: 380px;
+    min-height: 380px;
+    height: fit-content;
     background-color: #FFFDE7;
     border-bottom-right-radius: 2%;
     border-bottom-left-radius: 2%;

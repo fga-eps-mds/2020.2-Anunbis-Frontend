@@ -57,6 +57,7 @@ const Footer = styled.div`
     button {
         font: bold 14px Ubuntu;
         color: #FFFDE7;
+        margin: 15px;
     }
 `;
 
