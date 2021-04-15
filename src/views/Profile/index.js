@@ -33,7 +33,10 @@ export default function Profile() {
   }
 
   function makeResetPassword() {
-      return setResetPassword(<ResetPassword onClick={() => setResetPassword("")} student={student} />)
+      return setResetPassword(<ResetPassword 
+        onClick={() => setResetPassword("")} 
+        student= {student} 
+        />)
   }
 
   function excludeAccount(){

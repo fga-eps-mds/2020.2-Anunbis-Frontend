@@ -6,22 +6,33 @@ import Input from '../Input';
 import { yupResolver } from '@hookform/resolvers/yup';
 import schema from './validations';
 import { useForm } from "react-hook-form";
+import api from '../../services/Api';
 
 export default function ResetPassword({onClick, student}){
+    const [feedBack, setFeedBack] = React.useState('');
 
     const { register, handleSubmit, errors } = useForm({
         resolver: yupResolver(schema),
       });
 
+    function makeFeedback(){
+        return(
+        <FeedBack>
+            <p>Senha alterada com Sucesso</p>
+        </FeedBack>)
+    }
+
     function onSubmit (data){
-
         const body = {
-            oldPassword: data.old_password,
-            newPassword: data.new_password,
-            confirmNewPassword: data.confirm_new_password
+            password: data.new_password
         }
-
-          console.log(data);
+        api.put("/student", body)
+        .then(response => {
+          setFeedBack(makeFeedback())
+        })
+        .catch(error => {
+        console.log(error);
+        })
     }
 
     return(
@@ -32,10 +43,6 @@ export default function ResetPassword({onClick, student}){
             </Header>
 
             <Form onSubmit={handleSubmit(onSubmit)}>
-                <Form.Field errorMsg={errors.old_password?.message} >
-                    <Input type="password" text="Digite a senha atual" name="old_password" register={register}/>
-                </Form.Field>
-
                 <Form.Field errorMsg={errors.new_password?.message} >
                     <Input type="password" text="Digite a nova senha" name="new_password" register={register}/>
                 </Form.Field>
@@ -43,7 +50,8 @@ export default function ResetPassword({onClick, student}){
                 <Form.Field errorMsg={errors.confirm_new_password?.message} >
                     <Input type="password" text="Repita a nova senha" name="confirm_new_password" register={register}/>
                 </Form.Field>
-
+                
+                {feedBack}
                 <BtnConfirm type='submit' text='CONFIRMAR' backColor='#26A69A' padding='3px 3px' />
             </Form>
 
@@ -90,7 +98,15 @@ const Header = styled.header`
 `
 
 const BtnConfirm = styled(Button)`
-    margin-top: 15px;
+    margin-top: 10px;
     margin-bottom: 15px;
     color: white;
+`
+
+const FeedBack = styled.div`
+    display: flex;
+    align-self:center;
+    height: fit-content;
+    width: fit-content;
+    color: red;
 `

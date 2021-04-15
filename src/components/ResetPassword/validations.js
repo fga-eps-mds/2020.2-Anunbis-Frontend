@@ -2,10 +2,10 @@ import * as yup from 'yup';
 
 const schema = yup.object().shape({
 
-    old_password: yup
-    .string()
-    .min(8, "Contém no mínimo 8 caracteres.")
-    .required("Senha atual deve ser preenchida."),
+    // old_password: yup
+    // .string()
+    // .min(8, "Contém no mínimo 8 caracteres.")
+    // .required("Senha atual deve ser preenchida."),
 
     new_password: yup
     .string()
