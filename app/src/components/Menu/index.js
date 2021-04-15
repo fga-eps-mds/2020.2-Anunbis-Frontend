@@ -21,7 +21,7 @@ export default function Menu() {
     const [menuOptions, setMenuOptions] = React.useState("");
 
     function makeMenuOptions(){
-        if(menuOptions==""){
+        if(menuOptions===""){
             return (setMenuOptions(
                 <MenuOptions>
                     <Button type='button' backColor='#FFD54F' text='CONFIGURAR' padding='3px' onClick={() => {setMenuOptions(""); history.push('/profile')}}/>

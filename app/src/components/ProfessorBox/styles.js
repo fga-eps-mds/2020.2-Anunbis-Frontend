@@ -36,8 +36,8 @@ export const Posts_ProfessorBox = styled.div`
     span {
       width: 350px;
       min-width: 350px;
-      height: 90px;
-      min-height: 90px;
+      height: 120px;
+      min-height: 120px;
       margin-bottom: 20px;
       font-size: 11px;
     }

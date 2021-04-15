@@ -2,6 +2,7 @@ import styled from 'styled-components';
 
 export const Btn = styled.button`
     background: ${props => props.backColor ? props.backColor : ""};
+    background-image: url(${props => props.backImage ? props.backImage : ""});
     border: 1px solid rgba(255, 245, 157, 0.6);
     box-sizing: border-box;
     border-radius: ${props => props.radius ? props.radius : "10px"};
