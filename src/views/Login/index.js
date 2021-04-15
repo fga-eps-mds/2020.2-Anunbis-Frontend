@@ -3,8 +3,6 @@ import styled from 'styled-components';
 import { useHistory, Link } from 'react-router-dom';
 import { useForm } from "react-hook-form";
 import { yupResolver } from '@hookform/resolvers/yup';
-
-
 import schema from "./validations"
 import Button from "../../components/Button";
 import Form from "../../components/Form";
@@ -12,19 +10,20 @@ import Input from "../../components/Input";
 import isAuthenticated, { sendLogin, logOut } from '../../services/Auth'
 
 const Content = styled.div`
-height: 450px;
-width: 400px;
-display:flex;
-justify-content: space-between;
-align-items: center;
-flex-direction: column;
-  Form {
-  height: 300px;
-  width: 300px;
+  height: 450px;
+  width: 400px;
+  display:flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-direction: column;
+  cursor: ${props => props.cursor ? props.cursor : ""};
+    Form {
+    height: 300px;
+    width: 300px;
 
-  Button{
-    margin-top: 30px;
-  }
+    Button{
+      margin-top: 30px;
+    }
 }
 `;
 
@@ -81,23 +80,25 @@ const Erro = styled.div`
 export default function Login() {
   const history = useHistory();
   const [erroLogin, setErroLogin] = React.useState();
+  const [cursor, setCursor] = React.useState();
 
   const { register, handleSubmit, errors } = useForm({
     resolver: yupResolver(schema),
   });
 
-  // useEffect(() => {
-  //   logOut();
-  // })
+  useEffect(() => {
+    logOut();
+  })
 
   function onSubmit(data) {
+    setCursor("wait");
     sendLogin(data.email, data.password, () => {
       if (isAuthenticated())
         history.push("/home");
-      else
-        createSpanError();
+    }, () => {
+      createSpanError();
+      setCursor("");
     });
-
   }
 
   function createSpanError() {
@@ -109,7 +110,7 @@ export default function Login() {
   }
 
   return (
-    <Content>
+    <Content cursor={cursor}>
       <Header>
         <Link className="btnLogin" to="/user/login">LOGIN</Link>
         <Link className="btnCadastro" to="/user/student">CADASTRO</Link>
@@ -119,7 +120,7 @@ export default function Login() {
         <Form.Field errorMsg={errors.email?.message}><Input type="text" text="Email Instuticional" name="email" register={register} /> </Form.Field>
         <Form.Field errorMsg={errors.password?.message}><Input type="password" text="Senha" name="password" register={register} /> </Form.Field>
         <Form.Footer>
-          <Button text="CONFIRMAR" backColor="#FFF9C4" />
+          <Button text="CONFIRMAR" backColor="#FFF9C4" cursor={cursor}/>
         </Form.Footer>
       </Form>
     </Content>

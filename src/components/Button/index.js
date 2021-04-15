@@ -13,11 +13,15 @@ const Btn = styled.button`
     &:focus{
         outline-width: 0;
     }
+    
+    &:hover{
+        cursor: ${props => props.cursor ? props.cursor : 'pointer'};
+    }
 `  
 
 export default function Button(props) {
     return (
-            <Btn type={props.type} onClick={props.onClick} backColor={props.backColor} padding={props.padding} radius={props.radius}>
+            <Btn type={props.type} onClick={props.onClick} backColor={props.backColor} padding={props.padding} radius={props.radius} className={props.className} cursor={props.cursor}>
                 {props.text}
             </Btn>
     );

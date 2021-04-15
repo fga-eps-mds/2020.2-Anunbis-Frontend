@@ -11,9 +11,12 @@ const Container = styled.div`
 `
 
 const Main = styled.main`
-    padding-top: 20px;
+    /* padding-top: 20px; */
+    width: fit-content;
+    margin-top:20px;
     display: flex;
     align-items: space-around;
+    align-self: center;
     justify-content: center;
 `
 

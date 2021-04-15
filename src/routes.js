@@ -5,6 +5,7 @@ import ProfessorSearch from './views/ProfessorSearch';
 import isAuthenticated from './services/Auth';
 import LayoutAutentication from './components/LayoutAutentication';
 import LayoutApp from './components/LayoutApp';
+import Profile from './views/Profile';
 import {
     BrowserRouter as Router,
     Switch,
@@ -40,6 +41,7 @@ const Routes = () => (
             <Route path="/">
                 <LayoutApp>
                     <Switch>
+                        <PrivateRoute path="/profile" component={Profile} />
                         <PrivateRoute path="/professor/search/:professorName" component={ProfessorSearch} />
                     </Switch>
                 </LayoutApp>
