@@ -5,6 +5,7 @@ import Feed from '../../components/Feed';
 import ProfessorBox from '../../components/ProfessorBox';
 import Avaliation from '../../components/Avaliation';
 import api from '../../services/Api';
+import Report from '../../components/Report';
 
 const Content = styled.div`
 display: flex;
@@ -24,7 +25,7 @@ const AvaliationProfBox = styled.div`
 export default function ProfessorSearch() {
     const { professorName } = useParams();
     const [professors, setProfessors] = useState([]);
-    const [boxAvaliation, setBoxAvaliation] = React.useState('');
+    const [boxPopup, setBoxPopup] = React.useState('');
     const [reload, setReload] = useState(false)
 
     React.useEffect(() => {
@@ -36,19 +37,27 @@ export default function ProfessorSearch() {
             })
     }, [professorName, reload]);
 
-    function closeAvaliation() {
-        setBoxAvaliation('');
+    function closePopup() {
+        setBoxPopup('');
         setReload(!reload);
     }
 
     function makeAvaliation(id_professor, name, disciplines) {
-        setBoxAvaliation(
+        setBoxPopup(
             <Avaliation
-                close={() => closeAvaliation()}
+                close={() => closePopup()}
                 reg_student={JSON.parse(localStorage.getItem('student')).reg_student}
                 id_professor={id_professor}
                 name_professor={name}
                 disciplines={disciplines}
+            />
+        )
+    }
+
+    function makeReport() {
+        setBoxPopup(
+            <Report
+                close={() => closePopup()}
             />
         )
     }
@@ -69,7 +78,7 @@ export default function ProfessorSearch() {
                 <Conteiner>
                     {professors?.map(prof => {
                         return (
-                            <ProfessorBox onClick={() => makeAvaliation(prof.id_professor, prof.name, prof.disciplines)} name={prof.name} rating={prof.rating} posts={prof.posts}></ProfessorBox>
+                            <ProfessorBox onClick={() => makeAvaliation(prof.id_professor, prof.name, prof.disciplines)} report={() => makeReport()} name={prof.name} rating={prof.rating} posts={prof.posts}></ProfessorBox>
                         )
                     })}
                 </Conteiner>
@@ -81,7 +90,7 @@ export default function ProfessorSearch() {
     return (
         <Content>
             <AvaliationProfBox>
-                {boxAvaliation}
+                {boxPopup}
             </AvaliationProfBox>
             <Professors professors={professors} />
         </Content>

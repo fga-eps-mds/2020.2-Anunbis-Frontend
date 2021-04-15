@@ -1,7 +1,10 @@
 import React from 'react';
 import styled from 'styled-components';
+import Button from '../Button';
+import Report_Icon_BW from '../../assets/Report_Icon_BW.png';
+import Report_Icon_C from '../../assets/Report_Icon_C.png';
 
-const Header = ({ children }) => {
+const Header = ({ children, report }) => {
     return (
         <Header_Post>
             <Info_Student>
@@ -15,6 +18,7 @@ const Header = ({ children }) => {
             <Rating>
                 Nota: {children.rating}
             </Rating>
+            <Button type="button" backColor="rgba(255, 0, 0, 0)" onClick={report} />
         </Header_Post>
     )
 }
@@ -27,10 +31,10 @@ const Content = ({ children }) => {
     )
 }
 
-export default function Post({ children }) {
+export default function Post({ children, report }) {
     return (
         <PostStyle>
-            <Header>
+            <Header report={report}>
                 {children[0].props}
             </Header>
             <Content>
@@ -56,6 +60,28 @@ const Header_Post = styled.div`
     height: 40px;
     display: flex;
     justify-content: space-between;
+
+    button {
+    border: none;
+    margin-inline: 5px;
+    height: 20px;
+    width: 20px;
+    padding: 0px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: url(${Report_Icon_BW});
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 80%;
+    }
+
+    button:hover {
+    background: url(${Report_Icon_C});
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 80%;
+  }
 `;
 
 const Info_Student = styled.div`
