@@ -10,8 +10,7 @@ const schema = yup.object().shape({
     new_password: yup
     .string()
     .min(8, "Precisar conter no mínimo 8 caracteres.")
-    .required("Nova senha deve ser preenchida.")
-    .notOneOf([yup.ref('old_password')], "Nova senha deve ser diferente da senha atual."),
+    .required("Nova senha deve ser preenchida."),
 
     confirm_new_password: yup
     .string()
