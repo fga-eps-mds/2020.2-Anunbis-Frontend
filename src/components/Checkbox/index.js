@@ -1,4 +1,16 @@
 import styled from 'styled-components';
+import React from 'react';
+
+export default function Checkbox({text, name, register}){
+  
+    return(
+        <Container>
+            <input type="checkbox" name={name} ref={register}/>
+            <Checkmark/>
+            {text}   
+        </Container>
+    );
+}
 
 const Checkmark = styled.span`
     height: 20px;
@@ -47,15 +59,3 @@ const Container = styled.label`
       width: 0;
   }
 `;
-
-
-
-export default function Checkbox({text}){
-    return(
-        <Container>
-            <input type="checkbox"/>
-            <Checkmark/>
-            {text}   
-        </Container>
-    );
-}
