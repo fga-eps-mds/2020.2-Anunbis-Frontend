@@ -1,50 +1,22 @@
 import React from "react";
-import styled from 'styled-components';
+import { Container, Erro, Content, FooterContent } from './styles';
 
-const Conteiner = styled.div`
-        display: flex;
-        align-items: center;
-        flex-direction: column;
-        height: fit-content;
 
-        input {
-            margin: 0px;
-        }
-    `
-const Erro = styled.div`
-    color: #F44336;
-    font-size: 10px;
-`;
 
 const Field = ({ errorMsg, children }) => {
     return (
-        <Conteiner>
+        <Container>
             {children}
             <Erro>{errorMsg}</Erro>
-        </Conteiner>
+        </Container>
     )
 }
 
-const Content = styled.form`
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: space-around;
-    `;
-
 const Footer = ({ children }) => {
-    const Content = styled.div`
-    width: fit-content;
-    display: flex;
-    align-items: center;
-    justify-content: space-around;
-    align-self:center;
-    `;
-
     return (
-        <Content>
+        <FooterContent>
             {children}
-        </Content>
+        </FooterContent>
     )
 }
 
