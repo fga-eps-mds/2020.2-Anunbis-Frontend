@@ -27,11 +27,11 @@ export const Header = styled.div`
 `;
 
 export const Title = styled.div`
-    width: 50px;
     display:flex;
     color: #FFFDE7;
     margin-left: auto;
     margin-right: auto;
+    font-family: 'Comfortaa', cursive;
 `;
 
 export const Content = styled.main`
