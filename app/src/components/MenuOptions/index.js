@@ -1,5 +1,5 @@
 import React from 'react';
-import styled from 'styled-components';
+import { Container } from './styles.js';
 
 export default function MenuOptions({children}){
 
@@ -9,17 +9,3 @@ export default function MenuOptions({children}){
         </Container>
     )
 }
-
-const Container = styled.div`
-    display: flex;
-    flex-direction: column;
-    background-color: inherit;
-    border-bottom-left-radius: 10px;
-    border-bottom-right-radius: 10px;
-
-    Button{
-        font-size: 12px;
-        margin-bottom: 15px;
-        box-shadow: none;
-    };
-`
