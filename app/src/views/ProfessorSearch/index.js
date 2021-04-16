@@ -1,26 +1,11 @@
 import React, { useState } from 'react';
-import styled from 'styled-components';
 import { useParams } from "react-router-dom";
 import Feed from '../../components/Feed';
 import ProfessorBox from '../../components/ProfessorBox';
 import Avaliation from '../../components/Avaliation';
 import api from '../../services/Api';
 import Report from '../../components/Report';
-
-const Content = styled.div`
-display: flex;
-align-items: center;
-`
-const AvaliationProfBox = styled.div`
-        position: absolute;
-        width: 450px;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-`
-    ;
-
-
+import {Content, Conteiner, AvaliationProfBox} from './styles';
 
 export default function ProfessorSearch() {
     const { professorName } = useParams();
@@ -63,15 +48,6 @@ export default function ProfessorSearch() {
     }
 
     const Professors = (({ professors }) => {
-        const Conteiner = styled.div`
-        height: 400px;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: flex-start;
-        `;
-
-
         return (
 
             <Feed title={professorName}>
