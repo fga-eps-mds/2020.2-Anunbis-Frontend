@@ -9,38 +9,7 @@ import Input from '../../components/Input';
 import Select from '../../components/Select';
 import Button from '../../components/Button';
 import api from '../../services/Api';
-
-const Conteiner = styled.div`
-  width: 400px;
-`;
-
-const Links = styled.div`
-  width: 400px;
-  display:flex;
-  align-items: center;
-  justify-content: space-evenly;
-  font-size:14px;
-  margin-top: 15px;
-
-
-  .btnCadastro {
-    margin-right: 70px;
-    color: #212121;
-  }
-
-  .btnLogin, .btnProfessor{
-    text-decoration: none;
-    color: #212121;
-  }
-`;
-
-const Title = styled.h4`
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  margin-bottom:20px;
-  margin-top: 40px;
-`;
+import {Conteiner, Content, Links, Title} from './styles';
 
 const Header = ({ children, title }) => {
   return (
@@ -52,29 +21,6 @@ const Header = ({ children, title }) => {
     </Conteiner>
   )
 }
-
-const Content = styled.div`
-  height: 450px;
-  width: 400px;
-  display:flex;
-  align-items: center;
-  flex-direction: column;
-
-Form {
-  height: 300px;
-  width: 300px;
-  Input, Select{
-      margin-bottom: 5px;
-      width: 180px;
-    }
-  
-}
-
-select {
-  margin: 0px;
-  width: 185px;
-}
-`;
 
 export default function RegisterStudent() {
   const history = useHistory();
