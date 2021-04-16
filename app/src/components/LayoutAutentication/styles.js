@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import BG_FGA from "../../assets/BG_FGA.png";
+import BG_FGA from "../../assets/images/BG_FGA.png";
 
 export const Background = styled.div`
     height: 100vh;

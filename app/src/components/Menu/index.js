@@ -1,5 +1,5 @@
 import React from 'react';
-import Name_Logo from "../../assets/Name_Logo.png";
+import Name_Logo from "../../assets/images/Name_Logo.png";
 import Input from '../Input';
 import {useHistory} from "react-router-dom";
 import Button from '../Button';

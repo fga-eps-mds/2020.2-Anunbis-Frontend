@@ -1,5 +1,5 @@
 import React from "react";
-import Logo from "../../assets/Logo.jpg";
+import Logo from "../../assets/images/Logo.jpg";
 import { Background, Base, Imagem, Main } from './styles.js';
 
 export default function LayoutAutentication({children}){

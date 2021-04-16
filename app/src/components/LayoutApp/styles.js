@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import bg_app from "../../assets/BG_App.png";
+import bg_app from "../../assets/images/BG_App.png";
 
 export const Container = styled.div`
     height: 100vh;

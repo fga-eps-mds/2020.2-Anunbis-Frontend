@@ -2,6 +2,7 @@ import React from 'react';
 import Button from '../Button';
 import { PostStyle, Header_Post, Info_Student, Name, Rating, Content_Post } from './styles.js'
 
+
 const Header = ({ children, report }) => {
     return (
         <Header_Post>
