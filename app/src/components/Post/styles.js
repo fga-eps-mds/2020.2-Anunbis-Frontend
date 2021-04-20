@@ -2,10 +2,30 @@ import styled from 'styled-components';
 import Report_Icon_BW from '../../assets/images/Report_Icon_BW.png';
 import Report_Icon_C from '../../assets/images/Report_Icon_C.png';
 
+export const ButtonsLiked_Post = styled.div`
+    width: 350px;
+    display: flex;
+    justify-content: space-between;
+
+    button{
+        border: none;
+        height: 15px;
+        width: 60px; 
+        margin-inline: 60px;
+        background-repeat: no-repeat;
+        background-position: left;
+        background-size: 40%;
+        display: flex;
+        align-items: center;
+        justify-content: flex-end;
+        color: rgba(61, 58, 58, 0.603);    
+    }
+`;
+
 export const PostStyle = styled.div`
     background-color: #FFD54F;
     width: 350px;
-    height: 100px;
+    height: 130px;
     margin-bottom: 10px;
     display: flex;
     justify-content: space-evenly;
