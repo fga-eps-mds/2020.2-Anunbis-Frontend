@@ -2,38 +2,21 @@ import styled from 'styled-components';
 import Report_Icon_BW from '../../assets/images/Report_Icon_BW.png';
 import Report_Icon_C from '../../assets/images/Report_Icon_C.png';
 
-export const ButtonsLiked_Post = styled.div`
-    width: 350px;
-    display: flex;
-    justify-content: space-between;
-
-    button{
-        border: none;
-        height: 15px;
-        width: 60px; 
-        margin-inline: 60px;
-        background-repeat: no-repeat;
-        background-position: left;
-        background-size: 40%;
-        display: flex;
-        align-items: center;
-        justify-content: flex-end;
-        color: rgba(61, 58, 58, 0.603);    
-    }
-`;
 
 export const PostStyle = styled.div`
     background-color: #FFD54F;
-    width: 350px;
-    height: 130px;
-    margin-bottom: 10px;
+    height: 160px;
     display: flex;
+    padding: 10px;
+    width: 100%;
+    margin: 20px 0px 0px 0px;
+    box-shadow: 5px 5px 5px rgba(0, 0, 0, 50%);
     justify-content: space-evenly;
     flex-direction: column;
     border-radius: 10px;
 `;
 
-export const Header_Post = styled.div`
+export const HeaderPost = styled.div`
     display: block;
     height: 40px;
     display: flex;
@@ -62,9 +45,40 @@ export const Header_Post = styled.div`
   }
 `;
 
-export const Info_Student = styled.div`
+export const ContentPost = styled.div`
+    background-color: #FFFDE7;
+    width: 100%;
+    height: 45px;
+    margin: auto;
+    padding: 10px;
+    font: 11px Roboto;
+    border-radius: 5px;
+    overflow-y: auto;
+    word-break: break-all;
+`;
+
+export const FeedbacksDiv = styled.div`
+    display: flex;
+    justify-content: space-between;
+
+    button{
+        border: none;
+        height: 15px;
+        width: 60px; 
+        margin-inline: 60px;
+        background-repeat: no-repeat;
+        background-position: left;
+        background-size: 40%;
+        display: flex;
+        align-items: center;
+        justify-content: flex-end;
+        color: rgba(61, 58, 58, 0.603);    
+    }
+`;
+
+export const InfoStudent = styled.div`
     height: 32px;
-    font: 10px Roboto;
+    font: 12px Roboto;
     padding-left: 10px;
 `;
 
@@ -76,15 +90,3 @@ export const Rating = styled.div`
     padding: 8px;
 `;
 
-export const Content_Post = styled.div`
-    background-color: #FFFDE7;
-    width: 315px;
-    height: 45px;
-    margin-left: auto;
-    margin-right: auto;
-    font: 11px Roboto;
-    padding-left: 5px;
-    border-radius: 5px;
-    overflow-y: auto;
-    word-break: break-all;
-`;
