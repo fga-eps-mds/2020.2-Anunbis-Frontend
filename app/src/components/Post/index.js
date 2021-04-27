@@ -4,73 +4,78 @@ import Agreed_Icon_BW from '../../assets/images/Agreed_Icon_BW.png';
 import Agreed_Icon_C from '../../assets/images/Agreed_Icon_C.png';
 import Disagreed_Icon_BW from '../../assets/images/Disagreed_Icon_BW.png';
 import Disagreed_Icon_C from '../../assets/images/Disagreed_Icon_C.png';
-import { PostStyle, Header_Post, Info_Student, Name, Rating, Content_Post, ButtonsLiked_Post } from './styles.js'
+import { PostStyle, HeaderPost, InfoStudent, Name, Rating, ContentPost, FeedbacksDiv } from './styles.js'
 import api from '../../services/Api'
+import Report from '../Report';
+import Popup from '../Popup';
 
-
-const Header = ({report, discipline, student, date, rating}) => {
+const Header = ({ post, onClickReport }) => {
     return (
-        <Header_Post>
-            <Info_Student>
-                [{discipline.discipline_code}] {discipline.name}<br />
-                {student.course.name}<br />
-                    Data: {date}<br />
+        <HeaderPost>
+            <InfoStudent>
+                [{post.discipline.discipline_code}] {post.discipline.name}<br />
+                {post.student.course.name}<br />
+                    Data: {post.post_date}<br />
                 <Name>
-                    {student?.name}
+                    {post.student.name}
                 </Name>
-            </Info_Student>
+            </InfoStudent>
             <Rating>
-                Nota: {rating}
+                Nota: {post.rating}
             </Rating>
-            <Button type="button" backColor="rgba(255, 0, 0, 0)" onClick={report} />
-        </Header_Post>
+            <Button type="button" backColor="rgba(255, 0, 0, 0)" onClick={onClickReport} shadow="None"/>
+        </HeaderPost>
     )
 }
 
 const Content = ({ children }) => {
     return (
-        <Content_Post>
+        <ContentPost>
             {children}
-        </Content_Post>
+        </ContentPost>
     )
 }
 
 
-const ButtonsLiked = ({post, Onclick}) => {
+const Feedbacks = ({ post, Onclick }) => {
     const isAgreed = post.feedbacks.is_agreed;
     const isDisagreed = post.feedbacks.is_disagreed;
     const countAgrees = post.feedbacks.agrees;
     const countDisagrees = post.feedbacks.disagrees;
 
-    function clickAgree(){
-        const body = {'id_post': post.id_post}
+    function clickAgree() {
+        const body = { 'id_post': post.id_post }
         api.post("/post/agree", body)
-        .then(res => Onclick(res.data))
+            .then(res => Onclick(res.data))
     }
 
-    function clickDisagree(){
-        const body = {'id_post': post.id_post}
+    function clickDisagree() {
+        const body = { 'id_post': post.id_post }
         api.post("/post/disagree", body)
-        .then(res => Onclick(res.data))
+            .then(res => Onclick(res.data))
     }
 
-    return(
-        <ButtonsLiked_Post>
-                <Button text={countAgrees} backImage={isAgreed ? Agreed_Icon_C : Agreed_Icon_BW} backColor="rgba(255, 0, 0, 0)" onClick={() => clickAgree()}/>
-                <Button text={countDisagrees} backImage={isDisagreed ? Disagreed_Icon_C : Disagreed_Icon_BW} backColor="rgba(255, 0, 0, 0)" onClick={() => clickDisagree()}/>
-        </ButtonsLiked_Post>
+    return (
+        <FeedbacksDiv>
+            <Button text={countAgrees} backImage={isAgreed ? Agreed_Icon_C : Agreed_Icon_BW} backColor="rgba(255, 0, 0, 0)" shadow="1px 1px 1px rgba(0, 0, 0, 20%)" onClick={() => clickAgree()} />
+            <Button text={countDisagrees} backImage={isDisagreed ? Disagreed_Icon_C : Disagreed_Icon_BW} backColor="rgba(255, 0, 0, 0)" shadow="1px 1px 1px rgba(0, 0, 0, 20%)" onClick={() => clickDisagree()} />
+        </FeedbacksDiv>
     )
 }
 
-export default function Post({report, post}) {
+export default function Post({ post }) {
     const [currentPost, setCurrentPost] = React.useState(post)
-    return (
+    const [reportBox, setReportBox] = React.useState(false)
+
+    return (<>
+        {reportBox && <Popup><Report post={currentPost} close={() => setReportBox(false)} /></Popup>}
         <PostStyle>
-            <Header report={report} discipline={currentPost.discipline} student={currentPost.student} date={currentPost.post_date} rating={currentPost.rating}/>
+            <Header post={currentPost} onClickReport={() => setReportBox(true)} />
             <Content>
                 {currentPost.content}
             </Content>
-            <ButtonsLiked Onclick={setCurrentPost} post={currentPost}/>
+            <Feedbacks Onclick={setCurrentPost} post={currentPost} />
         </PostStyle>
+    </>
     );
 }
