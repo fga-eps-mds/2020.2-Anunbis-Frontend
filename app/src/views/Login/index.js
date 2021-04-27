@@ -6,7 +6,7 @@ import schema from "./validations"
 import Button from "../../components/Button";
 import Form from "../../components/Form";
 import Input from "../../components/Input";
-import isAuthenticated, { sendLogin, logOut } from '../../services/Auth';
+import { sendLogin, logOut, whoAuthenticated, getToken } from '../../services/Auth';
 import {Content, Conteiner, Erro} from './styles';
 
 const Header = ({ children }) => {
@@ -34,8 +34,10 @@ export default function Login() {
   function onSubmit(data) {
     setCursor("wait");
     sendLogin(data.email, data.password, () => {
-      if (isAuthenticated())
-        history.push("/home");
+      if (getToken()){
+        console.log(whoAuthenticated());
+        history.push("/" + whoAuthenticated());
+      }
     }, () => {
       createSpanError();
       setCursor("");
