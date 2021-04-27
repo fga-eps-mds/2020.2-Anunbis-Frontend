@@ -9,7 +9,6 @@ export const Container = styled.div`
     border-bottom-left-radius: 2%;
     display: flex;
     flex-direction: column;
-
 `;
 
 export const Header = styled.div`
