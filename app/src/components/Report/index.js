@@ -8,7 +8,7 @@ import { useForm } from "react-hook-form";
 import { yupResolver } from '@hookform/resolvers/yup';
 import schema from './validations';
 
-export default function Report({ close }) {
+export default function Report({ post, close }) {
     const { register, handleSubmit, errors } = useForm({
         resolver: yupResolver(schema),
     });
