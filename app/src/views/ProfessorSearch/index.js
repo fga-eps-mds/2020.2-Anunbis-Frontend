@@ -1,17 +1,15 @@
 import React, { useState } from 'react';
 import { useParams } from "react-router-dom";
 import Feed from '../../components/Feed';
-import ProfessorBox from '../../components/ProfessorBox';
-import Avaliation from '../../components/Avaliation';
 import api from '../../services/Api';
-import Report from '../../components/Report';
-import {Content, Conteiner, AvaliationProfBox} from './styles';
+import { Container } from './styles'
 
 export default function ProfessorSearch() {
     const { professorName } = useParams();
     const [professors, setProfessors] = useState([]);
-    const [boxPopup, setBoxPopup] = React.useState('');
-    const [reload, setReload] = useState(false)
+    const [indexProfessorSelected, setIndexProfessorSelected] = useState(0);
+    const [newAvaliationState, setNewAvaliationState] = useState(false);
+    const posts = professors[indexProfessorSelected] ? professors[indexProfessorSelected].posts : []
 
     React.useEffect(() => {
         api.get("/professor/" + professorName)
@@ -20,55 +18,16 @@ export default function ProfessorSearch() {
                     setProfessors(response.data);
                 }
             })
-    }, [professorName, reload]);
+    }, [professorName, newAvaliationState]);
 
-    function closePopup() {
-        setBoxPopup('');
-        setReload(!reload);
-    }
+    return (<Container>
+        <Feed title="Professores Encontrados" width="210px" radius="0px 0px 10px 10px">
+        </Feed>
 
-    function makeAvaliation(id_professor, name, disciplines) {
-        setBoxPopup(
-            <Avaliation
-                close={() => closePopup()}
-                reg_student={JSON.parse(localStorage.getItem('student')).reg_student}
-                id_professor={id_professor}
-                name_professor={name}
-                disciplines={disciplines}
-            />
-        )
-    }
-
-    function makeReport() {
-        setBoxPopup(
-            <Report
-                close={() => closePopup()}
-            />
-        )
-    }
-
-    const Professors = (({ professors }) => {
-        return (
-
-            <Feed title={professorName}>
-                <Conteiner>
-                    {professors?.map(prof => {
-                        return (
-                            <ProfessorBox onClick={() => makeAvaliation(prof.id_professor, prof.name, prof.disciplines)} report={() => makeReport()} name={prof.name} rating={prof.rating} posts={prof.posts}></ProfessorBox>
-                        )
-                    })}
-                </Conteiner>
-            </Feed>
-
-        );
-    });
-
-    return (
-        <Content>
-            <AvaliationProfBox>
-                {boxPopup}
-            </AvaliationProfBox>
-            <Professors professors={professors} />
-        </Content>
+        <Feed title={professors[indexProfessorSelected] ? `${professors[indexProfessorSelected].name}` : "Sem Resultados"}>
+            <Feed.Header professor={professors[indexProfessorSelected]} canAvaliate={true} onNewAvaliation={() => setNewAvaliationState(!newAvaliationState)} />
+            {posts.length > 0 && <><Feed.Title backColor="#26A69A">Avaliações</Feed.Title> <Feed.PostsBox posts={posts} /> </>}
+        </Feed>
+    </Container>
     );
 }
