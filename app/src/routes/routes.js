@@ -12,6 +12,7 @@ import Profile from '../views/Profile';
 import Home from '../views/Home';
 import StudentHome from '../views/StudentHome';
 import Users from '../services/Users';
+import ProfessorHome from '../views/ProfessorHome';
 
 const PrivateRoute = ({ component: Component, authFunction, ...rest }) => (
   <Route
@@ -59,7 +60,6 @@ const Visitant = () => (
 const Student = () => (
   <LayoutApp>
     <Switch>
-      {/* <PrivateRouteStudent path="/student/home" component={...} /> */}
       <PrivateRoute
         path="/student/"
         authFunction={Users.STUDENT.isAuthenticated}
@@ -71,7 +71,11 @@ const Student = () => (
 
 const Professor = () => (
   <LayoutApp>
-    {/* <PrivateRouteProfessor path="/professor/home" component={...}/> */}
+    <PrivateRoute
+        path="/professor/"
+        authFunction={Users.PROFESSOR.isAuthenticated}
+        component={ProfessorHome}
+      />
   </LayoutApp>
 );
 
@@ -93,9 +97,12 @@ const Routes = () => (
       >
         <Student />
       </PrivateRoute>
-      <Route path="/professor/">
+      <PrivateRoute
+        path="/professor/"
+        authFunction={Users.PROFESSOR.isAuthenticated}
+      >
         <Professor />
-      </Route>
+      </PrivateRoute>
     </Switch>
   </Router>
 );
