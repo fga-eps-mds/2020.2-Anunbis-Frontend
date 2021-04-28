@@ -14,7 +14,7 @@ const Title = (props) => {
   )
 }
 
-const Header = ({ professor, canAvaliate, onNewAvaliation }) => {
+const Header = ({ professor, feedbacks, canAvaliate, onNewAvaliation }) => {
   const [avaliate, setAvaliate] = React.useState(false)
 
   function onClose() {
@@ -29,7 +29,7 @@ const Header = ({ professor, canAvaliate, onNewAvaliation }) => {
     <HeaderStyle>
       <Grid>
         <label>Nota Geral: </label>
-        <label>{professor?.rating ? professor.rating.toFixed(2) : "Sem avaliações ainda"}</label>
+        <label>{feedbacks?.rating ? feedbacks.rating.toFixed(2) : "Sem avaliações ainda"}</label>
         <label>Didática: </label>
         <label>{String.fromCodePoint(0x1F921)}</label>
         <label>Metodologia: </label>
