@@ -65,7 +65,7 @@ export const DivContent = styled.div`
 `;
 
 export const NotFound = styled.div`
-  height: 100%;
+  height: 20vh;
   width: 100%;
   display: flex;
   align-items: center;

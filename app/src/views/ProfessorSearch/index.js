@@ -29,10 +29,10 @@ function ProfessorSearch() {
         setDisciplineSelected(-1)
     }
 
-    return (<Container>
-        <Feed title="Professores" width="210px" radius="0px 0px 10px 10px">
+    return (<Container hasProfessors={professors.length > 0}>
+        {professors.length > 0 && <Feed title="Professores" width="210px" radius="0px 0px 10px 10px">
             {professors.map((prof, index) => <ProfessorFound professor={prof} onClick={() => onClickProfessor(index)} setDisciplineSelected={setDisciplineSelected} key={prof.id_professor} selected={index === professorSelected} />)}
-        </Feed>
+        </Feed>}
 
         <Feed title={professors[professorSelected] ? `${professors[professorSelected].name}` : "Sem Resultados"} radius="0px 0px 10px 10px">
             <Feed.Header professor={professor} feedbacks={feedbacks} canAvaliate={true} onNewAvaliation={() => setNewAvaliationState(!newAvaliationState)} />

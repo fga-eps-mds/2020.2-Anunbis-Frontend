@@ -2,7 +2,7 @@ import styled from 'styled-components';
 
 
 export const Container = styled.div`
-    display: grid;
+    display: ${props => props.hasProfessors ? "grid" : "flex"};
     grid-template-columns: 240px 700px;
 `;
 
