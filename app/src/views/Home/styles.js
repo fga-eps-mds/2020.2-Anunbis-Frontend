@@ -8,6 +8,35 @@ export const Container = styled.div`
     flex-direction: column;
 `
 
+export const Main = styled.main`
+    overflow-y: scroll;
+    -ms-overflow-style: none; 
+    ::-webkit-scrollbar {
+    display: none;
+    }
+    height: 200vh;
+    width: 100vw;
+    align-items: center;
+    align-self: center;
+`
+
+export const Footer = styled.main`
+background: #212121;
+color: #FFFFFF;
+width: 100%;
+height: 40px;
+margin-top: auto;
+
+    p {
+        font-family: 'Roboto';
+        font-style: normal;
+        font-weight: bold;
+        font-size: 20px;
+        line-height: 40px;
+        margin-left: 25px;
+    }
+`
+
 export const Middle = styled.div`
 display: flex;
 justify-content: center;
@@ -46,3 +75,45 @@ export const BtnEdition = styled(Button)`
     color: ${props => props.color ? props.color : "var(--black)"};
     background-color: ${props => props.background ? props.background : "var(--yellow)"};
 `
+
+export const Conteiner = styled.div`
+    display: ${props => props.display ? props.display : ''};
+    flex-direction:row;
+    align-items: center;
+    justify-content: center;
+    width: ${props => props.width ? props.width : '100vw'};
+    height: ${props => props.height ? props.height : 'calc(100vh - 40px)'};
+    background-color: ${props => props.backColor ? props.backColor : ''};
+
+    text-align: ${props => props.txtAlign ? props.txtAlign : ''};
+`;
+
+export const Image = styled.img`
+    width: ${props => props.width ? props.width : '60%'};
+    height: ${props => props.height ? props.height : '100%'};
+    margin: auto;
+    border-radius: 0px;
+`;
+
+export const Text = styled.div`
+    width: ${props => props.width ? props.width : '40%'};
+    height: fit-content;
+    font-family: 'Roboto';
+    font-style: 'normal';
+    text-align: center;
+    margin-inline-start: 40px;
+    label{
+        font-size: 40px;
+        color: var(--lightWhite);       
+    }
+
+    p{
+    margin-top: 5px;
+    color: #C4C4C4;
+    font-size: 24px;
+    line-height: 26px;
+    text-align: justify;
+    justify-content: baseline;
+    }
+    
+`;
