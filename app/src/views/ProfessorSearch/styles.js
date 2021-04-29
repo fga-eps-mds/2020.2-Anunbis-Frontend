@@ -44,3 +44,11 @@ export const Discipline = styled.div`
     box-shadow: 2px 2px rgba(0, 0, 0, 50%);
     text-align: center;
 `;
+
+export const LoadingBox = styled.div`
+    width: 100%;
+    height: 20vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+`;

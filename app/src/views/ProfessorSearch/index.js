@@ -2,27 +2,50 @@ import React, { useState } from 'react';
 import { useParams } from "react-router-dom";
 import Feed from '../../components/Feed';
 import api from '../../services/Api';
-import { Container, FoundDiv, Img, FoundHeader, Name, Discipline } from './styles'
+import Loading from '../../components/Loading';
+import { Container, FoundDiv, Img, FoundHeader, Name, Discipline, LoadingBox } from './styles'
 import Btn_options from '../../assets/images/Btn_options.png'
 
 function ProfessorSearch() {
     const { professorName } = useParams();
     const [professors, setProfessors] = useState([]);
-    const [professorSelected, setProfessorSelected] = useState(0);
+    const [professorSelected, setProfessorSelected] = useState(-1);
     const [newAvaliationState, setNewAvaliationState] = useState(false);
     const [disciplineSelected, setDisciplineSelected] = useState(-1)
     const professor = professors[professorSelected];
     const posts = getPosts(professor, disciplineSelected)
     const feedbacks = getFeedbacks(professor, posts, disciplineSelected)
+    const [loading, setLoading] = useState(true)
+
+
+    React.useEffect(() => {
+        if (professors.length === 0) return;
+        const id_professor = professors[professorSelected].id_professor;
+        const start = new Date().getTime();
+
+        setLoading(true)
+        api.get("/professor/" + id_professor)
+            .then(response => {
+                if (response.status === 200) {
+                    const requestDuration = start - new Date().getTime();
+                    professors[professorSelected] = response.data;
+                    setProfessors(professors);
+                    setTimeout(() => {
+                        setLoading(false)
+                    }, (requestDuration) > 500 ? 0 : 500 - requestDuration);
+                }
+            })
+    }, [newAvaliationState, professorSelected, disciplineSelected])
 
     React.useEffect(() => {
         api.get("/professor/" + professorName)
             .then(response => {
                 if (response.status === 200) {
                     setProfessors(response.data);
+                    setProfessorSelected(0)
                 }
             })
-    }, [professorName, newAvaliationState]);
+    }, []);
 
     function onClickProfessor(index) {
         setProfessorSelected(index)
@@ -36,7 +59,9 @@ function ProfessorSearch() {
 
         <Feed title={professors[professorSelected] ? `${professors[professorSelected].name}` : "Sem Resultados"} radius="0px 0px 10px 10px">
             <Feed.Header professor={professor} feedbacks={feedbacks} canAvaliate={true} onNewAvaliation={() => setNewAvaliationState(!newAvaliationState)} />
-            {posts.length > 0 && <><Feed.Title backColor="#26A69A">Avaliações</Feed.Title> <Feed.PostsBox posts={posts} /> </>}
+            <Feed.Title backColor="#26A69A" >{posts.length === 0 && !loading ? "Sem Avaliações Ainda" : "Avaliações"}</Feed.Title>
+            {!loading && <Feed.PostsBox posts={posts} />}
+            {loading && <LoadingBox><Loading /></LoadingBox>}
         </Feed>
     </Container>
     );
@@ -64,9 +89,10 @@ const ProfessorFound = ({ professor, onClick, selected, setDisciplineSelected })
     )
 }
 
+
 function getPosts(professor, disciplineSelected) {
-    if (professor) {
-        return disciplineSelected === -1 ? professor.posts : getPostsByDiscipline(professor, disciplineSelected);
+    if (professor && professor.posts) {
+        return disciplineSelected < 0 ? professor.posts : getPostsByDiscipline(professor, disciplineSelected);
     } else
         return [];
 }
@@ -77,7 +103,7 @@ function getPostsByDiscipline(professor, disciplineSelected) {
 }
 
 function getFeedbacks(professor, posts, disciplineSelected) {
-    if (disciplineSelected === -1) return professor;
+    if (disciplineSelected < 0) return professor;
     if (posts.length === 0) return;
 
     const rating = posts.reduce((accumulator, p) => accumulator + p.rating, 0) / posts.length;
