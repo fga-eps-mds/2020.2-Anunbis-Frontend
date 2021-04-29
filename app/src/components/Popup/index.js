@@ -22,7 +22,8 @@ const Popup = styled.div`
     justify-content: center;
     align-items: center;
     animation: ${fade} 0.5s ease;
-    background-color: rgba(0, 0, 0, 80%)
+    background-color: rgba(0, 0, 0, 80%);
+    z-index: 10;
 `;
 
 export default Popup;
