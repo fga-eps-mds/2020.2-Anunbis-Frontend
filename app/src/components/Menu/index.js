@@ -1,35 +1,42 @@
 import React from 'react';
 import Name_Logo from "../../assets/images/Name_Logo.png";
 import Input from '../Input';
-import {useHistory} from "react-router-dom";
+import { useHistory } from "react-router-dom";
 import Button from '../Button';
 import MenuOptions from '../MenuOptions';
-import {logOut} from '../../services/Auth';
+import { logOut } from '../../services/Auth';
 import { MenuBar, Logo, ImageLogo, ProfessorSearchStyle, BtnEdition, Container } from './styles.js';
 
-function ProfessorSearch ({history}) {
+function ProfessorSearch({ history }) {
+    const [isValid, setIsValid] = React.useState(false);
     const onSubmit = (data) => {
-        if(data.key === 'Enter' && data.target.value.trim().length > 0)
+        if (data.key === 'Enter' && isValid) {
             history.push("/professor/search/" + data.target.value.trim())
+        }
     }
-    return (<ProfessorSearchStyle><Input type="text" width="400px" text="Informe o nome do professor" onkeydown={onSubmit}/></ProfessorSearchStyle>)
-} 
+    const validate = (e) => {
+        const value = e.target.value.trim();
+        const isValid = value.length > 1 && value.length < 254;
+        setIsValid(isValid);
+    }
+    return (<ProfessorSearchStyle isValid={isValid}><Input type="text" width="400px" text="Informe o nome do professor" onkeydown={onSubmit} onChange={validate} /></ProfessorSearchStyle>)
+}
 
 export default function Menu() {
 
     const history = useHistory();
     const [menuOptions, setMenuOptions] = React.useState("");
 
-    function makeMenuOptions(){
-        if(menuOptions===""){
+    function makeMenuOptions() {
+        if (menuOptions === "") {
             return (setMenuOptions(
                 <MenuOptions>
-                    <Button type='button' backColor='#FFD54F' text='CONFIGURAR' padding='3px' onClick={() => {setMenuOptions(""); history.push('/profile')}}/>
+                    <Button type='button' backColor='#FFD54F' text='CONFIGURAR' padding='3px' onClick={() => { setMenuOptions(""); history.push('/profile') }} />
                     <Button backColor='#FFD54F' text='SOBRE' padding='3px' onClick={() => console.log("sobre")} />
-                    <Button backColor='#FFD54F' text='SAIR' padding='3px' onClick={() => {logOut(); history.push('/user/login')}} />
+                    <Button backColor='#FFD54F' text='SAIR' padding='3px' onClick={() => { logOut(); history.push('/user/login') }} />
                 </MenuOptions>
             ))
-        }else{
+        } else {
             setMenuOptions("");
         }
     }
@@ -39,7 +46,7 @@ export default function Menu() {
             <Logo>
                 <ImageLogo src={Name_Logo} alt="logo"></ImageLogo>
             </Logo>
-            <ProfessorSearch history={history}/>
+            <ProfessorSearch history={history} />
             <Container>
                 <BtnEdition text='ººº' padding='5px 5px' backColor='#212121' onClick={() => makeMenuOptions()} />
                 {menuOptions}

@@ -8,7 +8,8 @@ export const Btn = styled.button`
     border-radius: ${props => props.radius ? props.radius : "10px"};
     padding: ${props => props.padding ? props.padding : '15px 10px'};
     margin-inline: 15px;
-    
+    box-shadow: ${props => props.shadow ? props.shadow : "2px 2px 2px rgba(0, 0, 0, 50%)"};
+
     &:focus{
         outline-width: 0;
     }
