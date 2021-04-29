@@ -22,14 +22,16 @@ function ProfessorSearch() {
 
     React.useEffect(() => {
         if (professors.length === 0) return;
+        setLoading(true)
         const id_professor = professors[selected.professor].id_professor;
         const startRequest = new Date().getTime();
-
+        
         api.get("/professor/" + id_professor)
             .then(response => {
                 if (response.status === 200) {
                     const requestDuration = startRequest - new Date().getTime();
                     professors[selected.professor] = response.data;
+                    console.log(response.data)
                     setProfessors(professors);
                     setTimeout(() => {
                         setLoading(false)
@@ -69,9 +71,9 @@ function ProfessorSearch() {
         }
 
         <Feed title={professor ? `${professor.name}` : "Sem Resultados"} radius="0px 0px 10px 10px">
-            <Feed.Header professor={professor} feedbacks={feedbacks} canAvaliate={true} onNewAvaliation={() => setNewAvaliationState(!newAvaliationState)} />
+            <Feed.Header professor={professor} feedbacks={feedbacks} canAvaliate={true} onNewAvaliation={() => setNewAvaliationState(!newAvaliationState)}/>
             {professors.length > 0 && <Feed.Title backColor="#26A69A" >{posts.length === 0 && !loading ? "Sem Avaliações Ainda" : "Avaliações"}</Feed.Title>}
-            {!loading && <Feed.PostsBox posts={posts} />}
+            {!loading && <Feed.PostsBox posts={posts} key={posts.length}/>}
             {loading && professors.length > 0 && <LoadingBox><Loading /></LoadingBox>}
         </Feed>
     </Container>
