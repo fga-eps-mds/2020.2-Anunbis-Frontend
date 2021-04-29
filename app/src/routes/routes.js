@@ -6,6 +6,7 @@ import { isAuthenticated, isStudent, whoAuthenticated } from '../services/Auth';
 import LayoutAutentication from '../components/LayoutAutentication';
 import LayoutApp from '../components/LayoutApp';
 import Profile from '../views/Profile';
+import Home from '../views/Home';
 import {
     BrowserRouter as Router,
     Switch,
