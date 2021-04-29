@@ -61,7 +61,7 @@ export const DivContent = styled.div`
     flex-direction: column;
     align-items: center;
     overflow-y: auto;
-    animation: ${translate} 1s ease;
+    animation: ${translate} 0.5s ease;
 `;
 
 export const NotFound = styled.div`
