@@ -1,5 +1,6 @@
 import React from 'react';
 import Name_Logo from "../../assets/images/Name_Logo.png";
+<<<<<<< HEAD
 import Input from '../Input';
 import { useHistory } from "react-router-dom";
 import Button from '../Button';
@@ -40,17 +41,19 @@ export default function Menu() {
             setMenuOptions("");
         }
     }
+=======
+import { MenuBar, Logo, ImageLogo } from './styles.js';
+
+
+export default function Menu({children, background}) {
+>>>>>>> (#184) Alterando componente menu para pode reutiliza-lo
 
     return (
-        <MenuBar>
+        <MenuBar background={background}>
             <Logo>
-                <ImageLogo src={Name_Logo} alt="logo"></ImageLogo>
+                <ImageLogo src={Name_Logo} alt="logo" />
             </Logo>
-            <ProfessorSearch history={history} />
-            <Container>
-                <BtnEdition text='ººº' padding='5px 5px' backColor='#212121' onClick={() => makeMenuOptions()} />
-                {menuOptions}
-            </Container>
+            {children}
         </MenuBar>
     );
 }
