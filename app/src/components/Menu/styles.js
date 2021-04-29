@@ -22,7 +22,7 @@ export const ProfessorSearchStyle = styled.div`
     height: 40px;
     width: 400px;
     Input {
-        color: #FFFDE7;
+        color: ${props => props.isValid ? "#FFFDE7" : "red"};
         border-bottom: 1px solid #FFFDE7;
         margin: 0px;   
     }

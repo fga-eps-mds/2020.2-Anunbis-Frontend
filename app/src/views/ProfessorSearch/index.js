@@ -46,6 +46,10 @@ function ProfessorSearch() {
                     handleSetSelected(0, -1);
                 }
             })
+            .catch(error => {
+                setProfessors([])
+            })
+
     }, [professorName]);
 
     function handleSetSelected(indexProfessor, indexDiscipline) {
@@ -57,9 +61,12 @@ function ProfessorSearch() {
     }
 
     return (<Container hasProfessors={professors.length > 0}>
-        {professors.length > 0 && <Feed title="Professores" width="210px" radius="0px 0px 10px 10px" key={professors.length}>
-            {professors.map((prof, index) => <ProfessorFound professor={prof} onClick={() => handleSetSelected(index, -1)} setSelectedDiscipline={(indexDiscpline) => handleSetSelected(index, indexDiscpline)} key={prof.id_professor} isSelected={index === selected.professor} />)}
-        </Feed>}
+        {
+            professors.length > 0
+            && <Feed title="Professores" width="210px" radius="0px 0px 10px 10px" key={professors.length}>
+                {professors.map((prof, index) => <ProfessorFound professor={prof} onClick={() => handleSetSelected(index, -1)} setSelectedDiscipline={(indexDiscpline) => handleSetSelected(index, indexDiscpline)} key={prof.id_professor} isSelected={index === selected.professor} />)}
+            </Feed>
+        }
 
         <Feed title={professor ? `${professor.name}` : "Sem Resultados"} radius="0px 0px 10px 10px">
             <Feed.Header professor={professor} feedbacks={feedbacks} canAvaliate={true} onNewAvaliation={() => setNewAvaliationState(!newAvaliationState)} />
