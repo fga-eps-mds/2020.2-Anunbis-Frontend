@@ -9,75 +9,79 @@ import Btn_options from '../../assets/images/Btn_options.png'
 function ProfessorSearch() {
     const { professorName } = useParams();
     const [professors, setProfessors] = useState([]);
-    const [professorSelected, setProfessorSelected] = useState(-1);
+    const [selected, setSelected] = useState({
+        'professor': 0,
+        'discipline': -1
+    });
     const [newAvaliationState, setNewAvaliationState] = useState(false);
-    const [disciplineSelected, setDisciplineSelected] = useState(-1)
-    const professor = professors[professorSelected];
-    const posts = getPosts(professor, disciplineSelected)
-    const feedbacks = getFeedbacks(professor, posts, disciplineSelected)
+    const professor = professors[selected.professor];
+    const posts = getPosts(professor, selected.discipline)
+    const feedbacks = getFeedbacks(professor, posts, selected.discipline)
     const [loading, setLoading] = useState(true)
 
 
     React.useEffect(() => {
         if (professors.length === 0) return;
-        const id_professor = professors[professorSelected].id_professor;
-        const start = new Date().getTime();
+        const id_professor = professors[selected.professor].id_professor;
+        const startRequest = new Date().getTime();
 
-        setLoading(true)
         api.get("/professor/" + id_professor)
             .then(response => {
                 if (response.status === 200) {
-                    const requestDuration = start - new Date().getTime();
-                    professors[professorSelected] = response.data;
+                    const requestDuration = startRequest - new Date().getTime();
+                    professors[selected.professor] = response.data;
                     setProfessors(professors);
                     setTimeout(() => {
                         setLoading(false)
                     }, (requestDuration) > 500 ? 0 : 500 - requestDuration);
                 }
             })
-    }, [newAvaliationState, professorSelected, disciplineSelected])
+    }, [newAvaliationState, selected])
 
     React.useEffect(() => {
         api.get("/professor/" + professorName)
             .then(response => {
                 if (response.status === 200) {
                     setProfessors(response.data);
-                    setProfessorSelected(0)
+                    handleSetSelected(0, -1);
                 }
             })
-    }, []);
+    }, [professorName]);
 
-    function onClickProfessor(index) {
-        setProfessorSelected(index)
-        setDisciplineSelected(-1)
+    function handleSetSelected(indexProfessor, indexDiscipline) {
+        setLoading(true)
+        setSelected({
+            'professor': indexProfessor,
+            'discipline': indexDiscipline
+        });
     }
 
     return (<Container hasProfessors={professors.length > 0}>
-        {professors.length > 0 && <Feed title="Professores" width="210px" radius="0px 0px 10px 10px">
-            {professors.map((prof, index) => <ProfessorFound professor={prof} onClick={() => onClickProfessor(index)} setDisciplineSelected={setDisciplineSelected} key={prof.id_professor} selected={index === professorSelected} />)}
+        {professors.length > 0 && <Feed title="Professores" width="210px" radius="0px 0px 10px 10px" key={professors.length}>
+            {professors.map((prof, index) => <ProfessorFound professor={prof} onClick={() => handleSetSelected(index, -1)} setSelectedDiscipline={(indexDiscpline) => handleSetSelected(index, indexDiscpline)} key={prof.id_professor} isSelected={index === selected.professor} />)}
         </Feed>}
 
-        <Feed title={professors[professorSelected] ? `${professors[professorSelected].name}` : "Sem Resultados"} radius="0px 0px 10px 10px">
+        <Feed title={professor ? `${professor.name}` : "Sem Resultados"} radius="0px 0px 10px 10px">
             <Feed.Header professor={professor} feedbacks={feedbacks} canAvaliate={true} onNewAvaliation={() => setNewAvaliationState(!newAvaliationState)} />
-            <Feed.Title backColor="#26A69A" >{posts.length === 0 && !loading ? "Sem Avaliações Ainda" : "Avaliações"}</Feed.Title>
+            {professors.length > 0 && <Feed.Title backColor="#26A69A" >{posts.length === 0 && !loading ? "Sem Avaliações Ainda" : "Avaliações"}</Feed.Title>}
             {!loading && <Feed.PostsBox posts={posts} />}
-            {loading && <LoadingBox><Loading /></LoadingBox>}
+            {loading && professors.length > 0 && <LoadingBox><Loading /></LoadingBox>}
         </Feed>
     </Container>
     );
 }
 
-const ProfessorFound = ({ professor, onClick, selected, setDisciplineSelected }) => {
+const ProfessorFound = ({ professor, onClick, isSelected, setSelectedDiscipline }) => {
     const [showDisciplines, setShowDisciplines] = useState(false);
 
     function onClickDiscipline(index) {
         onClick()
-        setDisciplineSelected(index)
+        setSelectedDiscipline(index)
     }
 
     return (
         <FoundDiv>
-            <FoundHeader selected={selected}>
+            <FoundHeader selected={isSelected}>
                 <Img src={Btn_options} onClick={() => setShowDisciplines(!showDisciplines)} rotate={showDisciplines ? "90deg" : ""} />
                 <Name onClick={onClick}>
                     {professor.name}
