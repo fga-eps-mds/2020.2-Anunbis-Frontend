@@ -11,7 +11,7 @@ function ProfessorSearch({ history }) {
     const [isValid, setIsValid] = React.useState(false);
     const onSubmit = (data) => {
         if (data.key === 'Enter' && isValid) {
-            history.push("/" + whoAuthenticated() + "/search/" + data.target.value.trim())
+            history.push("/user/professor/search/" + data.target.value.trim())
         }
     }
     const validate = (e) => {
@@ -31,9 +31,9 @@ export default function Menu() {
         if (menuOptions === "") {
             return (setMenuOptions(
                 <MenuOptions>
-                    <Button type='button' backColor='#FFD54F' text='CONFIGURAR' padding='3px' onClick={() => {setMenuOptions(""); history.push('/student/profile')}}/>
+                    <Button type='button' backColor='#FFD54F' text='CONFIGURAR' padding='3px' onClick={() => {setMenuOptions(""); if(whoAuthenticated() == 'student') history.push('/user/profile')}}/>
                     <Button backColor='#FFD54F' text='SOBRE' padding='3px' onClick={() => console.log("sobre")} />
-                    <Button backColor='#FFD54F' text='SAIR' padding='3px' onClick={() => { logOut(); history.push('/user/login') }} />
+                    <Button backColor='#FFD54F' text='SAIR' padding='3px' onClick={() => { logOut(); history.push('/visitant/login') }} />
                 </MenuOptions>
             ))
         } else {

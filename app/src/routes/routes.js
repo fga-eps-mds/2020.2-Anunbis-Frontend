@@ -19,7 +19,7 @@ const PrivateRouteStudent = ({ component: Component, ...rest }) => (
         whoAuthenticated() == 'student' ? (
             <Component {...props} />
         ) : (
-            <Redirect to={{ pathname: '/user/login', state: { from: props.location } }} />
+            <Redirect to={{ pathname: '/visitant/login', state: { from: props.location } }} />
         )
     )} />
 );
@@ -29,7 +29,7 @@ const PrivateRouteProfessor = ({ component: Component, ...rest }) => (
         whoAuthenticated() == 'professor' ? (
             <Component {...props} />
         ) : (
-            <Redirect to={{ pathname: '/user/login', state: { from: props.location } }} />
+            <Redirect to={{ pathname: '/visitant/login', state: { from: props.location } }} />
         )
     )} />
 );
@@ -38,30 +38,40 @@ const Routes = () => (
     <Router>
         <Switch>
 
-            <Route path="/user/">
+            <Route path="/visitant/">
                 <LayoutAutentication>
                     <Switch>
-                        <Route exact path="/user/student" component={RegisterStudent} />
-                        <Route path="/user/login" exact component={Login} />
-                        <Route path="/user/professor" component={RegisterProfessor} />
+                        <Route exact path="/visitant/student" component={RegisterStudent} />
+                        <Route path="/visitant/login" exact component={Login} />
+                        <Route path="/visitant/professor" component={RegisterProfessor} />
                     </Switch>
                 </LayoutAutentication>
+            </Route>
+            
+            <Route path="/user/">
+                <LayoutApp>
+                    <Switch>  
+                        <Route path="/user/professor/search/:professorName" component={ProfessorSearch} />
+                        <Route path="/user/profile" component={Profile} />
+                    </Switch>
+                </LayoutApp>    
             </Route>
 
             <Route path="/student/">
                 <LayoutApp>
                     <Switch>
-                        <PrivateRouteStudent path="/student/profile" component={Profile} />
-                        <PrivateRouteStudent path="/student/search/:professorName" component={ProfessorSearch} />
+                        
+                        {/* <PrivateRouteStudent path="/student/search/:professorName" component={ProfessorSearch} /> */}
                     </Switch>
                 </LayoutApp>
             </Route>
 
             <Route path="/professor/">
                 <LayoutApp>
-                    <PrivateRouteProfessor path="/professor/search/:professorName" component={ProfessorSearch}/>
+                    {/* <PrivateRouteProfessor path="/professor/search/:professorName" component={ProfessorSearch}/> */}
                 </LayoutApp>
             </Route>
+
         </Switch>
     </Router>
 );

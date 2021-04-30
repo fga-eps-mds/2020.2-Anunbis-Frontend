@@ -43,7 +43,7 @@ export default function Profile() {
     api.delete("/student/" + student.reg_student)
     .then(response => {
       //console.log(response);
-      history.push('/user/login') 
+      history.push('/visitant/login') 
     })
     .catch(error =>  {
       console.log(error.response);

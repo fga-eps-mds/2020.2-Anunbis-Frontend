@@ -35,7 +35,6 @@ export default function Login() {
     setCursor("wait");
     sendLogin(data.email, data.password, () => {
       if (getToken()){
-        console.log(whoAuthenticated());
         history.push("/" + whoAuthenticated());
       }
     }, () => {
@@ -55,8 +54,8 @@ export default function Login() {
   return (
     <Content cursor={cursor}>
       <Header>
-        <Link className="btnLogin" to="/user/login">LOGIN</Link>
-        <Link className="btnCadastro" to="/user/student">CADASTRO</Link>
+        <Link className="btnLogin" to="/visitant/login">LOGIN</Link>
+        <Link className="btnCadastro" to="/visitant/student">CADASTRO</Link>
       </Header>
       <Form onSubmit={handleSubmit(onSubmit)}>
         <Form.Field><div>{erroLogin}</div></Form.Field>

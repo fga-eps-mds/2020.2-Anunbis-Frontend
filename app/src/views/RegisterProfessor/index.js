@@ -38,7 +38,7 @@ export default function RegisterProfessor() {
     api.post("/professor", body)
       .then(response => {
         if (response.status === 201) {
-          history.push("/user/login")
+          history.push("/visitant/login")
         }
       })
       .catch(error => {
@@ -52,9 +52,9 @@ export default function RegisterProfessor() {
   return (
     <Content>
       <Header title="Cadastro de Professor">
-        <Link className="btnLogin" to="/user/login">LOGIN</Link>
-        <Link className="btnCadastro" to="/user/student">CADASTRO</Link>
-        <Link className="btnStudent" to="/user/student">ALUNO?</Link>
+        <Link className="btnLogin" to="/visitant/login">LOGIN</Link>
+        <Link className="btnCadastro" to="/visitant/student">CADASTRO</Link>
+        <Link className="btnStudent" to="/visitant/student">ALUNO?</Link>
       </Header>
 
       <Form onSubmit={handleSubmit(onSubmit)}>

@@ -8,6 +8,7 @@ import { PostStyle, HeaderPost, InfoStudent, Name, Rating, ContentPost, Feedback
 import api from '../../services/Api'
 import Report from '../Report';
 import Popup from '../Popup';
+import { whoAuthenticated } from '../../services/Auth';
 
 const Header = ({ post, onClickReport }) => {
     return (
@@ -44,15 +45,19 @@ const Feedbacks = ({ post, Onclick }) => {
     const countDisagrees = post.feedbacks.disagrees;
 
     function clickAgree() {
-        const body = { 'id_post': post.id_post }
-        api.post("/post/agree", body)
-            .then(res => Onclick(res.data))
+        if(whoAuthenticated() == 'student'){
+            const body = { 'id_post': post.id_post }
+            api.post("/post/agree", body)
+                .then(res => Onclick(res.data))
+        }
     }
 
     function clickDisagree() {
+        if(whoAuthenticated() == 'student'){
         const body = { 'id_post': post.id_post }
         api.post("/post/disagree", body)
             .then(res => Onclick(res.data))
+        }
     }
 
     return (
