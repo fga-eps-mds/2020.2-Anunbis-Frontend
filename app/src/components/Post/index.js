@@ -40,7 +40,7 @@ const Content = ({ children }) => {
 
 const Feedbacks = ({ post, Onclick }) => {
     const isAgreed = post.feedbacks.is_agreed || isProfessor();
-    const isDisagreed = post.feedbacks.is_disagreed;
+    const isDisagreed = post.feedbacks.is_disagreed || isProfessor();
     const countAgrees = post.feedbacks.agrees;
     const countDisagrees = post.feedbacks.disagrees;
 

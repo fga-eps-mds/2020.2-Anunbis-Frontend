@@ -12,7 +12,7 @@ export function isProfessor(){
 
 export function isStudent(){
   if(getToken()){
-    return localStorage.getItem('professor') ? true : false;
+    return localStorage.getItem('student') ? true : false;
   }
 }
 
