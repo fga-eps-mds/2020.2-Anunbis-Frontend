@@ -1,5 +1,25 @@
-import styled from 'styled-components';
+import styled, {keyframes} from 'styled-components';
 import Button from '../../components/Button';
+
+const fadeD = keyframes`
+    50% {
+        transform: translateX(2%)
+    }
+    100% {
+        transform: translateX(0%)
+    }
+`;
+
+const fadeE = keyframes`
+    50% {
+       transform: translateX(-2%)
+    }
+    100% {
+        transform: translateX(0%)
+    }
+`;
+
+const animationTime = '1s';
 
 export const Container = styled.div`
     height: 100vh;
@@ -14,10 +34,13 @@ export const Container = styled.div`
 export const Main = styled.main`
     overflow-y: scroll;
     -ms-overflow-style: none; 
+    display: grid;
+    grid-column: 1;
+    grid-template-rows: repeat(4, calc(100vh - 45px));
     ::-webkit-scrollbar {
     display: none;
     }
-    height: 200vh;
+    height: fit-content;
     width: 100vw;
     align-items: center;
     align-self: center;
@@ -59,11 +82,8 @@ margin-left: auto;
         color: var(--lightWhite);
         display: block;
         padding: 10px;
-        text-decoration: ${props => props.isSelected ? 'underline' : 'none'};
+        text-decoration: none;
         font-size: 24px;
-    }
-    a:visited{
-        text-decoration: underline;
     }
     a:hover{
         text-decoration: underline;
@@ -86,18 +106,28 @@ export const BtnEdition = styled(Button)`
 `
 
 export const Content = styled.div`
-    display: ${props => props.display ? props.display : ''};
-    flex-direction:row;
+    display: ${props => props.display ? props.display : 'flex'};
+    flex-direction: ${props => props.direction ? props.direction : 'row'};
     align-items: center;
     justify-content: center;
-    width: ${props => props.width ? props.width : '100vw'};
-    height: ${props => props.height ? props.height : 'calc(100vh - 40px)'};
+    width: ${props => props.width ? props.width : '100%'};
+    height: ${props => props.height ? props.height : '100%'};
+    max-height: 100%;
     background-color: ${props => props.backColor ? props.backColor : ''};
 
     text-align: ${props => props.txtAlign ? props.txtAlign : ''};
 `;
 
+export const CardContent = styled.div`
+    height: 20vh;
+    width: 90%;
+    display: flex;
+    flex-flow: row;
+    justify-content: space-around;
+`
+
 export const Image = styled.img`
+    animation: ${fadeD} ${animationTime} ease;
     width: ${props => props.width ? props.width : '60%'};
     height: ${props => props.height ? props.height : '100%'};
     margin: ${props => props.margin ? props.margin : 'auto'};
@@ -105,24 +135,37 @@ export const Image = styled.img`
 `;
 
 export const Text = styled.div`
+    animation: ${fadeE} ${animationTime} ease;
     width: ${props => props.width ? props.width : '40%'};
     height: fit-content;
-    font-family: 'Roboto';
     font-style: 'normal';
     text-align: center;
     margin-inline-start: 40px;
+
     label{
+        margin-top: 100px;
         font-size: 40px;
         color: var(--lightWhite);       
     }
 
     p{
-    margin-top: 5px;
-    color: #C4C4C4;
-    font-size: 24px;
-    line-height: 26px;
-    text-align: justify;
-    justify-content: baseline;
+        margin-top: 5px;
+        color: #C4C4C4;
+        font-size: 24px;
+        line-height: 26px;
+        text-align: justify;
+        justify-content: baseline;
+    }
+
+    a {
+        display: block;
+        text-decoration: none;
+        color: #FFF;
+        margin-top: 10px;
+        font-size: 16px;
+        font-weight: bold;
+        text-shadow: 2px 2px 2px black;
+        color: var(--lightWhite);
     }
     
 `;

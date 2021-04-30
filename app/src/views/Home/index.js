@@ -4,9 +4,17 @@ import { End } from '../../components/LayoutApp/styles';
 import Menu from '../../components/Menu';
 import LogoImg from '../../assets/images/LogoHome.svg';
 import PuzzleImg from '../../assets/images/Puzzle.svg';
-import TeamWorkImg from '../../assets/images/TeamWork.svg';
 import CommunicationImg from '../../assets/images/Communication.svg';
-import { Container, Main, Middle, BtnEdition, Content, Image, Text, Footer } from './styles';
+import TeamWorkImg from '../../assets/images/Teamwork.svg';
+import Rafael from '../../assets/images/Rafael.jpeg';
+import Rodrigo from '../../assets/images/Rodrigo.jpeg';
+import Roberto from '../../assets/images/Roberto.jpeg';
+import Eduardo from '../../assets/images/Eduardo.jpeg';
+import Thiago from '../../assets/images/Thiago.jpeg';
+import Victor from '../../assets/images/Victor.jpeg';
+import { Container, Main, Middle, BtnEdition, Content, Image, Text, Footer, CardContent } from './styles';
+import HeadIcon from '../../components/HeadIcon';
+
 
 export default function Home() {
 
@@ -48,8 +56,8 @@ export default function Home() {
     }
 
     const Team = () => {
-        return (
-            <Content display='flex' id="team">
+        return (<Content direction="column">
+            <Content display='flex' id="team" height="50%">
                 <Text>
                     <label>
                         Equipe
@@ -58,14 +66,23 @@ export default function Home() {
                         O Anunbis é um projeto criado e desenvolvido por alunos de Métodos de Desenvolvimento
                         de Software (MDS) da Faculdade do Gama (FGA), da Universidade de Brasília (UnB).
                     </p>
-                    <label>
-                        <br></br>
-                    Membros
-                    </label>
                 </Text>
-                <Image height='25%' src={TeamWorkImg} alt="Team" />
+                <Image height='75%' src={TeamWorkImg} alt="Team" margin="0px" />
             </Content>
-        )
+            <Content display='flex' height="100px">
+                <Text>
+                    <label>Membros</label></Text>
+            </Content>
+            <CardContent>
+                <HeadIcon imgSrc={Rafael} name="Rafael Cleydson" linkGithub="https://github.com/RcleydsonR" />
+                <HeadIcon imgSrc={Rodrigo} name="Rodrigo Balbino" linkGithub="https://github.com/Balbinoo" />
+                <HeadIcon imgSrc={Roberto} name="Roberto Santana" linkGithub="https://github.com/mangabeiras" />
+                <HeadIcon imgSrc={Eduardo} name="Eduardo Afonso" linkGithub="https://github.com/oEduardoAfonso" />
+                <HeadIcon imgSrc={Thiago} name="Thiago Paiva" linkGithub="https://github.com/thiagohdaqw" />
+                <HeadIcon imgSrc={Victor} name="Victor Hugo" linkGithub="https://github.com/victorhugo21" />
+            </CardContent>
+        </Content>
+        );
     }
 
     const Contact = () => {
@@ -76,16 +93,14 @@ export default function Home() {
                         Contate-nos
                     </label>
                     <p>
-                        <br></br>
                         Deseja elogiar, sugerir mudanças, ou contribuir?
                         Entre em contato conosco através do email ou acesse nosso repositório no github.
                     </p>
-                    <p>
-                        <br></br>
-                        anunbis.team@gmail.com
-                        https://github.com/fga-eps-mds/2020.2-Anunbis
-                        https://github.com/fga-eps-mds/2020.2-Anunbis-Frontend
-                    </p>
+                    <a target="_blank" href="mailto:anunbis.team@gmail.com">anunbis.team@gmail.com</a>
+                    <a target="_blank" href="https://github.com/fga-eps-mds/2020.2-Anunbis">Repositório Back-end</a>
+                    <a target="_blank" href="https://github.com/fga-eps-mds/2020.2-Anunbis-FrontEnd">Repositório Front-end</a>
+
+
                 </Text>
                 <Image height='50%' src={CommunicationImg} alt="Img" />
             </Content>
