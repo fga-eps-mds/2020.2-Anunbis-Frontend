@@ -69,6 +69,7 @@ const Professor = () => {
 const Routes = () => (
     <Router>
         <Switch>
+            <Route exact path='/' component={Home} />
             <Route path="/visitant/"><Visitant /></Route>
             <PrivateRoute path="/user/" authFunction={isAuthenticated} component={User} />
             <Route path="/student/"><Student /></Route>

@@ -1,25 +1,31 @@
-import styled, {keyframes} from 'styled-components';
+
+import styled, { keyframes } from 'styled-components';
 import Button from '../../components/Button';
 
-const fadeD = keyframes`
-    50% {
-        transform: translateX(2%)
+const backInRight = keyframes`
+    0% {
+        transform: scale(0.8);
+        opacity: 0;
     }
     100% {
-        transform: translateX(0%)
+        transform: scale(1);
+        opacity: 1;
     }
-`;
+`
 
-const fadeE = keyframes`
+const pulse = keyframes`
+    0% {
+        transform: scale(1);
+    }
+  
     50% {
-       transform: translateX(-2%)
+        transform: scale(1.02);
     }
-    100% {
-        transform: translateX(0%)
-    }
-`;
 
-const animationTime = '1s';
+    100%{
+        transform: scale(1);
+    }
+`
 
 export const Container = styled.div`
     height: 100vh;
@@ -62,7 +68,6 @@ margin-top: auto;
         margin-left: 25px;
     }
 `
-
 export const Middle = styled.div`
 display: flex;
 justify-content: center;
@@ -77,20 +82,17 @@ margin-left: auto;
         width: 50vw;
         align-items: center;
     }
+`;
 
-    a{
+export const LinkMenu = styled.a`
+
         color: var(--lightWhite);
         display: block;
         padding: 10px;
-        text-decoration: none;
-        font-size: 24px;
-    }
-    a:hover{
-        text-decoration: underline;
-    }
-    
-    
-`;
+        text-decoration: ${props => props.isSelected ? "underlinde" : "none"};
+     
+
+`
 
 export const BtnEdition = styled(Button)`
     margin: ${props => props.margin ? props.margin : "0px"};
@@ -119,6 +121,7 @@ export const Content = styled.div`
 `;
 
 export const CardContent = styled.div`
+    animation: ${props => props.isVisible ? backInRight : 'none'}  1s ease-in;
     height: 20vh;
     width: 90%;
     display: flex;
@@ -127,7 +130,7 @@ export const CardContent = styled.div`
 `
 
 export const Image = styled.img`
-    animation: ${fadeD} ${animationTime} ease;
+    animation: ${props => props.isVisible ? pulse : 'none'}  1s ease-in;
     width: ${props => props.width ? props.width : '60%'};
     height: ${props => props.height ? props.height : '100%'};
     margin: ${props => props.margin ? props.margin : 'auto'};
@@ -135,7 +138,7 @@ export const Image = styled.img`
 `;
 
 export const Text = styled.div`
-    animation: ${fadeE} ${animationTime} ease;
+    animation: ${props => props.isVisible ? pulse : 'none'} 1s ease-in-out;
     width: ${props => props.width ? props.width : '40%'};
     height: fit-content;
     font-style: 'normal';

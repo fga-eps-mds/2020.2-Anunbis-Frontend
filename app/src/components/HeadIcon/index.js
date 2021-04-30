@@ -1,3 +1,4 @@
+
 import React from 'react';
 import { Picture } from './styles';
 
@@ -6,8 +7,7 @@ export default function HeadIcon({ imgSrc, name, linkGithub }) {
 
     return (
         <Picture>
-
-            <a target="_blank" href={linkGithub} >
+            <a href={linkGithub} target="_blank" rel="noreferrer" >
             <div>
                     {name}
             </div>
