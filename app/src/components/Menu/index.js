@@ -4,14 +4,14 @@ import Input from '../Input';
 import { useHistory } from "react-router-dom";
 import Button from '../Button';
 import MenuOptions from '../MenuOptions';
-import { logOut } from '../../services/Auth';
+import {isStudent, logOut} from '../../services/Auth';
 import { MenuBar, Logo, ImageLogo, ProfessorSearchStyle, BtnEdition, Container } from './styles.js';
 
 function ProfessorSearch({ history }) {
     const [isValid, setIsValid] = React.useState(false);
     const onSubmit = (data) => {
         if (data.key === 'Enter' && isValid) {
-            history.push("/professor/search/" + data.target.value.trim())
+            history.push("/user/professor/search/" + data.target.value.trim())
         }
     }
     const validate = (e) => {
@@ -31,9 +31,9 @@ export default function Menu() {
         if (menuOptions === "") {
             return (setMenuOptions(
                 <MenuOptions>
-                    <Button type='button' backColor='#FFD54F' text='CONFIGURAR' padding='3px' onClick={() => { setMenuOptions(""); history.push('/profile') }} />
+                    <Button type='button' backColor='#FFD54F' text='CONFIGURAR' padding='3px' onClick={() => {setMenuOptions(""); if(isStudent()) history.push('/user/profile')}}/>
                     <Button backColor='#FFD54F' text='SOBRE' padding='3px' onClick={() => console.log("sobre")} />
-                    <Button backColor='#FFD54F' text='SAIR' padding='3px' onClick={() => { logOut(); history.push('/user/login') }} />
+                    <Button backColor='#FFD54F' text='SAIR' padding='3px' onClick={() => { logOut(); history.push('/visitant/login') }} />
                 </MenuOptions>
             ))
         } else {

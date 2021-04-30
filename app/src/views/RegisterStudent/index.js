@@ -61,7 +61,7 @@ export default function RegisterStudent() {
     api.post("/student", body)
       .then(response => {
         if (response.status === 201) {
-          history.push("/user/login")
+          history.push("/visitant/login")
         }
       })
       .catch(error => {
@@ -74,9 +74,9 @@ export default function RegisterStudent() {
   return (
     <Content>
       <Header title="Cadastro de Aluno">
-        <Link className="btnLogin" to="/user/login">LOGIN</Link>
-        <Link className="btnCadastro" to="/user/student">CADASTRO</Link>
-        <Link className="btnProfessor" to="/user/professor">PROFESSOR?</Link>
+        <Link className="btnLogin" to="/visitant/login">LOGIN</Link>
+        <Link className="btnCadastro" to="/visitant/student">CADASTRO</Link>
+        <Link className="btnProfessor" to="/visitant/professor">PROFESSOR?</Link>
       </Header>
       <Form onSubmit={handleSubmit(onSubmit)}>
         <Form.Field errorMsg={errors.name?.message}><Input type="text" text="Nome" name="name" register={register} /></Form.Field>

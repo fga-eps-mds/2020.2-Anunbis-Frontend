@@ -6,7 +6,7 @@ import schema from "./validations"
 import Button from "../../components/Button";
 import Form from "../../components/Form";
 import Input from "../../components/Input";
-import isAuthenticated, { sendLogin, logOut } from '../../services/Auth';
+import { sendLogin, logOut, getToken, isProfessor } from '../../services/Auth';
 import {Content, Conteiner, Erro} from './styles';
 
 const Header = ({ children }) => {
@@ -34,8 +34,10 @@ export default function Login() {
   function onSubmit(data) {
     setCursor("wait");
     sendLogin(data.email, data.password, () => {
-      if (isAuthenticated())
-        history.push("/home");
+      if (getToken()){
+        let home = isProfessor() ? 'professor' : 'student';
+        history.push("/" + home);
+      }
     }, () => {
       createSpanError();
       setCursor("");
@@ -53,8 +55,8 @@ export default function Login() {
   return (
     <Content cursor={cursor}>
       <Header>
-        <Link className="btnLogin" to="/user/login">LOGIN</Link>
-        <Link className="btnCadastro" to="/user/student">CADASTRO</Link>
+        <Link className="btnLogin" to="/visitant/login">LOGIN</Link>
+        <Link className="btnCadastro" to="/visitant/student">CADASTRO</Link>
       </Header>
       <Form onSubmit={handleSubmit(onSubmit)}>
         <Form.Field><div>{erroLogin}</div></Form.Field>
