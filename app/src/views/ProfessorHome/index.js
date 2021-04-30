@@ -1,12 +1,14 @@
-import React, { Children } from 'react';
+import React from 'react';
 import Feed from '../../components/Feed';
 import Btn_options from '../../assets/images/Btn_options.png';
-import { Container, ImageOptions, MinorContainer } from './styles';
-import Post from '../../components/Post';
+import { Container, ContainerPost, ImageOptions, ContainerOptions, ContainerHeader, BtnHomeProfessor, Home } from './styles';
+import Button from '../../components/Button';
 
-const post = {
+const post = [{
     "content": "Bom de mais, que locura cachoeira",
-    "discipline": { "discipline_code": "FGA03", "name": "Estrutura de Dados" },
+    "discipline": {
+        "discipline_code": "FGA03", "name": "Estrutura de Dados"
+    },
     "feedbacks": { "agrees": 1, "disagrees": 0, "is_agreed": true, "is_disagreed": false },
     "id_post": 56, "id_professor": 1, "is_anonymous": false,
     "post_date": "2021-04-26",
@@ -18,53 +20,102 @@ const post = {
         },
         "name": "victor"
     }
-}
+}]
 
-function ProfessorHome() {
-    return (
+const disciplines = [{
+    "feedbacks": {
+        "rating": 5
+    },
 
-        <Feed title="Avaliações sobre você">
+    "posts": post,
+    "discipline_code": "FGA03",
+    "name": "Estrutura de Dados DE ENGENHARIA DA UNNIVERSIDADE DE BRASILIA NA FGA DO GAMA"
+}, {
+    "feedbacks": {
+        "rating": 5
+    },
 
-            <ProfessorHomeFeedbacks text={'[' + post.discipline.discipline_code + '] ' + post.discipline.name} >
-            </ProfessorHomeFeedbacks>
+    "posts": post,
+    "discipline_code": "FGA03",
+    "name": "Estrutura de dados 2"
+}, {
+    "feedbacks": {
+        "rating": 5
+    },
 
+    "posts": post,
+    "discipline_code": "FGA03",
+    "name": "Estrutura de Dados"
+}]
 
-        </Feed>
-    )
-}
-
-const ProfessorHomeFeedbacks = (props) => {
-
+const DisciplineContent = ({ discipline}) => {
     const [boxPost, setBoxPost] = React.useState(false);
     const [rotate, setRotate] = React.useState("");
 
     function handleSetBoxPost() {
-        setRotate(!boxPost ? "90deg" : "")
-        console.log(boxPost);
+                setRotate(!boxPost ? "90deg" : "")
         setBoxPost(!boxPost)
     }
 
     return (
-        <Container>
+            <ContainerPost>
+                <DisciplineOptions onClick={handleSetBoxPost} >
+                    <ImageOptions src={Btn_options} rotate={rotate} />
+                    {'[' + discipline.discipline_code + '] ' + discipline.name}
 
-            <ProfessorHomeFeedbacksOptions onClick={handleSetBoxPost} >
-                <ImageOptions src={Btn_options} rotate={rotate} />
-                {props.text}
-
-            </ProfessorHomeFeedbacksOptions>
-
-        </Container>
+                </DisciplineOptions>
+                {boxPost && <DisciplinePosts discipline={discipline} />}
+            </ContainerPost>
     )
 }
 
-const ProfessorHomeFeedbacksOptions = ({ children, onClick }) => {
+const DisciplineOptions = ({ children, onClick}) => {
     return (
-        <MinorContainer onClick={() => onClick()} >
-            {children}
-
-        </MinorContainer>
+            <ContainerOptions onClick={() => onClick()} >
+                {children}
+            </ContainerOptions>
     )
 }
 
-export default ProfessorHome;
+const DisciplinePosts = ({ discipline}) => {
+    for (var i = 0; i < 2; i++) {
+                discipline.posts.push(discipline.posts[0])
+            }
+    return (
+            <>
+                <ContainerHeader>
+                    <Feed.Header professor={discipline.feedbacks} canAvaliate={false} />
+                </ContainerHeader>
 
+                <Feed.PostsBox posts={discipline.posts} canReport={true} />
+            </>
+    )
+}
+
+export default function ProfessorHome() {
+
+    const [isStatistics, setIsStatistics] = React.useState(false);
+
+    function OptionsProfessorHome() {
+        return (
+            <BtnHomeProfessor>
+                <Button text="AVALIAÇÕES" backColor="#FFD54F" padding="15px 40px" radius="20px" onClick={() => setIsStatistics(false)} />
+                <Button text="ESTATÍSTICAS" backColor="#FFD54F" padding="15px 40px" radius="20px" onClick={() => setIsStatistics(true)} />
+            </BtnHomeProfessor>
+        )
+    }
+
+    return (
+        <Home>
+            <OptionsProfessorHome />
+            {isStatistics ? <Feed title="Estatísticas" /> :
+                <Feed title="Avaliações sobre você">
+
+                    <Container>
+                        {disciplines.map(dis => <DisciplineContent discipline={dis} />)}
+                    </Container>
+                </Feed>
+            }
+            </Home>
+    )
+}
