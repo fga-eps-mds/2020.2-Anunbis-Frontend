@@ -3,15 +3,22 @@ import bg_app from "../../assets/images/BG_App.png";
 import Button from '../Button';
 
 export const Container = styled.div`
-    height: 100vh;
+    width: 100%;
+    min-height: 100%;
     background-image: url(${bg_app});
     display: flex;
     flex-direction: column;
+    background-attachment: fixed;
+    background-position: center;
+    background-size: cover;
+    * :-webkit-scrollbar {
+    display: none;
+    }
 `
 
 export const Main = styled.main`
     width: fit-content;
-    margin-top:20px;
+    margin-top: 20px;
     display: flex;
     align-items: space-around;
     align-self: center;

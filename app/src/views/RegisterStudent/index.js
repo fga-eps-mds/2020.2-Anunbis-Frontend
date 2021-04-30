@@ -1,5 +1,4 @@
 import React, { useEffect } from 'react';
-import styled from 'styled-components';
 import { useForm } from "react-hook-form";
 import { yupResolver } from '@hookform/resolvers/yup';
 import { Link, useHistory } from 'react-router-dom';
@@ -40,12 +39,10 @@ export default function RegisterStudent() {
   }
 
   useEffect(() => {
-    {
       api.get("/course")
         .then(response => {
           setCourses(response.data);
         })
-    }
   }, []);
 
   function onSubmit(data) {

@@ -1,13 +1,4 @@
-import styled, {keyframes} from 'styled-components';
-
-const fade = keyframes`
-    0% {
-        transform: translateX(20%)
-    }
-    100% {
-        transform: translateX(0%)
-    }
-`;
+import styled from 'styled-components';
 
 
 
@@ -17,7 +8,6 @@ export const Picture = styled.div`
     width: 150px;
     height: 150px;
     overflow: hidden;
-    animation: ${fade} 3s ease;
 
     a {
         color: inherit;

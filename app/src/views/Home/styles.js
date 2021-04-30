@@ -3,13 +3,8 @@ import styled, { keyframes } from 'styled-components';
 import Button from '../../components/Button';
 
 const backInRight = keyframes`
-    0% {
-        transform: scale(0.8);
-        opacity: 0;
-    }
-    100% {
-        transform: scale(1);
-        opacity: 1;
+    50% {
+        transform: translateX(-3%);
     }
 `
 
@@ -121,16 +116,17 @@ export const Content = styled.div`
 `;
 
 export const CardContent = styled.div`
-    animation: ${props => props.isVisible ? backInRight : 'none'}  1s ease-in;
+    animation: ${props => props.isVisible ? backInRight : 'none'}  1s ease-in-out;
     height: 20vh;
     width: 90%;
     display: flex;
     flex-flow: row;
     justify-content: space-around;
+    
 `
 
 export const Image = styled.img`
-    animation: ${props => props.isVisible ? pulse : 'none'}  1s ease-in;
+    animation: ${props => props.isVisible ? pulse : 'none'}  1s ease-in-out;
     width: ${props => props.width ? props.width : '60%'};
     height: ${props => props.height ? props.height : '100%'};
     margin: ${props => props.margin ? props.margin : 'auto'};
