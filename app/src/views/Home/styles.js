@@ -6,6 +6,9 @@ export const Container = styled.div`
     background-image: linear-gradient(#26425F, #1D2935); 
     display: flex;
     flex-direction: column;
+    *{
+    scroll-behavior: smooth !important;
+    }
 `
 
 export const Main = styled.main`
@@ -56,10 +59,16 @@ margin-left: auto;
         color: var(--lightWhite);
         display: block;
         padding: 10px;
-        text-decoration: none;
+        text-decoration: ${props => props.isSelected ? 'underline' : 'none'};
         font-size: 24px;
     }
-
+    a:visited{
+        text-decoration: underline;
+    }
+    a:hover{
+        text-decoration: underline;
+    }
+    
     
 `;
 
@@ -76,7 +85,7 @@ export const BtnEdition = styled(Button)`
     background-color: ${props => props.background ? props.background : "var(--yellow)"};
 `
 
-export const Conteiner = styled.div`
+export const Content = styled.div`
     display: ${props => props.display ? props.display : ''};
     flex-direction:row;
     align-items: center;
@@ -91,7 +100,7 @@ export const Conteiner = styled.div`
 export const Image = styled.img`
     width: ${props => props.width ? props.width : '60%'};
     height: ${props => props.height ? props.height : '100%'};
-    margin: auto;
+    margin: ${props => props.margin ? props.margin : 'auto'};
     border-radius: 0px;
 `;
 
