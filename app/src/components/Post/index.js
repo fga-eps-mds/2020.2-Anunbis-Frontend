@@ -8,7 +8,7 @@ import { PostStyle, HeaderPost, InfoStudent, Name, Rating, ContentPost, Feedback
 import api from '../../services/Api'
 import Report from '../Report';
 import Popup from '../Popup';
-import { whoAuthenticated } from '../../services/Auth';
+import { isProfessor, isStudent} from '../../services/Auth';
 
 const Header = ({ post, onClickReport }) => {
     return (
@@ -39,13 +39,13 @@ const Content = ({ children }) => {
 
 
 const Feedbacks = ({ post, Onclick }) => {
-    const isAgreed = post.feedbacks.is_agreed;
+    const isAgreed = post.feedbacks.is_agreed || isProfessor();
     const isDisagreed = post.feedbacks.is_disagreed;
     const countAgrees = post.feedbacks.agrees;
     const countDisagrees = post.feedbacks.disagrees;
 
     function clickAgree() {
-        if(whoAuthenticated() == 'student'){
+        if(isStudent()){
             const body = { 'id_post': post.id_post }
             api.post("/post/agree", body)
                 .then(res => Onclick(res.data))
@@ -53,7 +53,7 @@ const Feedbacks = ({ post, Onclick }) => {
     }
 
     function clickDisagree() {
-        if(whoAuthenticated() == 'student'){
+        if(isStudent()){
         const body = { 'id_post': post.id_post }
         api.post("/post/disagree", body)
             .then(res => Onclick(res.data))

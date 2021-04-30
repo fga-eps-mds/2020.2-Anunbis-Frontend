@@ -1,12 +1,23 @@
 import api from './Api'
 
-export function whoAuthenticated() {
-  if (getToken())
-    return localStorage.getItem('student') ? 'student' : 'professor';
+export function isAuthenticated(){
+  return getToken() != undefined;
+}
+
+export function isProfessor(){
+  if(getToken()){
+    return localStorage.getItem('professor') ? true : false;
+  }
+}
+
+export function isStudent(){
+  if(getToken()){
+    return localStorage.getItem('professor') ? true : false;
+  }
 }
 
 export function getToken() {
-  return (localStorage.getItem('access_token'))
+  return (localStorage.getItem('access_token'));
 }
 
 export async function sendLogin(email, password, callback, errorCallback) {
