@@ -2,7 +2,7 @@ import RegisterStudent from '../views/RegisterStudent';
 import Login from '../views/Login';
 import RegisterProfessor from '../views/RegisterProfessor';
 import ProfessorSearch from '../views/ProfessorSearch';
-import { isAuthenticated, isStudent, whoAuthenticated } from '../services/Auth';
+import { isAuthenticated} from '../services/Auth';
 import LayoutAutentication from '../components/LayoutAutentication';
 import LayoutApp from '../components/LayoutApp';
 import Profile from '../views/Profile';

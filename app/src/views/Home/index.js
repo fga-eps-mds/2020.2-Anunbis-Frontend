@@ -79,7 +79,7 @@ function Home() {
                     </div>
                 </Middle>
                 <End height='22,5px'>
-                    <BtnEdition text='Login' onClick={() => history.push('user/login')} />
+                    <BtnEdition text='Login' onClick={() => history.push('visitant/login')} />
                 </End>
             </Menu>
             <Main>
@@ -116,7 +116,7 @@ const Begin = ({isVisible}) => {
                     Alunos trocando experiências e opiniões sobre disciplinas e professores para manter
                     a comunidade acadêmica da Universidade de Brasilia unida e bem informada.
                 </p>
-                <BtnEdition text='Cadastre-se' width='160px' margin="20px 0 0 0" shadow="2px 2px 2px rgba(0,0,0, 100%)" onClick={() => history.push('user/student/')} />
+                <BtnEdition text='Cadastre-se' width='160px' margin="20px 0 0 0" shadow="2px 2px 2px rgba(0,0,0, 100%)" onClick={() => history.push('visitant/student/')} />
             </Text>
             <Image height='80%' src={LogoImg} alt="Logo" isVisible={isVisible}/>
         </Content>

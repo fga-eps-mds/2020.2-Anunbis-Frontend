@@ -1,7 +1,7 @@
 import api from './Api'
 
 export function isAuthenticated(){
-  return getToken() != undefined;
+  return getToken() !== undefined;
 }
 
 export function isProfessor(){
