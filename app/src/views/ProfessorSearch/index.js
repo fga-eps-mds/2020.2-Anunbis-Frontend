@@ -72,9 +72,13 @@ function getFeedbacks(professor, posts, disciplineSelected) {
   if (disciplineSelected < 0) return professor;
   if (posts.length === 0) return -1;
 
-  const rating =
-    posts.reduce((accumulator, p) => accumulator + p.rating, 0) / posts.length;
-  return rating;
+  const rating = professor.rating;
+  const didactic = professor.didactic;
+  const metod = professor.metod;
+  const avaliations = professor.avaliations;
+  const disponibility = professor.disponibility;
+
+  return { 'rating': rating, 'didactic': didactic, 'metod': metod, 'avaliations': avaliations, 'disponibility': disponibility }
 }
 
 function ProfessorSearch() {
