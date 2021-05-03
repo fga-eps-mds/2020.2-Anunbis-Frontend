@@ -27,5 +27,6 @@ html, body, #root {
         --cian: #26A69A;
         --lightRed: #FF6347;
         --transparent: rgb(0,0,0,0); 
+        --lightWhite: #FFFDE7; 
     }
 `

@@ -2,10 +2,11 @@ import RegisterStudent from '../views/RegisterStudent';
 import Login from '../views/Login';
 import RegisterProfessor from '../views/RegisterProfessor';
 import ProfessorSearch from '../views/ProfessorSearch';
-import { isAuthenticated, isStudent, whoAuthenticated } from '../services/Auth';
+import { isAuthenticated} from '../services/Auth';
 import LayoutAutentication from '../components/LayoutAutentication';
 import LayoutApp from '../components/LayoutApp';
 import Profile from '../views/Profile';
+import Home from '../views/Home';
 import {
     BrowserRouter as Router,
     Switch,
@@ -68,6 +69,7 @@ const Professor = () => {
 const Routes = () => (
     <Router>
         <Switch>
+            <Route exact path='/' component={Home} />
             <Route path="/visitant/"><Visitant /></Route>
             <PrivateRoute path="/user/" authFunction={isAuthenticated} component={User} />
             <Route path="/student/"><Student /></Route>

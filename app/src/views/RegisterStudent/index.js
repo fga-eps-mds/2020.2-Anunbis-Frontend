@@ -1,5 +1,4 @@
 import React, { useEffect } from 'react';
-import styled from 'styled-components';
 import { useForm } from "react-hook-form";
 import { yupResolver } from '@hookform/resolvers/yup';
 import { Link, useHistory } from 'react-router-dom';
@@ -40,12 +39,10 @@ export default function RegisterStudent() {
   }
 
   useEffect(() => {
-    {
       api.get("/course")
         .then(response => {
           setCourses(response.data);
         })
-    }
   }, []);
 
   function onSubmit(data) {
@@ -87,7 +84,7 @@ export default function RegisterStudent() {
         <Form.Field errorMsg={errors.co_password?.message}><Input type="password" text="Confirmar Senha" name="co_password" register={register} /></Form.Field>
         <Form.Field><div className="errorDB">{errorDB}</div></Form.Field>
         <Form.Footer>
-          <Button text="CANCELAR" backColor="#FFF9C4" padding="12px 8px" />
+          <Button text="CANCELAR" backColor="#FFF9C4" padding="12px 8px" onClick={() => history.push('/')}/>
           <Button text="CONFIRMAR" type="submit" backColor="#FFF9C4" padding="12px 8px" />
         </Form.Footer>
       </Form>

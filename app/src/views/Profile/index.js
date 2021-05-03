@@ -4,6 +4,7 @@ import ResetPassword from '../../components/ResetPassword';
 import { useHistory } from "react-router-dom";
 import api from '../../services/Api';
 import {Conteiner, ContentExclude, BtsExclude, BtnReset, BtnExcluir, Title } from './styles';
+import { logOut } from '../../services/Auth';
 
 export default function Profile() {
   const history = useHistory();
@@ -27,7 +28,7 @@ export default function Profile() {
   function getCourseName() {
     let cont = 0;
       while (cont < courses.length) {
-        if (courses[cont++].id_course == student.id_course)
+        if (courses[cont++].id_course === student.id_course)
           return courses[cont - 1].name;
       }
   }
@@ -42,8 +43,8 @@ export default function Profile() {
   function excludeAccount(){
     api.delete("/student/" + student.reg_student)
     .then(response => {
-      //console.log(response);
-      history.push('/visitant/login') 
+      logOut()
+      history.push('/') 
     })
     .catch(error =>  {
       console.log(error.response);
