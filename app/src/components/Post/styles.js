@@ -3,7 +3,7 @@ import ReportIconBW from '../../assets/images/Report_Icon_BW.png';
 import ReportIconC from '../../assets/images/Report_Icon_C.png';
 
 export const PostStyle = styled.div`
-  background-color: #ffd54f;
+  background-color: var(--yellow);
   height: 160px;
   display: flex;
   padding: 10px;
@@ -16,10 +16,10 @@ export const PostStyle = styled.div`
 `;
 
 export const HeaderPost = styled.div`
-  display: block;
-  height: 40px;
-  display: flex;
-  justify-content: space-between;
+    display: block;
+    height: fit-content;
+    display: flex;
+    justify-content: space-between;
 
   button {
     border: none;
@@ -45,40 +45,48 @@ export const HeaderPost = styled.div`
 `;
 
 export const ContentPost = styled.div`
-  background-color: #fffde7;
-  width: 100%;
-  height: 45px;
-  margin: auto;
-  padding: 10px;
-  font: 11px Roboto;
-  border-radius: 5px;
-  overflow-y: auto;
-  word-break: break-all;
+    background-color: var(--lightWhite);
+    width: 100%;
+    height: fit-content;
+    margin-top: auto;
+    padding: 10px;
+    font: 11px Roboto;
+    border-radius: 5px;
+    overflow-y: auto;
+    word-break: break-all;
+
+    ::-webkit-scrollbar {
+        width: 3px;
+    }
+
+    ::-webkit-scrollbar-thumb {
+        background-color: var(--black);
+    }
 `;
 
 export const FeedbacksDiv = styled.div`
   display: flex;
   justify-content: space-between;
 
-  button {
-    border: none;
-    height: 15px;
-    width: 60px;
-    margin-inline: 60px;
-    background-repeat: no-repeat;
-    background-position: left;
-    background-size: 40%;
-    display: flex;
-    align-items: center;
-    justify-content: flex-end;
-    color: rgba(61, 58, 58, 0.603);
-  }
+    button{
+        border: none;
+        height: 15px;
+        width: 60px; 
+        margin-inline: 60px;
+        background-repeat: no-repeat;
+        background-position: left;
+        background-size: 40%;
+        display: flex;
+        align-items: center;
+        justify-content: flex-end;
+        color: rgba(61, 58, 58, 0.603);   
+        box-shadow: none; 
+    }
 `;
 
 export const InfoStudent = styled.div`
-  height: 32px;
-  font: 12px Roboto;
-  padding-left: 10px;
+    font: 12px Roboto;
+    padding-left: 10px;
 `;
 
 export const Name = styled.div`
@@ -86,5 +94,7 @@ export const Name = styled.div`
 `;
 
 export const Rating = styled.div`
-  padding: 8px;
+    display: grid;
+    grid-template-columns: 120px 100px;
+    font-size: 11px;
 `;
