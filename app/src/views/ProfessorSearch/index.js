@@ -171,7 +171,7 @@ function ProfessorSearch() {
           onNewAvaliation={() => setNewAvaliationState(!newAvaliationState)}
         />
         {professors.length > 0 && (
-          <Feed.Title backColor="#26A69A">
+          <Feed.Title backColor="var(--cian)">
             {posts.length === 0 && !loading
               ? 'Sem Avaliações Ainda'
               : 'Avaliações'}

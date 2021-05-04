@@ -18,15 +18,15 @@ export const Container = styled.label`
   width: fit-content;
   height: fit-content;
 
-  &:hover input ~ ${Checkmark} {
+  &:hover input ~ span {
     background-color: #ccc;
   }
 
-  input:checked ~ ${Checkmark} {
-    background-color: #26a69a;
+  input:checked ~ span {
+    background-color: var(--cian);
   }
 
-  input:checked ~ ${Checkmark}:after {
+  input:checked ~ span:after {
     content: '';
     left: 10px;
     top: 5px;
