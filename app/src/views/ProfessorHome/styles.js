@@ -2,20 +2,22 @@ import styled from "styled-components"
 
 export const Container = styled.div`
     border-radius: 20px;
-    background-color: #FFD54F;
-    height : 80vh;  
+    background-color: var(--yellow);
+    height : fit-content;  
     box-shadow: 2px 2px 2px rgba(0, 0, 0, 50%);
     display: flex;
     align-items: center;
     flex-direction: column;
     margin: 20px;
+    padding-bottom: 20px;
     overflow-y: auto;
 `
 
 export const ContainerOptions = styled.div`
     display: grid;
-    grid-template-columns: 180px 300px;
+    grid-template-columns: 100px 400px;
     align-items: center;
+    justify-content: space-evenly;
     font-weight: bold;
     padding: 5px;
 
@@ -44,7 +46,7 @@ export const ContainerHeader = styled.div`
 `
 
 export const BtnHomeProfessor = styled.div `
-    background-color: #FFFDE7;
+    background-color: var(--lightWhite);
     margin: 90px 100px 0 0;
     height: 150px;
     width: 250px;
@@ -61,3 +63,10 @@ export const BtnHomeProfessor = styled.div `
      grid-template-columns: 300px 800px;
      
  `
+export const LoadingBox = styled.div`
+width: 100%;
+height: 20vh;
+display: flex;
+justify-content: center;
+align-items: center;
+`;
