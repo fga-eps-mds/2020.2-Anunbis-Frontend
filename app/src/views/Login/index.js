@@ -6,7 +6,8 @@ import schema from "./validations"
 import Button from "../../components/Button";
 import Form from "../../components/Form";
 import Input from "../../components/Input";
-import { sendLogin, logOut, getToken, isProfessor } from '../../services/Auth';
+import { sendLogin, logOut, getToken} from '../../services/Auth';
+import Users from '../../services/Users';
 import {Content, Conteiner, Erro} from './styles';
 
 const Header = ({ children }) => {
@@ -35,7 +36,7 @@ export default function Login() {
     setCursor("wait");
     sendLogin(data.email, data.password, () => {
       if (getToken()){
-        let home = isProfessor() ? 'professor' : 'student';
+        let home = Users.PROFESSOR.isAuthenticated() ? 'professor' : 'student';
         history.push("/" + home);
       }
     }, () => {

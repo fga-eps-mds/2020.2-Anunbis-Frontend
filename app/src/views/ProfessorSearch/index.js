@@ -5,7 +5,7 @@ import api from '../../services/Api';
 import Loading from '../../components/Loading';
 import { Container, FoundDiv, Img, FoundHeader, Name, Discipline, LoadingBox } from './styles'
 import Btn_options from '../../assets/images/Btn_options.png'
-import { isStudent } from '../../services/Auth';
+import Users from '../../services/Users';
 
 function ProfessorSearch() {
     const { professorName } = useParams();
@@ -72,7 +72,7 @@ function ProfessorSearch() {
         }
 
         <Feed title={professor ? `${professor.name}` : "Sem Resultados"} radius="0px 0px 10px 10px">
-            <Feed.Header professor={professor} feedbacks={feedbacks} canAvaliate={isStudent()} onNewAvaliation={() => setNewAvaliationState(!newAvaliationState)}/>
+            <Feed.Header professor={professor} feedbacks={feedbacks} canAvaliate={Users.STUDENT.isAuthenticated()} onNewAvaliation={() => setNewAvaliationState(!newAvaliationState)}/>
             {professors.length > 0 && <Feed.Title backColor="#26A69A" >{posts.length === 0 && !loading ? "Sem Avaliações Ainda" : "Avaliações"}</Feed.Title>}
             {!loading && <Feed.PostsBox posts={posts} key={posts.length}/>}
             {loading && professors.length > 0 && <LoadingBox><Loading /></LoadingBox>}

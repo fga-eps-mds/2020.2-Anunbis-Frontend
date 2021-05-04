@@ -2,11 +2,13 @@ import RegisterStudent from '../views/RegisterStudent';
 import Login from '../views/Login';
 import RegisterProfessor from '../views/RegisterProfessor';
 import ProfessorSearch from '../views/ProfessorSearch';
-import { isAuthenticated} from '../services/Auth';
 import LayoutAutentication from '../components/LayoutAutentication';
 import LayoutApp from '../components/LayoutApp';
 import Profile from '../views/Profile';
 import Home from '../views/Home';
+import StudentHome from '../views/StudentHome';
+import Users from '../services/Users';
+
 import {
     BrowserRouter as Router,
     Switch,
@@ -15,12 +17,13 @@ import {
 } from "react-router-dom";
 
 
+
 const PrivateRoute = ({ component: Component, authFunction, ...rest }) => (
     <Route {...rest} render={props => (
         authFunction() ? (
             <Component {...props} />
         ) : (
-            <Redirect to={{ pathname: '/visitant/login', state: { from: props.location } }} />
+            <Redirect to={{ pathname: Users.whoAuthenticated().homePath, state: { from: props.location } }} />
         )
     )} />
 );
@@ -29,8 +32,8 @@ const User = () => {
     return (
         <LayoutApp>
             <Switch>
-                <Route path="/user/professor/search/:professorName" component={ProfessorSearch} authFunction={isAuthenticated} />
-                <Route path="/user/profile" component={Profile} authFunction={isAuthenticated} />
+                <Route path="/user/professor/search/:professorName" component={ProfessorSearch} authFunction={Users.isAuthenticated} />
+                <Route path="/user/profile" component={Profile} authFunction={Users.isAuthenticated} />
             </Switch>
         </LayoutApp>
     )
@@ -53,6 +56,7 @@ const Student = () => {
         <LayoutApp>
             <Switch>
                 {/* <PrivateRouteStudent path="/student/home" component={...} /> */}
+                <PrivateRoute path="/student/" authFunction={Users.STUDENT.isAuthenticated} component={StudentHome} />
             </Switch>
         </LayoutApp>
     )
@@ -71,8 +75,8 @@ const Routes = () => (
         <Switch>
             <Route exact path='/' component={Home} />
             <Route path="/visitant/"><Visitant /></Route>
-            <PrivateRoute path="/user/" authFunction={isAuthenticated} component={User} />
-            <Route path="/student/"><Student /></Route>
+            <PrivateRoute path="/user/" authFunction={Users.isAuthenticated} component={User} />
+            <PrivateRoute path="/student/" authFunction={Users.STUDENT.isAuthenticated} ><Student /></PrivateRoute>
             <Route path="/professor/"><Professor /></Route>
         </Switch>
     </Router>

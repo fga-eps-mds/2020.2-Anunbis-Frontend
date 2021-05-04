@@ -3,7 +3,8 @@ import { BtnEdition, Container, End, Main, ProfessorSearchStyle } from './styles
 import Menu from '../Menu';
 import Input from '../Input';
 import Button from '../Button';
-import {isStudent, logOut } from '../../services/Auth';
+import {logOut } from '../../services/Auth';
+import Users from '../../services/Users';
 import { useHistory } from 'react-router';
 import MenuOptions from '../MenuOptions';
 
@@ -32,7 +33,7 @@ export default function LayoutApp({ children }) {
         if (menuOptions === "") {
             return (setMenuOptions(
                 <MenuOptions>
-                    <Button type='button' backColor='#FFD54F' text='CONFIGURAR' padding='3px' onClick={() => {setMenuOptions(""); if(isStudent()) history.push('/user/profile')}}/>
+                    <Button type='button' backColor='#FFD54F' text='CONFIGURAR' padding='3px' onClick={() => {setMenuOptions(""); if(Users.STUDENT.isAuthenticated()) history.push('/user/profile')}}/>
                     <Button backColor='#FFD54F' text='SOBRE' padding='3px' onClick={() => console.log("sobre")} />
                     <Button backColor='#FFD54F' text='SAIR' padding='3px' onClick={() => { logOut(); history.push('/') }} />
                 </MenuOptions>
