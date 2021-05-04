@@ -1,11 +1,11 @@
 import React from 'react';
 import { useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
-import { Container, NameProfessor, TxtArea } from './styles';
+import { Container, Grades, NameProfessor, TxtArea } from './styles'
 import schema from './validations';
-import Input from '../Input';
 import Select from '../Select';
 import Button from '../Button';
+import StarsAvaliation from '../StarsAvaliation'
 import Form from '../Form';
 import FeedPopup from '../FeedPopup';
 import api from '../../services/Api';
@@ -31,9 +31,12 @@ export default function Avaliation({ close, professor }) {
       reg_student: regStudent,
       id_professor: professor.id_professor,
       content: data.comments,
-      rating: parseFloat(data.note),
+      didactic: data.didactic.length,
+      metod: data.metod.length,
+      avaliations: data.avaliations.length,
+      disponibility: data.didactic.length,
       discipline_code: data.id_course,
-      is_anonymous: isAnonymous,
+      is_anonymous: isAnonymous
     };
 
     api.post('/post', body).then((response) => {
@@ -51,37 +54,57 @@ export default function Avaliation({ close, professor }) {
           <Form.Field errorMsg={errors.id_course?.message}>
             <Select
               id="diciplines"
-              backColor="#FFFDE7"
+              backColor="var(--yellow)"
               text="Selecione um Curso"
               options={disciplinesOptions(disciplines)}
               name="id_course"
               register={register}
             />
           </Form.Field>
-          <Form.Field errorMsg={errors.note?.message}>
-            <Input
-              type="number"
-              step="0.1"
-              text="Nota"
-              name="note"
+          <p>Notas:</p>
+          <Grades>
+            <label>Didática:</label>
+            <Form.Field errorMsg={errors.didactic?.message}>
+              <StarsAvaliation 
+              name="didactic" 
               register={register}
-              width="90px"
-            />
-          </Form.Field>
+              />
+            </Form.Field>
+            <label>Metodologia:</label>
+            <Form.Field errorMsg={errors.metod?.message}>
+              <StarsAvaliation 
+              name="metod"
+              register={register}
+              />
+            </Form.Field>
+            <label>Coerência das Avaliações:</label>
+            <Form.Field errorMsg={errors.avaliations?.message}>
+              <StarsAvaliation 
+              name="avaliations" 
+              register={register}
+              />
+            </Form.Field>
+            <label>Disponibilidade:</label>
+            <Form.Field errorMsg={errors.disponibility?.message}>
+              <StarsAvaliation 
+              name="disponibility" 
+              register={register}/>
+            </Form.Field>
+          </Grades>
           <p>Postagem:</p>
           <Container direction="row" heigth="30px" align="center">
             <Button
               type="button"
               padding="7px 10px"
               text="PÚBLICA"
-              backColor={isAnonymous ? '#FFF9C4' : '#969681'}
+              backColor={isAnonymous ? 'var(--yellow)' : '#969681'}
               onClick={() => setIsAnonymous(false)}
             />
             <Button
               type="button"
               padding="7px 10px"
               text="ANÔNIMA"
-              backColor={isAnonymous ? '#969681' : '#FFF9C4'}
+              backColor={isAnonymous ? '#969681' : 'var(--yellow)'}
               onClick={() => setIsAnonymous(true)}
             />
           </Container>

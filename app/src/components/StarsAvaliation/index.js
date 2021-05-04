@@ -3,7 +3,7 @@ import React from 'react';
 import { Container } from './styles';
 import Checkbox from '../Checkbox/'
 
-function StarsAvaliation({name, register}) {
+function StarsAvaliation({ name, register }) {
     const [isChecked1, setChecked1] = React.useState(false);
     const [isChecked2, setChecked2] = React.useState(false);
     const [isChecked3, setChecked3] = React.useState(false);
@@ -41,11 +41,11 @@ function StarsAvaliation({name, register}) {
 
   return (
     <Container>
-        <Checkbox name={name} ref={register} checked={isChecked1} onChange={() => setStatus(1 ,!isChecked1)}/>
-        <Checkbox name={name} ref={register} checked={isChecked2} onChange={() => setStatus(2 ,!isChecked2)}/>
-        <Checkbox name={name} ref={register} checked={isChecked3} onChange={() => setStatus(3 ,!isChecked3)}/>
-        <Checkbox name={name} ref={register} checked={isChecked4} onChange={() => setStatus(4 ,!isChecked4)}/>
-        <Checkbox name={name} ref={register} checked={isChecked5} onChange={() => setStatus(5 ,!isChecked5)}/>
+        <Checkbox name={name} register={register} checked={isChecked1} onChange={() => setStatus(1 ,!isChecked1)}/>
+        <Checkbox name={name} register={register} checked={isChecked2} onChange={() => setStatus(2 ,!isChecked2)}/>
+        <Checkbox name={name} register={register} checked={isChecked3} onChange={() => setStatus(3 ,!isChecked3)}/>
+        <Checkbox name={name} register={register} checked={isChecked4} onChange={() => setStatus(4 ,!isChecked4)}/>
+        <Checkbox name={name} register={register} checked={isChecked5} onChange={() => setStatus(5 ,!isChecked5)}/>
     </Container>
   );
 }
