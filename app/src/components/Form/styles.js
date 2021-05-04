@@ -9,7 +9,7 @@ export const Container = styled.div`
         input {
             margin: 0px;
         }
-    `
+    `;
 export const Erro = styled.div`
     color: #F44336;
     font-size: 10px;

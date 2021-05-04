@@ -1,21 +1,20 @@
 import styled, { keyframes } from 'styled-components';
 
-
 export const Container = styled.div((props) => ({
-  width: props.width ? props.width : "700px",
-  "min-height": "20vh",
-  height: "fit-content",
-  margin: "0 0 40px 0",
-  "border-radius": props.radius ? props.radius : "0px 0px 20px 20px",
-  "background-color": "#FFFDE7",
-  "justify-content": "center",
-  "box-shadow": "5px 5px 5px rgba(0, 0, 0, 50%)"
+  width: props.width ? props.width : '700px',
+  'min-height': '20vh',
+  height: 'fit-content',
+  margin: '0 0 40px 0',
+  'border-radius': props.radius ? props.radius : '0px 0px 20px 20px',
+  'background-color': '#FFFDE7',
+  'justify-content': 'center',
+  'box-shadow': '5px 5px 5px rgba(0, 0, 0, 50%)',
 }));
 
 export const DivTitle = styled.div`
     width: inherit;
     height: 25px;
-    background-color: ${props => props.backColor ? props.backColor : 'var(--black)'};
+    background-color: ${(props) => (props.backColor ? props.backColor : 'var(--black)')};
     color: #FFFDE7;
     display: flex;
     align-items: center;

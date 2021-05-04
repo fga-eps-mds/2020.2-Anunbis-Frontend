@@ -1,23 +1,20 @@
-import React, { useEffect } from "react";
+import React, { useEffect } from 'react';
 import { useHistory, Link } from 'react-router-dom';
-import { useForm } from "react-hook-form";
+import { useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
-import schema from "./validations"
-import Button from "../../components/Button";
-import Form from "../../components/Form";
-import Input from "../../components/Input";
-import { sendLogin, logOut, getToken} from '../../services/Auth';
+import schema from './validations';
+import Button from '../../components/Button';
+import Form from '../../components/Form';
+import Input from '../../components/Input';
+import { sendLogin, logOut, getToken } from '../../services/Auth';
 import Users from '../../services/Users';
-import {Content, Conteiner, Erro} from './styles';
+import { Content, Conteiner, Erro } from './styles';
 
-const Header = ({ children }) => {
-  return (
-    <Conteiner>
-      {children}
-    </Conteiner>
-  )
-}
-
+const Header = ({ children }) => (
+  <Conteiner>
+    {children}
+  </Conteiner>
+);
 
 export default function Login() {
   const history = useHistory();
@@ -30,18 +27,18 @@ export default function Login() {
 
   useEffect(() => {
     logOut();
-  })
+  });
 
   function onSubmit(data) {
-    setCursor("wait");
+    setCursor('wait');
     sendLogin(data.email, data.password, () => {
-      if (getToken()){
-        let home = Users.PROFESSOR.isAuthenticated() ? 'professor' : 'student';
-        history.push("/" + home);
+      if (getToken()) {
+        const home = Users.PROFESSOR.isAuthenticated() ? 'professor' : 'student';
+        history.push(`/${home}`);
       }
     }, () => {
       createSpanError();
-      setCursor("");
+      setCursor('');
     });
   }
 
@@ -50,7 +47,8 @@ export default function Login() {
       <Erro>
         Email ou Senha Inválidos
         <Button type="button" onClick={() => setErroLogin('')} text="X" />
-      </Erro>)
+      </Erro>,
+    );
   }
 
   return (
@@ -61,10 +59,16 @@ export default function Login() {
       </Header>
       <Form onSubmit={handleSubmit(onSubmit)}>
         <Form.Field><div>{erroLogin}</div></Form.Field>
-        <Form.Field errorMsg={errors.email?.message}><Input type="text" text="Email Instuticional" name="email" register={register} /> </Form.Field>
-        <Form.Field errorMsg={errors.password?.message}><Input type="password" text="Senha" name="password" register={register} /> </Form.Field>
+        <Form.Field errorMsg={errors.email?.message}>
+          <Input type="text" text="Email Instuticional" name="email" register={register} />
+          {' '}
+        </Form.Field>
+        <Form.Field errorMsg={errors.password?.message}>
+          <Input type="password" text="Senha" name="password" register={register} />
+          {' '}
+        </Form.Field>
         <Form.Footer>
-          <Button text="CONFIRMAR" backColor="#FFF9C4" cursor={cursor}/>
+          <Button text="CONFIRMAR" backColor="#FFF9C4" cursor={cursor} />
         </Form.Footer>
       </Form>
     </Content>

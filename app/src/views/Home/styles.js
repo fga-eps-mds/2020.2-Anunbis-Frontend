@@ -1,4 +1,3 @@
-
 import styled, { keyframes } from 'styled-components';
 import Button from '../../components/Button';
 
@@ -6,7 +5,7 @@ const backInRight = keyframes`
     50% {
         transform: translateX(-3%);
     }
-`
+`;
 
 const pulse = keyframes`
     0% {
@@ -20,7 +19,7 @@ const pulse = keyframes`
     100%{
         transform: scale(1);
     }
-`
+`;
 
 export const Container = styled.div`
     height: 100vh;
@@ -30,7 +29,7 @@ export const Container = styled.div`
     *{
     scroll-behavior: smooth !important;
     }
-`
+`;
 
 export const Main = styled.main`
     overflow-y: scroll;
@@ -45,7 +44,7 @@ export const Main = styled.main`
     width: 100vw;
     align-items: center;
     align-self: center;
-`
+`;
 
 export const Footer = styled.main`
 background: #212121;
@@ -62,7 +61,7 @@ margin-top: auto;
         line-height: 40px;
         margin-left: 25px;
     }
-`
+`;
 export const Middle = styled.div`
 display: flex;
 justify-content: center;
@@ -84,58 +83,58 @@ export const LinkMenu = styled.a`
         color: var(--lightWhite);
         display: block;
         padding: 10px;
-        text-decoration: ${props => props.isSelected ? "underlinde" : "none"};
+        text-decoration: ${(props) => (props.isSelected ? 'underlinde' : 'none')};
      
 
-`
+`;
 
 export const BtnEdition = styled(Button)`
-    margin: ${props => props.margin ? props.margin : "0px"};
-    width: ${props => props.width ? props.width : "80px"};
+    margin: ${(props) => (props.margin ? props.margin : '0px')};
+    width: ${(props) => (props.width ? props.width : '80px')};
     padding: 5px;
     font-size: 14px;
     font-style: 'Roboto';
     letter-spacing: 1.5px;
     border: 0px;
     margin-left: auto;
-    color: ${props => props.color ? props.color : "var(--black)"};
-    background-color: ${props => props.background ? props.background : "var(--yellow)"};
-`
+    color: ${(props) => (props.color ? props.color : 'var(--black)')};
+    background-color: ${(props) => (props.background ? props.background : 'var(--yellow)')};
+`;
 
 export const Content = styled.div`
-    display: ${props => props.display ? props.display : 'flex'};
-    flex-direction: ${props => props.direction ? props.direction : 'row'};
+    display: ${(props) => (props.display ? props.display : 'flex')};
+    flex-direction: ${(props) => (props.direction ? props.direction : 'row')};
     align-items: center;
     justify-content: center;
-    width: ${props => props.width ? props.width : '100%'};
-    height: ${props => props.height ? props.height : '100%'};
+    width: ${(props) => (props.width ? props.width : '100%')};
+    height: ${(props) => (props.height ? props.height : '100%')};
     max-height: 100%;
-    background-color: ${props => props.backColor ? props.backColor : ''};
+    background-color: ${(props) => (props.backColor ? props.backColor : '')};
 
-    text-align: ${props => props.txtAlign ? props.txtAlign : ''};
+    text-align: ${(props) => (props.txtAlign ? props.txtAlign : '')};
 `;
 
 export const CardContent = styled.div`
-    animation: ${props => props.isVisible ? backInRight : 'none'}  1s ease-in-out;
+    animation: ${(props) => (props.isVisible ? backInRight : 'none')}  1s ease-in-out;
     height: 20vh;
     width: 90%;
     display: flex;
     flex-flow: row;
     justify-content: space-around;
     
-`
+`;
 
 export const Image = styled.img`
-    animation: ${props => props.isVisible ? pulse : 'none'}  1s ease-in-out;
-    width: ${props => props.width ? props.width : '60%'};
-    height: ${props => props.height ? props.height : '100%'};
-    margin: ${props => props.margin ? props.margin : 'auto'};
+    animation: ${(props) => (props.isVisible ? pulse : 'none')}  1s ease-in-out;
+    width: ${(props) => (props.width ? props.width : '60%')};
+    height: ${(props) => (props.height ? props.height : '100%')};
+    margin: ${(props) => (props.margin ? props.margin : 'auto')};
     border-radius: 0px;
 `;
 
 export const Text = styled.div`
-    animation: ${props => props.isVisible ? pulse : 'none'} 1s ease-in-out;
-    width: ${props => props.width ? props.width : '40%'};
+    animation: ${(props) => (props.isVisible ? pulse : 'none')} 1s ease-in-out;
+    width: ${(props) => (props.width ? props.width : '40%')};
     height: fit-content;
     font-style: 'normal';
     text-align: center;

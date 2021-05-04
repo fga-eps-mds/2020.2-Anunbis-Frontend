@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import bg_app from "../../assets/images/BG_App.png";
+import bg_app from '../../assets/images/BG_App.png';
 import Button from '../Button';
 
 export const Container = styled.div`
@@ -14,7 +14,7 @@ export const Container = styled.div`
     * :-webkit-scrollbar {
     display: none;
     }
-`
+`;
 
 export const Main = styled.main`
     width: fit-content;
@@ -23,7 +23,7 @@ export const Main = styled.main`
     align-items: space-around;
     align-self: center;
     justify-content: center;
-`
+`;
 
 export const ProfessorSearchStyle = styled.div`
     display: flex;
@@ -31,7 +31,7 @@ export const ProfessorSearchStyle = styled.div`
     width: 400px;
     margin: auto;
     Input {
-        color: ${props => props.isValid ? "#FFFDE7" : "red"};
+        color: ${(props) => (props.isValid ? '#FFFDE7' : 'red')};
         border-bottom: 1px solid #FFFDE7;
         margin: 0px;   
     }
@@ -42,25 +42,24 @@ export const ProfessorSearchStyle = styled.div`
         height: 30px;
         color: rgba(255, 255, 255, 0.603);
     }
-`
+`;
 
-export const BtnEdition = styled (Button)`
+export const BtnEdition = styled(Button)`
     letter-spacing: 1.5px;
     color: #FFD54F;
     border: none;
     box-shadow: none;
-`
+`;
 export const End = styled.div`
     background-color: inherit;
     display: flex;
     flex-direction: column;
     align-items: center;
     width: 100px;
-    height: ${props => props.height ? props.height : '10px'};
+    height: ${(props) => (props.height ? props.height : '10px')};
     margin-left: auto;
     margin-inline-end: 50px;
     letter-spacing: 1.5px;
     color: #FFD54F;
     box-shadow: none;
-`
-
+`;

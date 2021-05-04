@@ -1,6 +1,5 @@
 import styled, { keyframes } from 'styled-components';
 
-
 const translateY = keyframes`
     0% {
         transform: translateY(0%);
@@ -16,7 +15,7 @@ export const Ball = styled.span`
     background-color: var(--darkBlue);
     border-radius: 50%;
     animation: ${translateY} 1s ease-in-out infinite;
-    animation-delay: ${props => props.delay};
+    animation-delay: ${(props) => props.delay};
 `;
 
 export const LoadingDiv = styled.div`

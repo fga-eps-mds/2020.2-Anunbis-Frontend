@@ -5,7 +5,7 @@ export const Container = styled.div`
     background-color: #FFFDE7;
     position: absolute;
     display: flex;
-    flex-direction: ${props => props.direction?props.direction:'column'};
+    flex-direction: ${(props) => (props.direction ? props.direction : 'column')};
     width: 300px;
     height: fit-content;
     margin-top: 60px;
@@ -17,7 +17,7 @@ export const Container = styled.div`
         align-self: flex-start;
     };
 
-`
+`;
 
 export const Header = styled.header`
     width: inherit;
@@ -37,13 +37,13 @@ export const Header = styled.header`
         border-radius: 0;
         margin-left: auto;
     };
-`
+`;
 
 export const BtnConfirm = styled(Button)`
     margin-top: 10px;
     margin-bottom: 15px;
     color: white;
-`
+`;
 
 export const FeedBack = styled.div`
     display: flex;
@@ -51,4 +51,4 @@ export const FeedBack = styled.div`
     height: fit-content;
     width: fit-content;
     color: red;
-`
+`;

@@ -29,6 +29,6 @@ export const TxtArea = styled.textarea`
     &:focus{
         outline-width: 0;
     }
-`
+`;
 
 export const Details = styled.div``;

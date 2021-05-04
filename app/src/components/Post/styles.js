@@ -2,7 +2,6 @@ import styled from 'styled-components';
 import Report_Icon_BW from '../../assets/images/Report_Icon_BW.png';
 import Report_Icon_C from '../../assets/images/Report_Icon_C.png';
 
-
 export const PostStyle = styled.div`
     background-color: #FFD54F;
     height: 160px;
@@ -89,4 +88,3 @@ export const Name = styled.div`
 export const Rating = styled.div`
     padding: 8px;
 `;
-

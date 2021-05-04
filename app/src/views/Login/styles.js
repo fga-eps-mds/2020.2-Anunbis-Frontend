@@ -7,7 +7,7 @@ export const Content = styled.div`
   justify-content: space-between;
   align-items: center;
   flex-direction: column;
-  cursor: ${props => props.cursor ? props.cursor : ""};
+  cursor: ${(props) => (props.cursor ? props.cursor : '')};
     Form {
     height: 300px;
     width: 300px;
@@ -37,7 +37,7 @@ export const Conteiner = styled.div`
       }
   `;
 
-  export const Erro = styled.div`
+export const Erro = styled.div`
     display: flex;
     flex-direction: row;
     color:black;
@@ -57,4 +57,4 @@ export const Conteiner = styled.div`
       padding: 5px 5px;
       margin-right: 2px;
     }
-`
+`;

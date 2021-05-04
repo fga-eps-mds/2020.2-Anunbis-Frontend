@@ -6,7 +6,7 @@ export const InputStyle = styled.input`
     border-bottom: 1px solid #000000;
     background-color: #ffffff00;
     margin: 15px 0;
-    width: ${props => props.width ? props.width : "inherit"};
+    width: ${(props) => (props.width ? props.width : 'inherit')};
     height: inherit;
     align-self: right;
     outline: none;
@@ -22,4 +22,4 @@ export const InputStyle = styled.input`
     &:hover::-webkit-input-placeholder, :focus::-webkit-input-placeholder{
         transform: translateX(50%);
     }
-`
+`;

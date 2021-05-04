@@ -1,8 +1,7 @@
 import styled from 'styled-components';
 
-
 export const Container = styled.div`
-    display: ${props => props.hasProfessors ? "grid" : "flex"};
+    display: ${(props) => (props.hasProfessors ? 'grid' : 'flex')};
     grid-template-columns: 240px 700px;
 `;
 
@@ -21,14 +20,14 @@ export const FoundDiv = styled.div`
 export const FoundHeader = styled.div`
     display: flex;
     flex-direction: row;
-    opacity: ${props => props.selected ? "100%" : "60%"};
-    font-weight: ${props => props.selected ? "bold" : "normal"};
+    opacity: ${(props) => (props.selected ? '100%' : '60%')};
+    font-weight: ${(props) => (props.selected ? 'bold' : 'normal')};
 `;
 
 export const Img = styled.img`
     height: 20px;
     transition: transform 0.5s ease;
-    transform: ${props => `rotate(${props?.rotate})`};
+    transform: ${(props) => `rotate(${props?.rotate})`};
 `;
 
 export const Name = styled.div`

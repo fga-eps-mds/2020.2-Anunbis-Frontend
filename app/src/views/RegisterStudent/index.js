@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react';
-import { useForm } from "react-hook-form";
+import { useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
 import { Link, useHistory } from 'react-router-dom';
 import schema from './validations';
@@ -8,41 +8,40 @@ import Input from '../../components/Input';
 import Select from '../../components/Select';
 import Button from '../../components/Button';
 import api from '../../services/Api';
-import {Conteiner, Content, Links, Title} from './styles';
+import {
+  Conteiner, Content, Links, Title,
+} from './styles';
 
-const Header = ({ children, title }) => {
-  return (
-    <Conteiner>
-      <Links>
-        {children}
-      </Links>
-      <Title>{title}</Title>
-    </Conteiner>
-  )
-}
+const Header = ({ children, title }) => (
+  <Conteiner>
+    <Links>
+      {children}
+    </Links>
+    <Title>{title}</Title>
+  </Conteiner>
+);
 
 export default function RegisterStudent() {
   const history = useHistory();
-  const [courses, setCourses] = React.useState([])
-  const [errorDB, setErrorDB] = React.useState('')
+  const [courses, setCourses] = React.useState([]);
+  const [errorDB, setErrorDB] = React.useState('');
   const { register, handleSubmit, errors } = useForm({
     resolver: yupResolver(schema),
   });
 
-
   function courses_Options(courses) {
-    const coursesArray = []
-    courses?.map((course) => coursesArray.push({ id: course.id_course, name: course.name }))
+    const coursesArray = [];
+    courses?.map((course) => coursesArray.push({ id: course.id_course, name: course.name }));
     return (
       coursesArray
     );
   }
 
   useEffect(() => {
-      api.get("/course")
-        .then(response => {
-          setCourses(response.data);
-        })
+    api.get('/course')
+      .then((response) => {
+        setCourses(response.data);
+      });
   }, []);
 
   function onSubmit(data) {
@@ -51,22 +50,21 @@ export default function RegisterStudent() {
       name: data.name,
       id_course: parseInt(data.id_course),
       email: data.email,
-      password: data.password
-    }
+      password: data.password,
+    };
 
-
-    api.post("/student", body)
-      .then(response => {
+    api.post('/student', body)
+      .then((response) => {
         if (response.status === 201) {
-          history.push("/visitant/login")
+          history.push('/visitant/login');
         }
       })
-      .catch(error => {
+      .catch((error) => {
         if (error.response.status === 409) {
-          setErrorDB("Estudante já cadastrado")
+          setErrorDB('Estudante já cadastrado');
         }
       });
-  };
+  }
 
   return (
     <Content>
@@ -84,10 +82,10 @@ export default function RegisterStudent() {
         <Form.Field errorMsg={errors.co_password?.message}><Input type="password" text="Confirmar Senha" name="co_password" register={register} /></Form.Field>
         <Form.Field><div className="errorDB">{errorDB}</div></Form.Field>
         <Form.Footer>
-          <Button text="CANCELAR" backColor="#FFF9C4" padding="12px 8px" onClick={() => history.push('/')}/>
+          <Button text="CANCELAR" backColor="#FFF9C4" padding="12px 8px" onClick={() => history.push('/')} />
           <Button text="CONFIRMAR" type="submit" backColor="#FFF9C4" padding="12px 8px" />
         </Form.Footer>
       </Form>
     </Content>
-  )
+  );
 }

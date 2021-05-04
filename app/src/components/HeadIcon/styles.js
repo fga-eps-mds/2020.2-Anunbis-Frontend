@@ -1,7 +1,5 @@
 import styled from 'styled-components';
 
-
-
 export const Picture = styled.div`
     display: flex;
     position: relative;
@@ -49,4 +47,4 @@ export const Picture = styled.div`
         opacity: 0;
     }
     
-`
+`;
