@@ -11,6 +11,7 @@ import FeedPopup from '../FeedPopup';
 import api from '../../services/Api';
 
 export default function Avaliation({ close, professor }) {
+
   const regStudent = JSON.parse(localStorage.getItem('student')).reg_student;
   const { disciplines } = professor;
   const [isAnonymous, setIsAnonymous] = React.useState(false);
@@ -18,9 +19,9 @@ export default function Avaliation({ close, professor }) {
     resolver: yupResolver(schema),
   });
 
-  function disciplinesOptions(disciplinesO) {
+  function disciplinesOptions(disciplines) {
     const disciplinesArray = [];
-    disciplinesO.map((dis) =>
+    disciplines.map((dis) =>
       disciplinesArray.push({ id: dis.discipline_code, name: dis.name }),
     );
     return disciplinesArray;
@@ -113,7 +114,10 @@ export default function Avaliation({ close, professor }) {
             <TxtArea name="comments" ref={register} />
           </Form.Field>
           <Form.Footer>
-            <Button type="submit" text="POSTAR" backColor="#26A69A" />
+            <Button 
+              type="submit" 
+              text="POSTAR" 
+              backColor="var(--cian)" />
           </Form.Footer>
         </Form>
       </Container>

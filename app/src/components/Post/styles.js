@@ -16,10 +16,9 @@ export const PostStyle = styled.div`
 `;
 
 export const HeaderPost = styled.div`
-    display: block;
+    display: grid;
+    grid-template-columns: 350px 220px 30px;
     height: fit-content;
-    display: flex;
-    justify-content: space-between;
 
   button {
     border: none;

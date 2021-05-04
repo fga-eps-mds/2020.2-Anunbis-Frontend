@@ -35,7 +35,7 @@ function StarsAvaliation({ name, register }) {
         if(status === false){
             for(var a = num+1; a <= 5; a++) setChecked(a, status);
         }else{
-            for(var a = 1; a <= num; a++) setChecked(a, status);
+            for(var b = 1; b <= num; b++) setChecked(b, status);
         }
     }
 

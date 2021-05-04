@@ -7,12 +7,27 @@ export const Container = styled.div`
   height: ${props => props.heigth ? props.heigth : "fit-content"};
   align-self: flex-end;
   justify-content: center;
+  border-bottom-right-radius: 2%;
+  border-bottom-left-radius: 2%;
+  background-color: ${props => props.backColor ? props.backColor : "var(--lightWhite)"};
 
     Form{
         align-items: ${props => props.align ? props.align : ""};
         align-items: flex-start;
         p, Input, select, button{
-            margin-top: 10px;   
+            margin-top: 10px;
+            margin-bottom: 10px; 
+        }
+
+        button {
+            display:flex;
+            justify-content: center;
+            align-items: center;
+            border: var(--black);
+        }
+
+        textarea{
+            padding: 10px;
         }
     }
 `
@@ -39,7 +54,7 @@ export const TxtArea = styled.textarea`
   width: 330px;
   height: 70px;
   border-radius: 10px;
-  background-color: #fffde7;
+  background-color: var(--lightWhite);
   resize: none;
 
   &:focus {
