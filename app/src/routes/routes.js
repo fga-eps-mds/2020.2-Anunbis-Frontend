@@ -22,7 +22,10 @@ const PrivateRoute = ({ component: Component, authFunction, ...rest }) => (
       authFunction() ? (
         <Component {...props} />
       ) : (
-        <Redirect to={{ pathname: Users.whoAuthenticated().homePath, state: { from: props.location } }} />
+        <Redirect to={
+          { pathname: Users.whoAuthenticated().homePath, state: { from: props.location } }
+        }
+        />
       )
     )}
   />

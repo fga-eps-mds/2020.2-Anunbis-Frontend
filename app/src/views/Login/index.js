@@ -6,7 +6,7 @@ import schema from './validations';
 import Button from '../../components/Button';
 import Form from '../../components/Form';
 import Input from '../../components/Input';
-import { sendLogin, logOut, getToken } from '../../services/Auth';
+import { sendLogin, logOut } from '../../services/Auth';
 import Users from '../../services/Users';
 import { Content, Conteiner, Erro } from './styles';
 
@@ -25,23 +25,6 @@ export default function Login() {
     resolver: yupResolver(schema),
   });
 
-  useEffect(() => {
-    logOut();
-  });
-
-  function onSubmit(data) {
-    setCursor('wait');
-    sendLogin(data.email, data.password, () => {
-      if (getToken()) {
-        const home = Users.PROFESSOR.isAuthenticated() ? 'professor' : 'student';
-        history.push(`/${home}`);
-      }
-    }, () => {
-      createSpanError();
-      setCursor('');
-    });
-  }
-
   function createSpanError() {
     setErroLogin(
       <Erro>
@@ -49,6 +32,21 @@ export default function Login() {
         <Button type="button" onClick={() => setErroLogin('')} text="X" />
       </Erro>,
     );
+  }
+
+  useEffect(() => {
+    logOut();
+  });
+
+  function onSubmit(data) {
+    setCursor('wait');
+    sendLogin(data.email, data.password, () => {
+      const home = Users.whoAuthenticated().homePath;
+      history.push(home);
+    }, () => {
+      createSpanError();
+      setCursor('');
+    });
   }
 
   return (

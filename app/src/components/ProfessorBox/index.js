@@ -3,11 +3,11 @@ import Post from '../Post';
 
 import Button from '../Button';
 import {
-  ProfessorBoxStyle, Info_ProfessorBox, Posts_ProfessorBox, HeaderStyle,
-} from './styles.js';
+  ProfessorBoxStyle, InfoProfessorBox, PostsProfessorBox, HeaderStyle,
+} from './styles';
 
-const Info_Teacher = ({ children }) => (
-  <Info_ProfessorBox>
+const InfoTeacher = ({ children }) => (
+  <InfoProfessorBox>
     <span>
       {children[0]}
     </span>
@@ -16,17 +16,17 @@ const Info_Teacher = ({ children }) => (
       {' '}
       {children[1]?.toFixed(2)}
     </span>
-  </Info_ProfessorBox>
+  </InfoProfessorBox>
 );
 
 const Posts = ({ children, report }) => (
-  <Posts_ProfessorBox>
+  <PostsProfessorBox>
     {children?.map((post) => (
       <span>
         <Post report={report} post={post} />
       </span>
     ))}
-  </Posts_ProfessorBox>
+  </PostsProfessorBox>
 );
 
 export default function ProfessorBox({
@@ -35,10 +35,10 @@ export default function ProfessorBox({
   return (
     <ProfessorBoxStyle>
       <HeaderStyle>
-        <Info_Teacher>
+        <InfoTeacher>
           {name}
           {rating}
-        </Info_Teacher>
+        </InfoTeacher>
         <Button text="AVALIAR" onClick={onClick} />
       </HeaderStyle>
       <Posts

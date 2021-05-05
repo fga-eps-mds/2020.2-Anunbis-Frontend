@@ -29,9 +29,9 @@ export default function RegisterStudent() {
     resolver: yupResolver(schema),
   });
 
-  function coursesOptions(courses) {
+  function coursesOptions(coursesO) {
     const coursesArray = [];
-    courses?.map((course) => coursesArray.push({ id: course.id_course, name: course.name }));
+    coursesO?.map((course) => coursesArray.push({ id: course.id_course, name: course.name }));
     return (
       coursesArray
     );
@@ -46,9 +46,9 @@ export default function RegisterStudent() {
 
   function onSubmit(data) {
     const body = {
-      reg_student: parseInt(data.reg_student),
+      reg_student: Number(data.reg_student),
       name: data.name,
-      id_course: parseInt(data.id_course),
+      id_course: Number(data.id_course),
       email: data.email,
       password: data.password,
     };

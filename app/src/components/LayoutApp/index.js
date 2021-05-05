@@ -19,8 +19,8 @@ function ProfessorSearch({ history }) {
   };
   const validate = (e) => {
     const value = e.target.value.trim();
-    const isValid = value.length > 1 && value.length < 254;
-    setIsValid(isValid);
+    const isValidLength = value.length > 1 && value.length < 254;
+    setIsValid(isValidLength);
   };
   return (<ProfessorSearchStyle isValid={isValid}><Input type="text" width="400px" text="Informe o nome do professor" onkeydown={onSubmit} onChange={validate} /></ProfessorSearchStyle>);
 }
@@ -34,12 +34,12 @@ export default function LayoutApp({ children }) {
       return (setMenuOptions(
         <MenuOptions>
           <Button type="button" backColor="#FFD54F" text="CONFIGURAR" padding="3px" onClick={() => { setMenuOptions(''); if (Users.STUDENT.isAuthenticated()) history.push('/user/profile'); }} />
-          <Button backColor="#FFD54F" text="SOBRE" padding="3px" onClick={() => console.log('sobre')} />
+          <Button backColor="#FFD54F" text="SOBRE" padding="3px" onClick={() => {}} />
           <Button backColor="#FFD54F" text="SAIR" padding="3px" onClick={() => { logOut(); history.push('/'); }} />
         </MenuOptions>,
       ));
     }
-    setMenuOptions('');
+    return setMenuOptions('');
   }
 
   return (

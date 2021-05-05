@@ -13,7 +13,7 @@ export const ProfessorBoxStyle = styled.div`
     font-size: 11px;
 `;
 
-export const Info_ProfessorBox = styled.div`
+export const InfoProfessorBox = styled.div`
     width: 200px;
     height: 40px;
     display: flex;
@@ -23,7 +23,7 @@ export const Info_ProfessorBox = styled.div`
     padding-left: 20px;
 `;
 
-export const Posts_ProfessorBox = styled.div`
+export const PostsProfessorBox = styled.div`
     width: 389px;
     height: 200px;
     display: flex;

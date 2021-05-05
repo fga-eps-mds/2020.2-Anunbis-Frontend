@@ -126,8 +126,9 @@ const Puzzle = ({ isVisible }) => (
         Como funciona?
       </label>
       <p>
-        Os alunos podem escrever avaliações públicas sobre os professores optando por manter ou não o anonimato. Os demais alunos podem ver as avaliações, concordar ou discordar.
-        Todas as notas e comentários são de livre acesso para todos os usuários, incluindo professores.
+        Os alunos podem escrever avaliações públicas sobre os professores optando por manter ou não
+        o anonimato. Os demais alunos podem ver as avaliações, concordar ou discordar. Todas as
+        notas e comentários são de livre acesso para todos os usuários, incluindo professores.
       </p>
     </Text>
     <Image height="80%" src={PuzzleImg} alt="Puzzle" isVisible={isVisible} />

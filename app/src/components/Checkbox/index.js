@@ -1,5 +1,4 @@
 import React from 'react';
-
 import { Checkmark, Container } from './styles';
 
 export default function Checkbox({ text, name, register }) {

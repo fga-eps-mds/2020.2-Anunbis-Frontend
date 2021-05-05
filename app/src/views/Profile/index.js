@@ -29,9 +29,14 @@ export default function Profile() {
 
   function getCourseName() {
     let cont = 0;
+    let name;
     while (cont < courses.length) {
-      if (courses[cont++].id_course === student.id_course) { return courses[cont - 1].name; }
+      if (courses[cont].id_course === student.id_course) {
+        name = courses[cont].name;
+      }
+      cont += 1;
     }
+    return name;
   }
 
   function makeResetPassword() {
@@ -46,9 +51,6 @@ export default function Profile() {
       .then(() => {
         logOut();
         history.push('/');
-      })
-      .catch((error) => {
-        console.log(error.response);
       });
   }
 

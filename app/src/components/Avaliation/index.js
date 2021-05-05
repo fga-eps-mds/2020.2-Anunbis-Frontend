@@ -2,7 +2,6 @@ import React from 'react';
 import { useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
 import { Container, NameProfessor, TxtArea } from './styles';
-
 import schema from './validations';
 import Input from '../Input';
 import Select from '../Select';
@@ -19,9 +18,9 @@ export default function Avaliation({ close, professor }) {
     resolver: yupResolver(schema),
   });
 
-  function disciplinesOptions(disciplines) {
+  function disciplinesOptions(disciplinesO) {
     const disciplinesArray = [];
-    disciplines.map((dis) => disciplinesArray.push({ id: dis.discipline_code, name: dis.name }));
+    disciplinesO.map((dis) => disciplinesArray.push({ id: dis.discipline_code, name: dis.name }));
     return (
       disciplinesArray
     );

@@ -7,9 +7,9 @@ import Button from '../Button';
 import Popup from '../Popup';
 import Avaliation from '../Avaliation';
 
-const Title = (props) => (
+const Title = (props, children) => (
   <DivTitle {...props}>
-    {props.children}
+    {children}
   </DivTitle>
 );
 
