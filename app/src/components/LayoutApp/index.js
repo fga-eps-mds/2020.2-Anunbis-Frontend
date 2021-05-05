@@ -54,8 +54,7 @@ export default function LayoutApp({ children }) {
             padding="3px"
             onClick={() => {
               setMenuOptions('');
-              if (Users.STUDENT.isAuthenticated())
-                history.push('/user/profile');
+              history.push('/user/profile');
             }}
           />
           <Button
