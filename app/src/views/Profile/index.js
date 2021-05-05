@@ -1,122 +1,39 @@
-import React, { useEffect } from 'react';
-import { useHistory } from 'react-router-dom';
-import Button from '../../components/Button';
+import React from 'react';
 import ResetPassword from '../../components/ResetPassword';
-import api from '../../services/Api';
 import {
   Conteiner,
-  ContentExclude,
-  BtsExclude,
   BtnReset,
   BtnExcluir,
   Title,
 } from './styles';
-import { logOut } from '../../services/Auth';
-import { getCourses } from '../../services/Courses';
+import ProfileStudent from './Student';
+import ProfileProfessor from './Professor';
+import ExcludeAccount from '../../components/ExcludeAccount'
+
 
 export default function Profile() {
-  const history = useHistory();
   const [excludeAcc, setExcludeAcc] = React.useState('');
   const [resetPassword, setResetPassword] = React.useState('');
-  const [courses, setCourses] = React.useState([]);
-  const student = {
-    name: JSON.parse(localStorage.getItem('student')).name,
-    email: JSON.parse(localStorage.getItem('student')).email,
-    id_course: JSON.parse(localStorage.getItem('student')).id_course,
-    reg_student: JSON.parse(localStorage.getItem('student')).reg_student,
-  };
-
-  useEffect(() => {
-    getCourses(setCourses);
-  }, []);
-
-  function getCourseName() {
-    let cont = 0;
-    let name;
-    while (cont < courses.length) {
-      if (courses[cont].id_course === student.id_course) {
-        name = courses[cont].name;
-      }
-      cont += 1;
-    }
-    return name;
-  }
-
-  function makeResetPassword() {
-    return setResetPassword(
-      <ResetPassword onClick={() => setResetPassword('')} student={student} />,
-    );
-  }
-
-  function excludeAccount() {
-    api.delete(`/student/${student.reg_student}`).then(() => {
-      logOut();
-      history.push('/');
-    });
-  }
-
-  function makeSure() {
-    return setExcludeAcc(
-      <ContentExclude>
-        <header>Tem certeza?</header>
-        <BtsExclude>
-          <Button
-            backColor="#26A69A"
-            padding="10px 10px"
-            text="SIM"
-            onClick={() => excludeAccount()}
-          />
-          <Button
-            backColor="#26A69A"
-            padding="10px 7px"
-            text="NÃO"
-            onClick={() => setExcludeAcc('')}
-          />
-        </BtsExclude>
-      </ContentExclude>,
-    );
-  }
+  const ProfileSpecific = Users.whoAuthenticated().localStorageName == 'student' ? ProfileStudent : ProfileProfessor;
 
   return (
     <Conteiner display="flex" backColor="#E0E0E0">
       {resetPassword}
       {excludeAcc}
       <Title>Configurações de conta</Title>
-      <Conteiner backColor="#FFFFFF" width="240px" height="115px">
-        <p>
-          Nome Completo:
-          {student.name}
-        </p>
-        <p>
-          E-mail:
-          {student.email}
-        </p>
-        <p>
-          Curso:
-          {getCourseName()}
-        </p>
-      </Conteiner>
+      <ProfileSpecific.Header />
       <BtnReset
         text="ALTERAR SENHA"
         backColor="#FFF9C4"
         padding="5px"
-        onClick={() => makeResetPassword()}
+        onClick={<ResetPassword onClick={() => setResetPassword('')} student={student} />}
       />
-      <Conteiner
-        txtAlign="center"
-        backColor="#FFFFFF"
-        width="430px"
-        height="115px"
-      >
-        <p>Quantidade de avaliações realizadas: </p>
-        <p>Quantidade de pessoas que concordaram com suas avaliações: </p>
-        <p>Quantidade de pessoas que discordaram com suas avaliações: </p>
-      </Conteiner>
+      <ProfileSpecific.Body />
       <BtnExcluir
         text="EXCLUIR CONTA"
         backColor="#F44336"
         padding="5px"
-        onClick={() => makeSure()}
+        onClick={<ExcludeAccount close={setExcludeAcc('')}/>}
       />
     </Conteiner>
   );
