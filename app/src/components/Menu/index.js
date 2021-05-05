@@ -9,7 +9,11 @@ export default function Menu({ children, background }) {
   return (
     <MenuBar background={background}>
       <Logo>
-        <ImageLogo src={NameLogo} alt="logo" onClick={() => history.push(Users.whoAuthenticated().homePath)} />
+        <ImageLogo
+          src={NameLogo}
+          alt="logo"
+          onClick={() => history.push(Users.whoAuthenticated().homePath)}
+        />
       </Logo>
       {children}
     </MenuBar>

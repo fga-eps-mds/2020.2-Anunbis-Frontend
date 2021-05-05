@@ -20,7 +20,10 @@ const schema = yup.object().shape({
     .trim()
     .lowercase()
     .required('Email deve ser preenchido.')
-    .matches(/^[a-z . 0-9]+@unb.br$/, 'Formato do email deve ser: "matricula(nome)@unb.br"')
+    .matches(
+      /^[a-z . 0-9]+@unb.br$/,
+      'Formato do email deve ser: "matricula(nome)@unb.br"',
+    )
     .max(90, 'O email deve ter tamanho máximo de 90 caracteres.'),
 
   password: yup

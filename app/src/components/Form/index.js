@@ -1,28 +1,17 @@
 import React from 'react';
-import {
-  Container, Erro, Content, FooterContent,
-} from './styles';
+import { FieldContainer, Erro, FormContainer, FooterContent } from './styles';
 
 const Field = ({ errorMsg, children }) => (
-  <Container>
+  <FieldContainer>
     {children}
-    <Erro>{errorMsg}</Erro>
-  </Container>
+    <Erro className="error">{errorMsg}</Erro>
+  </FieldContainer>
 );
 
-const Footer = ({ children }) => (
-  <FooterContent>
-    {children}
-  </FooterContent>
-);
+const Footer = ({ children }) => <FooterContent>{children}</FooterContent>;
 
 function Form({ children, onSubmit }) {
-  return (
-    <Content onSubmit={onSubmit}>
-      {children}
-    </Content>
-
-  );
+  return <FormContainer onSubmit={onSubmit}>{children}</FormContainer>;
 }
 
 Form.Field = Field;

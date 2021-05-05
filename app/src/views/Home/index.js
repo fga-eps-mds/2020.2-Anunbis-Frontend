@@ -13,7 +13,16 @@ import Eduardo from '../../assets/images/Eduardo.jpeg';
 import Thiago from '../../assets/images/Thiago.jpeg';
 import Victor from '../../assets/images/Victor.jpeg';
 import {
-  Container, Main, Middle, BtnEdition, Content, Image, Text, Footer, CardContent, LinkMenu,
+  Container,
+  Main,
+  Middle,
+  BtnEdition,
+  Content,
+  Image,
+  Text,
+  Footer,
+  CardContent,
+  LinkMenu,
 } from './styles';
 import HeadIcon from '../../components/HeadIcon';
 
@@ -40,11 +49,14 @@ const useElementOnScreen = (options, isVisibleDefault) => {
 };
 
 const ObserveableComponent = ({ children, onVisible, isVisibleDefault }) => {
-  const [containerRef, isVisible] = useElementOnScreen({
-    root: null,
-    rootMargin: '20px',
-    threshold: 0.65,
-  }, isVisibleDefault);
+  const [containerRef, isVisible] = useElementOnScreen(
+    {
+      root: null,
+      rootMargin: '20px',
+      threshold: 0.65,
+    },
+    isVisibleDefault,
+  );
 
   if (isVisible) {
     setTimeout(() => {
@@ -68,18 +80,32 @@ function Home() {
       <Menu background="var(--transparent)">
         <Middle>
           <div>
-            <LinkMenu href="#begin" isSelected={whatSelected === 0}>Inicio</LinkMenu>
-            <LinkMenu href="#howItWorks" isSelected={whatSelected === 1}>Como Funciona?</LinkMenu>
-            <LinkMenu href="#team" isSelected={whatSelected === 2}>Equipe</LinkMenu>
-            <LinkMenu href="#contact" isSelected={whatSelected === 3}>Contato</LinkMenu>
+            <LinkMenu href="#begin" isSelected={whatSelected === 0}>
+              Inicio
+            </LinkMenu>
+            <LinkMenu href="#howItWorks" isSelected={whatSelected === 1}>
+              Como Funciona?
+            </LinkMenu>
+            <LinkMenu href="#team" isSelected={whatSelected === 2}>
+              Equipe
+            </LinkMenu>
+            <LinkMenu href="#contact" isSelected={whatSelected === 3}>
+              Contato
+            </LinkMenu>
           </div>
         </Middle>
         <End height="22,5px">
-          <BtnEdition text="Login" onClick={() => history.push('visitant/login')} />
+          <BtnEdition
+            text="Login"
+            onClick={() => history.push('visitant/Authentication')}
+          />
         </End>
       </Menu>
       <Main>
-        <ObserveableComponent onVisible={() => setWhatSelected(0)} isVisibleDefault>
+        <ObserveableComponent
+          onVisible={() => setWhatSelected(0)}
+          isVisibleDefault
+        >
           <Begin isVisible={whatSelected === 0} />
         </ObserveableComponent>
         <ObserveableComponent onVisible={() => setWhatSelected(1)}>
@@ -105,14 +131,19 @@ const Begin = ({ isVisible }) => {
   return (
     <Content display="flex" id="begin">
       <Text isVisible={isVisible}>
-        <label>
-          Onde a união faz a força
-        </label>
+        <label>Onde a união faz a força</label>
         <p>
-          Alunos trocando experiências e opiniões sobre disciplinas e professores para manter
-          a comunidade acadêmica da Universidade de Brasilia unida e bem informada.
+          Alunos trocando experiências e opiniões sobre disciplinas e
+          professores para manter a comunidade acadêmica da Universidade de
+          Brasilia unida e bem informada.
         </p>
-        <BtnEdition text="Cadastre-se" width="160px" margin="20px 0 0 0" shadow="2px 2px 2px rgba(0,0,0, 100%)" onClick={() => history.push('visitant/student/')} />
+        <BtnEdition
+          text="Cadastre-se"
+          width="160px"
+          margin="20px 0 0 0"
+          shadow="2px 2px 2px rgba(0,0,0, 100%)"
+          onClick={() => history.push('visitant/Authentication/')}
+        />
       </Text>
       <Image height="80%" src={LogoImg} alt="Logo" isVisible={isVisible} />
     </Content>
@@ -122,13 +153,12 @@ const Begin = ({ isVisible }) => {
 const Puzzle = ({ isVisible }) => (
   <Content display="flex" id="howItWorks">
     <Text isVisible={isVisible}>
-      <label>
-        Como funciona?
-      </label>
+      <label>Como funciona?</label>
       <p>
-        Os alunos podem escrever avaliações públicas sobre os professores optando por manter ou não
-        o anonimato. Os demais alunos podem ver as avaliações, concordar ou discordar. Todas as
-        notas e comentários são de livre acesso para todos os usuários, incluindo professores.
+        Os alunos podem escrever avaliações públicas sobre os professores
+        optando por manter ou não o anonimato. Os demais alunos podem ver as
+        avaliações, concordar ou discordar. Todas as notas e comentários são de
+        livre acesso para todos os usuários, incluindo professores.
       </p>
     </Text>
     <Image height="80%" src={PuzzleImg} alt="Puzzle" isVisible={isVisible} />
@@ -139,15 +169,20 @@ const Team = ({ isVisible }) => (
   <Content direction="column">
     <Content display="flex" id="team" height="50%">
       <Text isVisible={isVisible}>
-        <label>
-          Equipe
-        </label>
+        <label>Equipe</label>
         <p>
-          O Anunbis é um projeto criado e desenvolvido por alunos de Métodos de Desenvolvimento
-          de Software (MDS) da Faculdade do Gama (FGA), da Universidade de Brasília (UnB).
+          O Anunbis é um projeto criado e desenvolvido por alunos de Métodos de
+          Desenvolvimento de Software (MDS) da Faculdade do Gama (FGA), da
+          Universidade de Brasília (UnB).
         </p>
       </Text>
-      <Image height="75%" src={TeamWorkImg} alt="Team" margin="0px" isVisible={isVisible} />
+      <Image
+        height="75%"
+        src={TeamWorkImg}
+        alt="Team"
+        margin="0px"
+        isVisible={isVisible}
+      />
     </Content>
     <Content display="flex" height="100px">
       <Text isVisible={isVisible}>
@@ -155,12 +190,36 @@ const Team = ({ isVisible }) => (
       </Text>
     </Content>
     <CardContent isVisible={isVisible}>
-      <HeadIcon imgSrc={Rafael} name="Rafael Cleydson" linkGithub="https://github.com/RcleydsonR" />
-      <HeadIcon imgSrc={Rodrigo} name="Rodrigo Balbino" linkGithub="https://github.com/Balbinoo" />
-      <HeadIcon imgSrc={Roberto} name="Roberto Santana" linkGithub="https://github.com/mangabeiras" />
-      <HeadIcon imgSrc={Eduardo} name="Eduardo Afonso" linkGithub="https://github.com/oEduardoAfonso" />
-      <HeadIcon imgSrc={Thiago} name="Thiago Paiva" linkGithub="https://github.com/thiagohdaqw" />
-      <HeadIcon imgSrc={Victor} name="Victor Hugo" linkGithub="https://github.com/victorhugo21" />
+      <HeadIcon
+        imgSrc={Rafael}
+        name="Rafael Cleydson"
+        linkGithub="https://github.com/RcleydsonR"
+      />
+      <HeadIcon
+        imgSrc={Rodrigo}
+        name="Rodrigo Balbino"
+        linkGithub="https://github.com/Balbinoo"
+      />
+      <HeadIcon
+        imgSrc={Roberto}
+        name="Roberto Santana"
+        linkGithub="https://github.com/mangabeiras"
+      />
+      <HeadIcon
+        imgSrc={Eduardo}
+        name="Eduardo Afonso"
+        linkGithub="https://github.com/oEduardoAfonso"
+      />
+      <HeadIcon
+        imgSrc={Thiago}
+        name="Thiago Paiva"
+        linkGithub="https://github.com/thiagohdaqw"
+      />
+      <HeadIcon
+        imgSrc={Victor}
+        name="Victor Hugo"
+        linkGithub="https://github.com/victorhugo21"
+      />
     </CardContent>
   </Content>
 );
@@ -168,19 +227,33 @@ const Team = ({ isVisible }) => (
 const Contact = ({ isVisible }) => (
   <Content display="flex" id="contact">
     <Text isVisible={isVisible}>
-      <label>
-        Contate-nos
-      </label>
+      <label>Contate-nos</label>
       <p>
-        Deseja elogiar, sugerir mudanças, ou contribuir?
-        Entre em contato conosco através do email ou acesse nosso repositório no github.
+        Deseja elogiar, sugerir mudanças, ou contribuir? Entre em contato
+        conosco através do email ou acesse nosso repositório no github.
       </p>
       <a href="mailto:anunbis.team@gmail.com">anunbis.team@gmail.com</a>
-      <a href="https://github.com/fga-eps-mds/2020.2-Anunbis" target="_blank" rel="noreferrer">Repositório Back-end</a>
-      <a href="https://github.com/fga-eps-mds/2020.2-Anunbis-FrontEnd" target="_blank" rel="noreferrer">Repositório Front-end</a>
-
+      <a
+        href="https://github.com/fga-eps-mds/2020.2-Anunbis"
+        target="_blank"
+        rel="noreferrer"
+      >
+        Repositório Back-end
+      </a>
+      <a
+        href="https://github.com/fga-eps-mds/2020.2-Anunbis-FrontEnd"
+        target="_blank"
+        rel="noreferrer"
+      >
+        Repositório Front-end
+      </a>
     </Text>
-    <Image height="50%" src={CommunicationImg} alt="Img" isVisible={isVisible} />
+    <Image
+      height="50%"
+      src={CommunicationImg}
+      alt="Img"
+      isVisible={isVisible}
+    />
   </Content>
 );
 

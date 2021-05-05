@@ -5,9 +5,7 @@ import Button from '../Button';
 import Checkbox from '../Checkbox';
 import FeedPopup from '../FeedPopup';
 import Form from '../Form';
-import {
-  Options, Footer, TxtArea, Details,
-} from './styles';
+import { Options, Footer, TxtArea, Details } from './styles';
 import schema from './validations';
 
 export default function Report({ close }) {
@@ -25,15 +23,29 @@ export default function Report({ close }) {
         <Form.Field errorMsg={errors.option?.message}>
           <Options>
             <p>Motivo da Denuncia:</p>
-            <Checkbox text="Linguagem ofensiva" name="option" register={register} />
-            <Checkbox text="Comentário preconceituoso" name="option" register={register} />
-            <Checkbox text="Críticas não relacionadas a disciplina" name="option" register={register} />
+            <Checkbox
+              text="Linguagem ofensiva"
+              name="option"
+              register={register}
+            />
+            <Checkbox
+              text="Comentário preconceituoso"
+              name="option"
+              register={register}
+            />
+            <Checkbox
+              text="Críticas não relacionadas a disciplina"
+              name="option"
+              register={register}
+            />
             <Checkbox text="Outros" name="option" register={register} />
           </Options>
         </Form.Field>
         <Details>
           <p>Detalhe os motivos:</p>
-          <Form.Field errorMsg={errors.details?.message}><TxtArea name="details" ref={register} /></Form.Field>
+          <Form.Field errorMsg={errors.details?.message}>
+            <TxtArea name="details" ref={register} />
+          </Form.Field>
         </Details>
         <Footer>
           <Button type="submit" text="DENUNCIAR" backColor="#F44336" />

@@ -5,9 +5,7 @@ import Button from '../Button';
 import Form from '../Form';
 import Input from '../Input';
 import schema from './validations';
-import {
-  Container, Header, BtnConfirm, FeedBack,
-} from './styles';
+import { Container, Header, BtnConfirm, FeedBack } from './styles';
 import api from '../../services/Api';
 
 export default function ResetPassword({ onClick }) {
@@ -29,7 +27,8 @@ export default function ResetPassword({ onClick }) {
     const body = {
       password: data.new_password,
     };
-    api.put('/student', body)
+    api
+      .put('/student', body)
       .then(() => {
         setFeedBack(makeFeedback());
       })
@@ -47,17 +46,31 @@ export default function ResetPassword({ onClick }) {
 
       <Form onSubmit={handleSubmit(onSubmit)}>
         <Form.Field errorMsg={errors.new_password?.message}>
-          <Input type="password" text="Digite a nova senha" name="new_password" register={register} />
+          <Input
+            type="password"
+            text="Digite a nova senha"
+            name="new_password"
+            register={register}
+          />
         </Form.Field>
 
         <Form.Field errorMsg={errors.confirm_new_password?.message}>
-          <Input type="password" text="Repita a nova senha" name="confirm_new_password" register={register} />
+          <Input
+            type="password"
+            text="Repita a nova senha"
+            name="confirm_new_password"
+            register={register}
+          />
         </Form.Field>
 
         {feedBack}
-        <BtnConfirm type="submit" text="CONFIRMAR" backColor="#26A69A" padding="3px 3px" />
+        <BtnConfirm
+          type="submit"
+          text="CONFIRMAR"
+          backColor="#26A69A"
+          padding="3px 3px"
+        />
       </Form>
-
     </Container>
   );
 }

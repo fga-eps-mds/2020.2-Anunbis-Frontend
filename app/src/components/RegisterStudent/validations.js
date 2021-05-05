@@ -8,9 +8,7 @@ const schema = yup.object().shape({
     .min(2, 'Nome deve conter pelo menos dois caracteres.')
     .max(254, 'Nome deve ter no máximo 254 caracteres.'),
 
-  id_course: yup
-    .string()
-    .required('Curso deve ser preenchido.'),
+  id_course: yup.string().required('Curso deve ser preenchido.'),
 
   reg_student: yup
     .string()
@@ -24,7 +22,10 @@ const schema = yup.object().shape({
     .trim()
     .lowercase()
     .required('Email deve ser preenchido.')
-    .matches(/^[0-9]+@aluno.unb.br$/, 'Formato do email deve ser: "matricula@aluno.unb.br"')
+    .matches(
+      /^[0-9]+@aluno.unb.br$/,
+      'Formato do email deve ser: "matricula@aluno.unb.br"',
+    )
     .max(90, 'O email deve ter tamanho máximo de 90 caracteres.'),
 
   password: yup

@@ -4,9 +4,15 @@ import Button from '../../components/Button';
 import ResetPassword from '../../components/ResetPassword';
 import api from '../../services/Api';
 import {
-  Conteiner, ContentExclude, BtsExclude, BtnReset, BtnExcluir, Title,
+  Conteiner,
+  ContentExclude,
+  BtsExclude,
+  BtnReset,
+  BtnExcluir,
+  Title,
 } from './styles';
 import { logOut } from '../../services/Auth';
+import { getCourses } from '../../services/Courses';
 
 export default function Profile() {
   const history = useHistory();
@@ -21,10 +27,7 @@ export default function Profile() {
   };
 
   useEffect(() => {
-    api.get('/course')
-      .then((response) => {
-        setCourses(response.data);
-      });
+    getCourses(setCourses);
   }, []);
 
   function getCourseName() {
@@ -40,31 +43,37 @@ export default function Profile() {
   }
 
   function makeResetPassword() {
-    return setResetPassword(<ResetPassword
-      onClick={() => setResetPassword('')}
-      student={student}
-    />);
+    return setResetPassword(
+      <ResetPassword onClick={() => setResetPassword('')} student={student} />,
+    );
   }
 
   function excludeAccount() {
-    api.delete(`/student/${student.reg_student}`)
-      .then(() => {
-        logOut();
-        history.push('/');
-      });
+    api.delete(`/student/${student.reg_student}`).then(() => {
+      logOut();
+      history.push('/');
+    });
   }
 
   function makeSure() {
-    return (
-      setExcludeAcc(
-        <ContentExclude>
-          <header>Tem certeza?</header>
-          <BtsExclude>
-            <Button backColor="#26A69A" padding="10px 10px" text="SIM" onClick={() => excludeAccount()} />
-            <Button backColor="#26A69A" padding="10px 7px" text="NÃO" onClick={() => setExcludeAcc('')} />
-          </BtsExclude>
-        </ContentExclude>,
-      )
+    return setExcludeAcc(
+      <ContentExclude>
+        <header>Tem certeza?</header>
+        <BtsExclude>
+          <Button
+            backColor="#26A69A"
+            padding="10px 10px"
+            text="SIM"
+            onClick={() => excludeAccount()}
+          />
+          <Button
+            backColor="#26A69A"
+            padding="10px 7px"
+            text="NÃO"
+            onClick={() => setExcludeAcc('')}
+          />
+        </BtsExclude>
+      </ContentExclude>,
     );
   }
 
@@ -87,13 +96,28 @@ export default function Profile() {
           {getCourseName()}
         </p>
       </Conteiner>
-      <BtnReset text="ALTERAR SENHA" backColor="#FFF9C4" padding="5px" onClick={() => makeResetPassword()} />
-      <Conteiner txtAlign="center" backColor="#FFFFFF" width="430px" height="115px">
+      <BtnReset
+        text="ALTERAR SENHA"
+        backColor="#FFF9C4"
+        padding="5px"
+        onClick={() => makeResetPassword()}
+      />
+      <Conteiner
+        txtAlign="center"
+        backColor="#FFFFFF"
+        width="430px"
+        height="115px"
+      >
         <p>Quantidade de avaliações realizadas: </p>
         <p>Quantidade de pessoas que concordaram com suas avaliações: </p>
         <p>Quantidade de pessoas que discordaram com suas avaliações: </p>
       </Conteiner>
-      <BtnExcluir text="EXCLUIR CONTA" backColor="#F44336" padding="5px" onClick={() => makeSure()} />
+      <BtnExcluir
+        text="EXCLUIR CONTA"
+        backColor="#F44336"
+        padding="5px"
+        onClick={() => makeSure()}
+      />
     </Conteiner>
   );
 }

@@ -1,7 +1,11 @@
 import React from 'react';
 import { useHistory } from 'react-router';
 import {
-  BtnEdition, Container, End, Main, ProfessorSearchStyle,
+  BtnEdition,
+  Container,
+  End,
+  Main,
+  ProfessorSearchStyle,
 } from './styles';
 import Menu from '../Menu';
 import Input from '../Input';
@@ -22,7 +26,17 @@ function ProfessorSearch({ history }) {
     const isValidLength = value.length > 1 && value.length < 254;
     setIsValid(isValidLength);
   };
-  return (<ProfessorSearchStyle isValid={isValid}><Input type="text" width="400px" text="Informe o nome do professor" onkeydown={onSubmit} onChange={validate} /></ProfessorSearchStyle>);
+  return (
+    <ProfessorSearchStyle isValid={isValid}>
+      <Input
+        type="text"
+        width="400px"
+        text="Informe o nome do professor"
+        onkeydown={onSubmit}
+        onChange={validate}
+      />
+    </ProfessorSearchStyle>
+  );
 }
 
 export default function LayoutApp({ children }) {
@@ -31,13 +45,36 @@ export default function LayoutApp({ children }) {
 
   function makeMenuOptions() {
     if (menuOptions === '') {
-      return (setMenuOptions(
+      return setMenuOptions(
         <MenuOptions>
-          <Button type="button" backColor="#FFD54F" text="CONFIGURAR" padding="3px" onClick={() => { setMenuOptions(''); if (Users.STUDENT.isAuthenticated()) history.push('/user/profile'); }} />
-          <Button backColor="#FFD54F" text="SOBRE" padding="3px" onClick={() => {}} />
-          <Button backColor="#FFD54F" text="SAIR" padding="3px" onClick={() => { logOut(); history.push('/'); }} />
+          <Button
+            type="button"
+            backColor="#FFD54F"
+            text="CONFIGURAR"
+            padding="3px"
+            onClick={() => {
+              setMenuOptions('');
+              if (Users.STUDENT.isAuthenticated())
+                history.push('/user/profile');
+            }}
+          />
+          <Button
+            backColor="#FFD54F"
+            text="SOBRE"
+            padding="3px"
+            onClick={() => {}}
+          />
+          <Button
+            backColor="#FFD54F"
+            text="SAIR"
+            padding="3px"
+            onClick={() => {
+              logOut();
+              history.push('/');
+            }}
+          />
         </MenuOptions>,
-      ));
+      );
     }
     return setMenuOptions('');
   }
@@ -47,13 +84,16 @@ export default function LayoutApp({ children }) {
       <Menu>
         <ProfessorSearch history={history} />
         <End>
-          <BtnEdition text="ººº" padding="0px" backColor="#212121" onClick={() => makeMenuOptions()} />
+          <BtnEdition
+            text="ººº"
+            padding="0px"
+            backColor="#212121"
+            onClick={() => makeMenuOptions()}
+          />
           {menuOptions}
         </End>
       </Menu>
-      <Main>
-        {children}
-      </Main>
+      <Main>{children}</Main>
     </Container>
   );
 }

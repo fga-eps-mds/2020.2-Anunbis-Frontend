@@ -6,10 +6,9 @@ export default function StudentHome() {
   const [posts, setPosts] = React.useState([]);
 
   React.useEffect(() => {
-    api.get('/post')
-      .then((response) => {
-        if (response.status === 200) setPosts(response.data);
-      });
+    api.get('/post').then((response) => {
+      if (response.status === 200) setPosts(response.data);
+    });
   }, []);
 
   return (

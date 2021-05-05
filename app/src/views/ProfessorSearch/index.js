@@ -39,8 +39,8 @@ const ProfessorFound = ({
         <Name onClick={onClick}>{professor.name}</Name>
       </FoundHeader>
 
-      {showDisciplines
-        && professor.disciplines.map((disci, index) => (
+      {showDisciplines &&
+        professor.disciplines.map((disci, index) => (
           <Discipline
             onClick={() => onClickDiscipline(index)}
             key={disci.disciplineCode}
@@ -72,7 +72,8 @@ function getFeedbacks(professor, posts, disciplineSelected) {
   if (disciplineSelected < 0) return professor;
   if (posts.length === 0) return -1;
 
-  const rating = posts.reduce((accumulator, p) => accumulator + p.rating, 0) / posts.length;
+  const rating =
+    posts.reduce((accumulator, p) => accumulator + p.rating, 0) / posts.length;
   return rating;
 }
 
@@ -146,7 +147,9 @@ function ProfessorSearch() {
             <ProfessorFound
               professor={prof}
               onClick={() => handleSetSelected(index, -1)}
-              setSelectedDiscipline={(indexDiscpline) => handleSetSelected(index, indexDiscpline)}
+              setSelectedDiscipline={(indexDiscpline) =>
+                handleSetSelected(index, indexDiscpline)
+              }
               key={prof.idProfessor}
               isSelected={index === selected.professor}
             />

@@ -12,16 +12,17 @@ export const Container = styled.div((props) => ({
 }));
 
 export const DivTitle = styled.div`
-    width: inherit;
-    height: 25px;
-    background-color: ${(props) => (props.backColor ? props.backColor : 'var(--black)')};
-    color: #FFFDE7;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-family: 'Comfortaa', cursive;
-    font-weight: bold;
-  `;
+  width: inherit;
+  height: 25px;
+  background-color: ${(props) =>
+    props.backColor ? props.backColor : 'var(--black)'};
+  color: #fffde7;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: 'Comfortaa', cursive;
+  font-weight: bold;
+`;
 
 const translate = keyframes`
 from{
@@ -54,13 +55,13 @@ export const Grid = styled.div`
 `;
 
 export const DivContent = styled.div`
-    padding: 0px 40px 20px 40px;
-    display: flex;
-    justify-content: space-between;
-    flex-direction: column;
-    align-items: center;
-    overflow-y: auto;
-    animation: ${translate} 0.5s ease;
+  padding: 0px 40px 20px 40px;
+  display: flex;
+  justify-content: space-between;
+  flex-direction: column;
+  align-items: center;
+  overflow-y: auto;
+  animation: ${translate} 0.5s ease;
 `;
 
 export const NotFound = styled.div`

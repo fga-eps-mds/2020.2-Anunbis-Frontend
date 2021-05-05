@@ -8,9 +8,7 @@ const schema = yup.object().shape({
   // .min(2, "Nome do professor deve conter pelo menos dois caracteres.")
   // .max(254, "Nome do professor deve ter no máximo 254 caracteres."),
 
-  id_course: yup
-    .string()
-    .required('Nome da disciplina deve ser preenchido.'),
+  id_course: yup.string().required('Nome da disciplina deve ser preenchido.'),
 
   note: yup
     .number('Nota deve ser um número de 0 a 10.')
@@ -25,7 +23,6 @@ const schema = yup.object().shape({
     .required('O comentário deve ser preenchido.')
     .min(10, 'O comentário deve conter pelo menos dez caracteres.')
     .max(254, 'O comentário deve ter no máximo 254 caracteres.'),
-
 });
 
 export default schema;

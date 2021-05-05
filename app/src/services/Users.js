@@ -1,11 +1,12 @@
 export function getToken() {
-  return (localStorage.getItem('access_token'));
+  return localStorage.getItem('access_token');
 }
 
 const createUser = (localStorageName, homePath) => ({
   localStorageName,
   homePath,
-  isAuthenticated: () => (getToken() ? !!localStorage.getItem(localStorageName) : false),
+  isAuthenticated: () =>
+    getToken() ? !!localStorage.getItem(localStorageName) : false,
 });
 
 const Users = {
