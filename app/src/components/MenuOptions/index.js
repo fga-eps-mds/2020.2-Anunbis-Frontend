@@ -1,5 +1,5 @@
 import React from 'react';
-import { Container } from './styles.js';
+import { Container } from './styles';
 
 export default function MenuOptions({ children }) {
   return (

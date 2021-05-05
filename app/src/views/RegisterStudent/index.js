@@ -29,7 +29,7 @@ export default function RegisterStudent() {
     resolver: yupResolver(schema),
   });
 
-  function courses_Options(courses) {
+  function coursesOptions(courses) {
     const coursesArray = [];
     courses?.map((course) => coursesArray.push({ id: course.id_course, name: course.name }));
     return (
@@ -75,7 +75,7 @@ export default function RegisterStudent() {
       </Header>
       <Form onSubmit={handleSubmit(onSubmit)}>
         <Form.Field errorMsg={errors.name?.message}><Input type="text" text="Nome" name="name" register={register} /></Form.Field>
-        <Form.Field errorMsg={errors.id_course?.message}><Select id="courses" backColor="#FFD54F" text="Selecione um Curso" options={courses_Options(courses)} name="id_course" register={register} /></Form.Field>
+        <Form.Field errorMsg={errors.id_course?.message}><Select id="courses" backColor="#FFD54F" text="Selecione um Curso" options={coursesOptions(courses)} name="id_course" register={register} /></Form.Field>
         <Form.Field errorMsg={errors.reg_student?.message}><Input type="text" text="Matrícula" name="reg_student" register={register} /></Form.Field>
         <Form.Field errorMsg={errors.email?.message}><Input type="email" text="Email Institucional" name="email" register={register} /></Form.Field>
         <Form.Field errorMsg={errors.password?.message}><Input type="password" text="Senha" name="password" register={register} /></Form.Field>

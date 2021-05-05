@@ -1,5 +1,5 @@
 import React from 'react';
-import { SelectStyle } from './styles.js';
+import { SelectStyle } from './styles';
 
 export default function Select({
   text, id, name, register, options, backColor, width,

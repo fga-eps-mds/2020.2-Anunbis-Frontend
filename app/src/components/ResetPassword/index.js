@@ -7,10 +7,10 @@ import Input from '../Input';
 import schema from './validations';
 import {
   Container, Header, BtnConfirm, FeedBack,
-} from './styles.js';
+} from './styles';
 import api from '../../services/Api';
 
-export default function ResetPassword({ onClick, student }) {
+export default function ResetPassword({ onClick }) {
   const [feedBack, setFeedBack] = React.useState('');
 
   const { register, handleSubmit, errors } = useForm({
@@ -30,7 +30,7 @@ export default function ResetPassword({ onClick, student }) {
       password: data.new_password,
     };
     api.put('/student', body)
-      .then((response) => {
+      .then(() => {
         setFeedBack(makeFeedback());
       })
       .catch((error) => {

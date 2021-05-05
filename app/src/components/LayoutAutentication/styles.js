@@ -1,9 +1,9 @@
 import styled from 'styled-components';
-import BG_FGA from '../../assets/images/BG_FGA.png';
+import bgFGA from '../../assets/images/BG_FGA.png';
 
 export const Background = styled.div`
     height: 100vh;
-    background-image: url(${BG_FGA});
+    background-image: url(${bgFGA});
     display: flex;
     flex-direction: column;
     align-items: center;

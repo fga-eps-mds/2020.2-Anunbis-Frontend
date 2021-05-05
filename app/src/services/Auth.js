@@ -5,6 +5,13 @@ export function getToken() {
   return (localStorage.getItem('access_token'));
 }
 
+export function logOut() {
+  localStorage.removeItem('access_token');
+  Object.keys(users).forEach((userKey) => {
+    localStorage.removeItem(users[userKey]?.localStorageName);
+  });
+}
+
 export async function sendLogin(email, password, callback, errorCallback) {
   const body = {
     email,
@@ -25,11 +32,4 @@ export async function sendLogin(email, password, callback, errorCallback) {
     })
     .then(() => callback())
     .catch(() => errorCallback());
-}
-
-export function logOut() {
-  localStorage.removeItem('access_token');
-  Object.keys(users).forEach((userKey) => {
-    localStorage.removeItem(users[userKey]?.localStorageName);
-  });
 }

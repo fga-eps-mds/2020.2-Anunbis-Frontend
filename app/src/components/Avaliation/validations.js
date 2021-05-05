@@ -14,7 +14,7 @@ const schema = yup.object().shape({
 
   note: yup
     .number('Nota deve ser um número de 0 a 10.')
-    .transform((value) => (isNaN(value) ? undefined : value))
+    .transform((value) => (Number.isNaN(value) ? undefined : value))
     .required('Nota deve ser preenchida.')
     .min(0, 'Nota deve ser maior ou igual a 0.')
     .max(10, 'Nota deve ser menor ou igual a 10.'),

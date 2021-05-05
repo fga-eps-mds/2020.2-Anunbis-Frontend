@@ -8,7 +8,7 @@ export default function StudentHome() {
   React.useEffect(() => {
     api.get('/post')
       .then((response) => {
-        if (response.status == 200) setPosts(response.data);
+        if (response.status === 200) setPosts(response.data);
       });
   }, []);
 

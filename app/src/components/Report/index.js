@@ -7,10 +7,10 @@ import FeedPopup from '../FeedPopup';
 import Form from '../Form';
 import {
   Options, Footer, TxtArea, Details,
-} from './styles.js';
+} from './styles';
 import schema from './validations';
 
-export default function Report({ post, close }) {
+export default function Report({ close }) {
   const { register, handleSubmit, errors } = useForm({
     resolver: yupResolver(schema),
   });

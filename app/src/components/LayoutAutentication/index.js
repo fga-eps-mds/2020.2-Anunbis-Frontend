@@ -2,7 +2,7 @@ import React from 'react';
 import Logo from '../../assets/images/Logo.jpg';
 import {
   Background, Base, Imagem, Main,
-} from './styles.js';
+} from './styles';
 
 export default function LayoutAutentication({ children }) {
   return (

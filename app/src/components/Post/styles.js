@@ -1,6 +1,6 @@
 import styled from 'styled-components';
-import Report_Icon_BW from '../../assets/images/Report_Icon_BW.png';
-import Report_Icon_C from '../../assets/images/Report_Icon_C.png';
+import ReportIconBW from '../../assets/images/Report_Icon_BW.png';
+import ReportIconC from '../../assets/images/Report_Icon_C.png';
 
 export const PostStyle = styled.div`
     background-color: #FFD54F;
@@ -30,14 +30,14 @@ export const HeaderPost = styled.div`
     display: flex;
     align-items: center;
     justify-content: center;
-    background: url(${Report_Icon_BW});
+    background: url(${ReportIconBW});
     background-repeat: no-repeat;
     background-position: center;
     background-size: 80%;
     }
 
     button:hover {
-    background: url(${Report_Icon_C});
+    background: url(${ReportIconC});
     background-repeat: no-repeat;
     background-position: center;
     background-size: 80%;

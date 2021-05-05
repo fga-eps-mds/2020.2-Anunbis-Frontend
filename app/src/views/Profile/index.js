@@ -43,7 +43,7 @@ export default function Profile() {
 
   function excludeAccount() {
     api.delete(`/student/${student.reg_student}`)
-      .then((response) => {
+      .then(() => {
         logOut();
         history.push('/');
       })

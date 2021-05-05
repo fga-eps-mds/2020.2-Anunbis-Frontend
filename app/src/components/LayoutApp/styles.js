@@ -1,11 +1,11 @@
 import styled from 'styled-components';
-import bg_app from '../../assets/images/BG_App.png';
+import bgApp from '../../assets/images/BG_App.png';
 import Button from '../Button';
 
 export const Container = styled.div`
     width: 100%;
     min-height: 100%;
-    background-image: url(${bg_app});
+    background-image: url(${bgApp});
     display: flex;
     flex-direction: column;
     background-attachment: fixed;

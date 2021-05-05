@@ -1,12 +1,12 @@
 import React from 'react';
 import Button from '../Button';
-import Agreed_Icon_BW from '../../assets/images/Agreed_Icon_BW.png';
-import Agreed_Icon_C from '../../assets/images/Agreed_Icon_C.png';
-import Disagreed_Icon_BW from '../../assets/images/Disagreed_Icon_BW.png';
-import Disagreed_Icon_C from '../../assets/images/Disagreed_Icon_C.png';
+import AgreedIconBW from '../../assets/images/Agreed_Icon_BW.png';
+import AgreedIconC from '../../assets/images/Agreed_Icon_C.png';
+import DisagreedIconBW from '../../assets/images/Disagreed_Icon_BW.png';
+import DisagreedIconC from '../../assets/images/Disagreed_Icon_C.png';
 import {
   PostStyle, HeaderPost, InfoStudent, Name, Rating, ContentPost, FeedbacksDiv,
-} from './styles.js';
+} from './styles';
 import api from '../../services/Api';
 import Report from '../Report';
 import Popup from '../Popup';
@@ -69,8 +69,8 @@ const Feedbacks = ({ post, Onclick }) => {
 
   return (
     <FeedbacksDiv>
-      <Button text={countAgrees} backImage={isAgreed ? Agreed_Icon_C : Agreed_Icon_BW} backColor="rgba(255, 0, 0, 0)" shadow="1px 1px 1px rgba(0, 0, 0, 20%)" onClick={() => clickAgree()} />
-      <Button text={countDisagrees} backImage={isDisagreed ? Disagreed_Icon_C : Disagreed_Icon_BW} backColor="rgba(255, 0, 0, 0)" shadow="1px 1px 1px rgba(0, 0, 0, 20%)" onClick={() => clickDisagree()} />
+      <Button text={countAgrees} backImage={isAgreed ? AgreedIconC : AgreedIconBW} backColor="rgba(255, 0, 0, 0)" shadow="1px 1px 1px rgba(0, 0, 0, 20%)" onClick={() => clickAgree()} />
+      <Button text={countDisagrees} backImage={isDisagreed ? DisagreedIconC : DisagreedIconBW} backColor="rgba(255, 0, 0, 0)" shadow="1px 1px 1px rgba(0, 0, 0, 20%)" onClick={() => clickDisagree()} />
     </FeedbacksDiv>
   );
 };
