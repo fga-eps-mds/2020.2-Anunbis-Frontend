@@ -1,13 +1,15 @@
 {
-    "parser": "babel-eslint",
     "env": {
         "browser": true,
         "es2021": true
     },
     "extends": [
         "plugin:react/recommended",
-        "airbnb"
+        "airbnb", 
+        "prettier",
+        "eslint-config-prettier"
     ],
+    "parser": "babel-eslint",
     "parserOptions": {
         "ecmaFeatures": {
             "jsx": true
@@ -15,7 +17,7 @@
         "ecmaVersion": 12,
         "sourceType": "module"
     },
-    "plugins": ["react", "jsx-a11y", "import"],
+    "plugins": ["react", "jsx-a11y", "prettier" ],
     "rules": {
         "react/jsx-filename-extension": [
             "error",
@@ -25,6 +27,7 @@
           ],
           "global-require": "off",
           "import/prefer-default-export": "off",
-          "no-unused-expressions": ["error", { "allowTaggedTemplates": true }]
+          "no-unused-expressions": ["error", { "allowTaggedTemplates": true }],
+          "prettier/prettier": "error"
     }
 }
