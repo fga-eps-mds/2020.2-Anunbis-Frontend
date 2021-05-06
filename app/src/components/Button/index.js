@@ -1,11 +1,7 @@
-import React from "react";
-
-import { Btn } from './styles'
+import React from 'react';
+import { Btn } from './styles';
 
 export default function Button(props) {
-    return (
-            <Btn {...props}>
-                {props.text}
-            </Btn>
-    );
+  const { text } = props;
+  return <Btn {...props}>{text}</Btn>;
 }

@@ -1,14 +1,14 @@
 import styled from 'styled-components';
 
 export const Checkmark = styled.span`
-    height: 20px;
-    width: 20px;
-    margin-right: 10px;
-    border-radius: 5px;
-    background-color: #eee;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+  height: 20px;
+  width: 20px;
+  margin-right: 10px;
+  border-radius: 5px;
+  background-color: #eee;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 `;
 
 export const Container = styled.label`
@@ -23,11 +23,11 @@ export const Container = styled.label`
   }
 
   input:checked ~ ${Checkmark} {
-    background-color: #26A69A;
+    background-color: #26a69a;
   }
 
   input:checked ~ ${Checkmark}:after {
-    content: "";
+    content: '';
     left: 10px;
     top: 5px;
     width: 3px;
@@ -37,13 +37,12 @@ export const Container = styled.label`
     -webkit-transform: rotate(45deg);
     -ms-transform: rotate(45deg);
     transform: rotate(45deg);
-
   }
 
   input {
-      opacity: 0;
-      cursor: pointer;
-      height: 0;
-      width: 0;
+    opacity: 0;
+    cursor: pointer;
+    height: 0;
+    width: 0;
   }
 `;

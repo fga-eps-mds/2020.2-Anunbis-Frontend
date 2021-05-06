@@ -1,34 +1,18 @@
-import React from "react";
-import { Container, Erro, Content, FooterContent } from './styles';
+import React from 'react';
+import { FieldContainer, Erro, FormContainer, FooterContent } from './styles';
 
+const Field = ({ errorMsg, children }) => (
+  <FieldContainer>
+    {children}
+    <Erro className="error">{errorMsg}</Erro>
+  </FieldContainer>
+);
 
-
-const Field = ({ errorMsg, children }) => {
-    return (
-        <Container>
-            {children}
-            <Erro>{errorMsg}</Erro>
-        </Container>
-    )
-}
-
-const Footer = ({ children }) => {
-    return (
-        <FooterContent>
-            {children}
-        </FooterContent>
-    )
-}
+const Footer = ({ children }) => <FooterContent>{children}</FooterContent>;
 
 function Form({ children, onSubmit }) {
-    return (
-        <Content onSubmit={onSubmit}>
-            {children}
-        </Content>
-
-    );
+  return <FormContainer onSubmit={onSubmit}>{children}</FormContainer>;
 }
-
 
 Form.Field = Field;
 Form.Footer = Footer;

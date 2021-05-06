@@ -29,4 +29,4 @@ html, body, #root {
         --transparent: rgb(0,0,0,0); 
         --lightWhite: #FFFDE7; 
     }
-`
+`;

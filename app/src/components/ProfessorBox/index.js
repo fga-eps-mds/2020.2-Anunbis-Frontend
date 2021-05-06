@@ -2,51 +2,41 @@ import React from 'react';
 import Post from '../Post';
 
 import Button from '../Button';
-import { ProfessorBoxStyle, Info_ProfessorBox, Posts_ProfessorBox, HeaderStyle } from './styles.js'
+import {
+  ProfessorBoxStyle,
+  InfoProfessorBox,
+  PostsProfessorBox,
+  HeaderStyle,
+} from './styles';
 
-const Info_Teacher = ({ children }) => {
-  return (
-    <Info_ProfessorBox>
+const InfoTeacher = ({ children }) => (
+  <InfoProfessorBox>
+    <span>{children[0]}</span>
+    <span>Nota: {children[1]?.toFixed(2)}</span>
+  </InfoProfessorBox>
+);
+
+const Posts = ({ children, report }) => (
+  <PostsProfessorBox>
+    {children?.map((post) => (
       <span>
-        {children[0]}
+        <Post report={report} post={post} />
       </span>
-      <span>
-        Nota: {children[1]?.toFixed(2)}
-      </span>
-    </Info_ProfessorBox>
-  );
-}
+    ))}
+  </PostsProfessorBox>
+);
 
-const Posts = ({ children, report}) => {
-
-  return (
-    <Posts_ProfessorBox>
-      {children?.map(post => {
-        return (
-          <span>
-            <Post report={report} post={post} />
-          </span>)
-      })}
-    </Posts_ProfessorBox>
-  );
-}
-
-export default function ProfessorBox({onClick, report, name, rating, posts}) {
-  
+export default function ProfessorBox({ onClick, report, name, rating, posts }) {
   return (
     <ProfessorBoxStyle>
       <HeaderStyle>
-        <Info_Teacher>
+        <InfoTeacher>
           {name}
           {rating}
-        </Info_Teacher>
-        <Button text="AVALIAR" onClick={onClick}/>
+        </InfoTeacher>
+        <Button text="AVALIAR" onClick={onClick} />
       </HeaderStyle>
-      <Posts 
-        report={report} 
-        >
-          {posts}
-      </Posts>
+      <Posts report={report}>{posts}</Posts>
     </ProfessorBoxStyle>
   );
 }
