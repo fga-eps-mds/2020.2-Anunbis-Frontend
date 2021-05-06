@@ -24,8 +24,8 @@
     "test": "react-scripts test",
     "eject": "react-scripts eject",
     "lint": "eslint --ignore-path .gitignore --ext .js src/",
-    "lint:fix": "eslint --ignore-path .gitignore --ext .js src/ --fix",
-    "format": "prettier --check ./src",
+    "lint:fix": "eslint --single-quote --trailing-comma all --ext .js src/ --fix",
+    "format": "prettier --single-quote --trailing-comma all --check ./src",
     "format:fix": "prettier --single-quote --trailing-comma all --write ./src"
   },
   "eslintConfig": {
