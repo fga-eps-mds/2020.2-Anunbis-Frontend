@@ -72,10 +72,10 @@ const Student = () => (
 const Professor = () => (
   <LayoutApp>
     <PrivateRoute
-        path="/professor/"
-        authFunction={Users.PROFESSOR.isAuthenticated}
-        component={ProfessorHome}
-      />
+      path="/professor/"
+      authFunction={Users.PROFESSOR.isAuthenticated}
+      component={ProfessorHome}
+    />
   </LayoutApp>
 );
 
