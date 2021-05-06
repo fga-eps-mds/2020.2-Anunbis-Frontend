@@ -7,56 +7,55 @@ import api from '../../services/Api';
 import Loading from '../../components/Loading';
 
 
-const DisciplineContent = ({ discipline}) => {
+const DisciplineContent = ({ discipline }) => {
     const [boxPost, setBoxPost] = React.useState(false);
     const [rotate, setRotate] = React.useState("");
 
     function handleSetBoxPost() {
-                setRotate(!boxPost ? "90deg" : "")
+        setRotate(!boxPost ? "90deg" : "")
         setBoxPost(!boxPost)
     }
 
     return (
-            <ContainerPost>
-                <DisciplineOptions onClick={handleSetBoxPost} >
-                    <ImageOptions src={Btn_options} rotate={rotate} />
-                    {'[' + discipline.discipline_code + '] ' + discipline.name}
+        <ContainerPost>
+            <DisciplineOptions onClick={handleSetBoxPost} >
+                <ImageOptions src={Btn_options} rotate={rotate} />
+                {'[' + discipline.discipline_code + '] ' + discipline.name}
 
-                </DisciplineOptions>
-                {boxPost && <DisciplinePosts discipline={discipline} />}
-            </ContainerPost>
+            </DisciplineOptions>
+            {boxPost && <DisciplinePosts discipline={discipline} />}
+        </ContainerPost>
     )
 }
 
-const DisciplineOptions = ({ children, onClick}) => {
+const DisciplineOptions = ({ children, onClick }) => {
     return (
-            <ContainerOptions onClick={() => onClick()} >
-                {children}
-            </ContainerOptions>
+        <ContainerOptions onClick={() => onClick()} >
+            {children}
+        </ContainerOptions>
     )
 }
 
-const DisciplinePosts = ({ discipline}) => {
+const DisciplinePosts = ({ discipline }) => {
     return (
-            <>
-                <ContainerHeader>
-                    <Feed.Header professor={discipline.feedbacks} canAvaliate={false} />
-                </ContainerHeader>
-                <Feed.PostsBox posts={discipline.posts} canReport={true} />
-            </>
+        <>
+            <ContainerHeader>
+                <Feed.Header professor={discipline.feedbacks} canAvaliate={false} />
+            </ContainerHeader>
+            <Feed.PostsBox posts={discipline.posts} canReport={true} />
+        </>
     )
 }
 
 export default function ProfessorHome() {
-
     const [isStatistics, setIsStatistics] = React.useState(false);
     const [disciplines, setDisciplines] = React.useState({});
     const [loading, setLoading] = React.useState(true);
 
     React.useEffect(() => {
-        api.get("/professor")
+        api.get("/post")
             .then(response => {
-                if(response.status == 200)
+                if (response.status == 200)
                     setDisciplines(sortPostsByDiscipline(response.data))
                 setTimeout(() => setLoading(false), 500)
             })
@@ -74,36 +73,40 @@ export default function ProfessorHome() {
     return (
         <Home >
             <OptionsProfessorHome />
-            {isStatistics ? <Feed title="Estatísticas" /> :
-                <Feed title="Avaliações sobre você">
-                    <Container >
-                        {!loading && Object.keys(disciplines).map(dis => <DisciplineContent key={dis} discipline={disciplines[dis]} />)}
-                        {loading && <LoadingBox><Loading /></LoadingBox>}
-                    </Container>
+            {isStatistics && <Feed title="Estatísticas" />}
+            {!isStatistics &&
+                <Feed title={"Avaliações sobre você"}>
+                    {Object.keys(disciplines).length === 0 && !loading ? <Container>Sem avaliações ainda</Container> :
+                        <Container backColor="#FFD54F" >
+                            {!loading && Object.keys(disciplines).map(dis => <DisciplineContent key={dis} discipline={disciplines[dis]} />)}
+                            {loading && <LoadingBox><Loading /></LoadingBox>}
+                        </Container>}
                 </Feed>
             }
-            </Home>
+        </Home>
     )
 }
 
-function sortPostsByDiscipline(posts){
+function sortPostsByDiscipline(posts) {
     var disciplines = {};
-    posts.forEach((postKey) => {
-        if(disciplines[postKey.discipline.discipline_code] === undefined){
-            disciplines[postKey.discipline.discipline_code] =
+    if (Object.keys(posts).length !== 0) {
+        posts.forEach((postKey) => {
+            if (disciplines[postKey.discipline.discipline_code] === undefined) {
+                disciplines[postKey.discipline.discipline_code] =
                 {
                     "feedbacks": {
                         "rating": postKey.rating
                     },
-                
+
                     "posts": [],
                     "discipline_code": postKey.discipline.discipline_code,
                     "name": postKey.discipline.name
                 }
-            
-        }
-        disciplines[postKey.discipline.discipline_code].posts.push(postKey)
-    })
+
+            }
+            disciplines[postKey.discipline.discipline_code].posts.push(postKey)
+        })
+    }
     return disciplines;
 
 }
