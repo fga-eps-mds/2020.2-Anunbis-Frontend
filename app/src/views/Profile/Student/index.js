@@ -1,14 +1,11 @@
 import React, { useEffect } from 'react';
-import api from '../../../services/Api';
 import Users from '../../../services/Users';
-import {
-   Conteiner,
-} from './styles'
-
+import { Conteiner } from './styles';
+import { getCourses } from '../../../services/Courses';
 
 const Header = () => {
   const [courses, setCourses] = React.useState([]);
-  const student = Users.whoAuthenticated().user
+  const student = Users.whoAuthenticated().user;
 
   useEffect(() => {
     getCourses(setCourses);
@@ -25,42 +22,40 @@ const Header = () => {
     }
     return name;
   }
-  return(
-    <Conteiner backColor="#FFFFFF" width="240px" height="115px">
-        <p>
-          Nome Completo:
-          {student.name}
-        </p>
-        <p>
-          E-mail:
-          {student.email}
-        </p>
-        <p>
-          Curso:
-          {getCourseName()}
-        </p>
-      </Conteiner>
-  )
-}
-const Body = () => {
   return (
+    <Conteiner backColor="#FFFFFF" width="240px" height="115px">
+      <p>
+        Nome Completo:
+        {student.name}
+      </p>
+      <p>
+        E-mail:
+        {student.email}
+      </p>
+      <p>
+        Curso:
+        {getCourseName()}
+      </p>
+    </Conteiner>
+  );
+};
+const Body = () => {
     <Conteiner
-        txtAlign="center"
-        backColor="#FFFFFF"
-        width="430px"
-        height="115px"
-        >
+      txtAlign="center"
+      backColor="#FFFFFF"
+      width="430px"
+      height="115px"
+    >
       <p>Quantidade de avaliações realizadas: </p>
       <p>Quantidade de pessoas que concordaram com suas avaliações: </p>
       <p>Quantidade de pessoas que discordaram com suas avaliações: </p>
     </Conteiner>
-  )
-}
-function ProfileStudent({ children }) { 
-  return ( children ) 
+};
+function ProfileStudent({ children }) {
+  return children;
 }
 
-ProfileStudent.Header = Header
-ProfileStudent.Body = Body
+ProfileStudent.Header = Header;
+ProfileStudent.Body = Body;
 
-export default ProfileStudent
+export default ProfileStudent;

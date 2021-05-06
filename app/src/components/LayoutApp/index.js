@@ -11,7 +11,6 @@ import Menu from '../Menu';
 import Input from '../Input';
 import Button from '../Button';
 import { logOut } from '../../services/Auth';
-import Users from '../../services/Users';
 import MenuOptions from '../MenuOptions';
 
 function ProfessorSearch({ history }) {
