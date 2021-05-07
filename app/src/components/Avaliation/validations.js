@@ -1,25 +1,16 @@
 import * as yup from 'yup';
 
 const schema = yup.object().shape({
-
   id_course: yup.string().required('Nome da disciplina deve ser preenchido.'),
 
-  didactic: yup
-    .array()
-    .min(1, "Dê ao menos uma estrela."),
+  didactic: yup.array().min(1, 'Dê ao menos uma estrela.'),
 
-  metod: yup
-    .array()
-    .min(1, "Dê ao menos uma estrela."),
+  metod: yup.array().min(1, 'Dê ao menos uma estrela.'),
 
-  avaliations: yup
-    .array()
-    .min(1, "Dê ao menos uma estrela."),
+  avaliations: yup.array().min(1, 'Dê ao menos uma estrela.'),
 
-  disponibility: yup
-    .array()
-    .min(1, "Dê ao menos uma estrela."),
-    
+  disponibility: yup.array().min(1, 'Dê ao menos uma estrela.'),
+
   comments: yup
     .string()
     .trim()

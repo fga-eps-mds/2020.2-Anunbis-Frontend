@@ -42,18 +42,24 @@ const Header = ({ professor, feedbacks, canAvaliate, onNewAvaliation }) => {
         <Grid>
           <label>Nota Geral: </label>
           <label>
-            {feedbacks?.rating
-              ? feedbacks.rating.toFixed(2)
-              : 'Não avaliado'}
+            {feedbacks?.rating ? feedbacks.rating.toFixed(2) : 'Não avaliado'}
           </label>
           <label>Didática: </label>
-          <label>{feedbacks?.didactic ? feedbacks.didactic.toFixed(2) : "0"}</label>
+          <label>
+            {feedbacks?.didactic ? feedbacks.didactic.toFixed(2) : '0'}
+          </label>
           <label>Metodologia: </label>
-          <label>{feedbacks?.metod ? feedbacks.metod.toFixed(2) : "0"}</label>
+          <label>{feedbacks?.metod ? feedbacks.metod.toFixed(2) : '0'}</label>
           <label>Avaliações Coerentes: </label>
-          <label>{feedbacks?.avaliations ? feedbacks.avaliations.toFixed(2) : "0"}</label>
+          <label>
+            {feedbacks?.avaliations ? feedbacks.avaliations.toFixed(2) : '0'}
+          </label>
           <label>Disponibilidade: </label>
-          <label>{feedbacks?.disponibility ? feedbacks.disponibility.toFixed(2) : "0"}</label>
+          <label>
+            {feedbacks?.disponibility
+              ? feedbacks.disponibility.toFixed(2)
+              : '0'}
+          </label>
         </Grid>
         {canAvaliate && (
           <Button

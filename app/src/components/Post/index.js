@@ -30,16 +30,28 @@ const Header = ({ post, onClickReport }) => (
       <Name>{post.student.name}</Name>
     </InfoStudent>
     <Rating>
-    <label><b>Nota Geral:</b> </label>
-    <label><b>{((post.didactic+post.metod+post.avaliations+post.disponibility)/4).toFixed(2)}</b></label>
-    <label>Didatica:</label>
-    <label>{post.didactic.toFixed(1)}</label>
-    <label>Metodologia:</label>
-    <label>{post.metod.toFixed(1)}</label>
-    <label>Avaliações Coerentes:</label>
-    <label>{post.avaliations.toFixed(1)}</label>
-    <label>Disponibilidade:</label>
-    <label>{post.disponibility.toFixed(1)}</label>
+      <label>
+        <b>Nota Geral:</b>{' '}
+      </label>
+      <label>
+        <b>
+          {(
+            (post.didactic +
+              post.metod +
+              post.avaliations +
+              post.disponibility) /
+            4
+          ).toFixed(2)}
+        </b>
+      </label>
+      <label>Didatica:</label>
+      <label>{post.didactic.toFixed(1)}</label>
+      <label>Metodologia:</label>
+      <label>{post.metod.toFixed(1)}</label>
+      <label>Avaliações Coerentes:</label>
+      <label>{post.avaliations.toFixed(1)}</label>
+      <label>Disponibilidade:</label>
+      <label>{post.disponibility.toFixed(1)}</label>
     </Rating>
     <Button
       type="button"

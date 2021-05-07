@@ -16,9 +16,9 @@ export const PostStyle = styled.div`
 `;
 
 export const HeaderPost = styled.div`
-    display: grid;
-    grid-template-columns: 350px 220px 30px;
-    height: fit-content;
+  display: grid;
+  grid-template-columns: 350px 220px 30px;
+  height: fit-content;
 
   button {
     border: none;
@@ -44,48 +44,48 @@ export const HeaderPost = styled.div`
 `;
 
 export const ContentPost = styled.div`
-    background-color: var(--lightWhite);
-    width: 100%;
-    height: fit-content;
-    margin-top: auto;
-    padding: 10px;
-    font: 11px Roboto;
-    border-radius: 5px;
-    overflow-y: auto;
-    word-break: break-all;
+  background-color: var(--lightWhite);
+  width: 100%;
+  height: fit-content;
+  margin-top: auto;
+  padding: 10px;
+  font: 11px Roboto;
+  border-radius: 5px;
+  overflow-y: auto;
+  word-break: break-all;
 
-    ::-webkit-scrollbar {
-        width: 3px;
-    }
+  ::-webkit-scrollbar {
+    width: 3px;
+  }
 
-    ::-webkit-scrollbar-thumb {
-        background-color: var(--black);
-    }
+  ::-webkit-scrollbar-thumb {
+    background-color: var(--black);
+  }
 `;
 
 export const FeedbacksDiv = styled.div`
   display: flex;
   justify-content: space-between;
 
-    button{
-        border: none;
-        height: 15px;
-        width: 60px; 
-        margin-inline: 60px;
-        background-repeat: no-repeat;
-        background-position: left;
-        background-size: 40%;
-        display: flex;
-        align-items: center;
-        justify-content: flex-end;
-        color: rgba(61, 58, 58, 0.603);   
-        box-shadow: none; 
-    }
+  button {
+    border: none;
+    height: 15px;
+    width: 60px;
+    margin-inline: 60px;
+    background-repeat: no-repeat;
+    background-position: left;
+    background-size: 40%;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    color: rgba(61, 58, 58, 0.603);
+    box-shadow: none;
+  }
 `;
 
 export const InfoStudent = styled.div`
-    font: 12px Roboto;
-    padding-left: 10px;
+  font: 12px Roboto;
+  padding-left: 10px;
 `;
 
 export const Name = styled.div`
@@ -93,7 +93,7 @@ export const Name = styled.div`
 `;
 
 export const Rating = styled.div`
-    display: grid;
-    grid-template-columns: 120px 100px;
-    font-size: 11px;
+  display: grid;
+  grid-template-columns: 120px 100px;
+  font-size: 11px;
 `;
