@@ -1,6 +1,7 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { Conteiner } from './styles';
 import Users from '../../../services/Users';
+import api from '../../../services/Api';
 
 const Header = () => {
   const professor = Users.whoAuthenticated().data();
@@ -12,11 +13,27 @@ const Header = () => {
   );
 };
 
-const Body = () => (
+const Body = () => {
+  const [posts, setPosts] = React.useState([]);
+
+  useEffect(() => {
+    api.get('post').then((response) => {
+      if (response.status === 200) setPosts(response.data);
+    });
+  }, []);
+
+  function getRating(){
+    return posts.reduce((accumulator, p) => accumulator + p.rating, 0) / posts.length;
+  }
+
+  console.log(posts);
+  return (
   <Conteiner txtAlign="center" backColor="#FFFFFF" width="430px" height="115px">
-    <p>Quantidade de avaliações recebidas: </p>
+    <p>Quantidade de avaliações recebidas: {posts.length}</p>
+    <p>Pontuação média recebida: {getRating()}</p>
   </Conteiner>
-);
+  );
+};
 function ProfileProfessor({ children }) {
   return children;
 }
