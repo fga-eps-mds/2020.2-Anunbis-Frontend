@@ -6,24 +6,23 @@ import { ContentExclude, BtsExclude } from './styles';
 import api from '../../services/Api';
 import { logOut } from '../../services/Auth';
 
-function deleteAcc() {
-  const history = useHistory();
-  const { path, reg } = {
-    user: Users.whoAuthenticated().user,
-    path: Users.whoAuthenticated().homePath,
-    reg:
-      Users.whoAuthenticated().localStorageName === 'student'
-        ? Users.whoAuthenticated().user.reg_student
-        : Users.whoAuthenticated().user.reg_professor,
-  };
-
-  api.delete(`${path}${reg}`).then(() => {
-    logOut();
-    history.push('/');
-  });
-}
-
 export default function ExcludeAccount(props) {
+  const history = useHistory();
+
+  function deleteAcc() {
+    const { path, reg } = {
+      path: Users.whoAuthenticated().homePath,
+      reg:
+        Users.whoAuthenticated().localStorageName === 'student'
+          ? Users.whoAuthenticated().data().reg_student
+          : Users.whoAuthenticated().data().reg_professor,
+    };
+    api.delete(`${path}${reg}`).then(() => {
+      logOut();
+      history.push('/');
+    });
+  }
+
   return (
     <ContentExclude>
       <header>Tem certeza?</header>

@@ -9,9 +9,9 @@ import { Container, Header, BtnConfirm, FeedBack } from './styles';
 import api from '../../services/Api';
 import Users from '../../services/Users';
 
+
 export default function ResetPassword({ onClick }) {
   const [feedBack, setFeedBack] = React.useState('');
-  const user = Users.whoAuthenticated();
 
   const { register, handleSubmit, errors } = useForm({
     resolver: yupResolver(schema),
@@ -26,11 +26,12 @@ export default function ResetPassword({ onClick }) {
   }
 
   function onSubmit(data) {
+    console.log(data);
     const body = {
       password: data.new_password,
     };
     api
-      .put(`${user.homePath}`, body)
+      .put(Users.whoAuthenticated().localStorageName, body)
       .then(() => {
         setFeedBack(makeFeedback());
       })
@@ -53,7 +54,7 @@ export default function ResetPassword({ onClick }) {
             text="Digite a nova senha"
             name="new_password"
             register={register}
-          />
+          />{' '}
         </Form.Field>
 
         <Form.Field errorMsg={errors.confirm_new_password?.message}>
@@ -62,12 +63,10 @@ export default function ResetPassword({ onClick }) {
             text="Repita a nova senha"
             name="confirm_new_password"
             register={register}
-          />
+          />{' '}
         </Form.Field>
-
         {feedBack}
         <BtnConfirm
-          type="submit"
           text="CONFIRMAR"
           backColor="#26A69A"
           padding="3px 3px"
