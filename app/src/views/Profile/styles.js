@@ -20,25 +20,6 @@ export const Conteiner = styled.div`
   }
 `;
 
-export const ContentExclude = styled.div`
-  position: absolute;
-  width: 200px;
-  height: 100px;
-  display: flex;
-  flex-direction: column;
-  background-color: #fff9c4;
-  margin-top: 180px;
-  border-radius: 10px;
-
-  header {
-    border-top-left-radius: 10px;
-    border-top-right-radius: 10px;
-    background-color: #212121;
-    color: white;
-    text-align: center;
-  }
-`;
-
 export const BtnReset = styled(Button)`
   margin-top: 20px;
   margin-bottom: 20px;
@@ -48,6 +29,11 @@ export const BtnExcluir = styled(Button)`
   color: white;
   margin-top: 20px;
   margin-bottom: 20px;
+  border: none;
+
+  &:hover, &focus{
+    color: var(--black);
+  } 
 `;
 
 export const Title = styled.h4`

@@ -1,11 +1,10 @@
 import React from 'react';
 import { yupResolver } from '@hookform/resolvers/yup';
 import { useForm } from 'react-hook-form';
-import Button from '../Button';
 import Form from '../Form';
 import Input from '../Input';
 import schema from './validations';
-import { Container, Header, BtnConfirm, FeedBack } from './styles';
+import { Container, Header, Btn, FeedBack } from './styles';
 import api from '../../services/Api';
 import Users from '../../services/Users';
 
@@ -43,8 +42,7 @@ export default function ResetPassword({ onClick }) {
   return (
     <Container>
       <Header>
-        REDEFINIÇÃO DE SENHA
-        <Button text="X" backColor="red" padding="2px 2px" onClick={onClick} />
+        <div>REDEFINIÇÃO DE SENHA</div>
       </Header>
 
       <Form onSubmit={handleSubmit(onSubmit)}>
@@ -54,8 +52,9 @@ export default function ResetPassword({ onClick }) {
             text="Digite a nova senha"
             name="new_password"
             register={register}
-          />{' '}
+          />
         </Form.Field>
+        {' '}
 
         <Form.Field errorMsg={errors.confirm_new_password?.message}>
           <Input
@@ -63,14 +62,24 @@ export default function ResetPassword({ onClick }) {
             text="Repita a nova senha"
             name="confirm_new_password"
             register={register}
-          />{' '}
+          />
         </Form.Field>
+        {' '}
         {feedBack}
-        <BtnConfirm
-          text="CONFIRMAR"
+        <Form.Footer>
+        <Btn
+          text="CANCELAR"
           backColor="#26A69A"
           padding="3px 3px"
+          onClick = {() => onClick()}
         />
+        <Btn
+          type = "submit"
+          text="ALTERAR"
+          backColor="#26A69A"
+          padding="3px 6px"
+        />
+        </Form.Footer>
       </Form>
     </Container>
   );

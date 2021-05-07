@@ -25,19 +25,19 @@ export default function ExcludeAccount(props) {
 
   return (
     <ContentExclude>
-      <header>Tem certeza?</header>
+      <header>DESEJA EXCLUIR SUA CONTA?</header>
       <BtsExclude>
         <Button
           backColor="#26A69A"
           padding="10px 10px"
-          text="SIM"
-          onClick={() => deleteAcc()}
+          text="VOLTAR"
+          onClick={() => props.close()}
         />
         <Button
-          backColor="#26A69A"
+          backColor="var(--lightRed)"
           padding="10px 7px"
-          text="NÃO"
-          onClick={() => props.close()}
+          text="EXCLUIR"
+          onClick={() => deleteAcc()}
         />
       </BtsExclude>
     </ContentExclude>
