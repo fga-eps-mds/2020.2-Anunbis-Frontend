@@ -5,11 +5,12 @@ export function getToken() {
 const createUser = (localStorageName, homePath) => ({
   localStorageName,
   homePath,
-  user: getToken()
-    ? JSON.parse(localStorage.getItem(localStorageName))
-    : 'No one logged',
   isAuthenticated: () =>
     getToken() ? !!localStorage.getItem(localStorageName) : false,
+  data: () =>
+    localStorage.getItem(localStorageName)
+      ? JSON.parse(localStorage.getItem(localStorageName))
+      : null,
 });
 
 const Users = {
