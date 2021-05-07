@@ -4,39 +4,13 @@ import { Container } from './styles';
 import Checkbox from '../Checkbox';
 
 function StarsAvaliation({ name, register }) {
-  const [isChecked1, setChecked1] = React.useState(false);
-  const [isChecked2, setChecked2] = React.useState(false);
-  const [isChecked3, setChecked3] = React.useState(false);
-  const [isChecked4, setChecked4] = React.useState(false);
-  const [isChecked5, setChecked5] = React.useState(false);
+  const [isChecked, setChecked] = React.useState(0);
 
-  function setChecked(num, isChecked) {
-    switch (num) {
-      case 1:
-        setChecked1(isChecked);
-        break;
-      case 2:
-        setChecked2(isChecked);
-        break;
-      case 3:
-        setChecked3(isChecked);
-        break;
-      case 4:
-        setChecked4(isChecked);
-        break;
-      case 5:
-        setChecked5(isChecked);
-        break;
-
-      default:
-    }
-  }
-  function setStatus(num, status) {
-    let a;
-    if (status === false) {
-      for (a = num + 1; a <= 5; a += 1) setChecked(a, status);
+  function setStatus(num, numStatus) {
+    if (num === numStatus) {
+      setChecked(0);
     } else {
-      for (a = 1; a <= num; a += 1) setChecked(a, status);
+      setChecked(num);
     }
   }
 
@@ -45,32 +19,32 @@ function StarsAvaliation({ name, register }) {
       <Checkbox
         name={name}
         register={register}
-        checked={isChecked1}
-        onChange={() => setStatus(1, !isChecked1)}
+        checked={isChecked >= 1}
+        onChange={() => setStatus(1, isChecked)}
       />
       <Checkbox
         name={name}
         register={register}
-        checked={isChecked2}
-        onChange={() => setStatus(2, !isChecked2)}
+        checked={isChecked >= 2}
+        onChange={() => setStatus(2, isChecked)}
       />
       <Checkbox
         name={name}
         register={register}
-        checked={isChecked3}
-        onChange={() => setStatus(3, !isChecked3)}
+        checked={isChecked >= 3}
+        onChange={() => setStatus(3, isChecked)}
       />
       <Checkbox
         name={name}
         register={register}
-        checked={isChecked4}
-        onChange={() => setStatus(4, !isChecked4)}
+        checked={isChecked >= 4}
+        onChange={() => setStatus(4, isChecked)}
       />
       <Checkbox
         name={name}
         register={register}
-        checked={isChecked5}
-        onChange={() => setStatus(5, !isChecked5)}
+        checked={isChecked >= 5}
+        onChange={() => setStatus(5, isChecked)}
       />
     </Container>
   );
