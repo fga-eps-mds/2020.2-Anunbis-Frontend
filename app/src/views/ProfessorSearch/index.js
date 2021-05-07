@@ -43,9 +43,9 @@ const ProfessorFound = ({
         professor.disciplines.map((disci, index) => (
           <Discipline
             onClick={() => onClickDiscipline(index)}
-            key={disci.disciplineCode}
+            key={disci.discipline_code}
           >
-            {`[${disci.disciplineCode}] ${disci.name}`}
+            {`[${disci.discipline_code}] ${disci.name}`}
           </Discipline>
         ))}
     </FoundDiv>
@@ -53,9 +53,9 @@ const ProfessorFound = ({
 };
 
 function getPostsByDiscipline(professor, disciplineSelected) {
-  const { disciplineCode } = professor.disciplines[disciplineSelected];
+  const { discipline_code } = professor.disciplines[disciplineSelected];
   return professor.posts.filter(
-    (post) => post.discipline.disciplineCode === disciplineCode,
+    (post) => post.discipline.discipline_code === discipline_code,
   );
 }
 
@@ -101,10 +101,10 @@ function ProfessorSearch() {
   React.useEffect(() => {
     if (professors.length === 0) return;
     setLoading(true);
-    const { idProfessor } = professors[selected.professor];
+    const { id_professor } = professors[selected.professor];
     const startRequest = new Date().getTime();
 
-    api.get(`/professor/${idProfessor}`).then((response) => {
+    api.get(`/professor/${id_professor}`).then((response) => {
       if (response.status === 200) {
         const requestDuration = startRequest - new Date().getTime();
         professors[selected.professor] = response.data;
@@ -146,10 +146,10 @@ function ProfessorSearch() {
             <ProfessorFound
               professor={prof}
               onClick={() => handleSetSelected(index, -1)}
-              setSelectedDiscipline={(indexDiscpline) =>
-                handleSetSelected(index, indexDiscpline)
+              setSelectedDiscipline={(indexDiscipline) =>
+                handleSetSelected(index, indexDiscipline)
               }
-              key={prof.idProfessor}
+              key={prof.id_professor}
               isSelected={index === selected.professor}
             />
           ))}

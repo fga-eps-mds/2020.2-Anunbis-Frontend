@@ -12,7 +12,9 @@ import Button from '../Button';
 import Popup from '../Popup';
 import Avaliation from '../Avaliation';
 
-const Title = (props, children) => <DivTitle {...props}>{children}</DivTitle>;
+const Title = ({ props, children }) => (
+  <DivTitle {...props}>{children}</DivTitle>
+);
 
 const Header = ({ professor, feedbacks, canAvaliate, onNewAvaliation }) => {
   const [avaliate, setAvaliate] = React.useState(false);
