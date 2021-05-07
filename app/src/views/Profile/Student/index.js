@@ -2,6 +2,7 @@ import React, { useEffect } from 'react';
 import Users from '../../../services/Users';
 import { Conteiner } from './styles';
 import { getCourses } from '../../../services/Courses';
+import api from '../../../services/Api';
 
 const Header = () => {
   const [courses, setCourses] = React.useState([]);
@@ -39,13 +40,38 @@ const Header = () => {
     </Conteiner>
   );
 };
-const Body = () => (
-  <Conteiner txtAlign="center" backColor="#FFFFFF" width="430px" height="115px">
-    <p>Quantidade de avaliações realizadas: </p>
-    <p>Quantidade de pessoas que concordaram com suas avaliações: </p>
-    <p>Quantidade de pessoas que discordaram com suas avaliações: </p>
-  </Conteiner>
-);
+
+const Body = () => {
+  const [posts, setPosts] = React.useState([]);
+
+  useEffect(() => {
+    api.get('post').then((response) => {
+      if (response.status === 200) setPosts(response.data);
+    });
+  }, []);
+  console.log(posts);
+
+  function countAgree(){
+    return posts.reduce((accumulator, p) => accumulator + p.feedbacks.agrees, 0);
+  }
+
+  function countDisagree(){
+    return posts.reduce((accumulator, c) => accumulator + c.feedbacks.disagrees, 0);
+  }
+
+  return (
+    <Conteiner
+      txtAlign="center"
+      backColor="#FFFFFF"
+      width="430px"
+      height="115px"
+    >
+      <p>Quantidade de avaliações realizadas: {posts.length}</p>
+      <p>Quantidade de pessoas que concordaram com suas avaliações: {countAgree()}</p>
+      <p>Quantidade de pessoas que discordaram com suas avaliações: {countDisagree()}</p>
+    </Conteiner>
+  );
+};
 function ProfileStudent({ children }) {
   return children;
 }
