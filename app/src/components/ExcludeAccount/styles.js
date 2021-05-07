@@ -9,7 +9,7 @@ export const ContentExclude = styled.div`
   background-color: var(--lightWhite);
   margin-top: 150px;
   border-radius: 10px;
-  
+
   header {
     border-top-right-radius: 10px;
     border-top-left-radius: 10px;

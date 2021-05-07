@@ -51,12 +51,18 @@ const Body = () => {
   }, []);
   console.log(posts);
 
-  function countAgree(){
-    return posts.reduce((accumulator, p) => accumulator + p.feedbacks.agrees, 0);
+  function countAgree() {
+    return posts.reduce(
+      (accumulator, p) => accumulator + p.feedbacks.agrees,
+      0,
+    );
   }
 
-  function countDisagree(){
-    return posts.reduce((accumulator, c) => accumulator + c.feedbacks.disagrees, 0);
+  function countDisagree() {
+    return posts.reduce(
+      (accumulator, c) => accumulator + c.feedbacks.disagrees,
+      0,
+    );
   }
 
   return (
@@ -67,8 +73,14 @@ const Body = () => {
       height="115px"
     >
       <p>Quantidade de avaliações realizadas: {posts.length}</p>
-      <p>Quantidade de pessoas que concordaram com suas avaliações: {countAgree()}</p>
-      <p>Quantidade de pessoas que discordaram com suas avaliações: {countDisagree()}</p>
+      <p>
+        Quantidade de pessoas que concordaram com suas avaliações:{' '}
+        {countAgree()}
+      </p>
+      <p>
+        Quantidade de pessoas que discordaram com suas avaliações:{' '}
+        {countDisagree()}
+      </p>
     </Conteiner>
   );
 };

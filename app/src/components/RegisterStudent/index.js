@@ -104,18 +104,19 @@ export default function RegisterStudent() {
         <div className="errorDB">{errorDB}</div>
       </Form.Field>
       <Form.Footer>
+      <Button
+          text="CANCELAR"
+          backColor="#FFF9C4"
+          padding="12px 8px"
+          onClick={() => history.push('/')}
+        />
         <Button
           text="CONFIRMAR"
           type="submit"
           backColor="#FFF9C4"
           padding="12px 8px"
         />
-        <Button
-          text="CANCELAR"
-          backColor="#FFF9C4"
-          padding="12px 8px"
-          onClick={() => history.push('/')}
-        />
+        
       </Form.Footer>
     </Form>
   );

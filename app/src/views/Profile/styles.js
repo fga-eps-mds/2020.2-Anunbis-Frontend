@@ -31,9 +31,10 @@ export const BtnExcluir = styled(Button)`
   margin-bottom: 20px;
   border: none;
 
-  &:hover, &focus{
+  &:hover,
+  &focus {
     color: var(--black);
-  } 
+  }
 `;
 
 export const Title = styled.h4`

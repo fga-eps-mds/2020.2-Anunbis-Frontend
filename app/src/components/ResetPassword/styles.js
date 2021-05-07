@@ -27,9 +27,8 @@ export const Header = styled.header`
   color: white;
   justify-content: center;
   align-items: center;
-  
 
-  div{
+  div {
     display: flex;
     height: inherit;
     align-items: center;
@@ -48,7 +47,8 @@ export const Header = styled.header`
     margin-inline-start: 0px;
     margin-inline-end: inherit;
 
-    &:hover, &focus{
+    &:hover,
+    &focus {
       color: var(--black);
     }
   }
@@ -61,7 +61,8 @@ export const Btn = styled(Button)`
   height: 30px;
   border: none;
 
-  &:focus, &:hover{
+  &:focus,
+  &:hover {
     background-color: var(--darkBlue);
   }
 `;

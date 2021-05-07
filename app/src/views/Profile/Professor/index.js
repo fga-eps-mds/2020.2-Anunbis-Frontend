@@ -22,16 +22,23 @@ const Body = () => {
     });
   }, []);
 
-  function getRating(){
-    return posts.reduce((accumulator, p) => accumulator + p.rating, 0) / posts.length;
+  function getRating() {
+    return (
+      posts.reduce((accumulator, p) => accumulator + p.rating, 0) / posts.length
+    );
   }
 
   console.log(posts);
   return (
-  <Conteiner txtAlign="center" backColor="#FFFFFF" width="430px" height="115px">
-    <p>Quantidade de avaliações recebidas: {posts.length}</p>
-    <p>Pontuação média recebida: {getRating()}</p>
-  </Conteiner>
+    <Conteiner
+      txtAlign="center"
+      backColor="#FFFFFF"
+      width="430px"
+      height="115px"
+    >
+      <p>Quantidade de avaliações recebidas: {posts.length}</p>
+      <p>Pontuação média recebida: {getRating()}</p>
+    </Conteiner>
   );
 };
 function ProfileProfessor({ children }) {

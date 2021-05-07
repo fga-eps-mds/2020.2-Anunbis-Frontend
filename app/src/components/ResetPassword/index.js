@@ -8,7 +8,6 @@ import { Container, Header, Btn, FeedBack } from './styles';
 import api from '../../services/Api';
 import Users from '../../services/Users';
 
-
 export default function ResetPassword({ onClick }) {
   const [feedBack, setFeedBack] = React.useState('');
 
@@ -53,9 +52,7 @@ export default function ResetPassword({ onClick }) {
             name="new_password"
             register={register}
           />
-        </Form.Field>
-        {' '}
-
+        </Form.Field>{' '}
         <Form.Field errorMsg={errors.confirm_new_password?.message}>
           <Input
             type="password"
@@ -63,22 +60,21 @@ export default function ResetPassword({ onClick }) {
             name="confirm_new_password"
             register={register}
           />
-        </Form.Field>
-        {' '}
+        </Form.Field>{' '}
         {feedBack}
         <Form.Footer>
-        <Btn
-          text="CANCELAR"
-          backColor="#26A69A"
-          padding="3px 3px"
-          onClick = {() => onClick()}
-        />
-        <Btn
-          type = "submit"
-          text="ALTERAR"
-          backColor="#26A69A"
-          padding="3px 6px"
-        />
+          <Btn
+            text="CANCELAR"
+            backColor="#26A69A"
+            padding="3px 3px"
+            onClick={() => onClick()}
+          />
+          <Btn
+            type="submit"
+            text="ALTERAR"
+            backColor="#26A69A"
+            padding="3px 6px"
+          />
         </Form.Footer>
       </Form>
     </Container>
