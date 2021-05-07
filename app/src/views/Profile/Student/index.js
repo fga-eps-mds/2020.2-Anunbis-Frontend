@@ -5,7 +5,7 @@ import { getCourses } from '../../../services/Courses';
 
 const Header = () => {
   const [courses, setCourses] = React.useState([]);
-  const student = Users.whoAuthenticated().user;
+  const student = Users.whoAuthenticated().data();
 
   useEffect(() => {
     getCourses(setCourses);
@@ -39,18 +39,13 @@ const Header = () => {
     </Conteiner>
   );
 };
-const Body = () => {
-    <Conteiner
-      txtAlign="center"
-      backColor="#FFFFFF"
-      width="430px"
-      height="115px"
-    >
-      <p>Quantidade de avaliações realizadas: </p>
-      <p>Quantidade de pessoas que concordaram com suas avaliações: </p>
-      <p>Quantidade de pessoas que discordaram com suas avaliações: </p>
-    </Conteiner>
-};
+const Body = () => (
+  <Conteiner txtAlign="center" backColor="#FFFFFF" width="430px" height="115px">
+    <p>Quantidade de avaliações realizadas: </p>
+    <p>Quantidade de pessoas que concordaram com suas avaliações: </p>
+    <p>Quantidade de pessoas que discordaram com suas avaliações: </p>
+  </Conteiner>
+);
 function ProfileStudent({ children }) {
   return children;
 }

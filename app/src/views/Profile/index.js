@@ -1,3 +1,4 @@
+/* eslint-disable */
 import React from 'react';
 import ResetPassword from '../../components/ResetPassword';
 import { Conteiner, BtnReset, BtnExcluir, Title } from './styles';
@@ -14,6 +15,14 @@ export default function Profile() {
       ? ProfileStudent
       : ProfileProfessor;
 
+  function makeReset() {
+    setResetPassword(<ResetPassword onClick={() => setResetPassword('')} />);
+  }
+
+  function makeExclude() {
+    setExcludeAcc(<ExcludeAccount close={() => setExcludeAcc('')} />);
+  }
+
   return (
     <Conteiner display="flex" backColor="#E0E0E0">
       {resetPassword}
@@ -24,18 +33,14 @@ export default function Profile() {
         text="ALTERAR SENHA"
         backColor="#FFF9C4"
         padding="5px"
-        onClick={
-          <ResetPassword
-            onClick={() => setResetPassword('')}
-          />
-        }
+        onClick={makeReset}
       />
       <ProfileSpecific.Body />
       <BtnExcluir
         text="EXCLUIR CONTA"
         backColor="#F44336"
         padding="5px"
-        onClick={<ExcludeAccount close={setExcludeAcc('')} />}
+        onClick={makeExclude}
       />
     </Conteiner>
   );
