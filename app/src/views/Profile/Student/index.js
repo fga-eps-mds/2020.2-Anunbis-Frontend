@@ -2,7 +2,7 @@ import React, { useEffect } from 'react';
 import Users from '../../../services/Users';
 import { Conteiner } from './styles';
 import { getCourses } from '../../../services/Courses';
-import api from '../../../services/Api';
+import { getPosts } from '../../../services/Posts';
 
 const Header = () => {
   const [courses, setCourses] = React.useState([]);
@@ -45,9 +45,7 @@ const Body = () => {
   const [posts, setPosts] = React.useState([]);
 
   useEffect(() => {
-    api.get('post').then((response) => {
-      if (response.status === 200) setPosts(response.data);
-    });
+    getPosts(setPosts);
   }, []);
   console.log(posts);
 

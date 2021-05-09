@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
 import { Conteiner } from './styles';
 import Users from '../../../services/Users';
-import api from '../../../services/Api';
+import { getPosts } from '../../../services/Posts';
 
 const Header = () => {
   const professor = Users.whoAuthenticated().data();
@@ -17,9 +17,7 @@ const Body = () => {
   const [posts, setPosts] = React.useState([]);
 
   useEffect(() => {
-    api.get('post').then((response) => {
-      if (response.status === 200) setPosts(response.data);
-    });
+    getPosts(setPosts);
   }, []);
 
   function getRating() {

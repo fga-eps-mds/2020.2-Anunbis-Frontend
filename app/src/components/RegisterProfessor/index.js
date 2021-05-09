@@ -8,7 +8,7 @@ import Button from '../Button';
 import schema from './validations';
 import api from '../../services/Api';
 
-export default function RegisterProfessor( {redirect} ) {
+export default function RegisterProfessor({ redirect }) {
   const history = useHistory();
   const [errorDB, setErrorDB] = React.useState('');
   const { register, handleSubmit, errors } = useForm({
