@@ -21,9 +21,10 @@ const Body = () => {
   }, []);
 
   function getRating() {
-    return (
-      posts.reduce((accumulator, p) => accumulator + p.rating, 0) / posts.length
-    );
+    return posts.length > 0
+      ? posts.reduce((accumulator, p) => accumulator + p.rating, 0) /
+          posts.length
+      : 0;
   }
 
   console.log(posts);

@@ -25,18 +25,9 @@ const Header = () => {
   }
   return (
     <Conteiner backColor="#FFFFFF" width="240px" height="115px">
-      <p>
-        Nome Completo:
-        {student.name}
-      </p>
-      <p>
-        E-mail:
-        {student.email}
-      </p>
-      <p>
-        Curso:
-        {getCourseName()}
-      </p>
+      <p>Nome Completo: {student.name}</p>
+      <p>E-mail: {student.email}</p>
+      <p>Curso: {getCourseName()}</p>
     </Conteiner>
   );
 };
