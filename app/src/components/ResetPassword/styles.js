@@ -14,7 +14,6 @@ export const Container = styled.div`
 
   Input {
     width: 280px;
-    margin-top: 20px;
     align-self: flex-start;
   }
 `;
@@ -27,6 +26,7 @@ export const Header = styled.header`
   color: white;
   justify-content: center;
   align-items: center;
+  margin-bottom: 20px;
 
   div {
     display: flex;

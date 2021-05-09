@@ -52,7 +52,7 @@ export default function ResetPassword({ onClick }) {
             name="new_password"
             register={register}
           />
-        </Form.Field>{' '}
+        </Form.Field>
         <Form.Field errorMsg={errors.confirm_new_password?.message}>
           <Input
             type="password"
@@ -60,7 +60,7 @@ export default function ResetPassword({ onClick }) {
             name="confirm_new_password"
             register={register}
           />
-        </Form.Field>{' '}
+        </Form.Field>
         {feedBack}
         <Form.Footer>
           <Btn
