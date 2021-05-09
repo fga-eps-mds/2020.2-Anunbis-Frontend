@@ -10,14 +10,7 @@ export default function ExcludeAccount(props) {
   const history = useHistory();
 
   function deleteAcc() {
-    const { path, reg } = {
-      path: Users.whoAuthenticated().homePath,
-      reg:
-        Users.whoAuthenticated().localStorageName === 'student'
-          ? Users.whoAuthenticated().data().reg_student
-          : Users.whoAuthenticated().data().reg_professor,
-    };
-    api.delete(`${path}${reg}`).then(() => {
+    api.delete(`${Users.whoAuthenticated().localStorageName}`).then(() => {
       logOut();
       history.push('/');
     });
