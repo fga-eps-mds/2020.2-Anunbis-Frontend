@@ -72,9 +72,15 @@ function getFeedbacks(professor, posts, disciplineSelected) {
   if (disciplineSelected < 0) return professor;
   if (posts.length === 0) return -1;
 
-  const rating =
-    posts.reduce((accumulator, p) => accumulator + p.rating, 0) / posts.length;
-  return rating;
+  const rates = {
+    rating: professor.rating,
+    didactic: professor.didactic,
+    metod: professor.metod,
+    avaliations: professor.avaliations,
+    disponibility: professor.disponibility,
+  };
+
+  return rates;
 }
 
 function ProfessorSearch() {
@@ -167,7 +173,7 @@ function ProfessorSearch() {
           onNewAvaliation={() => setNewAvaliationState(!newAvaliationState)}
         />
         {professors.length > 0 && (
-          <Feed.Title backColor="#26A69A">
+          <Feed.Title backColor="var(--cian)">
             {posts.length === 0 && !loading
               ? 'Sem Avaliações Ainda'
               : 'Avaliações'}

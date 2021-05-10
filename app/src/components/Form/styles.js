@@ -5,20 +5,15 @@ export const FieldContainer = styled.div`
   align-items: center;
   flex-direction: column;
   height: fit-content;
-  margin: 0px 0px 25px 0px;
+  margin: ${(props) => (props.margin ? props.margin : '0px 0px 25px 0px')};
   input {
     margin: 0px;
-  }
-  .error {
-    transform: translateY(100%);
-    margin-top: 10px;
   }
 `;
 
 export const Erro = styled.div`
-  color: #f44336;
+  color: var(--lightRed);
   font-size: 10px;
-  position: absolute;
 `;
 
 export const FormContainer = styled.form`
