@@ -55,7 +55,7 @@ export const Grid = styled.div`
 `;
 
 export const DivContent = styled.div`
-  padding: 0px 40px 20px 40px;
+  padding: 0px 20px 20px 20px;
   display: flex;
   justify-content: space-between;
   flex-direction: column;

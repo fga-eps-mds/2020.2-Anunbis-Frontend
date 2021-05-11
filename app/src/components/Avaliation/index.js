@@ -34,11 +34,10 @@ export default function Avaliation({ close, professor }) {
       didactic: data.didactic.length,
       metod: data.metod.length,
       avaliations: data.avaliations.length,
-      disponibility: data.didactic.length,
+      disponibility: data.disponibility.length,
       discipline_code: data.id_course,
       is_anonymous: isAnonymous,
     };
-
     api.post('/post', body).then((response) => {
       if (response.status === 201) {
         close();
