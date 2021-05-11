@@ -7,6 +7,10 @@ const createUser = (localStorageName, homePath) => ({
   homePath,
   isAuthenticated: () =>
     getToken() ? !!localStorage.getItem(localStorageName) : false,
+  data: () =>
+    localStorage.getItem(localStorageName)
+      ? JSON.parse(localStorage.getItem(localStorageName))
+      : null,
 });
 
 const Users = {

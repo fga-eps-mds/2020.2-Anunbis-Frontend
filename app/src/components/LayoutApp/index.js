@@ -11,7 +11,6 @@ import Menu from '../Menu';
 import Input from '../Input';
 import Button from '../Button';
 import { logOut } from '../../services/Auth';
-import Users from '../../services/Users';
 import MenuOptions from '../MenuOptions';
 
 function ProfessorSearch({ history }) {
@@ -54,8 +53,7 @@ export default function LayoutApp({ children }) {
             padding="3px"
             onClick={() => {
               setMenuOptions('');
-              if (Users.STUDENT.isAuthenticated())
-                history.push('/user/profile');
+              history.push('/user/profile');
             }}
           />
           <Button

@@ -15,7 +15,7 @@ function Authentication() {
   return (
     <AuthenticationStyle>
       <Menu menu={menu} setMenu={setMenu} />
-      <MenuContent menu={menu} />
+      <MenuContent menu={menu} setMenu={setMenu} />
     </AuthenticationStyle>
   );
 }
@@ -49,24 +49,25 @@ const Menu = ({ menu, setMenu }) => (
   </MenuOptions>
 );
 
-const MenuContent = ({ menu }) => (
+const MenuContent = ({ menu, setMenu }) => (
   <Content>
     {menu === 0 && <Login />}
-    {menu >= 1 && <Register menu={menu} />}
+    {menu >= 1 && <Register menu={menu} setMenu={setMenu} />}
   </Content>
 );
 
-const Register = ({ menu }) => (
+const Register = ({ menu, setMenu }) => (
   <>
     {menu === 1 && (
       <>
-        <Title>Cadastro de Aluno</Title> <RegisterStudent />
+        <Title>Cadastro de Aluno</Title>{' '}
+        <RegisterStudent redirect={() => setMenu(0)} />
       </>
     )}
     {menu === 2 && (
       <>
         <Title>Cadastro de Professor</Title>
-        <RegisterProfessor />
+        <RegisterProfessor redirect={() => setMenu(0)} />
       </>
     )}
   </>
