@@ -3,7 +3,7 @@ import styled, { keyframes } from 'styled-components';
 const translate = keyframes`
     from{
         opacity: 0.7;
-        transform: translateY(15%);
+        transform: translateY(10%);
     }
     to{
         opacity: 1;
@@ -14,14 +14,14 @@ const translate = keyframes`
 export const Container = styled.div`
   border-radius: 20px;
   background: ${(props) => (props.backColor ? props.backColor : '')};
-  min-height: 190px;
+  min-height: 180px;
   height: fit-content;
   box-shadow: ${(props) =>
     props.backColor ? '2px 2px 2px rgba(0, 0, 0, 50%)' : 0};
   display: flex;
   align-items: center;
   flex-direction: column;
-  margin: 20px;
+  margin: 10px;
   padding-bottom: 20px;
   overflow-y: auto;
 `;
@@ -32,8 +32,12 @@ export const ContainerPost = styled.div`
   margin-top: 20px;
   border-radius: 15px;
   height: fit-content;
-  width: 90%;
+  width: 97%;
   animation: ${translate} 1s ease;
+`;
+
+export const DisciplinePostsStyle = styled.div`
+  animation: ${translate} 1.5s ease;
 `;
 
 export const ContainerOptions = styled.div`
