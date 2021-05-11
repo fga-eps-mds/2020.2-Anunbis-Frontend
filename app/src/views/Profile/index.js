@@ -11,7 +11,7 @@ export default function Profile() {
   const [excludeAcc, setExcludeAcc] = React.useState('');
   const [resetPassword, setResetPassword] = React.useState('');
   const ProfileSpecific =
-    Users.whoAuthenticated().localStorageName === 'student'
+    Users.whoAuthenticated() === Users.STUDENT
       ? ProfileStudent
       : ProfileProfessor;
 
