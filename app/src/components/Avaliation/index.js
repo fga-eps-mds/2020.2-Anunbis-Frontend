@@ -1,11 +1,11 @@
 import React from 'react';
 import { useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
-import { Container, NameProfessor, TxtArea } from './styles';
+import { Container, Grades, NameProfessor, TxtArea } from './styles';
 import schema from './validations';
-import Input from '../Input';
 import Select from '../Select';
 import Button from '../Button';
+import StarsAvaliation from '../StarsAvaliation';
 import Form from '../Form';
 import FeedPopup from '../FeedPopup';
 import api from '../../services/Api';
@@ -18,9 +18,9 @@ export default function Avaliation({ close, professor }) {
     resolver: yupResolver(schema),
   });
 
-  function disciplinesOptions(disciplinesO) {
+  function disciplinesOptions(disciplines0) {
     const disciplinesArray = [];
-    disciplinesO.map((dis) =>
+    disciplines0.map((dis) =>
       disciplinesArray.push({ id: dis.discipline_code, name: dis.name }),
     );
     return disciplinesArray;
@@ -31,7 +31,10 @@ export default function Avaliation({ close, professor }) {
       reg_student: regStudent,
       id_professor: professor.id_professor,
       content: data.comments,
-      rating: parseFloat(data.note),
+      didactic: data.didactic.length,
+      metod: data.metod.length,
+      avaliations: data.avaliations.length,
+      disponibility: data.didactic.length,
       discipline_code: data.id_course,
       is_anonymous: isAnonymous,
     };
@@ -48,49 +51,76 @@ export default function Avaliation({ close, professor }) {
       <Container>
         <Form onSubmit={handleSubmit(onSubmit)}>
           <NameProfessor>{professor.name}</NameProfessor>
-          <Form.Field errorMsg={errors.id_course?.message}>
+          <Form.Field
+            errorMsg={errors.id_course?.message}
+            margin="0px 0px 0px 0px"
+          >
             <Select
               id="diciplines"
-              backColor="#FFFDE7"
+              backColor="var(--transparent)"
               text="Selecione um Curso"
               options={disciplinesOptions(disciplines)}
               name="id_course"
               register={register}
             />
           </Form.Field>
-          <Form.Field errorMsg={errors.note?.message}>
-            <Input
-              type="number"
-              step="0.1"
-              text="Nota"
-              name="note"
-              register={register}
-              width="90px"
-            />
-          </Form.Field>
+          <p>Notas:</p>
+          <Grades>
+            <label>Didática:</label>
+            <Form.Field
+              errorMsg={errors.didactic?.message}
+              margin="0px 0px 0px 0px"
+            >
+              <StarsAvaliation name="didactic" register={register} />
+            </Form.Field>
+            <label>Metodologia:</label>
+            <Form.Field
+              errorMsg={errors.metod?.message}
+              margin="0px 0px 0px 0px"
+            >
+              <StarsAvaliation name="metod" register={register} />
+            </Form.Field>
+            <label>Coerência das Avaliações:</label>
+            <Form.Field
+              errorMsg={errors.avaliations?.message}
+              margin="0px 0px 0px 0px"
+            >
+              <StarsAvaliation name="avaliations" register={register} />
+            </Form.Field>
+            <label>Disponibilidade:</label>
+            <Form.Field
+              errorMsg={errors.disponibility?.message}
+              margin="0px 0px 0px 0px"
+            >
+              <StarsAvaliation name="disponibility" register={register} />
+            </Form.Field>
+          </Grades>
           <p>Postagem:</p>
-          <Container direction="row" heigth="30px" align="center">
+          <Container direction="row" align="center">
             <Button
               type="button"
-              padding="7px 10px"
+              padding="10px 10px"
               text="PÚBLICA"
-              backColor={isAnonymous ? '#FFF9C4' : '#969681'}
+              backColor={isAnonymous ? '#FFF9C4' : 'var(--yellow)'}
               onClick={() => setIsAnonymous(false)}
             />
             <Button
               type="button"
-              padding="7px 10px"
+              padding="10px 10px"
               text="ANÔNIMA"
-              backColor={isAnonymous ? '#969681' : '#FFF9C4'}
+              backColor={isAnonymous ? 'var(--yellow)' : '#FFF9C4'}
               onClick={() => setIsAnonymous(true)}
             />
           </Container>
           <p>Descrição/Comentários:</p>
-          <Form.Field errorMsg={errors.comments?.message}>
+          <Form.Field
+            errorMsg={errors.comments?.message}
+            margin="0px 0px 0px 0px"
+          >
             <TxtArea name="comments" ref={register} />
           </Form.Field>
           <Form.Footer>
-            <Button type="submit" text="POSTAR" backColor="#26A69A" />
+            <Button type="submit" text="POSTAR" backColor="var(--cian)" />
           </Form.Footer>
         </Form>
       </Container>

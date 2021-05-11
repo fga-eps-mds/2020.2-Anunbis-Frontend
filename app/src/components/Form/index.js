@@ -1,8 +1,8 @@
 import React from 'react';
 import { FieldContainer, Erro, FormContainer, FooterContent } from './styles';
 
-const Field = ({ errorMsg, children }) => (
-  <FieldContainer>
+const Field = ({ errorMsg, margin, children }) => (
+  <FieldContainer margin={margin}>
     {children}
     <Erro className="error">{errorMsg}</Erro>
   </FieldContainer>
