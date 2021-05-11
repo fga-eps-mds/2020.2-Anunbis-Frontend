@@ -14,7 +14,11 @@ import {
 } from './styles';
 import Button from '../../components/Button';
 import Loading from '../../components/Loading';
+<<<<<<< HEAD
 import { getPosts } from '../../services/Posts';
+=======
+import Graphics from '../../components/Statistics';
+>>>>>>> (#208) Inicializando componente Statistics e biblioteca react-google-chart
 
 const DisciplineContent = ({ discipline }) => {
   const [boxPost, setBoxPost] = React.useState(false);
@@ -143,7 +147,10 @@ export default function ProfessorHome() {
   return (
     <Home>
       <OptionsProfessorHome />
-      {isStatistics && <Feed title="Estatísticas" />}
+      {isStatistics && <Feed title="Estatísticas">
+        <Graphics />
+      </Feed>
+      }
       {!isStatistics && (
         <Feed title="Avaliações sobre você">
           {Object.keys(disciplines).length === 0 && !loading ? (
