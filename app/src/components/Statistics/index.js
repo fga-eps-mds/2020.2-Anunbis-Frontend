@@ -5,14 +5,14 @@ import { getPosts } from '../../services/Posts';
 import Select from '../Select';
 import { Container } from './styles';
 
-function getRating(year, posts) {
-  var arrayYear = posts.filter((post) => {
-    if (post.post_date.substring(0, 4) == year) return post;
+function getRating(date, lengthSub, posts) {
+  var arrayDate = posts.filter((post) => {
+    if (post.post_date.substring(0, lengthSub) == date) return post;
   });
 
-  return arrayYear.length > 0
-    ? arrayYear.reduce((accumulator, p) => accumulator + p.rating, 0) /
-    arrayYear.length
+  return arrayDate.length > 0
+    ? arrayDate.reduce((accumulator, p) => accumulator + p.rating, 0) /
+    arrayDate.length
     : 0;
 }
 
@@ -30,7 +30,7 @@ const getYear = (posts) => {
     })
     .reverse()
     .map((year) => {
-      dados.push(([year, getRating(year, posts)]));
+      dados.push(([year, getRating(year, 4, posts)]));
     });
 
   return dados
@@ -38,12 +38,36 @@ const getYear = (posts) => {
 }
 
 
+const getLastMonths = (posts) => {
 
+  const dados = [
+    ['x', 'Nota']
+  ]
+
+  posts
+    ?.map((post) => {
+      return post.post_date.substring(0, 7);
+    })
+    .filter((months, i, post) => {
+      return post.indexOf(months) === i;
+    })
+    .reverse()
+    .map((months) => {
+      dados.push(([months, getRating(months, 7, posts)]));
+    });
+
+  console.log(dados);
+  return dados
+  
+} 
 export default function Graphic() {
   const [posts, setPosts] = useState([]);
   const [data, setData] = useState([
-    ['x', 'Nota']
+    ['x', 'Nota'],
+    [1, 5],
+    [4, 8],
   ]);
+  //console.log(getYear(posts));
 
   const options = {
     width: 500,
@@ -68,13 +92,11 @@ export default function Graphic() {
 
 
   const dateArray = [{
-    id: 0, name: 'Ultimos 30 dias',  selected: true
+    id: 0, name: 'Ultimos 30 dias', selected: true
   }, {
-    id: 1, name: 'Ultimos Seis meses'
+    id: 1, name: 'Ultimos Seis meses', fun: getLastMonths(posts)
   }, {
-    id: 2, name: 'Ultimo ano'
-  }, {
-    id: 3, name: 'Mais antigos', fun: getYear(posts)
+    id: 2, name: 'Mais antigos', fun: getYear(posts)
   }];
 
   return (
