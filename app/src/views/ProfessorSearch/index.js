@@ -186,10 +186,10 @@ function ProfessorSearch() {
   }
 
   const orders = [
-    { fun: orderPop, id: 'pop', name: 'Mais popular', selected: true },
-    { fun: orderDate, id: 'date', name: 'Data de Envio' },
-    { fun: orderHRate, id: 'hRate', name: 'Maior Nota Geral' },
-    { fun: orderLRate, id: 'lRate', name: 'Menor Nota Geral' }
+    { fun: orderPop, id: 0, name: 'Mais popular', selected: true },
+    { fun: orderDate, id: 1, name: 'Data de Envio' },
+    { fun: orderHRate, id: 2, name: 'Maior Nota Geral' },
+    { fun: orderLRate, id: 3, name: 'Menor Nota Geral' }
   ];
 
   return (
@@ -239,7 +239,7 @@ function ProfessorSearch() {
               backColor="var(--transparent)"
               text="Selecione um Ordenação"
               options={orders}
-              onChange={(e) => setOrder(e.target.selectedIndex - 1)}
+              onChange={(e) => setOrder(e.target.value)}
               selected={1}
             />}
         
