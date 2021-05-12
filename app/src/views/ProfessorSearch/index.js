@@ -3,6 +3,7 @@ import { useParams } from 'react-router-dom';
 import Feed from '../../components/Feed';
 import api from '../../services/Api';
 import Loading from '../../components/Loading';
+import Select from '../../components/Select';
 import {
   Container,
   FoundDiv,
@@ -95,8 +96,7 @@ function ProfessorSearch() {
   const posts = getPosts(professor, selected.discipline);
   const feedbacks = getFeedbacks(professor, posts, selected.discipline);
   const [loading, setLoading] = useState(true);
-  // const [order, setOrder] = useState('pop');
-  // setOrder('pop');
+  const [order, setOrder] = useState(1);
 
   function handleSetSelected(indexProfessor, indexDiscipline) {
     setLoading(true);
@@ -147,6 +147,51 @@ function ProfessorSearch() {
     return 0;
   }
 
+  function orderDate(post1, post2){
+    if(post1?.post_date > post2?.post_date) return -1;
+    if(post1?.post_date < post2?.post_date) return 1;
+    return 0;
+  }
+
+  function orderHRate(post1, post2){
+    const rating1 = post1?.didactic +
+    post1?.metod +
+    post1?.avaliations +
+    post1?.disponibility / 4;
+
+    const rating2 = post2?.didactic +
+    post2?.metod +
+    post2?.avaliations +
+    post2?.disponibility / 4;
+
+    if(rating1 > rating2) return -1;
+    if(rating1 < rating2) return 1;
+    return 0;
+  }
+
+  function orderLRate(post1, post2){
+    const rating1 = post1?.didactic +
+    post1?.metod +
+    post1?.avaliations +
+    post1?.disponibility / 4;
+
+    const rating2 = post2?.didactic +
+    post2?.metod +
+    post2?.avaliations +
+    post2?.disponibility / 4;
+
+    if(rating1 < rating2) return -1;
+    if(rating1 > rating2) return 1;
+    return 0;
+  }
+
+  const orders = [
+    { fun: orderPop, id: 'pop', name: 'Mais popular', selected: true },
+    { fun: orderDate, id: 'date', name: 'Data de Envio' },
+    { fun: orderHRate, id: 'hRate', name: 'Maior Nota Geral' },
+    { fun: orderLRate, id: 'lRate', name: 'Menor Nota Geral' }
+  ];
+
   return (
     <Container hasProfessors={professors.length > 0}>
       {professors.length > 0 && (
@@ -187,8 +232,15 @@ function ProfessorSearch() {
               : 'Avaliações'}
           </Feed.Title>
         )}
-        {/* {console.log(posts)} */}
-        {!loading && <Feed.PostsBox posts={posts.sort(orderPop)} key={posts.length} />}
+        <Select
+          id="orders"
+          backColor="var(--transparent)"
+          text="Selecione um Ordenação"
+          options={orders}
+          onChange={(e) => setOrder(e.target.selectedIndex - 1)}
+          selected={1}
+        />
+        {!loading && <Feed.PostsBox posts={posts.sort(orders[order].fun)} key={posts.length} />}
         {loading && professors.length > 0 && (
           <LoadingBox>
             <Loading />

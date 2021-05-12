@@ -10,6 +10,8 @@ export default function Select({
   backColor,
   width,
   error,
+  onChange,
+  selected,
 }) {
   return (
     <div className="Select">
@@ -20,12 +22,14 @@ export default function Select({
         backColor={backColor}
         width={width}
         error={error}
+        onChange={onChange}
+        selected={selected}
       >
         <option value="" disabled selected>
           {text}
         </option>
         {options?.map((item) => (
-          <option value={item.id} key={item.id}>
+          <option value={item.id} key={item.id} selected={item.selected ? item.selected : false}>
             {item.name}
           </option>
         ))}
