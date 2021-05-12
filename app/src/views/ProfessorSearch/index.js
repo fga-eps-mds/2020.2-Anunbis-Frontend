@@ -95,6 +95,8 @@ function ProfessorSearch() {
   const posts = getPosts(professor, selected.discipline);
   const feedbacks = getFeedbacks(professor, posts, selected.discipline);
   const [loading, setLoading] = useState(true);
+  // const [order, setOrder] = useState('pop');
+  // setOrder('pop');
 
   function handleSetSelected(indexProfessor, indexDiscipline) {
     setLoading(true);
@@ -139,6 +141,12 @@ function ProfessorSearch() {
       });
   }, [professorName]);
 
+  function orderPop(post1, post2){
+    if(post1?.feedbacks.agrees > post2?.feedbacks.agrees) return -1;
+    if(post1?.feedbacks.agrees < post2?.feedbacks.agrees) return 1;
+    return 0;
+  }
+
   return (
     <Container hasProfessors={professors.length > 0}>
       {professors.length > 0 && (
@@ -179,7 +187,8 @@ function ProfessorSearch() {
               : 'Avaliações'}
           </Feed.Title>
         )}
-        {!loading && <Feed.PostsBox posts={posts} key={posts.length} />}
+        {/* {console.log(posts)} */}
+        {!loading && <Feed.PostsBox posts={posts.sort(orderPop)} key={posts.length} />}
         {loading && professors.length > 0 && (
           <LoadingBox>
             <Loading />
