@@ -232,14 +232,17 @@ function ProfessorSearch() {
               : 'Avaliações'}
           </Feed.Title>
         )}
-        <Select
-          id="orders"
-          backColor="var(--transparent)"
-          text="Selecione um Ordenação"
-          options={orders}
-          onChange={(e) => setOrder(e.target.selectedIndex - 1)}
-          selected={1}
-        />
+        {posts.length === 0
+              ? ''
+              : <Select
+              id="orders"
+              backColor="var(--transparent)"
+              text="Selecione um Ordenação"
+              options={orders}
+              onChange={(e) => setOrder(e.target.selectedIndex - 1)}
+              selected={1}
+            />}
+        
         {!loading && <Feed.PostsBox posts={posts.sort(orders[order].fun)} key={posts.length} />}
         {loading && professors.length > 0 && (
           <LoadingBox>
