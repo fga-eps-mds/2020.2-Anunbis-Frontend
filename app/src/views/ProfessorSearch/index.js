@@ -13,7 +13,7 @@ import {
   Discipline,
   LoadingBox,
 } from './styles';
-import {orders} from '../../services/Orders'
+import { orders } from '../../services/Orders';
 import BtnOptions from '../../assets/images/Btn_options.png';
 import Users from '../../services/Users';
 
