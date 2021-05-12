@@ -10,6 +10,10 @@ export const MenuBar = styled.div`
 
 export const Logo = styled.div`
   width: 280px;
+
+  &:hover {
+    cursor: pointer;
+  }
 `;
 
 export const ImageLogo = styled.img`
