@@ -1,47 +1,48 @@
 /* eslint-disable */
-import react, { useState } from 'react';
-import { Chart } from "react-google-charts";
+import { useEffect, useState } from 'react';
+import { Chart } from 'react-google-charts';
+import { getPosts } from '../../services/Posts';
 
 
-export default function Graphics() {
-    const [options, setOptions] = useState({
-        hAxis: {
-            title: 'Time',
-        },
-        vAxis: {
-            title: 'Popularity',
-        },
-        series: {
-            1: { curveType: 'function' },
-        },
+export default function Graphic() {
+  const [posts, setPosts] = useState([]);
+  const data = [['x', 'Nota']];
+  const options = {
+    width: 500,
+    height: 350,
+    hAxis: {
+      title: 'Ano',
+    },
+    vAxis: {
+      title: 'Média da nota',
+    },
+    curveType: 'function',
+    backgroundColor: '#FFFDE7',
+    legend: { position: 'right' },
+  };
+
+  posts
+    ?.map((post) => {
+      return post.post_date.substring(0, 4);
     })
+    .filter((year, i, post) => {
+      return post.indexOf(year) === i;
+    })
+    .reverse()
+    .map((year) => {
+      data.push([year, 0]);
+    });
 
-    const [data, setData] = useState([
-        ['x', 'dogs'],
-        [0, 0],
-        [1, 10],
-        [2, 23],
-        [3, 17],
-        [4, 18],
-        [5, 9],
-        [6, 11],
-        [7, 27],
-        [8, 33],
-        [9, 40],
-        [10, 32],
-        [11, 35],
-    ])
+  useEffect(() => {
+    getPosts(setPosts);
+  }, []);
 
-    return (
-        <div>
-            <Chart
-                width={'500px'}
-                height={'300px'}
-                chartType="LineChart"
-                loader={<div>Loading Chart</div>}
-                data={data}
-                options={options}
-            />
-        </div>
-    );
+
+  return (
+    <div>
+      {posts.length > 0 && (
+        <Chart chartType="LineChart" data={data} options={options} />
+      )}
+    </div>
+  );
 }
