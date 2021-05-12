@@ -125,7 +125,7 @@ function ProfessorSearch() {
         );
       }
     });
-  }, [newAvaliationState, selected]);
+  }, [newAvaliationState, selected, order]);
 
   React.useEffect(() => {
     api
