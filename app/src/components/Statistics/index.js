@@ -2,6 +2,7 @@
 import { useEffect, useState } from 'react';
 import { Chart } from 'react-google-charts';
 import { getPosts } from '../../services/Posts';
+import { Container } from './styles';
 
 export default function Graphic() {
   const [posts, setPosts] = useState([]);
@@ -48,10 +49,10 @@ export default function Graphic() {
   }
 
   return (
-    <div>
+    <Container>
       {posts.length > 0 && (
         <Chart chartType="LineChart" data={data} options={options} />
       )}
-    </div>
+    </Container>
   );
 }
