@@ -141,6 +141,7 @@ function ProfessorSearch() {
         setProfessors([]);
       });
   }, [professorName]);
+  
   return (
     <Container hasProfessors={professors.length > 0}>
       {professors.length > 0 && (
