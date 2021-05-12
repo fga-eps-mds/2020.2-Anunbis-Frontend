@@ -34,15 +34,7 @@ const Header = ({ post, onClickReport }) => (
         <b>Nota Geral:</b>{' '}
       </label>
       <label>
-        <b>
-          {(
-            (post.didactic +
-              post.metod +
-              post.avaliations +
-              post.disponibility) /
-            4
-          ).toFixed(2)}
-        </b>
+        <b>{post.rating.toFixed(2)}</b>
       </label>
       <label>Didatica:</label>
       <label>{post.didactic.toFixed(1)}</label>

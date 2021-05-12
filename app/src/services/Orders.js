@@ -11,38 +11,14 @@ export function orderDate(post1, post2) {
 }
 
 export function orderHRate(post1, post2) {
-  const rating1 =
-    post1?.didactic +
-    post1?.metod +
-    post1?.avaliations +
-    post1?.disponibility / 4;
-
-  const rating2 =
-    post2?.didactic +
-    post2?.metod +
-    post2?.avaliations +
-    post2?.disponibility / 4;
-
-  if (rating1 > rating2) return -1;
-  if (rating1 < rating2) return 1;
+  if (post1?.rating > post2?.rating) return -1;
+  if (post1?.rating < post2?.rating) return 1;
   return 0;
 }
 
 export function orderLRate(post1, post2) {
-  const rating1 =
-    post1?.didactic +
-    post1?.metod +
-    post1?.avaliations +
-    post1?.disponibility / 4;
-
-  const rating2 =
-    post2?.didactic +
-    post2?.metod +
-    post2?.avaliations +
-    post2?.disponibility / 4;
-
-  if (rating1 < rating2) return -1;
-  if (rating1 > rating2) return 1;
+  if (post1?.rating < post2?.rating) return -1;
+  if (post1?.rating > post2?.rating) return 1;
   return 0;
 }
 
