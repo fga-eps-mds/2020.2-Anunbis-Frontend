@@ -3,7 +3,6 @@ import { useEffect, useState } from 'react';
 import { Chart } from 'react-google-charts';
 import { getPosts } from '../../services/Posts';
 
-
 export default function Graphic() {
   const [posts, setPosts] = useState([]);
   const data = [['x', 'Nota']];
@@ -30,13 +29,23 @@ export default function Graphic() {
     })
     .reverse()
     .map((year) => {
-      data.push([year, 0]);
+      data.push([year, getRating(year)]);
     });
 
   useEffect(() => {
     getPosts(setPosts);
   }, []);
 
+  function getRating(year) {
+    var arrayYear = posts.filter((post) => {
+      if (post.post_date.substring(0, 4) == year) return post;
+    });
+
+    return arrayYear.length > 0
+      ? arrayYear.reduce((accumulator, p) => accumulator + p.rating, 0) /
+          arrayYear.length
+      : 0;
+  }
 
   return (
     <div>
