@@ -10,6 +10,7 @@ import {
   BtnHomeProfessor,
   Home,
   LoadingBox,
+  DisciplinePostsStyle,
 } from './styles';
 import Button from '../../components/Button';
 import api from '../../services/Api';
@@ -40,30 +41,68 @@ const DisciplineOptions = ({ children, onClick }) => (
 );
 
 const DisciplinePosts = ({ discipline }) => (
-  <>
+  <DisciplinePostsStyle>
     <ContainerHeader>
-      <Feed.Header professor={discipline.feedbacks} canAvaliate={false} />
+      <Feed.Header
+        professor={discipline}
+        feedbacks={discipline.feedbacks}
+        canAvaliate={false}
+      />
     </ContainerHeader>
     <Feed.PostsBox posts={discipline.posts} canReport />
-  </>
+  </DisciplinePostsStyle>
 );
 
 function sortPostsByDiscipline(posts) {
   const disciplines = {};
+  const arrayFeedbacks = {};
   if (Object.keys(posts).length !== 0) {
     posts.forEach((postKey) => {
       if (disciplines[postKey.discipline.discipline_code] === undefined) {
         disciplines[postKey.discipline.discipline_code] = {
-          feedbacks: {
-            rating: postKey.rating,
-          },
-
+          feedbacks: {},
           posts: [],
           discipline_code: postKey.discipline.discipline_code,
           name: postKey.discipline.name,
         };
       }
       disciplines[postKey.discipline.discipline_code].posts.push(postKey);
+    });
+    const accumulatorInicial = {
+      rating: 0,
+      didactic: 0,
+      metod: 0,
+      avaliations: 0,
+      disponibility: 0,
+    };
+    Object.keys(disciplines).forEach((disciplineCode) => {
+      arrayFeedbacks[disciplineCode] = disciplines[disciplineCode].posts.reduce(
+        (acumulador, valorAtual) => ({
+          rating: acumulador.rating + valorAtual.rating,
+          didactic: acumulador.didactic + valorAtual.didactic,
+          metod: acumulador.metod + valorAtual.metod,
+          avaliations: acumulador.avaliations + valorAtual.avaliations,
+          disponibility: acumulador.disponibility + valorAtual.disponibility,
+        }),
+        accumulatorInicial,
+      );
+      disciplines[disciplineCode].feedbacks = {
+        rating:
+          arrayFeedbacks[disciplineCode].rating /
+          disciplines[disciplineCode].posts.length,
+        didactic:
+          arrayFeedbacks[disciplineCode].didactic /
+          disciplines[disciplineCode].posts.length,
+        metod:
+          arrayFeedbacks[disciplineCode].metod /
+          disciplines[disciplineCode].posts.length,
+        avaliations:
+          arrayFeedbacks[disciplineCode].avaliations /
+          disciplines[disciplineCode].posts.length,
+        disponibility:
+          arrayFeedbacks[disciplineCode].disponibility /
+          disciplines[disciplineCode].posts.length,
+      };
     });
   }
   return disciplines;
@@ -81,7 +120,6 @@ export default function ProfessorHome() {
       setTimeout(() => setLoading(false), 500);
     });
   }, []);
-
   function OptionsProfessorHome() {
     return (
       <BtnHomeProfessor>
