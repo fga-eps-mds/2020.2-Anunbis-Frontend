@@ -101,10 +101,15 @@ export default function Graphic() {
     getPosts(setPosts);
   }, []);
 
+  useEffect(() => {
+    setData(getYear(posts));
+  }, [posts]);
+
+
   const dateArray = [{
     id: 0, name: 'Ultimos Seis meses', fun: getLastMonths(posts)
   }, {
-    id: 1, name: 'Anual', fun: getYear(posts)
+    id: 1, name: 'Anual', fun: getYear(posts), selected: true
   }];
 
   return (
