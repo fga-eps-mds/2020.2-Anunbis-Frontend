@@ -3,6 +3,12 @@ import styled from 'styled-components';
 export const Container = styled.div`
   display: ${(props) => (props.hasProfessors ? 'grid' : 'flex')};
   grid-template-columns: 240px 700px;
+
+  select {
+    margin-top: 5px;
+    margin-right: 5px;
+    margin-left: auto;
+  }
 `;
 
 export const FoundDiv = styled.div`

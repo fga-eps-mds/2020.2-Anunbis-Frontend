@@ -141,47 +141,51 @@ function ProfessorSearch() {
       });
   }, [professorName]);
 
-  function orderPop(post1, post2){
-    if(post1?.feedbacks.agrees > post2?.feedbacks.agrees) return -1;
-    if(post1?.feedbacks.agrees < post2?.feedbacks.agrees) return 1;
+  function orderPop(post1, post2) {
+    if (post1?.feedbacks.agrees > post2?.feedbacks.agrees) return -1;
+    if (post1?.feedbacks.agrees < post2?.feedbacks.agrees) return 1;
     return 0;
   }
 
-  function orderDate(post1, post2){
-    if(post1?.post_date > post2?.post_date) return -1;
-    if(post1?.post_date < post2?.post_date) return 1;
+  function orderDate(post1, post2) {
+    if (post1?.post_date > post2?.post_date) return -1;
+    if (post1?.post_date < post2?.post_date) return 1;
     return 0;
   }
 
-  function orderHRate(post1, post2){
-    const rating1 = post1?.didactic +
-    post1?.metod +
-    post1?.avaliations +
-    post1?.disponibility / 4;
+  function orderHRate(post1, post2) {
+    const rating1 =
+      post1?.didactic +
+      post1?.metod +
+      post1?.avaliations +
+      post1?.disponibility / 4;
 
-    const rating2 = post2?.didactic +
-    post2?.metod +
-    post2?.avaliations +
-    post2?.disponibility / 4;
+    const rating2 =
+      post2?.didactic +
+      post2?.metod +
+      post2?.avaliations +
+      post2?.disponibility / 4;
 
-    if(rating1 > rating2) return -1;
-    if(rating1 < rating2) return 1;
+    if (rating1 > rating2) return -1;
+    if (rating1 < rating2) return 1;
     return 0;
   }
 
-  function orderLRate(post1, post2){
-    const rating1 = post1?.didactic +
-    post1?.metod +
-    post1?.avaliations +
-    post1?.disponibility / 4;
+  function orderLRate(post1, post2) {
+    const rating1 =
+      post1?.didactic +
+      post1?.metod +
+      post1?.avaliations +
+      post1?.disponibility / 4;
 
-    const rating2 = post2?.didactic +
-    post2?.metod +
-    post2?.avaliations +
-    post2?.disponibility / 4;
+    const rating2 =
+      post2?.didactic +
+      post2?.metod +
+      post2?.avaliations +
+      post2?.disponibility / 4;
 
-    if(rating1 < rating2) return -1;
-    if(rating1 > rating2) return 1;
+    if (rating1 < rating2) return -1;
+    if (rating1 > rating2) return 1;
     return 0;
   }
 
@@ -189,7 +193,7 @@ function ProfessorSearch() {
     { fun: orderPop, id: 0, name: 'Mais popular', selected: true },
     { fun: orderDate, id: 1, name: 'Data de Envio' },
     { fun: orderHRate, id: 2, name: 'Maior Nota Geral' },
-    { fun: orderLRate, id: 3, name: 'Menor Nota Geral' }
+    { fun: orderLRate, id: 3, name: 'Menor Nota Geral' },
   ];
 
   return (
@@ -232,18 +236,26 @@ function ProfessorSearch() {
               : 'Avaliações'}
           </Feed.Title>
         )}
-        {posts.length === 0
-              ? ''
-              : <Select
-              id="orders"
-              backColor="var(--transparent)"
-              text="Selecione um Ordenação"
-              options={orders}
-              onChange={(e) => setOrder(e.target.value)}
-              selected={1}
-            />}
-        
-        {!loading && <Feed.PostsBox posts={posts.sort(orders[order].fun)} key={posts.length} />}
+        {posts.length === 0 ? (
+          ''
+        ) : (
+          <Select
+            id="orders"
+            backColor="var(--transparent)"
+            text="Selecione um Ordenação"
+            options={orders}
+            onChange={(e) => setOrder(e.target.value)}
+            width="fit-content"
+            display="flex"
+          />
+        )}
+
+        {!loading && (
+          <Feed.PostsBox
+            posts={posts.sort(orders[order].fun)}
+            key={posts.length}
+          />
+        )}
         {loading && professors.length > 0 && (
           <LoadingBox>
             <Loading />
