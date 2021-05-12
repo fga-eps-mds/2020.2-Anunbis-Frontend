@@ -96,7 +96,7 @@ function ProfessorSearch() {
   const posts = getPosts(professor, selected.discipline);
   const feedbacks = getFeedbacks(professor, posts, selected.discipline);
   const [loading, setLoading] = useState(true);
-  const [order, setOrder] = useState(1);
+  const [order, setOrder] = useState(0);
 
   function handleSetSelected(indexProfessor, indexDiscipline) {
     setLoading(true);
