@@ -11,9 +11,6 @@ export const Container = styled.div`
   background-attachment: fixed;
   background-position: center;
   background-size: cover;
-  * :-webkit-scrollbar {
-    display: none;
-  }
 `;
 
 export const Main = styled.main`

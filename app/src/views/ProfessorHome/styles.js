@@ -23,7 +23,6 @@ export const Container = styled.div`
   flex-direction: column;
   margin: 10px;
   padding-bottom: 20px;
-  overflow-y: auto;
 `;
 
 export const ContainerPost = styled.div`
