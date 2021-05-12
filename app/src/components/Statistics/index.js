@@ -5,6 +5,12 @@ import { getPosts } from '../../services/Posts';
 import Select from '../Select';
 import { Container } from './styles';
 
+function orderDate(post1, post2) {
+  if (post1?.post_date < post2?.post_date) return -1;
+  if (post1?.post_date > post2?.post_date) return 1;
+  return 0;
+}
+
 function getRating(date, lengthSub, posts) {
   var arrayDate = posts.filter((post) => {
     if (post.post_date.substring(0, lengthSub) == date) return post;
@@ -21,14 +27,13 @@ const getYear = (posts) => {
     ['x', 'Nota']
   ]
 
-  posts
+  posts.sort(orderDate)
     ?.map((post) => {
       return post.post_date.substring(0, 4);
     })
     .filter((year, i, post) => {
       return post.indexOf(year) === i;
     })
-    .reverse()
     .map((year) => {
       dados.push(([year, getRating(year, 4, posts)]));
     });
@@ -39,27 +44,37 @@ const getYear = (posts) => {
 
 
 const getLastMonths = (posts) => {
-
+  var monthNames = ["Janeiro", "Fevereiro", "Março", "Abril", "Maio", "Junho", "Julho", "Agosto", "Setembro", "Outubro", "Novembro", "Dezembro"];
   const dados = [
     ['x', 'Nota']
   ]
-
-  posts
+  console.log(dados.length)
+  const currentDate = new Date();
+  var currentMonth = currentDate.getMonth();
+  if (currentMonth - 6 <= 0) {
+    currentMonth = 6 - currentMonth;
+    currentDate.setFullYear(currentDate.getFullYear() - 1);
+    currentDate.setMonth(12 - currentMonth);
+  } else
+    currentDate.setMonth(currentMonth - 6);
+  posts.sort(orderDate)
     ?.map((post) => {
       return post.post_date.substring(0, 7);
     })
     .filter((months, i, post) => {
       return post.indexOf(months) === i;
     })
-    .reverse()
     .map((months) => {
-      dados.push(([months, getRating(months, 7, posts)]));
+      const postDate = new Date();
+      postDate.setMonth(months.substring(5, 7));
+      postDate.setFullYear(months.substring(0, 4));
+      if (postDate >= currentDate)
+        dados.push(([monthNames[postDate.getMonth()]+'\n'+postDate.getUTCFullYear(), getRating(months, 7, posts)]));
     });
 
-  console.log(dados);
-  return dados
-  
-} 
+  return dados;
+
+}
 export default function Graphic() {
   const [posts, setPosts] = useState([]);
   const [data, setData] = useState([
@@ -67,13 +82,12 @@ export default function Graphic() {
     [1, 5],
     [4, 8],
   ]);
-  //console.log(getYear(posts));
-
+  const [isEmpty, setEmpty] = useState(false);
   const options = {
     width: 500,
     height: 350,
     hAxis: {
-      title: 'Ano',
+      title: 'Data',
     },
     vAxis: {
       title: 'Média da nota',
@@ -83,20 +97,14 @@ export default function Graphic() {
     legend: { position: 'right' },
   };
 
-
-
   useEffect(() => {
     getPosts(setPosts);
   }, []);
 
-
-
   const dateArray = [{
-    id: 0, name: 'Ultimos 30 dias', selected: true
+    id: 0, name: 'Ultimos Seis meses', fun: getLastMonths(posts)
   }, {
-    id: 1, name: 'Ultimos Seis meses', fun: getLastMonths(posts)
-  }, {
-    id: 2, name: 'Mais antigos', fun: getYear(posts)
+    id: 1, name: 'Anual', fun: getYear(posts)
   }];
 
   return (
@@ -108,8 +116,11 @@ export default function Graphic() {
         options={dateArray}
         onChange={(e) => setData(dateArray[e.target.value].fun)}
         name="id_date" />
-      {posts.length > 0 && (
+      {posts.length > 0 && data.length > 1 && (
         <Chart chartType="LineChart" data={data} options={options} />
+      )}
+      {data.length <= 1 && (
+        <div>Não há nada para ser mostrado.</div>
       )}
     </Container>
   );
