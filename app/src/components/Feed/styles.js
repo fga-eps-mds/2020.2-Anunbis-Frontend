@@ -73,3 +73,9 @@ export const NotFound = styled.div`
   font-family: 'Comfortaa', cursive;
   font-weight: bold;
 `;
+
+export const OrderDiv = styled.div`
+  display: flex;
+  width: 100%;
+  justify-content: flex-end;
+`;
