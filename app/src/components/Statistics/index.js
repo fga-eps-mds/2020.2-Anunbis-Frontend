@@ -1,88 +1,98 @@
-/* eslint-disable */
 import { useEffect, useState } from 'react';
 import { Chart } from 'react-google-charts';
 import { getPosts } from '../../services/Posts';
 import Select from '../Select';
-import { Container } from './styles';
+import { Container, LoadingBox } from './styles';
+import Loading from '../Loading';
 
-function orderDate(post1, post2) {
+export function orderDate(post1, post2) {
   if (post1?.post_date < post2?.post_date) return -1;
   if (post1?.post_date > post2?.post_date) return 1;
   return 0;
 }
 
-function getRating(date, lengthSub, posts) {
-  var arrayDate = posts.filter((post) => {
-    if (post.post_date.substring(0, lengthSub) == date) return post;
-  });
-
-  return arrayDate.length > 0
-    ? arrayDate.reduce((accumulator, p) => accumulator + p.rating, 0) /
-    arrayDate.length
-    : 0;
+function createData(date, rating) {
+  return [date, rating];
 }
 
-const getYear = (posts) => {
-  const dados = [
-    ['x', 'Nota']
-  ]
+function getCoordinates(posts, dateFunction, initialIndex) {
+  const data = [['x', 'Nota']];
+  if (posts.length === 0) return data;
 
-  posts.sort(orderDate)
-    ?.map((post) => {
-      return post.post_date.substring(0, 4);
-    })
-    .filter((year, i, post) => {
-      return post.indexOf(year) === i;
-    })
-    .map((year) => {
-      dados.push(([year, getRating(year, 4, posts)]));
-    });
+  let actualDate = 1;
+  let countPostDate = 1;
+  data.push(
+    createData(
+      dateFunction(posts[initialIndex].post_date),
+      posts[initialIndex].rating,
+    ),
+  );
 
-  return dados
+  if (posts.length - (initialIndex + 1) === 1) return data;
 
+  for (let i = initialIndex + 1; i < posts.length; i += 1) {
+    const currentPost = posts[i];
+    const currentPostDate = dateFunction(currentPost.post_date);
+
+    if (data[actualDate][0] === currentPostDate) {
+      countPostDate += 1;
+      data[actualDate][1] += currentPost.rating;
+    } else {
+      data.push(createData(currentPostDate, currentPost.rating));
+      data[actualDate][1] /= countPostDate;
+      actualDate += 1;
+      countPostDate = 1;
+    }
+  }
+
+  data[actualDate][1] /= countPostDate;
+  return data;
 }
 
+const getYear = (posts) =>
+  getCoordinates(
+    posts,
+    (date) => date.substring(0, 4),
+    0,
+    (date, rating) => [date, rating],
+  );
 
 const getLastMonths = (posts) => {
-  var monthNames = ["Janeiro", "Fevereiro", "Março", "Abril", "Maio", "Junho", "Julho", "Agosto", "Setembro", "Outubro", "Novembro", "Dezembro"];
-  const dados = [
-    ['x', 'Nota']
-  ]
-  console.log(dados.length)
-  const currentDate = new Date();
-  var currentMonth = currentDate.getMonth();
-  if (currentMonth - 6 <= 0) {
-    currentMonth = 6 - currentMonth;
-    currentDate.setFullYear(currentDate.getFullYear() - 1);
-    currentDate.setMonth(12 - currentMonth);
-  } else
-    currentDate.setMonth(currentMonth - 6);
-  posts.sort(orderDate)
-    ?.map((post) => {
-      return post.post_date.substring(0, 7);
-    })
-    .filter((months, i, post) => {
-      return post.indexOf(months) === i;
-    })
-    .map((months) => {
-      const postDate = new Date();
-      postDate.setMonth(months.substring(5, 7));
-      postDate.setFullYear(months.substring(0, 4));
-      if (postDate >= currentDate)
-        dados.push(([monthNames[postDate.getMonth()]+'\n'+postDate.getUTCFullYear(), getRating(months, 7, posts)]));
-    });
+  const monthNames = [
+    'Janeiro',
+    'Fevereiro',
+    'Março',
+    'Abril',
+    'Maio',
+    'Junho',
+    'Julho',
+    'Agosto',
+    'Setembro',
+    'Outubro',
+    'Novembro',
+    'Dezembro',
+  ];
+  const sixMonthInMs = 15770000000;
+  const initialDate = new Date() - new Date(sixMonthInMs);
+  const initialPostIndex = posts.findIndex(
+    (value) => new Date(value.post_date) >= initialDate,
+  );
+  return getCoordinates(
+    posts,
+    (dateStr) => {
+      const date = new Date(dateStr);
+      return `${monthNames[date.getMonth()]}\n${date.getFullYear()}`;
+    },
+    initialPostIndex,
+  );
+};
 
-  return dados;
-
-}
 export default function Graphic() {
-  const [posts, setPosts] = useState([]);
-  const [data, setData] = useState([
-    ['x', 'Nota'],
-    [1, 5],
-    [4, 8],
-  ]);
-  const [isEmpty, setEmpty] = useState(false);
+  const [chart, setChart] = useState({
+    posts: [],
+    data: [],
+  });
+  const [loading, setLoading] = useState(true);
   const options = {
     width: 500,
     height: 350,
@@ -98,34 +108,58 @@ export default function Graphic() {
   };
 
   useEffect(() => {
-    getPosts(setPosts);
+    getPosts((responsePosts) => {
+      setChart({
+        posts: responsePosts,
+        data: getYear(responsePosts.sort(orderDate)),
+      });
+      setTimeout(() => {
+        setLoading(false);
+      }, 1000);
+    });
   }, []);
 
-  useEffect(() => {
-    setData(getYear(posts));
-  }, [posts]);
-
-
-  const dateArray = [{
-    id: 0, name: 'Ultimos Seis meses', fun: getLastMonths(posts)
-  }, {
-    id: 1, name: 'Anual', fun: getYear(posts), selected: true
-  }];
+  const dateArray = [
+    {
+      id: 0,
+      name: 'Ultimos Seis meses',
+      fun: getLastMonths(chart.posts),
+    },
+    {
+      id: 1,
+      name: 'Anual',
+      fun: getYear(chart.posts),
+      selected: true,
+    },
+  ];
 
   return (
     <Container>
       <Select
-        id='datas'
+        id="datas"
         backColor="#FFFDE7"
         text="Selecione uma data"
         options={dateArray}
-        onChange={(e) => setData(dateArray[e.target.value].fun)}
-        name="id_date" />
-      {posts.length > 0 && data.length > 1 && (
-        <Chart chartType="LineChart" data={data} options={options} />
-      )}
-      {data.length <= 1 && (
-        <div>Não há nada para ser mostrado.</div>
+        onChange={(e) =>
+          setChart({ posts: chart.posts, data: dateArray[e.target.value].fun })
+        }
+        name="id_date"
+      />
+      {!loading &&
+        (chart.data.length > 1 ? (
+          <Chart
+            chartType="LineChart"
+            data={chart.data}
+            key={chart.data.length}
+            options={options}
+          />
+        ) : (
+          <div>Não há dados para serem mostrados. </div>
+        ))}
+      {loading && (
+        <LoadingBox>
+          <Loading />
+        </LoadingBox>
       )}
     </Container>
   );
