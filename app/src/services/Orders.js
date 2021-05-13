@@ -24,7 +24,7 @@ export function orderLRate(post1, post2) {
 
 export const orders = [
   { fun: orderPop, id: 0, name: 'Mais popular', selected: true },
-  { fun: orderDate, id: 1, name: 'Data de Envio' },
+  { fun: orderDate, id: 1, name: 'Mais recente' },
   { fun: orderHRate, id: 2, name: 'Maior Nota Geral' },
   { fun: orderLRate, id: 3, name: 'Menor Nota Geral' },
 ];
