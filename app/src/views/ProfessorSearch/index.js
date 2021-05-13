@@ -3,7 +3,6 @@ import { useParams } from 'react-router-dom';
 import Feed from '../../components/Feed';
 import api from '../../services/Api';
 import Loading from '../../components/Loading';
-import Select from '../../components/Select';
 import {
   Container,
   FoundDiv,
@@ -13,7 +12,6 @@ import {
   Discipline,
   LoadingBox,
 } from './styles';
-import { orders } from '../../services/Orders';
 import BtnOptions from '../../assets/images/Btn_options.png';
 import Users from '../../services/Users';
 
@@ -97,7 +95,6 @@ function ProfessorSearch() {
   const posts = getPosts(professor, selected.discipline);
   const feedbacks = getFeedbacks(professor, posts, selected.discipline);
   const [loading, setLoading] = useState(true);
-  const [order, setOrder] = useState(0);
 
   function handleSetSelected(indexProfessor, indexDiscipline) {
     setLoading(true);
@@ -126,7 +123,7 @@ function ProfessorSearch() {
         );
       }
     });
-  }, [newAvaliationState, selected, order]);
+  }, [newAvaliationState, selected]);
 
   React.useEffect(() => {
     api
@@ -141,7 +138,7 @@ function ProfessorSearch() {
         setProfessors([]);
       });
   }, [professorName]);
-  
+
   return (
     <Container hasProfessors={professors.length > 0}>
       {professors.length > 0 && (
@@ -182,26 +179,7 @@ function ProfessorSearch() {
               : 'Avaliações'}
           </Feed.Title>
         )}
-        {posts.length === 0 ? (
-          ''
-        ) : (
-          <Select
-            id="orders"
-            backColor="var(--transparent)"
-            text="Selecione um Ordenação"
-            options={orders}
-            onChange={(e) => setOrder(e.target.value)}
-            width="fit-content"
-            display="flex"
-          />
-        )}
-
-        {!loading && (
-          <Feed.PostsBox
-            posts={posts.sort(orders[order].fun)}
-            key={posts.length}
-          />
-        )}
+        {!loading && <Feed.PostsBox posts={posts} key={posts.length} />}
         {loading && professors.length > 0 && (
           <LoadingBox>
             <Loading />
