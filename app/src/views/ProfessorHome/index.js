@@ -13,8 +13,8 @@ import {
   DisciplinePostsStyle,
 } from './styles';
 import Button from '../../components/Button';
-import api from '../../services/Api';
 import Loading from '../../components/Loading';
+import { getPosts } from '../../services/Posts';
 
 const DisciplineContent = ({ discipline }) => {
   const [boxPost, setBoxPost] = React.useState(false);
@@ -114,9 +114,8 @@ export default function ProfessorHome() {
   const [loading, setLoading] = React.useState(true);
 
   React.useEffect(() => {
-    api.get('/post').then((response) => {
-      if (response.status === 200)
-        setDisciplines(sortPostsByDiscipline(response.data));
+    getPosts((post) => {
+      setDisciplines(sortPostsByDiscipline(post));
       setTimeout(() => setLoading(false), 500);
     });
   }, []);

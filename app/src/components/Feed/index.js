@@ -6,11 +6,14 @@ import {
   Grid,
   HeaderStyle,
   NotFound,
+  OrderDiv,
 } from './styles';
 import Post from '../Post';
 import Button from '../Button';
 import Popup from '../Popup';
 import Avaliation from '../Avaliation';
+import { orders } from '../../services/Orders';
+import Select from '../Select';
 
 const Title = ({ props, children }) => (
   <DivTitle {...props}>{children}</DivTitle>
@@ -73,13 +76,30 @@ const Header = ({ professor, feedbacks, canAvaliate, onNewAvaliation }) => {
   );
 };
 
-const PostsBox = ({ posts, canReport }) => (
-  <DivContent>
-    {posts.map((post) => (
-      <Post key={post.id_post} post={post} canReport={canReport} />
-    ))}
-  </DivContent>
-);
+function PostsBox({ posts, canReport }) {
+  const [order, setOrder] = React.useState(0);
+  const orderedPost = posts.sort(orders[order].fun);
+  return (
+    <DivContent>
+      {posts.length > 0 && (
+        <OrderDiv>
+          <Select
+            id="orders"
+            backColor="var(--transparent)"
+            text="Selecione um Ordenação"
+            options={orders}
+            onChange={(e) => setOrder(e.target.value)}
+            width="fit-content"
+            display="flex"
+          />
+        </OrderDiv>
+      )}
+      {orderedPost.map((post) => (
+        <Post key={post.id_post} post={post} canReport={canReport} />
+      ))}
+    </DivContent>
+  );
+}
 
 function Feed(props) {
   const { title, children } = props;
