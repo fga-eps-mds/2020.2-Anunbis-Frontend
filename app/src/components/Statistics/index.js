@@ -28,8 +28,6 @@ function getCoordinates(posts, dateFunction, initialIndex) {
     ),
   );
 
-  if (posts.length - (initialIndex + 1) === 1) return data;
-
   for (let i = initialIndex + 1; i < posts.length; i += 1) {
     const currentPost = posts[i];
     const currentPostDate = dateFunction(currentPost.post_date);
@@ -138,6 +136,8 @@ export default function Graphic() {
       <Select
         id="datas"
         backColor="#FFFDE7"
+        borderBottom="none"
+        width="150px"
         text="Selecione uma data"
         options={dateArray}
         onChange={(e) =>

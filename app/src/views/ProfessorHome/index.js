@@ -14,15 +14,8 @@ import {
 } from './styles';
 import Button from '../../components/Button';
 import Loading from '../../components/Loading';
-<<<<<<< HEAD
-<<<<<<< HEAD
 import { getPosts } from '../../services/Posts';
-=======
-import Graphics from '../../components/Statistics';
->>>>>>> (#208) Inicializando componente Statistics e biblioteca react-google-chart
-=======
 import Graphic from '../../components/Statistics';
->>>>>>> (#208) Adicionando verificação de posts para mostrar o gráfico
 
 const DisciplineContent = ({ discipline }) => {
   const [boxPost, setBoxPost] = React.useState(false);
