@@ -1,0 +1,54 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Snapshot Login component matches the snapshot 1`] = `
+<form
+  className="sc-hKFxyN okUlG"
+  onSubmit={[Function]}
+>
+  <div
+    className="sc-gtsrHT kkYoeF"
+  >
+    <div />
+    <div
+      className="sc-dlnjwi dJBvGq error"
+    />
+  </div>
+  <div
+    className="sc-gtsrHT kkYoeF"
+  >
+    <input
+      className="sc-jSFjdj bUyTfK"
+      name="email"
+      placeholder="Email Instuticional"
+      type="text"
+    />
+     
+    <div
+      className="sc-dlnjwi dJBvGq error"
+    />
+  </div>
+  <div
+    className="sc-gtsrHT kkYoeF"
+  >
+    <input
+      className="sc-jSFjdj bUyTfK"
+      name="password"
+      placeholder="Senha"
+      type="password"
+    />
+     
+    <div
+      className="sc-dlnjwi dJBvGq error"
+    />
+  </div>
+  <div
+    className="sc-eCApnc eIJyFF"
+  >
+    <button
+      className="sc-bdnxRM bIvhHx"
+    >
+      CONFIRMAR
+    </button>
+  </div>
+</form>
+`;

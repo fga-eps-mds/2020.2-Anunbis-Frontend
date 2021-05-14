@@ -1,0 +1,56 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Snapshot Popup component matches the snapshot 1`] = `
+Object {
+  "$$typeof": Symbol(react.forward_ref),
+  "attrs": Array [],
+  "componentStyle": e {
+    "baseHash": -715527839,
+    "baseStyle": undefined,
+    "componentId": "sc-bdnxRM",
+    "isStatic": false,
+    "rules": Array [
+      "
+  position: fixed;
+  height: 100%;
+  width: 100%;
+  top: 0px;
+  left: 0px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  animation: ",
+      e {
+        "id": "sc-keyframes-hLSHOR",
+        "inject": [Function],
+        "name": "hLSHOR",
+        "rules": "
+  from {
+    opacity: 0;
+    background-color: rgba(0, 0, 0, 0%)
+  }
+
+  to {
+    opacity: 1;
+    background-color: rgba(0, 0, 0, 75%)
+  }
+",
+        "toString": [Function],
+      },
+      " 0.5s ease;
+  background-color: rgba(0, 0, 0, 80%);
+  z-index: 10;
+",
+    ],
+    "staticRulesId": "",
+  },
+  "foldedComponentIds": Array [],
+  "render": [Function],
+  "shouldForwardProp": undefined,
+  "styledComponentId": "sc-bdnxRM",
+  "target": "div",
+  "toString": [Function],
+  "warnTooManyClasses": [Function],
+  "withComponent": [Function],
+}
+`;

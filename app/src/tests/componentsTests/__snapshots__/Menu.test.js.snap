@@ -1,0 +1,18 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Snapshot Menu component matches the snapshot 1`] = `
+<div
+  className="sc-bdnxRM jssPjp"
+>
+  <div
+    className="sc-gtsrHT iVoEWf"
+  >
+    <img
+      alt="logo"
+      className="sc-dlnjwi fOZsPb"
+      onClick={[Function]}
+      src="Name_Logo.png"
+    />
+  </div>
+</div>
+`;

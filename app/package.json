@@ -23,7 +23,9 @@
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
-    "test": "react-scripts test --coverage --coverageDirectory=src/coverage",
+    "stop": "react-scripts stop",
+    "test": "react-scripts test",
+    "test:cov": "react-scripts test --coverage --coverageDirectory=src/coverage --watchAll=false & json-server -p 4000 src/mocks/fixtures/posts.json",
     "eject": "react-scripts eject",
     "lint": "eslint --ignore-path .gitignore --ext .js src/",
     "lint:fix": "eslint --single-quote --trailing-comma all --ext .js src/ --fix",
@@ -63,6 +65,7 @@
     "eslint-plugin-prettier": "^3.4.0",
     "eslint-plugin-react": "^7.23.2",
     "eslint-plugin-react-hooks": "^4.2.0",
+    "msw": "^0.28.2",
     "prettier": "^2.2.1"
   }
 }

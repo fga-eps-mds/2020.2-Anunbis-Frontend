@@ -1,0 +1,24 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Snapshot FeedPopup component matches the snapshot 1`] = `
+<div
+  className="sc-gtsrHT guyQyB"
+>
+  <div
+    className="sc-dlnjwi gKbNGq"
+  >
+    <div
+      className="sc-hKFxyN bhTXYs"
+    />
+    <button
+      className="sc-bdnxRM jAGuyW"
+      radius="0px"
+    >
+      X
+    </button>
+  </div>
+  <main
+    className="sc-eCApnc bQqanu"
+  />
+</div>
+`;

@@ -1,0 +1,20 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Snapshot LayoutAutentication component matches the snapshot 1`] = `
+<div
+  className="sc-bdnxRM kFKwhN"
+>
+  <div
+    className="sc-gtsrHT eMPPuQ"
+  >
+    <div
+      className="sc-hKFxyN bIjoSs"
+    />
+    <img
+      alt="Logo"
+      className="sc-dlnjwi iYtYcZ"
+      src="Logo.jpg"
+    />
+  </div>
+</div>
+`;

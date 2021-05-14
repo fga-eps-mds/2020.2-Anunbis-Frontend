@@ -1,0 +1,103 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Snapshot RegisterProfessor component matches the snapshot 1`] = `
+<form
+  className="sc-dlnjwi iDwcvG"
+  onSubmit={[Function]}
+>
+  <div
+    className="sc-bdnxRM fcTkcg"
+  >
+    <input
+      className="sc-eCApnc doXpOj"
+      name="name"
+      placeholder="Nome"
+      type="text"
+    />
+    <div
+      className="sc-gtsrHT iKVqJa error"
+    />
+  </div>
+  <div
+    className="sc-bdnxRM fcTkcg"
+  >
+    <input
+      className="sc-eCApnc doXpOj"
+      name="reg_professor"
+      placeholder="Matrícula"
+      type="text"
+    />
+    <div
+      className="sc-gtsrHT iKVqJa error"
+    />
+  </div>
+  <div
+    className="sc-bdnxRM fcTkcg"
+  >
+    <input
+      className="sc-eCApnc doXpOj"
+      name="email"
+      placeholder="Email Institucional"
+      type="email"
+    />
+    <div
+      className="sc-gtsrHT iKVqJa error"
+    />
+  </div>
+  <div
+    className="sc-bdnxRM fcTkcg"
+  >
+     
+    <input
+      className="sc-eCApnc doXpOj"
+      name="password"
+      placeholder="Senha"
+      type="password"
+    />
+    <div
+      className="sc-gtsrHT iKVqJa error"
+    />
+  </div>
+  <div
+    className="sc-bdnxRM fcTkcg"
+  >
+    <input
+      className="sc-eCApnc doXpOj"
+      name="co_password"
+      placeholder="Confirmar Senha"
+      type="password"
+    />
+    <div
+      className="sc-gtsrHT iKVqJa error"
+    />
+  </div>
+  <div
+    className="sc-bdnxRM fcTkcg"
+  >
+    <div
+      className="errorDB"
+    >
+      
+    </div>
+    <div
+      className="sc-gtsrHT iKVqJa error"
+    />
+  </div>
+  <div
+    className="sc-hKFxyN teyFV"
+  >
+    <button
+      className="sc-jSFjdj jthJeV"
+      onClick={[Function]}
+    >
+      CANCELAR
+    </button>
+    <button
+      className="sc-jSFjdj jthJeV"
+      type="submit"
+    >
+      CONFIRMAR
+    </button>
+  </div>
+</form>
+`;

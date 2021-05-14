@@ -1,0 +1,28 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Snapshot Api component matches the snapshot 1`] = `null`;
+
+exports[`Snapshot Api component matches the snapshot 2`] = `
+Object {
+  "PROFESSOR": Object {
+    "data": [Function],
+    "homePath": "/professor/",
+    "isAuthenticated": [Function],
+    "localStorageName": "professor",
+  },
+  "STUDENT": Object {
+    "data": [Function],
+    "homePath": "/student/",
+    "isAuthenticated": [Function],
+    "localStorageName": "student",
+  },
+  "VISITANT": Object {
+    "data": [Function],
+    "homePath": "/",
+    "isAuthenticated": [Function],
+    "localStorageName": "visitant",
+  },
+  "isAuthenticated": [Function],
+  "whoAuthenticated": [Function],
+}
+`;

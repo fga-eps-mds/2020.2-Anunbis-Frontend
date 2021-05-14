@@ -1,0 +1,68 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Snapshot StarsAvaliation component matches the snapshot 1`] = `
+<div
+  className="sc-bdnxRM eAqkRU"
+>
+  <label
+    className="sc-dlnjwi itVsq"
+  >
+    <input
+      checked={false}
+      onChange={[Function]}
+      type="checkbox"
+    />
+    <span
+      className="sc-gtsrHT ewUAES"
+    />
+  </label>
+  <label
+    className="sc-dlnjwi itVsq"
+  >
+    <input
+      checked={false}
+      onChange={[Function]}
+      type="checkbox"
+    />
+    <span
+      className="sc-gtsrHT ewUAES"
+    />
+  </label>
+  <label
+    className="sc-dlnjwi itVsq"
+  >
+    <input
+      checked={false}
+      onChange={[Function]}
+      type="checkbox"
+    />
+    <span
+      className="sc-gtsrHT ewUAES"
+    />
+  </label>
+  <label
+    className="sc-dlnjwi itVsq"
+  >
+    <input
+      checked={false}
+      onChange={[Function]}
+      type="checkbox"
+    />
+    <span
+      className="sc-gtsrHT ewUAES"
+    />
+  </label>
+  <label
+    className="sc-dlnjwi itVsq"
+  >
+    <input
+      checked={false}
+      onChange={[Function]}
+      type="checkbox"
+    />
+    <span
+      className="sc-gtsrHT ewUAES"
+    />
+  </label>
+</div>
+`;

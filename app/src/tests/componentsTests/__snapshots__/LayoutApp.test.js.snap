@@ -1,0 +1,48 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Snapshot LayoutApp component matches the snapshot 1`] = `
+<div
+  className="sc-gtsrHT jftVLd"
+>
+  <div
+    className="sc-gKAaRy hBrgiB"
+  >
+    <div
+      className="sc-iCoGMd ijOiUi"
+    >
+      <img
+        alt="logo"
+        className="sc-fujyAs ccinlj"
+        onClick={[Function]}
+        src="Name_Logo.png"
+      />
+    </div>
+    <div
+      className="sc-hKFxyN cLvChq"
+    >
+      <input
+        className="sc-pNWdM gBjkpo"
+        onChange={[Function]}
+        onKeyPress={[Function]}
+        placeholder="Informe o nome do professor"
+        type="text"
+        width="400px"
+      />
+    </div>
+    <div
+      className="sc-jSFjdj gELbaN"
+    >
+      <button
+        className="sc-bdnxRM jBDlKn sc-eCApnc deOVgP"
+        onClick={[Function]}
+      >
+        ººº
+      </button>
+      
+    </div>
+  </div>
+  <main
+    className="sc-dlnjwi itdLzw"
+  />
+</div>
+`;
