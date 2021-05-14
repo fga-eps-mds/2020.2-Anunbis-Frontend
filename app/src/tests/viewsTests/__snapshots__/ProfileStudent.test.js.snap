@@ -1,0 +1,42 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Snapshot Student Profile view matches the snapshot 1`] = `
+<div
+  className="sc-bdnxRM gaCZnh"
+  height="115px"
+  width="240px"
+>
+  <p>
+    Nome Completo: 
+  </p>
+  <p>
+    E-mail: 
+  </p>
+  <p>
+    Curso: 
+  </p>
+</div>
+`;
+
+exports[`Snapshot Student Profile view matches the snapshot 2`] = `
+<div
+  className="sc-bdnxRM jsRjrT"
+  height="115px"
+  width="430px"
+>
+  <p>
+    Quantidade de avaliações realizadas: 
+    0
+  </p>
+  <p>
+    Quantidade de pessoas que concordaram com suas avaliações:
+     
+    0
+  </p>
+  <p>
+    Quantidade de pessoas que discordaram com suas avaliações:
+     
+    0
+  </p>
+</div>
+`;

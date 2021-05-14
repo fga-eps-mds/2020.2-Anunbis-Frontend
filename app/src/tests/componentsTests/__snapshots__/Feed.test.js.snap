@@ -1,0 +1,33 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Snapshot Feed component matches the snapshot 1`] = `
+<div
+  className="sc-bdnxRM dHvxIB"
+>
+  <div
+    className="sc-gtsrHT iUwlZJ"
+  />
+</div>
+`;
+
+exports[`Snapshot Feed component matches the snapshot 2`] = `
+<div
+  className="sc-eCApnc ekjowF"
+/>
+`;
+
+exports[`Snapshot Feed component matches the snapshot 3`] = `
+<div
+  className="sc-gtsrHT iUwlZJ"
+/>
+`;
+
+exports[`Snapshot Feed component matches the snapshot 4`] = `
+<div
+  className="sc-jSFjdj cGLgru"
+>
+  <div>
+    Nenhum Professor Encontrado!
+  </div>
+</div>
+`;

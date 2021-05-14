@@ -1,0 +1,428 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Snapshot Avaliation view matches the snapshot 1`] = `
+<div
+  className="sc-crzoAE jybEJz"
+>
+  <div
+    className="sc-dIsUp hJMXzL"
+  >
+    <div
+      className="sc-bqGGPW dAWHJi"
+    >
+      Avaliação
+    </div>
+    <button
+      className="sc-jSFjdj iYEbuK"
+      radius="0px"
+    >
+      X
+    </button>
+  </div>
+  <main
+    className="sc-ksluID fwrYRs"
+  >
+    <div
+      className="sc-bdnxRM eXjrxA"
+    >
+      <form
+        className="sc-kEqXSa LLDRx"
+        onSubmit={[Function]}
+      >
+        <p
+          className="sc-dlnjwi djLcli"
+        />
+        <div
+          className="sc-pNWdM ehCoNQ"
+        >
+          <select
+            className="sc-eCApnc bNkTt"
+            id="diciplines"
+            name="id_course"
+          >
+            <option
+              disabled={true}
+              selected={true}
+              value=""
+            >
+              Selecione um Curso
+            </option>
+          </select>
+          <div
+            className="sc-jrsJWt ifOIGW error"
+          />
+        </div>
+        <p>
+          Notas:
+        </p>
+        <div
+          className="sc-gtsrHT kavaLt"
+        >
+          <label>
+            Didática:
+          </label>
+          <div
+            className="sc-pNWdM ehCoNQ"
+          >
+            <div
+              className="sc-gKAaRy cgyNEA"
+            >
+              <label
+                className="sc-fujyAs exNMkG"
+              >
+                <input
+                  checked={false}
+                  name="didactic"
+                  onChange={[Function]}
+                  type="checkbox"
+                />
+                <span
+                  className="sc-iCoGMd iNWuFv"
+                />
+              </label>
+              <label
+                className="sc-fujyAs exNMkG"
+              >
+                <input
+                  checked={false}
+                  name="didactic"
+                  onChange={[Function]}
+                  type="checkbox"
+                />
+                <span
+                  className="sc-iCoGMd iNWuFv"
+                />
+              </label>
+              <label
+                className="sc-fujyAs exNMkG"
+              >
+                <input
+                  checked={false}
+                  name="didactic"
+                  onChange={[Function]}
+                  type="checkbox"
+                />
+                <span
+                  className="sc-iCoGMd iNWuFv"
+                />
+              </label>
+              <label
+                className="sc-fujyAs exNMkG"
+              >
+                <input
+                  checked={false}
+                  name="didactic"
+                  onChange={[Function]}
+                  type="checkbox"
+                />
+                <span
+                  className="sc-iCoGMd iNWuFv"
+                />
+              </label>
+              <label
+                className="sc-fujyAs exNMkG"
+              >
+                <input
+                  checked={false}
+                  name="didactic"
+                  onChange={[Function]}
+                  type="checkbox"
+                />
+                <span
+                  className="sc-iCoGMd iNWuFv"
+                />
+              </label>
+            </div>
+            <div
+              className="sc-jrsJWt ifOIGW error"
+            />
+          </div>
+          <label>
+            Metodologia:
+          </label>
+          <div
+            className="sc-pNWdM ehCoNQ"
+          >
+            <div
+              className="sc-gKAaRy cgyNEA"
+            >
+              <label
+                className="sc-fujyAs exNMkG"
+              >
+                <input
+                  checked={false}
+                  name="metod"
+                  onChange={[Function]}
+                  type="checkbox"
+                />
+                <span
+                  className="sc-iCoGMd iNWuFv"
+                />
+              </label>
+              <label
+                className="sc-fujyAs exNMkG"
+              >
+                <input
+                  checked={false}
+                  name="metod"
+                  onChange={[Function]}
+                  type="checkbox"
+                />
+                <span
+                  className="sc-iCoGMd iNWuFv"
+                />
+              </label>
+              <label
+                className="sc-fujyAs exNMkG"
+              >
+                <input
+                  checked={false}
+                  name="metod"
+                  onChange={[Function]}
+                  type="checkbox"
+                />
+                <span
+                  className="sc-iCoGMd iNWuFv"
+                />
+              </label>
+              <label
+                className="sc-fujyAs exNMkG"
+              >
+                <input
+                  checked={false}
+                  name="metod"
+                  onChange={[Function]}
+                  type="checkbox"
+                />
+                <span
+                  className="sc-iCoGMd iNWuFv"
+                />
+              </label>
+              <label
+                className="sc-fujyAs exNMkG"
+              >
+                <input
+                  checked={false}
+                  name="metod"
+                  onChange={[Function]}
+                  type="checkbox"
+                />
+                <span
+                  className="sc-iCoGMd iNWuFv"
+                />
+              </label>
+            </div>
+            <div
+              className="sc-jrsJWt ifOIGW error"
+            />
+          </div>
+          <label>
+            Coerência das Avaliações:
+          </label>
+          <div
+            className="sc-pNWdM ehCoNQ"
+          >
+            <div
+              className="sc-gKAaRy cgyNEA"
+            >
+              <label
+                className="sc-fujyAs exNMkG"
+              >
+                <input
+                  checked={false}
+                  name="avaliations"
+                  onChange={[Function]}
+                  type="checkbox"
+                />
+                <span
+                  className="sc-iCoGMd iNWuFv"
+                />
+              </label>
+              <label
+                className="sc-fujyAs exNMkG"
+              >
+                <input
+                  checked={false}
+                  name="avaliations"
+                  onChange={[Function]}
+                  type="checkbox"
+                />
+                <span
+                  className="sc-iCoGMd iNWuFv"
+                />
+              </label>
+              <label
+                className="sc-fujyAs exNMkG"
+              >
+                <input
+                  checked={false}
+                  name="avaliations"
+                  onChange={[Function]}
+                  type="checkbox"
+                />
+                <span
+                  className="sc-iCoGMd iNWuFv"
+                />
+              </label>
+              <label
+                className="sc-fujyAs exNMkG"
+              >
+                <input
+                  checked={false}
+                  name="avaliations"
+                  onChange={[Function]}
+                  type="checkbox"
+                />
+                <span
+                  className="sc-iCoGMd iNWuFv"
+                />
+              </label>
+              <label
+                className="sc-fujyAs exNMkG"
+              >
+                <input
+                  checked={false}
+                  name="avaliations"
+                  onChange={[Function]}
+                  type="checkbox"
+                />
+                <span
+                  className="sc-iCoGMd iNWuFv"
+                />
+              </label>
+            </div>
+            <div
+              className="sc-jrsJWt ifOIGW error"
+            />
+          </div>
+          <label>
+            Disponibilidade:
+          </label>
+          <div
+            className="sc-pNWdM ehCoNQ"
+          >
+            <div
+              className="sc-gKAaRy cgyNEA"
+            >
+              <label
+                className="sc-fujyAs exNMkG"
+              >
+                <input
+                  checked={false}
+                  name="disponibility"
+                  onChange={[Function]}
+                  type="checkbox"
+                />
+                <span
+                  className="sc-iCoGMd iNWuFv"
+                />
+              </label>
+              <label
+                className="sc-fujyAs exNMkG"
+              >
+                <input
+                  checked={false}
+                  name="disponibility"
+                  onChange={[Function]}
+                  type="checkbox"
+                />
+                <span
+                  className="sc-iCoGMd iNWuFv"
+                />
+              </label>
+              <label
+                className="sc-fujyAs exNMkG"
+              >
+                <input
+                  checked={false}
+                  name="disponibility"
+                  onChange={[Function]}
+                  type="checkbox"
+                />
+                <span
+                  className="sc-iCoGMd iNWuFv"
+                />
+              </label>
+              <label
+                className="sc-fujyAs exNMkG"
+              >
+                <input
+                  checked={false}
+                  name="disponibility"
+                  onChange={[Function]}
+                  type="checkbox"
+                />
+                <span
+                  className="sc-iCoGMd iNWuFv"
+                />
+              </label>
+              <label
+                className="sc-fujyAs exNMkG"
+              >
+                <input
+                  checked={false}
+                  name="disponibility"
+                  onChange={[Function]}
+                  type="checkbox"
+                />
+                <span
+                  className="sc-iCoGMd iNWuFv"
+                />
+              </label>
+            </div>
+            <div
+              className="sc-jrsJWt ifOIGW error"
+            />
+          </div>
+        </div>
+        <p>
+          Postagem:
+        </p>
+        <div
+          className="sc-bdnxRM emIYuX"
+          direction="row"
+        >
+          <button
+            className="sc-jSFjdj jYSBhf"
+            onClick={[Function]}
+            type="button"
+          >
+            PÚBLICA
+          </button>
+          <button
+            className="sc-jSFjdj fTYZxU"
+            onClick={[Function]}
+            type="button"
+          >
+            ANÔNIMA
+          </button>
+        </div>
+        <p>
+          Descrição/Comentários:
+        </p>
+        <div
+          className="sc-pNWdM ehCoNQ"
+        >
+          <textarea
+            className="sc-hKFxyN cqPLvi"
+            name="comments"
+          />
+          <div
+            className="sc-jrsJWt ifOIGW error"
+          />
+        </div>
+        <div
+          className="sc-iqAclL cnLUtV"
+        >
+          <button
+            className="sc-jSFjdj iooaEn"
+            type="submit"
+          >
+            POSTAR
+          </button>
+        </div>
+      </form>
+    </div>
+  </main>
+</div>
+`;
