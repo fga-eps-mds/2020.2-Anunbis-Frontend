@@ -15,6 +15,7 @@
     "react-router": "^5.2.0",
     "react-router-dom": "^5.2.0",
     "react-scripts": "4.0.3",
+    "react-test-renderer": "^16.13.1",
     "styled-components": "^5.2.3",
     "web-vitals": "^1.1.0",
     "yup": "^0.32.9"
@@ -22,12 +23,18 @@
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
-    "test": "react-scripts test",
+    "test": "react-scripts test --coverage --coverageDirectory=src/coverage",
     "eject": "react-scripts eject",
     "lint": "eslint --ignore-path .gitignore --ext .js src/",
     "lint:fix": "eslint --single-quote --trailing-comma all --ext .js src/ --fix",
     "format": "prettier --single-quote --trailing-comma all --check ./src",
     "format:fix": "prettier --single-quote --trailing-comma all --write ./src"
+  },
+  "jest": {
+    "coverageReporters": [
+      "text",
+      "html"
+    ]
   },
   "eslintConfig": {
     "extends": [
