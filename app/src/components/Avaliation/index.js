@@ -9,10 +9,13 @@ import StarsAvaliation from '../StarsAvaliation';
 import Form from '../Form';
 import FeedPopup from '../FeedPopup';
 import api from '../../services/Api';
+import Users from '../../services/Users';
 
 export default function Avaliation({ close, professor }) {
-  const regStudent = JSON.parse(localStorage.getItem('student')).reg_student;
-  const { disciplines } = professor;
+  const regStudent = Users.whoAuthenticated() === Users.STUDENT
+  ? Users.whoAuthenticated().data().reg_student
+  : null;
+  const { disciplines } = professor != null ? professor : {};
   const [isAnonymous, setIsAnonymous] = React.useState(false);
   const { register, handleSubmit, errors } = useForm({
     resolver: yupResolver(schema),
@@ -20,7 +23,7 @@ export default function Avaliation({ close, professor }) {
 
   function disciplinesOptions(disciplines0) {
     const disciplinesArray = [];
-    disciplines0.map((dis) =>
+    disciplines0?.map((dis) =>
       disciplinesArray.push({ id: dis.discipline_code, name: dis.name }),
     );
     return disciplinesArray;
@@ -29,7 +32,7 @@ export default function Avaliation({ close, professor }) {
   function onSubmit(data) {
     const body = {
       reg_student: regStudent,
-      id_professor: professor.id_professor,
+      id_professor: professor?.id_professor,
       content: data.comments,
       didactic: data.didactic.length,
       metod: data.metod.length,
@@ -49,7 +52,7 @@ export default function Avaliation({ close, professor }) {
     <FeedPopup title="Avaliação" close={close}>
       <Container>
         <Form onSubmit={handleSubmit(onSubmit)}>
-          <NameProfessor>{professor.name}</NameProfessor>
+          <NameProfessor>{professor?.name}</NameProfessor>
           <Form.Field
             errorMsg={errors.id_course?.message}
             margin="0px 0px 0px 0px"
