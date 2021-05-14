@@ -21,29 +21,29 @@ import Users from '../../services/Users';
 const Header = ({ post, onClickReport }) => (
   <HeaderPost>
     <InfoStudent>
-      [{post.discipline.discipline_code}]{post.discipline.name}
+      [{post?.discipline.discipline_code}]{post?.discipline.name}
       <br />
-      {post.student.course.name}
+      {post?.student.course.name}
       <br />
-      Data: {post.post_date}
+      Data: {post?.post_date}
       <br />
-      <Name>{post.student.name}</Name>
+      <Name>{post?.student.name}</Name>
     </InfoStudent>
     <Rating>
       <label>
         <b>Nota Geral:</b>{' '}
       </label>
       <label>
-        <b>{post.rating.toFixed(2)}</b>
+        <b>{post?.rating.toFixed(2)}</b>
       </label>
       <label>Didatica:</label>
-      <label>{post.didactic.toFixed(1)}</label>
+      <label>{post?.didactic.toFixed(1)}</label>
       <label>Metodologia:</label>
-      <label>{post.metod.toFixed(1)}</label>
+      <label>{post?.metod.toFixed(1)}</label>
       <label>Avaliações Coerentes:</label>
-      <label>{post.avaliations.toFixed(1)}</label>
+      <label>{post?.avaliations.toFixed(1)}</label>
       <label>Disponibilidade:</label>
-      <label>{post.disponibility.toFixed(1)}</label>
+      <label>{post?.disponibility.toFixed(1)}</label>
     </Rating>
     <Button
       type="button"
@@ -58,22 +58,22 @@ const Content = ({ children }) => <ContentPost>{children}</ContentPost>;
 
 const Feedbacks = ({ post, Onclick }) => {
   const isAgreed =
-    post.feedbacks.is_agreed || Users.PROFESSOR.isAuthenticated();
+    post?.feedbacks.is_agreed || Users.PROFESSOR.isAuthenticated();
   const isDisagreed =
-    post.feedbacks.is_disagreed || Users.PROFESSOR.isAuthenticated();
-  const countAgrees = post.feedbacks.agrees;
-  const countDisagrees = post.feedbacks.disagrees;
+    post?.feedbacks.is_disagreed || Users.PROFESSOR.isAuthenticated();
+  const countAgrees = post?.feedbacks.agrees;
+  const countDisagrees = post?.feedbacks.disagrees;
 
   function clickAgree() {
     if (Users.STUDENT.isAuthenticated()) {
-      const body = { id_post: post.id_post };
+      const body = { id_post: post?.id_post };
       api.post('/post/agree', body).then((res) => Onclick(res.data));
     }
   }
 
   function clickDisagree() {
     if (Users.STUDENT.isAuthenticated()) {
-      const body = { id_post: post.id_post };
+      const body = { id_post: post?.id_post };
       api.post('/post/disagree', body).then((res) => Onclick(res.data));
     }
   }
@@ -111,7 +111,7 @@ export default function Post({ post }) {
       )}
       <PostStyle>
         <Header post={currentPost} onClickReport={() => setReportBox(true)} />
-        <Content>{currentPost.content}</Content>
+        <Content>{currentPost?.content}</Content>
         <Feedbacks Onclick={setCurrentPost} post={currentPost} />
       </PostStyle>
     </>
