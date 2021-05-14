@@ -78,10 +78,10 @@ const Header = ({
 
 function PostsBox({ posts, canReport }) {
   const [order, setOrder] = React.useState(0);
-  const orderedPost = posts.sort(orders[order].fun);
+  const orderedPost = posts?.sort(orders[order].fun);
   return (
     <DivContent>
-      {posts.length > 0 && (
+      {posts?.length > 0 && (
         <OrderDiv>
           <Select
             id="orders"
@@ -94,7 +94,7 @@ function PostsBox({ posts, canReport }) {
           />
         </OrderDiv>
       )}
-      {orderedPost.map((post) => (
+      {orderedPost?.map((post) => (
         <Post key={post.id_post} post={post} canReport={canReport} />
       ))}
     </DivContent>
