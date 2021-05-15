@@ -1,0 +1,22 @@
+{
+  "post": [
+    {
+      "message": "Post Collected"
+    }
+  ],
+  "login": [
+    {
+      "id": 0
+    }
+  ],
+  "delete": [
+    {
+      "message": "Successfully deleted!"
+    }
+  ],
+  "course": [
+    {
+      "message": "Courses Collected"
+    }
+  ]
+}
