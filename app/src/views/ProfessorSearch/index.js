@@ -53,9 +53,9 @@ const ProfessorFound = ({
 };
 
 function getPostsByDiscipline(professor, disciplineSelected) {
-  const { discipline_code } = professor.disciplines[disciplineSelected];
+  const { discipline_code } = professor.disciplines[disciplineSelected]; // eslint-disable-line
   return professor.posts.filter(
-    (post) => post.discipline.discipline_code === discipline_code,
+    (post) => post.discipline.discipline_code === discipline_code, // eslint-disable-line
   );
 }
 
@@ -107,10 +107,10 @@ function ProfessorSearch() {
   React.useEffect(() => {
     if (professors.length === 0) return;
     setLoading(true);
-    const { id_professor } = professors[selected.professor];
+    const { id_professor } = professors[selected.professor]; // eslint-disable-line
     const startRequest = new Date().getTime();
 
-    api.get(`/professor/${id_professor}`).then((response) => {
+    api.get(`/professor/${id_professor}`).then((response) => { // eslint-disable-line
       if (response.status === 200) {
         const requestDuration = startRequest - new Date().getTime();
         professors[selected.professor] = response.data;

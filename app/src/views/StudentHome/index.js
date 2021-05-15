@@ -10,8 +10,8 @@ export default function StudentHome() {
   }, []);
 
   return (
-      <Feed title="Avaliações Feitas Por Você">
-        <Feed.PostsBox posts={posts} canReport />
-      </Feed>
+    <Feed title="Avaliações Feitas Por Você">
+      <Feed.PostsBox posts={posts} canReport />
+    </Feed>
   );
 }

@@ -15,6 +15,7 @@ import {
 import Button from '../../components/Button';
 import Loading from '../../components/Loading';
 import { getPosts } from '../../services/Posts';
+import Graphic from '../../components/Statistics';
 
 const DisciplineContent = ({ discipline }) => {
   const [boxPost, setBoxPost] = React.useState(false);
@@ -130,7 +131,7 @@ export default function ProfessorHome() {
           onClick={() => setIsStatistics(false)}
         />
         <Button
-          text="ESTATÍSTICAS"
+          text="ESTATÍSTICA"
           backColor="var(--yellow)"
           padding="15px 40px"
           radius="20px"
@@ -143,7 +144,15 @@ export default function ProfessorHome() {
   return (
     <Home>
       <OptionsProfessorHome />
-      {isStatistics && <Feed title="Estatísticas" />}
+      {isStatistics && (
+        <Feed title="Estatística">
+          {Object.keys(disciplines).length === 0 && !loading ? (
+            <Container>Sem avaliações ainda</Container>
+          ) : (
+            <Graphic />
+          )}
+        </Feed>
+      )}
       {!isStatistics && (
         <Feed title="Avaliações sobre você">
           {Object.keys(disciplines).length === 0 && !loading ? (

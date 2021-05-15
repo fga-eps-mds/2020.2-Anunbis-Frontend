@@ -12,6 +12,7 @@ export default function Select({
   error,
   onChange,
   display,
+  borderBottom,
 }) {
   return (
     <SelectStyle
@@ -23,6 +24,7 @@ export default function Select({
       error={error}
       onChange={onChange}
       display={display}
+      borderBottom={borderBottom}
     >
       <option value="" disabled selected>
         {text}
