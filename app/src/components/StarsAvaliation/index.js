@@ -6,12 +6,8 @@ import Checkbox from '../Checkbox';
 function StarsAvaliation({ name, register }) {
   const [isChecked, setChecked] = React.useState(0);
 
-  function setStatus(num, numStatus) {
-    if (num === numStatus) {
-      setChecked(0);
-    } else {
-      setChecked(num);
-    }
+  function status(num, numStatus) {
+    return num === numStatus ? 0 : num
   }
 
   return (
@@ -20,31 +16,36 @@ function StarsAvaliation({ name, register }) {
         name={name}
         register={register}
         checked={isChecked >= 1}
-        onChange={() => setStatus(1, isChecked)}
+        onChange={() => setChecked(status(1, isChecked))}
+        testid="input-stars-1"
       />
       <Checkbox
         name={name}
         register={register}
         checked={isChecked >= 2}
-        onChange={() => setStatus(2, isChecked)}
+        onChange={() => setChecked(status(2, isChecked))}
+        testid="input-stars-2"
       />
       <Checkbox
         name={name}
         register={register}
         checked={isChecked >= 3}
-        onChange={() => setStatus(3, isChecked)}
+        onChange={() => setChecked(status(3, isChecked))}
+        testid="input-stars-3"
       />
       <Checkbox
         name={name}
         register={register}
         checked={isChecked >= 4}
-        onChange={() => setStatus(4, isChecked)}
+        onChange={() => setChecked(status(4, isChecked))}
+        testid="input-stars-4"
       />
       <Checkbox
         name={name}
         register={register}
         checked={isChecked >= 5}
-        onChange={() => setStatus(5, isChecked)}
+        onChange={() => setChecked(status(5, isChecked))}
+        testid="input-stars-5"
       />
     </Container>
   );

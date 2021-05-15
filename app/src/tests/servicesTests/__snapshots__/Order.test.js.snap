@@ -1,39 +1,5 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Snapshot Order service matches the snapshot 1`] = `null`;
-
-exports[`Snapshot Order service matches the snapshot 2`] = `null`;
-
-exports[`Snapshot Order service matches the snapshot 3`] = `null`;
-
-exports[`Snapshot Order service matches the snapshot 4`] = `null`;
-
-exports[`Snapshot Order service matches the snapshot 5`] = `
-Array [
-  Object {
-    "fun": [Function],
-    "id": 0,
-    "name": "Mais popular",
-    "selected": true,
-  },
-  Object {
-    "fun": [Function],
-    "id": 1,
-    "name": "Data de Envio",
-  },
-  Object {
-    "fun": [Function],
-    "id": 2,
-    "name": "Maior Nota Geral",
-  },
-  Object {
-    "fun": [Function],
-    "id": 3,
-    "name": "Menor Nota Geral",
-  },
-]
-`;
-
 exports[`orders service test orders must be the same 1`] = `
 Array [
   Object {

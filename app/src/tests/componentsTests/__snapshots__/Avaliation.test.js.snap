@@ -72,6 +72,7 @@ exports[`Snapshot Avaliation view matches the snapshot 1`] = `
               >
                 <input
                   checked={false}
+                  data-testid="input-stars-1"
                   name="didactic"
                   onChange={[Function]}
                   type="checkbox"
@@ -85,6 +86,7 @@ exports[`Snapshot Avaliation view matches the snapshot 1`] = `
               >
                 <input
                   checked={false}
+                  data-testid="input-stars-2"
                   name="didactic"
                   onChange={[Function]}
                   type="checkbox"
@@ -98,6 +100,7 @@ exports[`Snapshot Avaliation view matches the snapshot 1`] = `
               >
                 <input
                   checked={false}
+                  data-testid="input-stars-3"
                   name="didactic"
                   onChange={[Function]}
                   type="checkbox"
@@ -111,6 +114,7 @@ exports[`Snapshot Avaliation view matches the snapshot 1`] = `
               >
                 <input
                   checked={false}
+                  data-testid="input-stars-4"
                   name="didactic"
                   onChange={[Function]}
                   type="checkbox"
@@ -124,6 +128,7 @@ exports[`Snapshot Avaliation view matches the snapshot 1`] = `
               >
                 <input
                   checked={false}
+                  data-testid="input-stars-5"
                   name="didactic"
                   onChange={[Function]}
                   type="checkbox"
@@ -151,6 +156,7 @@ exports[`Snapshot Avaliation view matches the snapshot 1`] = `
               >
                 <input
                   checked={false}
+                  data-testid="input-stars-1"
                   name="metod"
                   onChange={[Function]}
                   type="checkbox"
@@ -164,6 +170,7 @@ exports[`Snapshot Avaliation view matches the snapshot 1`] = `
               >
                 <input
                   checked={false}
+                  data-testid="input-stars-2"
                   name="metod"
                   onChange={[Function]}
                   type="checkbox"
@@ -177,6 +184,7 @@ exports[`Snapshot Avaliation view matches the snapshot 1`] = `
               >
                 <input
                   checked={false}
+                  data-testid="input-stars-3"
                   name="metod"
                   onChange={[Function]}
                   type="checkbox"
@@ -190,6 +198,7 @@ exports[`Snapshot Avaliation view matches the snapshot 1`] = `
               >
                 <input
                   checked={false}
+                  data-testid="input-stars-4"
                   name="metod"
                   onChange={[Function]}
                   type="checkbox"
@@ -203,6 +212,7 @@ exports[`Snapshot Avaliation view matches the snapshot 1`] = `
               >
                 <input
                   checked={false}
+                  data-testid="input-stars-5"
                   name="metod"
                   onChange={[Function]}
                   type="checkbox"
@@ -230,6 +240,7 @@ exports[`Snapshot Avaliation view matches the snapshot 1`] = `
               >
                 <input
                   checked={false}
+                  data-testid="input-stars-1"
                   name="avaliations"
                   onChange={[Function]}
                   type="checkbox"
@@ -243,6 +254,7 @@ exports[`Snapshot Avaliation view matches the snapshot 1`] = `
               >
                 <input
                   checked={false}
+                  data-testid="input-stars-2"
                   name="avaliations"
                   onChange={[Function]}
                   type="checkbox"
@@ -256,6 +268,7 @@ exports[`Snapshot Avaliation view matches the snapshot 1`] = `
               >
                 <input
                   checked={false}
+                  data-testid="input-stars-3"
                   name="avaliations"
                   onChange={[Function]}
                   type="checkbox"
@@ -269,6 +282,7 @@ exports[`Snapshot Avaliation view matches the snapshot 1`] = `
               >
                 <input
                   checked={false}
+                  data-testid="input-stars-4"
                   name="avaliations"
                   onChange={[Function]}
                   type="checkbox"
@@ -282,6 +296,7 @@ exports[`Snapshot Avaliation view matches the snapshot 1`] = `
               >
                 <input
                   checked={false}
+                  data-testid="input-stars-5"
                   name="avaliations"
                   onChange={[Function]}
                   type="checkbox"
@@ -309,6 +324,7 @@ exports[`Snapshot Avaliation view matches the snapshot 1`] = `
               >
                 <input
                   checked={false}
+                  data-testid="input-stars-1"
                   name="disponibility"
                   onChange={[Function]}
                   type="checkbox"
@@ -322,6 +338,7 @@ exports[`Snapshot Avaliation view matches the snapshot 1`] = `
               >
                 <input
                   checked={false}
+                  data-testid="input-stars-2"
                   name="disponibility"
                   onChange={[Function]}
                   type="checkbox"
@@ -335,6 +352,7 @@ exports[`Snapshot Avaliation view matches the snapshot 1`] = `
               >
                 <input
                   checked={false}
+                  data-testid="input-stars-3"
                   name="disponibility"
                   onChange={[Function]}
                   type="checkbox"
@@ -348,6 +366,7 @@ exports[`Snapshot Avaliation view matches the snapshot 1`] = `
               >
                 <input
                   checked={false}
+                  data-testid="input-stars-4"
                   name="disponibility"
                   onChange={[Function]}
                   type="checkbox"
@@ -361,6 +380,7 @@ exports[`Snapshot Avaliation view matches the snapshot 1`] = `
               >
                 <input
                   checked={false}
+                  data-testid="input-stars-5"
                   name="disponibility"
                   onChange={[Function]}
                   type="checkbox"
