@@ -27,6 +27,7 @@ exports[`Snapshot Avaliation view matches the snapshot 1`] = `
     >
       <form
         className="sc-kEqXSa LLDRx"
+        data-testid="form-aval-1"
         onSubmit={[Function]}
       >
         <p
@@ -37,6 +38,7 @@ exports[`Snapshot Avaliation view matches the snapshot 1`] = `
         >
           <select
             className="sc-eCApnc bNkTt"
+            data-testid="select-aval-1"
             id="diciplines"
             name="id_course"
           >
@@ -66,6 +68,8 @@ exports[`Snapshot Avaliation view matches the snapshot 1`] = `
           >
             <div
               className="sc-gKAaRy cgyNEA"
+              data-testid="star-aval-1"
+              name="didactic"
             >
               <label
                 className="sc-fujyAs exNMkG"
@@ -150,6 +154,8 @@ exports[`Snapshot Avaliation view matches the snapshot 1`] = `
           >
             <div
               className="sc-gKAaRy cgyNEA"
+              data-testid="star-aval-2"
+              name="metod"
             >
               <label
                 className="sc-fujyAs exNMkG"
@@ -234,6 +240,8 @@ exports[`Snapshot Avaliation view matches the snapshot 1`] = `
           >
             <div
               className="sc-gKAaRy cgyNEA"
+              data-testid="star-aval-3"
+              name="avaliations"
             >
               <label
                 className="sc-fujyAs exNMkG"
@@ -318,6 +326,8 @@ exports[`Snapshot Avaliation view matches the snapshot 1`] = `
           >
             <div
               className="sc-gKAaRy cgyNEA"
+              data-testid="star-aval-4"
+              name="disponibility"
             >
               <label
                 className="sc-fujyAs exNMkG"
@@ -425,6 +435,7 @@ exports[`Snapshot Avaliation view matches the snapshot 1`] = `
         >
           <textarea
             className="sc-hKFxyN cqPLvi"
+            data-testid="form-aval-2"
             name="comments"
           />
           <div
