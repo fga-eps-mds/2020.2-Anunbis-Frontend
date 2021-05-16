@@ -10,8 +10,9 @@ const Field = ({ errorMsg, margin, children }) => (
 
 const Footer = ({ children }) => <FooterContent>{children}</FooterContent>;
 
-function Form({ children, onSubmit }) {
-  return <FormContainer onSubmit={onSubmit}>{children}</FormContainer>;
+function Form(props) {
+  const { onSubmit, children } = props;
+  return <FormContainer {...props} onSubmit={onSubmit}>{children}</FormContainer>;
 }
 
 Form.Field = Field;
