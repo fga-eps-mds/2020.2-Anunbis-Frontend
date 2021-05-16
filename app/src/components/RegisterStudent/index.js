@@ -10,7 +10,7 @@ import Button from '../Button';
 import api from '../../services/Api';
 import { getCourses } from '../../services/Courses';
 
-export default function RegisterStudent({ redirect }) {
+export default function RegisterStudent({ onRegister }) {
   const history = useHistory();
   const [courses, setCourses] = React.useState([]);
   const [errorDB, setErrorDB] = React.useState('');
@@ -43,7 +43,7 @@ export default function RegisterStudent({ redirect }) {
       .post('/student', body)
       .then((response) => {
         if (response.status === 201) {
-          redirect();
+          onRegister('Confirme o seu cadastro com o e-mail de verificação enviado ao seu e-mail.');
         }
       })
       .catch((error) => {

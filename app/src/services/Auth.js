@@ -35,7 +35,8 @@ export async function sendLogin(email, password, callback, errorCallback) {
       const { data } = response;
       if (data.access_token) writeUser(data);
       else logOut();
+      return response;
     })
-    .then(() => callback())
-    .catch(() => errorCallback());
+    .then((response) => callback(response))
+    .catch((error) => errorCallback(error));
 }
