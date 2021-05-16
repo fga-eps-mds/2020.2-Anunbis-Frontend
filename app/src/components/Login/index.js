@@ -8,25 +8,17 @@ import Form from '../Form';
 import Input from '../Input';
 import { sendLogin, logOut } from '../../services/Auth';
 import Users from '../../services/Users';
-import { Erro } from './styles';
+import { Message, VerifyMailStyle } from './styles';
+import api from '../../services/Api';
 
-export default function Login() {
+function Login({ msg }) {
   const history = useHistory();
-  const [erroLogin, setErroLogin] = React.useState();
+  const [message, setMessage] = React.useState(msg);
   const [cursor, setCursor] = React.useState();
 
   const { register, handleSubmit, errors } = useForm({
     resolver: yupResolver(schema),
   });
-
-  function createSpanError() {
-    setErroLogin(
-      <Erro>
-        Email ou Senha Inválidos
-        <Button type="button" onClick={() => setErroLogin('')} text="X" />
-      </Erro>,
-    );
-  }
 
   useEffect(() => {
     logOut();
@@ -37,29 +29,33 @@ export default function Login() {
     sendLogin(
       data.email,
       data.password,
-      () => {
-        const home = Users.whoAuthenticated().homePath;
-        history.push(home);
+      (response) => {
+        if (response.status === 200) {
+          const home = Users.whoAuthenticated().homePath;
+          history.push(home);
+        }
+        if (response.status === 203) {
+          setCursor('pointer');
+          setMessage(<VerifyMail email={data.email} />);
+        }
       },
       () => {
-        createSpanError();
         setCursor('');
+        setMessage('Email ou senha inválido');
       },
     );
   }
 
   return (
     <Form onSubmit={handleSubmit(onSubmit)}>
-      <Form.Field>
-        <div>{erroLogin}</div>
-      </Form.Field>
+      <Form.Field>{message && <Message>{message}</Message>}</Form.Field>
       <Form.Field errorMsg={errors.email?.message}>
         <Input
           type="text"
           text="Email Instuticional"
           name="email"
           register={register}
-        />{' '}
+        />
       </Form.Field>
       <Form.Field errorMsg={errors.password?.message}>
         <Input
@@ -67,7 +63,7 @@ export default function Login() {
           text="Senha"
           name="password"
           register={register}
-        />{' '}
+        />
       </Form.Field>
       <Form.Footer>
         <Button text="CONFIRMAR" backColor="#FFF9C4" cursor={cursor} />
@@ -75,3 +71,28 @@ export default function Login() {
     </Form>
   );
 }
+
+function VerifyMail({ email }) {
+  const [message, setMessage] = React.useState()
+
+  function sendVerifyMail() {
+    setMessage('Enviando email...');
+
+    api.post('/auth/email', { email })
+      .then(response => {
+        if (response.status === 200)
+          setMessage('E-mail de confirmação enviado.')
+      })
+  }
+
+  return <VerifyMailStyle>
+    {
+      message
+      || <>Cadastro ainda não confirmado. <button type='submit' onClick={sendVerifyMail}>Clique aqui</button> para reenviar o e-mail de verificação.</>
+    }
+  </VerifyMailStyle>
+}
+
+
+
+export default Login;
