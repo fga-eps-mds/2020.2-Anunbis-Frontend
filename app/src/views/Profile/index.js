@@ -1,4 +1,3 @@
-/* eslint-disable */
 import React from 'react';
 import ResetPassword from '../../components/ResetPassword';
 import { Conteiner, BtnReset, BtnExcluir, Title } from './styles';
