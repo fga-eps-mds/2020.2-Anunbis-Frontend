@@ -1,0 +1,22 @@
+name: Unit/Integration Test Run
+
+on: [push, pull_request]
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v2
+    - uses: actions/setup-node@v2
+      with:
+        node-version: '12.x'
+    - run: npm install
+      working-directory: ./app
+    - run: npm run test:cov
+      working-directory: ./app
+
+
+    - name: Upload coverage to Codecov
+      run: bash <(curl -s https://codecov.io/bash) -Z
+      working-directory: ./app
