@@ -17,7 +17,7 @@ export const PostStyle = styled.div`
 
 export const HeaderPost = styled.div`
   display: grid;
-  grid-template-columns: 350px 220px 30px;
+  grid-template-columns: min(30vw, 350px) min(20vw, 220px) 30px;
   height: fit-content;
 
   button {
@@ -41,6 +41,10 @@ export const HeaderPost = styled.div`
     background-position: center;
     background-size: 80%;
   }
+
+  @media (max-width: 400px) {
+    overflow-x: auto;
+  }
 `;
 
 export const ContentPost = styled.div`
@@ -61,6 +65,9 @@ export const ContentPost = styled.div`
   ::-webkit-scrollbar-thumb {
     background-color: var(--black);
   }
+  @media (max-width: 700px) {
+    font-size: 10px;
+  }
 `;
 
 export const FeedbacksDiv = styled.div`
@@ -80,20 +87,43 @@ export const FeedbacksDiv = styled.div`
     justify-content: flex-end;
     color: rgba(61, 58, 58, 0.603);
     box-shadow: none;
+    @media (max-width: 400px) {
+      height: 15px;
+      width: 30px;
+      margin-inline: 20px;
+    }
   }
 `;
 
 export const InfoStudent = styled.div`
   font: 12px Roboto;
   padding-left: 10px;
+  @media (max-width: 700px) {
+    font: 11px Roboto;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+  }
 `;
 
 export const Name = styled.div`
   color: #696969;
+  @media (max-width: 700px) {
+    font: 11px Roboto;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+  }
 `;
 
 export const Rating = styled.div`
   display: grid;
   grid-template-columns: 120px 100px;
   font-size: 11px;
+  @media (max-width: 700px) {
+    font-size: 10px;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+  }
 `;

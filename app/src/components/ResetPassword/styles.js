@@ -6,15 +6,17 @@ export const Container = styled.div`
   position: absolute;
   display: flex;
   flex-direction: ${(props) => (props.direction ? props.direction : 'column')};
-  width: 300px;
-  height: fit-content;
+  width: min(55vw, 300px);
+  height: min(25vh, 185px);
   margin-top: 60px;
   border-radius: 10px;
   font-family: 'Comfortaa', cursive;
-
   Input {
-    width: 280px;
+    width: min(50vw, 280px);
     align-self: flex-start;
+  }
+  @media (max-height: 330px) {
+    display: none;
   }
 `;
 
@@ -27,7 +29,9 @@ export const Header = styled.header`
   justify-content: center;
   align-items: center;
   margin-bottom: 20px;
-
+  @media (max-height: 660px) {
+    font-size: 10px;
+  }
   div {
     display: flex;
     height: inherit;
