@@ -10,7 +10,6 @@ export const Background = styled.div`
   justify-content: center;
   font-size: calc(10px + 2vmin);
 `;
-
 export const Base = styled.div`
   background-color: #ffd54f;
   height: min(500px, 70vh);
@@ -32,6 +31,5 @@ export const Imagem = styled.img`
 `;
 
 export const Main = styled.div`
-  max-height: 500px;
-  max-width: 400px;
+
 `;
