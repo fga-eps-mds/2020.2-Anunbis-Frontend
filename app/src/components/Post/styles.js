@@ -43,6 +43,7 @@ export const HeaderPost = styled.div`
   }
 
   @media (max-width: 400px) {
+    grid-template-columns: min(40vw, 200px) min(25vw, 150px) 15vw;
     overflow-x: auto;
   }
 `;
@@ -98,9 +99,12 @@ export const FeedbacksDiv = styled.div`
 export const InfoStudent = styled.div`
   font: 12px Roboto;
   padding-left: 10px;
-  @media (max-width: 700px) {
+  @media (max-width: 500px) {
     font: 11px Roboto;
-    white-space: nowrap;
+    flex-wrap: wrap;
+  }
+  @media (max-width: 300px) {
+    font: 10px Roboto;
     text-overflow: ellipsis;
     overflow: hidden;
   }
@@ -118,12 +122,14 @@ export const Name = styled.div`
 
 export const Rating = styled.div`
   display: grid;
-  grid-template-columns: 120px 100px;
-  font-size: 11px;
-  @media (max-width: 700px) {
-    font-size: 10px;
-    white-space: nowrap;
-    text-overflow: ellipsis;
-    overflow: hidden;
+  grid-template-columns: min(20vw, 120px) min(15vw, 100px);
+  font-size: 11px;    
+  @media (max-width: 760px) {
+    grid-template-columns: 80% 60%;
+    label {
+      font-size: 10px;
+      white-space: nowrap;
+      text-overflow: ellipsis;
+      overflow: hidden;}
   }
 `;
