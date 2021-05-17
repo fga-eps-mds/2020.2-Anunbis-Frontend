@@ -27,6 +27,7 @@ exports[`Snapshot Authentication view matches the snapshot 1`] = `
   >
     <form
       className="sc-fujyAs iUoQcC"
+      data-testid="form-login-1"
       onSubmit={[Function]}
     >
       <div
@@ -42,6 +43,7 @@ exports[`Snapshot Authentication view matches the snapshot 1`] = `
       >
         <input
           className="sc-jrsJWt QesSX"
+          data-testid="input-login-1"
           name="email"
           placeholder="Email Instuticional"
           type="text"
@@ -56,6 +58,7 @@ exports[`Snapshot Authentication view matches the snapshot 1`] = `
       >
         <input
           className="sc-jrsJWt QesSX"
+          data-testid="input-login-2"
           name="password"
           placeholder="Senha"
           type="password"
