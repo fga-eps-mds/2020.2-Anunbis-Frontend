@@ -20,6 +20,22 @@ function Login({ msg }) {
     resolver: yupResolver(schema),
   });
 
+<<<<<<< HEAD
+=======
+  function createSpanError() {
+    setErroLogin(
+      <Erro>
+        Email ou Senha Inválidos
+        <Button
+          type="button"
+          onClick={() => setErroLogin('')}
+          text="X"
+        />
+      </Erro>,
+    );
+  }
+
+>>>>>>> (#205) Refatorando tests e alguns valores de data-testid
   useEffect(() => {
     logOut();
   });

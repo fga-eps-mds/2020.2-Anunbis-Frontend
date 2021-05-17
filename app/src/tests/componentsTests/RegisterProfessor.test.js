@@ -1,7 +1,31 @@
-import renderer from 'react-test-renderer';
-import { screen, render, waitFor } from '@testing-library/react';
+import { screen, render, waitFor, cleanup } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import RegisterProfessor from '../../components/RegisterProfessor';
+import mock from '../../mock/index';
+import '@testing-library/jest-dom/extend-expect';
+
+const mockPost = (number) => {
+  if (number === 409) {
+    mock.onPost(
+      '/professor')
+      .reply(409, {
+        name: 'professor repetido',
+        reg: '12345678911',
+        email: '12345678911@unb.br',
+        password: '12345678',
+      })
+  }
+  else {
+    mock.onPost(
+      '/professor')
+      .reply(201, {
+        name: 'test',
+        reg: '12345678911',
+        email: '12345678911@unb.br',
+        password: '00000000',
+      })
+  }
+}
 
 const validProf = {
   name: 'test',
@@ -10,44 +34,74 @@ const validProf = {
   password: '00000000',
 };
 
-describe('Snapshot RegisterProfessor component', () => {
-  describe('Snapshot component test', () => {
-    it('matches the snapshot', () => {
-      const tree = renderer.create(<RegisterProfessor />).toJSON();
-      expect(tree).toMatchSnapshot();
+const invalidProf = {
+  name: 'professor repetido',
+  reg: '12345678911',
+  email: '12345678911@unb.br',
+  password: '12345678',
+}
+
+afterEach(cleanup)
+
+describe('test of UX', () => {
+  it('window localtion must be change when click on CANCELAR', () => {
+    render(<RegisterProfessor />)
+    const buttonCancel = screen.getByText('CANCELAR')
+    userEvent.click(buttonCancel)
+    expect(window.location.pathname).toEqual('/')
+  });
+
+  describe('Tests assyncronous', () => {
+    it('Submit Valid Professor', async () => {
+      mockPost(201)
+      const redirect = jest.fn()
+      render(<RegisterProfessor redirect={redirect} />)
+
+      const inputName = screen.getByPlaceholderText('Nome')
+      const inputReg = screen.getByPlaceholderText('Matrícula')
+      const inputEmail = screen.getByPlaceholderText('Email Institucional')
+      const inputPassword = screen.getByPlaceholderText('Senha')
+      const inputCoPassword = screen.getByPlaceholderText('Confirmar Senha')
+      const btnConfirm = screen.getByText('CONFIRMAR')
+
+      userEvent.type(inputName, validProf.name)
+      userEvent.type(inputReg, validProf.reg)
+      userEvent.type(inputEmail, validProf.email)
+      userEvent.type(inputPassword, validProf.password)
+      userEvent.type(inputCoPassword, validProf.password)
+      userEvent.click(btnConfirm)
+
+      await waitFor(() => {
+        expect(redirect).toHaveBeenCalled()
+      });
     });
   });
-//   describe('test of UX', () => {
-//     it('window localtion must be change when click on CANCELAR', () => {
-//       render(<RegisterProfessor />);
-//       const buttonCancel = screen.getByTestId('btn-1-regProf');
-//       userEvent.click(buttonCancel);
 
-//       expect(window.location.pathname).toEqual('/');
-//     });
-//     describe('Tests assyncronous', () => {
-//       it('Submit Valid Professor', async () => {
-//         const callback = jest.fn();
-//         render(<RegisterProfessor redirect={callback} />);
+  it('Submit Invalid Professor', async () => {
+    const redirect = jest.fn();
+    render(<RegisterProfessor redirect={redirect} />)
 
-//         const inputName = screen.getByTestId('input-1-regProf');
-//         const inputReg = screen.getByTestId('input-2-regProf');
-//         const inputEmail = screen.getByTestId('input-3-regProf');
-//         const inputPassword = screen.getByTestId('input-4-regProf');
-//         const inputCoPassword = screen.getByTestId('input-5-regProf');
-//         const btnConfirm = screen.getByTestId('btn-2-regProf');
+    mock.reset()
+    mockPost(409)
 
-//         userEvent.type(inputName, validProf.name);
-//         userEvent.type(inputReg, validProf.reg);
-//         userEvent.type(inputEmail, validProf.email);
-//         userEvent.type(inputPassword, validProf.password);
-//         userEvent.type(inputCoPassword, validProf.password);
-//         userEvent.click(btnConfirm);
+    const inputName = screen.getByPlaceholderText('Nome')
+    const inputReg = screen.getByPlaceholderText('Matrícula')
+    const inputEmail = screen.getByPlaceholderText('Email Institucional')
+    const inputPassword = screen.getByPlaceholderText('Senha')
+    const inputCoPassword = screen.getByPlaceholderText('Confirmar Senha')
+    const btnConfirm = screen.getByText('CONFIRMAR')
 
-//         await waitFor(() => {
-//           expect(callback).toHaveBeenCalled();
-//         });
-//       });
-//     });
-//   });
+    userEvent.type(inputName, invalidProf.name);
+    userEvent.type(inputReg, invalidProf.reg);
+    userEvent.type(inputEmail, invalidProf.email);
+    userEvent.type(inputPassword, invalidProf.password);
+    userEvent.type(inputCoPassword, invalidProf.password);
+    userEvent.click(btnConfirm);
+
+    await waitFor(() => {
+      expect(screen.getByText('Professor já cadastrado')).toBeInTheDocument()
+      expect(redirect).not.toHaveBeenCalled()
+    })
+
+  })
 });

@@ -18,9 +18,9 @@ export default function RegisterStudent({ onRegister }) {
     resolver: yupResolver(schema),
   });
 
-  function coursesOptions(coursesO) {
+  function coursesOptions() {
     const coursesArray = [];
-    coursesO?.map((course) =>
+    courses?.map((course) =>
       coursesArray.push({ id: course.id_course, name: course.name }),
     );
     return coursesArray;
@@ -68,7 +68,7 @@ export default function RegisterStudent({ onRegister }) {
           id="courses"
           backColor="#FFD54F"
           text="Selecione um Curso"
-          options={coursesOptions(courses)} /* eslint-disable-line */
+          options={coursesOptions()}
           name="id_course"
           register={register}
           error={errors.id_course !== undefined}

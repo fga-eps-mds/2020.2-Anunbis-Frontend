@@ -1,45 +1,46 @@
 import renderer from 'react-test-renderer';
-import { render, screen, cleanup } from '@testing-library/react';
+import { render, screen, waitFor } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import ExcludeAccount from '../../components/ExcludeAccount';
+import mock from '../../mock';
+import { sendLogin } from '../../services/Auth';
+import { validStudent } from '../../mock/fixtures/stored_users';
+import mockLogin from '../../mock/fixtures/login';
 
-afterEach(cleanup);
+mock.onDelete('student').reply(204);
 
-describe('Snapshot ExcludeAccount component', () => {
-  it('matches the snapshot', () => {
-    const tree = renderer.create(<ExcludeAccount />).toJSON();
-    expect(tree).toMatchSnapshot();
-  });
-  describe('tests of click on buttons', () => {
+describe('Test ExcludeAccount component', () => {
+  describe('Tests of functions', () => {
+    
     it('should exec callback on click on button VOLTAR', () => {
+      const callback = jest.fn();
       render(<ExcludeAccount close={callback} />);
-      const button = screen.getByText('VOLTAR');
-      function callback() {
-        button.text = 'CLICKED';
-      }
-      userEvent.click(button);
-      expect(button.text).toBe('CLICKED');
-    });
-    it('the children of buttons must be the same on click', () => {
-      function callback() {
-        // CALLBACK NECESSARIO PARA COMPILACAO DO EXCLUDEACCOUNT
-        console.log('CLICKED!');
-      }
-      render(<ExcludeAccount close={callback} />);
-      const voltar = {
-        button: screen.getByText('VOLTAR'),
-        old_children: screen.getByText('VOLTAR').children,
-      };
-      const excluir = {
-        button: screen.getByText('EXCLUIR'),
-        old_children: screen.getByText('EXCLUIR').children,
-      };
 
-      userEvent.click(voltar.button);
-      expect(voltar.button.children).toBe(voltar.old_children);
+      const btnBack = screen.getByText('VOLTAR');
 
-      userEvent.click(excluir.button);
-      expect(excluir.button.children).toBe(excluir.old_children);
-    });
-  });
-});
+      userEvent.click(btnBack);
+      expect(callback).toHaveBeenCalled();
+    })
+
+    it('the children of buttons must be the same on click', async() => {
+      const callback = jest.fn();
+      const callbackOne = jest.fn();
+      mockLogin('student');
+      sendLogin(validStudent.email, validStudent.password, callback, {});
+
+      await waitFor(() => {
+        expect(callback).toHaveBeenCalled();
+      })
+
+      render(<ExcludeAccount close={callbackOne} />);
+      
+      const btnExclude = screen.getByText('EXCLUIR');
+      userEvent.click(btnExclude);
+
+      await waitFor(() => {
+        expect(callbackOne).not.toHaveBeenCalled();
+        expect(window.location.pathname).toEqual('/');
+      })
+    })
+  })
+})
