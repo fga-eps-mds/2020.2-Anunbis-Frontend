@@ -30,6 +30,4 @@ export const Imagem = styled.img`
   object-fit: cover;
 `;
 
-export const Main = styled.div`
-
-`;
+export const Main = styled.div``;

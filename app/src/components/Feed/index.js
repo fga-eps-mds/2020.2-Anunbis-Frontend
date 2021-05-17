@@ -15,10 +15,9 @@ import { orders } from '../../services/Orders';
 import Select from '../Select';
 
 const Title = (props) => {
-  const {children} = props;
-  return (
-  <DivTitle {...props}>{children}</DivTitle>
-)};
+  const { children } = props;
+  return <DivTitle {...props}>{children}</DivTitle>;
+};
 
 const Header = ({
   professor,

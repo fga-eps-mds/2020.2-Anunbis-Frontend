@@ -8,7 +8,7 @@ export const Container = styled.div`
     display: flex;
     flex-direction: column;
     flex-wrap: wrap;
-    width: 90vw
+    width: 90vw;
     // grid-template-columns: repeat(auto-fill, minmax(250px, 80vw));
   }
 `;

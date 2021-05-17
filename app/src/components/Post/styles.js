@@ -123,13 +123,14 @@ export const Name = styled.div`
 export const Rating = styled.div`
   display: grid;
   grid-template-columns: min(20vw, 120px) min(15vw, 100px);
-  font-size: 11px;    
+  font-size: 11px;
   @media (max-width: 760px) {
     grid-template-columns: 80% 60%;
     label {
       font-size: 10px;
       white-space: nowrap;
       text-overflow: ellipsis;
-      overflow: hidden;}
+      overflow: hidden;
+    }
   }
 `;

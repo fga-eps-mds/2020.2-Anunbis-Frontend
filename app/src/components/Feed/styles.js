@@ -1,13 +1,14 @@
 import styled, { keyframes } from 'styled-components';
 
 export const Container = styled.div`
-  width: ${props => props.width ? props.width : 'min(70vw, 700px)'};
+  width: ${(props) => (props.width ? props.width : 'min(70vw, 700px)')};
   min-height: 20vh;
   max-height: 89vh;
   height: fit-content;
   margin: 0 0 40px 0;
-  border-radius: ${props => props.radius ? props.radius : '0px 0px 20px 20px'};
-  background-color: #FFFDE7;
+  border-radius: ${(props) =>
+    props.radius ? props.radius : '0px 0px 20px 20px'};
+  background-color: #fffde7;
   justify-content: center;
   box-shadow: 5px 5px 5px rgba(0, 0, 0, 50%);
   overflow-y: auto;
@@ -17,7 +18,7 @@ export const Container = styled.div`
 `;
 
 export const DivTitle = styled.div`
-  z-index: ${props => props.zIndex ? props.zIndex : '1'};
+  z-index: ${(props) => (props.zIndex ? props.zIndex : '1')};
   position: sticky;
   top: 0;
   width: inherit;
@@ -56,7 +57,7 @@ export const HeaderStyle = styled.div`
   align-items: center;
   padding: 20px 0 20px 0;
   flex-wrap: wrap;
-  border-bottom: ${props => props.border || ''};
+  border-bottom: ${(props) => props.border || ''};
   button {
     width: 150px;
     font-weight: bold;
@@ -79,9 +80,9 @@ export const Grid = styled.div`
 
   @media (max-width: 760px) {
     label {
-    white-space: nowrap;
-    text-overflow: ellipsis;
-    overflow: hidden;
+      white-space: nowrap;
+      text-overflow: ellipsis;
+      overflow: hidden;
     }
   }
 `;
