@@ -5,7 +5,6 @@ import {
   DivTitle,
   Grid,
   HeaderStyle,
-  NotFound,
   OrderDiv,
 } from './styles';
 import Post from '../Post';
@@ -15,9 +14,11 @@ import Avaliation from '../Avaliation';
 import { orders } from '../../services/Orders';
 import Select from '../Select';
 
-const Title = ({ props, children }) => (
+const Title = (props) => {
+  const {children} = props;
+  return (
   <DivTitle {...props}>{children}</DivTitle>
-);
+)};
 
 const Header = ({
   professor,
@@ -25,6 +26,7 @@ const Header = ({
   canAvaliate,
   onNewAvaliation,
   backColor,
+  border,
 }) => {
   const [avaliate, setAvaliate] = React.useState(false);
 
@@ -33,13 +35,6 @@ const Header = ({
     onNewAvaliation();
   }
 
-  if (professor === undefined)
-    return (
-      <NotFound>
-        <div>Nenhum Professor Encontrado!</div>
-      </NotFound>
-    );
-
   return (
     <>
       {avaliate && (
@@ -47,7 +42,7 @@ const Header = ({
           <Avaliation professor={professor} close={onClose} />
         </Popup>
       )}
-      <HeaderStyle backColor={backColor}>
+      <HeaderStyle backColor={backColor} border={border}>
         <Grid>
           <label>Nota Geral: </label>
           <label>
