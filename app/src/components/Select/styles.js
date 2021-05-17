@@ -19,4 +19,11 @@ export const SelectStyle = styled.select`
       display: none;
     }
   }
+  @media (max-width: 640px) {
+    font-size: 9px;
+  }
+
+  @media (max-height: 640px) {
+    font-size: 9px;
+  }
 `;
