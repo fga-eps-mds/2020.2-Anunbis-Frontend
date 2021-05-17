@@ -2,7 +2,8 @@ import styled from 'styled-components';
 
 export const Container = styled.div`
   display: ${(props) => (props.hasProfessors ? 'grid' : 'flex')};
-  grid-template-columns: 240px 700px;
+  grid-template-columns: min(25vw, 240px) min(80vw, 700px);
+  flex-direction: row;
 `;
 
 export const FoundDiv = styled.div`
@@ -33,6 +34,11 @@ export const Img = styled.img`
 export const Name = styled.div`
   display: inline-block;
   width: 100%;
+  @media (max-width: 760px) {
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+  }
 `;
 
 export const Discipline = styled.div`
@@ -42,6 +48,11 @@ export const Discipline = styled.div`
   border-radius: 10px;
   box-shadow: 2px 2px rgba(0, 0, 0, 50%);
   text-align: center;
+  @media (max-width: 760px) {
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+  }
 `;
 
 export const LoadingBox = styled.div`

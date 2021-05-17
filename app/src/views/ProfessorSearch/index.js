@@ -110,7 +110,8 @@ function ProfessorSearch() {
     const { id_professor } = professors[selected.professor]; // eslint-disable-line
     const startRequest = new Date().getTime();
 
-    api.get(`/professor/${id_professor}`).then((response) => { // eslint-disable-line
+    api.get(`/professor/${id_professor}`).then((response) => {
+      // eslint-disable-line
       if (response.status === 200) {
         const requestDuration = startRequest - new Date().getTime();
         professors[selected.professor] = response.data;
@@ -144,7 +145,7 @@ function ProfessorSearch() {
       {professors.length > 0 && (
         <Feed
           title="Professores"
-          width="210px"
+          width="min(20vw, 210px)"
           radius="0px 0px 10px 10px"
           key={professors.length}
         >
@@ -171,6 +172,7 @@ function ProfessorSearch() {
           feedbacks={feedbacks}
           canAvaliate={Users.STUDENT.isAuthenticated()}
           onNewAvaliation={() => setNewAvaliationState(!newAvaliationState)}
+          backColor="#FFFDE7"
         />
         {professors.length > 0 && (
           <Feed.Title backColor="var(--cian)">
