@@ -4,6 +4,13 @@ export const Container = styled.div`
   display: ${(props) => (props.hasProfessors ? 'grid' : 'flex')};
   grid-template-columns: min(25vw, 240px) min(80vw, 700px);
   flex-direction: row;
+  @media (max-width: 760px) {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    width: 90vw
+    // grid-template-columns: repeat(auto-fill, minmax(250px, 80vw));
+  }
 `;
 
 export const FoundDiv = styled.div`
@@ -61,4 +68,14 @@ export const LoadingBox = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
+`;
+
+export const NotFound = styled.div`
+  height: 20vh;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: 'Comfortaa', cursive;
+  font-weight: bold;
 `;
