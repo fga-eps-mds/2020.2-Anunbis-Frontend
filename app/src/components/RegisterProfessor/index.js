@@ -40,7 +40,13 @@ export default function RegisterProfessor({ onRegister }) {
   return (
     <Form onSubmit={handleSubmit(onSubmit)}>
       <Form.Field errorMsg={errors.name?.message}>
-        <Input type="text" text="Nome" name="name" register={register} data-testid="input-1-regProf"/>
+        <Input
+          type="text"
+          text="Nome"
+          name="name"
+          register={register}
+          data-testid="input-1-regProf"
+        />
       </Form.Field>
       <Form.Field errorMsg={errors.reg_professor?.message}>
         <Input

@@ -28,8 +28,8 @@
     "test": "react-scripts test",
     "test:cov": "react-scripts test --coverage --coverageDirectory=src/coverage --watchAll=false & json-server -p 6000 src/mocks/api.json env.test",
     "eject": "react-scripts eject",
-    "lint": "eslint --ignore-path .gitignore --ext .js src/",
-    "lint:fix": "eslint --single-quote --trailing-comma all --ext .js src/ --fix",
+    "lint": "eslint --ignore-path .gitignore --ignore-pattern 'src/tests/*' --ext .js src/",
+    "lint:fix": "eslint --ignore-path .gitignore --ignore-pattern 'src/tests/*' --ext .js src/ --fix",
     "format": "prettier --single-quote --trailing-comma all --check ./src",
     "format:fix": "prettier --single-quote --trailing-comma all --write ./src"
   },

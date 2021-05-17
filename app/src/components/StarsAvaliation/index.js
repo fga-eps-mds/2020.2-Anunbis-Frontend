@@ -7,7 +7,7 @@ function StarsAvaliation({ name, register }) {
   const [isChecked, setChecked] = React.useState(0);
 
   function status(num, numStatus) {
-    return num === numStatus ? 0 : num
+    return num === numStatus ? 0 : num;
   }
 
   return (

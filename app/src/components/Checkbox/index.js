@@ -1,7 +1,14 @@
 import React from 'react';
 import { Checkmark, Container } from './styles';
 
-export default function Checkbox({ text, name, register, checked, onChange, testid }) {
+export default function Checkbox({
+  text,
+  name,
+  register,
+  checked,
+  onChange,
+  testid,
+}) {
   return (
     <Container>
       <input

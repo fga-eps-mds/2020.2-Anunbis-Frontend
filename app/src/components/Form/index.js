@@ -12,7 +12,11 @@ const Footer = ({ children }) => <FooterContent>{children}</FooterContent>;
 
 function Form(props) {
   const { onSubmit, children } = props;
-  return <FormContainer {...props} onSubmit={onSubmit}>{children}</FormContainer>;
+  return (
+    <FormContainer {...props} onSubmit={onSubmit}>
+      {children}
+    </FormContainer>
+  );
 }
 
 Form.Field = Field;

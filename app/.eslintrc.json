@@ -21,6 +21,7 @@
         "react",
         "prettier"
     ],
+    "ignorePatterns": ["src/tests/*"],
     "rules": {
         "quotes": [
             "error",

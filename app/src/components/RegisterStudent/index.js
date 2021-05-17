@@ -17,7 +17,6 @@ export default function RegisterStudent({ onRegister }) {
   const { register, handleSubmit, errors } = useForm({
     resolver: yupResolver(schema),
   });
- 
 
   function coursesOptions(coursesO) {
     const coursesArray = [];
@@ -56,12 +55,13 @@ export default function RegisterStudent({ onRegister }) {
   return (
     <Form onSubmit={handleSubmit(onSubmit)}>
       <Form.Field errorMsg={errors.name?.message}>
-        <Input 
-        type="text" 
-        text="Nome" 
-        name="name" 
-        register={register}
-        data-testid="input-name" />
+        <Input
+          type="text"
+          text="Nome"
+          name="name"
+          register={register}
+          data-testid="input-name"
+        />
       </Form.Field>
       <Form.Field>
         <Select
@@ -72,7 +72,7 @@ export default function RegisterStudent({ onRegister }) {
           name="id_course"
           register={register}
           error={errors.id_course !== undefined}
-          data-testid="select-courses" 
+          data-testid="select-courses"
         />
       </Form.Field>
       <Form.Field errorMsg={errors.reg_student?.message}>
@@ -81,7 +81,7 @@ export default function RegisterStudent({ onRegister }) {
           text="Matrícula"
           name="reg_student"
           register={register}
-          data-testid="input-reg" 
+          data-testid="input-reg"
         />
       </Form.Field>
       <Form.Field errorMsg={errors.email?.message}>
@@ -90,7 +90,7 @@ export default function RegisterStudent({ onRegister }) {
           text="Email Institucional"
           name="email"
           register={register}
-          data-testid="input-email" 
+          data-testid="input-email"
         />
       </Form.Field>
       <Form.Field errorMsg={errors.password?.message}>
@@ -99,7 +99,7 @@ export default function RegisterStudent({ onRegister }) {
           text="Senha"
           name="password"
           register={register}
-          data-testid="input-password" 
+          data-testid="input-password"
         />
       </Form.Field>
       <Form.Field errorMsg={errors.co_password?.message}>
@@ -108,7 +108,7 @@ export default function RegisterStudent({ onRegister }) {
           text="Confirmar Senha"
           name="co_password"
           register={register}
-          data-testid="input-co-password" 
+          data-testid="input-co-password"
         />
       </Form.Field>
       <Form.Field>
