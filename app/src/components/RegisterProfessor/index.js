@@ -40,7 +40,7 @@ export default function RegisterProfessor({ onRegister }) {
   return (
     <Form onSubmit={handleSubmit(onSubmit)}>
       <Form.Field errorMsg={errors.name?.message}>
-        <Input type="text" text="Nome" name="name" register={register} />
+        <Input type="text" text="Nome" name="name" register={register} data-testid="input-1-regProf"/>
       </Form.Field>
       <Form.Field errorMsg={errors.reg_professor?.message}>
         <Input
@@ -48,6 +48,7 @@ export default function RegisterProfessor({ onRegister }) {
           text="Matrícula"
           name="reg_professor"
           register={register}
+          data-testid="input-2-regProf"
         />
       </Form.Field>
       <Form.Field errorMsg={errors.email?.message}>
@@ -56,6 +57,7 @@ export default function RegisterProfessor({ onRegister }) {
           text="Email Institucional"
           name="email"
           register={register}
+          data-testid="input-3-regProf"
         />
       </Form.Field>
       <Form.Field errorMsg={errors.password?.message}>
@@ -65,6 +67,7 @@ export default function RegisterProfessor({ onRegister }) {
           text="Senha"
           name="password"
           register={register}
+          data-testid="input-4-regProf"
         />
       </Form.Field>
       <Form.Field errorMsg={errors.co_password?.message}>
@@ -73,6 +76,7 @@ export default function RegisterProfessor({ onRegister }) {
           text="Confirmar Senha"
           name="co_password"
           register={register}
+          data-testid="input-5-regProf"
         />
       </Form.Field>
       <Form.Field>
@@ -82,13 +86,15 @@ export default function RegisterProfessor({ onRegister }) {
         <Button
           text="CANCELAR"
           backColor="#FFF9C4"
-          onClick={() => history.push('/')}
+          onClick={() => history?.push('/')}
+          data-testid="btn-1-regProf"
         />
         <Button
           text="CONFIRMAR"
           type="submit"
           backColor="#FFF9C4"
           onkeydown="Enter"
+          data-testid="btn-2-regProf"
         />
       </Form.Footer>
     </Form>

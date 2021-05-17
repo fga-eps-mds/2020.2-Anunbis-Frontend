@@ -18,5 +18,10 @@
     {
       "message": "Courses Collected"
     }
+  ],
+  "professor": [
+    {
+      "id": 0
+    }
   ]
 }
