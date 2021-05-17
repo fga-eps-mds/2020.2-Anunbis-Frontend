@@ -26,7 +26,7 @@
     "build": "react-scripts build",
     "stop": "react-scripts stop",
     "test": "react-scripts test",
-    "test:cov": "react-scripts test --coverage --coverageDirectory=src/coverage --watchAll=false & json-server -p 6000 src/mocks/api.json env.test",
+    "test:cov": "react-scripts test --coverage --coverageDirectory=src/coverage  --watchAll=false ",
     "eject": "react-scripts eject",
     "lint": "eslint --ignore-path .gitignore --ignore-pattern 'src/tests/*' --ext .js src/",
     "lint:fix": "eslint --ignore-path .gitignore --ignore-pattern 'src/tests/*' --ext .js src/ --fix",
@@ -63,6 +63,7 @@
   },
   "devDependencies": {
     "@testing-library/react-hooks": "^5.1.2",
+    "axios-mock-adapter": "^1.19.0",
     "eslint": "^7.25.0",
     "eslint-config-airbnb": "^18.2.1",
     "eslint-config-prettier": "^8.3.0",

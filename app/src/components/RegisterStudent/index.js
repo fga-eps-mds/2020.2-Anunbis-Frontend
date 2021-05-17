@@ -119,7 +119,7 @@ export default function RegisterStudent({ onRegister }) {
           text="CANCELAR"
           backColor="#FFF9C4"
           padding="12px 8px"
-          onClick={() => history.push('/')}
+          onClick={() => history?.push('/')}
         />
         <Button
           text="CONFIRMAR"
