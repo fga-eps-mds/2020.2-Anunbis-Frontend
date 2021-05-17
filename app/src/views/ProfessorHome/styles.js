@@ -14,6 +14,12 @@ const translate = keyframes`
 export const Home = styled.div`
   display: grid;
   grid-template-columns: min(30vw, 300px) min(70vw, 800px);
+  @media (max-width: 760px) {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    width: 90vw;
+  }
 `;
 
 export const BtnHomeProfessor = styled.div`
@@ -26,15 +32,17 @@ export const BtnHomeProfessor = styled.div`
   flex-direction: column;
   align-items: center;
   justify-content: space-around;
-  @media (max-width: 800px) {
-    height: 40%;
-    width: 70%;
+  @media (max-width: 760px) {
+    width: 100%;
+    height: 100px;
+    margin: 20px 0px 20px 0px;
     button {
+      height: 30%;
+      width: 80%;
+      font-size: 12px;
       white-space: nowrap;
       text-overflow: ellipsis;
       overflow: hidden;
-      height: 30%;
-      width: 80%;
     }
   }
 `;
