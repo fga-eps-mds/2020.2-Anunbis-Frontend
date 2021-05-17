@@ -14,10 +14,18 @@ export const Logo = styled.div`
   &:hover {
     cursor: pointer;
   }
+
+  @media (max-width: 500px) {
+    max-height: 50px;
+  }
 `;
 
 export const ImageLogo = styled.img`
   max-width: 200px;
   max-height: 40px;
   display: inline-block;
+  @media (max-width: 500px) {
+    max-width: 100%;
+    max-height: 100%;
+  }
 `;

@@ -13,22 +13,25 @@ export const Background = styled.div`
 
 export const Base = styled.div`
   background-color: #ffd54f;
-  height: 450px;
-  width: 800px;
+  height: min(500px, 70vh);
+  width: min(800px, 70vw);
   border-radius: 20px;
   display: flex;
   justify-content: space-around;
 `;
 
 export const Imagem = styled.img`
-  height: 450px;
-  width: 400px;
+  @media (max-width: 640px) {
+    display: none;
+  }
+  height: min(500px, 70vh);
+  width: min(50%, 400px);
   border-top-right-radius: 20px;
   border-bottom-right-radius: 20px;
   object-fit: cover;
 `;
 
 export const Main = styled.div`
-  height: 450px;
-  width: 400px;
+  max-height: 500px;
+  max-width: 400px;
 `;
