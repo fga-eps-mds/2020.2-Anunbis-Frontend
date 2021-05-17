@@ -2,8 +2,8 @@ import styled from 'styled-components';
 
 export const ContentExclude = styled.div`
   position: absolute;
-  width: 250px;
-  height: 100px;
+  width: min(55vw, 250px);
+  height: min(20vh, 100px);
   display: flex;
   flex-direction: column;
   background-color: var(--lightWhite);
@@ -21,6 +21,12 @@ export const ContentExclude = styled.div`
     height: 30px;
     align-items: center;
     justify-content: center;
+    @media (max-height: 660px) {
+      font-size: 11px;
+    }
+  }
+  @media (max-height: 330px) {
+    display: none;
   }
 `;
 
@@ -32,10 +38,18 @@ export const BtsExclude = styled.div`
   justify-content: center;
   align-items: center;
   border-radius: 10px;
+  flex-wrap: wrap;
 
   Button {
     color: white;
     font-weight: bold;
     border: none;
+    @media (max-width: 155px) {
+      width: 30px;
+      height: 30px;
+    }
+    @media (max-height: 660px) {
+      font-size: 11px;
+    }
   }
 `;

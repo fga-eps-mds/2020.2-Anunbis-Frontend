@@ -19,7 +19,13 @@ const Title = ({ props, children }) => (
   <DivTitle {...props}>{children}</DivTitle>
 );
 
-const Header = ({ professor, feedbacks, canAvaliate, onNewAvaliation }) => {
+const Header = ({
+  professor,
+  feedbacks,
+  canAvaliate,
+  onNewAvaliation,
+  backColor,
+}) => {
   const [avaliate, setAvaliate] = React.useState(false);
 
   function onClose() {
@@ -41,7 +47,7 @@ const Header = ({ professor, feedbacks, canAvaliate, onNewAvaliation }) => {
           <Avaliation professor={professor} close={onClose} />
         </Popup>
       )}
-      <HeaderStyle>
+      <HeaderStyle backColor={backColor}>
         <Grid>
           <label>Nota Geral: </label>
           <label>
