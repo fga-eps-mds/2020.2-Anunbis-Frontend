@@ -10,6 +10,7 @@ exports[`Snapshot RegisterStudent component matches the snapshot 1`] = `
   >
     <input
       className="sc-eCApnc doXpOj"
+      data-testid="input-name"
       name="name"
       placeholder="Nome"
       type="text"
@@ -23,6 +24,7 @@ exports[`Snapshot RegisterStudent component matches the snapshot 1`] = `
   >
     <select
       className="sc-jSFjdj bURWPa"
+      data-testid="select-courses"
       id="courses"
       name="id_course"
     >
@@ -43,6 +45,7 @@ exports[`Snapshot RegisterStudent component matches the snapshot 1`] = `
   >
     <input
       className="sc-eCApnc doXpOj"
+      data-testid="input-reg"
       name="reg_student"
       placeholder="Matrícula"
       type="text"
@@ -56,6 +59,7 @@ exports[`Snapshot RegisterStudent component matches the snapshot 1`] = `
   >
     <input
       className="sc-eCApnc doXpOj"
+      data-testid="input-email"
       name="email"
       placeholder="Email Institucional"
       type="email"
@@ -69,6 +73,7 @@ exports[`Snapshot RegisterStudent component matches the snapshot 1`] = `
   >
     <input
       className="sc-eCApnc doXpOj"
+      data-testid="input-password"
       name="password"
       placeholder="Senha"
       type="password"
@@ -82,6 +87,7 @@ exports[`Snapshot RegisterStudent component matches the snapshot 1`] = `
   >
     <input
       className="sc-eCApnc doXpOj"
+      data-testid="input-co-password"
       name="co_password"
       placeholder="Confirmar Senha"
       type="password"

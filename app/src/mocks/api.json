@@ -16,10 +16,16 @@
   ],
   "course": [
     {
-      "message": "Courses Collected"
+      "id_course": 1,
+      "name": "Engenharia de Software"
     }
   ],
   "professor": [
+    {
+      "id": 0
+    }
+  ],
+  "student": [
     {
       "id": 0
     }

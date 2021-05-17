@@ -68,8 +68,6 @@ exports[`Snapshot Avaliation view matches the snapshot 1`] = `
           >
             <div
               className="sc-gKAaRy cgyNEA"
-              data-testid="star-aval-1"
-              name="didactic"
             >
               <label
                 className="sc-fujyAs exNMkG"
@@ -154,8 +152,6 @@ exports[`Snapshot Avaliation view matches the snapshot 1`] = `
           >
             <div
               className="sc-gKAaRy cgyNEA"
-              data-testid="star-aval-2"
-              name="metod"
             >
               <label
                 className="sc-fujyAs exNMkG"
@@ -240,8 +236,6 @@ exports[`Snapshot Avaliation view matches the snapshot 1`] = `
           >
             <div
               className="sc-gKAaRy cgyNEA"
-              data-testid="star-aval-3"
-              name="avaliations"
             >
               <label
                 className="sc-fujyAs exNMkG"
@@ -326,8 +320,6 @@ exports[`Snapshot Avaliation view matches the snapshot 1`] = `
           >
             <div
               className="sc-gKAaRy cgyNEA"
-              data-testid="star-aval-4"
-              name="disponibility"
             >
               <label
                 className="sc-fujyAs exNMkG"
