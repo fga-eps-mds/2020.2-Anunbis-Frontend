@@ -2,7 +2,7 @@
 
 exports[`Snapshot Select component matches the snapshot 1`] = `
 <select
-  className="sc-bdnxRM gkBzG"
+  className="sc-bdnxRM sMLSx"
 >
   <option
     disabled={true}

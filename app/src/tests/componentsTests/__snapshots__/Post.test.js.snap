@@ -5,10 +5,10 @@ exports[`Snapshot Post component matches the snapshot 1`] = `
   className="sc-gtsrHT dDYQua"
 >
   <div
-    className="sc-dlnjwi jUxskP"
+    className="sc-dlnjwi ekUVhp"
   >
     <div
-      className="sc-jSFjdj iJMXeY"
+      className="sc-jSFjdj cLRgwt"
     >
       [
       ]
@@ -17,11 +17,11 @@ exports[`Snapshot Post component matches the snapshot 1`] = `
       Data: 
       <br />
       <div
-        className="sc-gKAaRy iKxJej"
+        className="sc-gKAaRy ifsQra"
       />
     </div>
     <div
-      className="sc-iCoGMd jRTzpo"
+      className="sc-iCoGMd lbslSD"
     >
       <label>
         <b>
@@ -56,10 +56,10 @@ exports[`Snapshot Post component matches the snapshot 1`] = `
     />
   </div>
   <div
-    className="sc-hKFxyN frAbNa"
+    className="sc-hKFxyN cRgYqC"
   />
   <div
-    className="sc-eCApnc gGWRwP"
+    className="sc-eCApnc ijfCNI"
   >
     <button
       className="sc-bdnxRM ikeTfa"

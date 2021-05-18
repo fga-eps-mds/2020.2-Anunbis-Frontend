@@ -2,7 +2,7 @@
 
 exports[`Snapshot Report component matches the snapshot 1`] = `
 <div
-  className="sc-hKFxyN jyPCHR"
+  className="sc-hKFxyN eFovYf"
 >
   <div
     className="sc-eCApnc foDSAG"
@@ -20,17 +20,17 @@ exports[`Snapshot Report component matches the snapshot 1`] = `
     </button>
   </div>
   <main
-    className="sc-gKAaRy hiGEXr"
+    className="sc-gKAaRy bXsuMg"
   >
     <form
-      className="sc-pNWdM hzGYXc"
+      className="sc-pNWdM dYxkWR"
       onSubmit={[Function]}
     >
       <div
-        className="sc-iCoGMd gVbVIY"
+        className="sc-iCoGMd hziUSP"
       >
         <div
-          className="sc-kEqXSa iYriRP"
+          className="sc-kEqXSa gBjBKd"
         >
           <p>
             Motivo da Denuncia:
@@ -85,7 +85,7 @@ exports[`Snapshot Report component matches the snapshot 1`] = `
           </label>
         </div>
         <div
-          className="sc-fujyAs iHYcWG error"
+          className="sc-fujyAs FaHra error"
         />
       </div>
       <div
@@ -95,19 +95,19 @@ exports[`Snapshot Report component matches the snapshot 1`] = `
           Detalhe os motivos:
         </p>
         <div
-          className="sc-iCoGMd gVbVIY"
+          className="sc-iCoGMd hziUSP"
         >
           <textarea
-            className="sc-crzoAE dhRvYG"
+            className="sc-crzoAE idzbNo"
             name="details"
           />
           <div
-            className="sc-fujyAs iHYcWG error"
+            className="sc-fujyAs FaHra error"
           />
         </div>
       </div>
       <div
-        className="sc-iqAclL eXBGkr"
+        className="sc-iqAclL iPqpGC"
       >
         <button
           className="sc-bdnxRM KjNCJ"

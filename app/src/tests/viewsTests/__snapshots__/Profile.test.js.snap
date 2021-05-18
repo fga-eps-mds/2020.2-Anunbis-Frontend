@@ -2,18 +2,18 @@
 
 exports[`Snapshot Profile view matches the snapshot 1`] = `
 <div
-  className="sc-jrsJWt Lfqbd"
+  className="sc-jrsJWt bhmBzU"
   display="flex"
 >
   
   
   <h4
-    className="sc-crzoAE eBudzw"
+    className="sc-crzoAE ucyKq"
   >
     Configurações de conta
   </h4>
   <div
-    className="sc-bqGGPW khYFFK"
+    className="sc-bqGGPW TgfAl"
     height="115px"
     width="240px"
   >
@@ -25,13 +25,13 @@ exports[`Snapshot Profile view matches the snapshot 1`] = `
     </p>
   </div>
   <button
-    className="sc-jSFjdj cjmoSN sc-kEqXSa iGCmWf"
+    className="sc-jSFjdj cjmoSN sc-kEqXSa jYTHVF"
     onClick={[Function]}
   >
     ALTERAR SENHA
   </button>
   <div
-    className="sc-bqGGPW eREWbw"
+    className="sc-bqGGPW hUINSj"
     height="115px"
     width="430px"
   >
@@ -45,7 +45,7 @@ exports[`Snapshot Profile view matches the snapshot 1`] = `
     </p>
   </div>
   <button
-    className="sc-jSFjdj kZEVrR sc-iqAclL ffyEbL"
+    className="sc-jSFjdj kZEVrR sc-iqAclL tzNKh"
     onClick={[Function]}
   >
     EXCLUIR CONTA

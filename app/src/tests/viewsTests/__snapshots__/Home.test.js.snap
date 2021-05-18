@@ -8,11 +8,11 @@ exports[`Snapshot Home view matches the snapshot 1`] = `
     className="sc-gKAaRy dQFOuk"
   >
     <div
-      className="sc-iCoGMd ivGAWm"
+      className="sc-iCoGMd deCerP"
     >
       <img
         alt="logo"
-        className="sc-fujyAs ccinlj"
+        className="sc-fujyAs kpogkV"
         onClick={[Function]}
         src="Name_Logo.png"
       />
@@ -48,7 +48,7 @@ exports[`Snapshot Home view matches the snapshot 1`] = `
       </div>
     </div>
     <div
-      className="sc-jSFjdj ciGYdt"
+      className="sc-jSFjdj kDArBW"
       height="22,5px"
     >
       <button

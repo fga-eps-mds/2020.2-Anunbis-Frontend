@@ -2,7 +2,7 @@
 
 exports[`Snapshot Avaliation view matches the snapshot 1`] = `
 <div
-  className="sc-crzoAE jybEJz"
+  className="sc-crzoAE feGJIF"
 >
   <div
     className="sc-dIsUp hJMXzL"
@@ -20,13 +20,13 @@ exports[`Snapshot Avaliation view matches the snapshot 1`] = `
     </button>
   </div>
   <main
-    className="sc-ksluID fwrYRs"
+    className="sc-ksluID dqykrH"
   >
     <div
-      className="sc-bdnxRM eXjrxA"
+      className="sc-bdnxRM kjrnMz"
     >
       <form
-        className="sc-kEqXSa LLDRx"
+        className="sc-kEqXSa cgEWQw"
         data-testid="form-aval-1"
         onSubmit={[Function]}
       >
@@ -34,10 +34,10 @@ exports[`Snapshot Avaliation view matches the snapshot 1`] = `
           className="sc-dlnjwi djLcli"
         />
         <div
-          className="sc-pNWdM ehCoNQ"
+          className="sc-pNWdM eUdqmP"
         >
           <select
-            className="sc-eCApnc lmVzva"
+            className="sc-eCApnc jaaHNR"
             id="diciplines"
             name="id_course"
           >
@@ -50,7 +50,7 @@ exports[`Snapshot Avaliation view matches the snapshot 1`] = `
             </option>
           </select>
           <div
-            className="sc-jrsJWt ifOIGW error"
+            className="sc-jrsJWt fvYlXW error"
           />
         </div>
         <p>
@@ -63,7 +63,7 @@ exports[`Snapshot Avaliation view matches the snapshot 1`] = `
             Didática:
           </label>
           <div
-            className="sc-pNWdM ehCoNQ"
+            className="sc-pNWdM eUdqmP"
           >
             <div
               className="sc-gKAaRy cgyNEA"
@@ -140,14 +140,14 @@ exports[`Snapshot Avaliation view matches the snapshot 1`] = `
               </label>
             </div>
             <div
-              className="sc-jrsJWt ifOIGW error"
+              className="sc-jrsJWt fvYlXW error"
             />
           </div>
           <label>
             Metodologia:
           </label>
           <div
-            className="sc-pNWdM ehCoNQ"
+            className="sc-pNWdM eUdqmP"
           >
             <div
               className="sc-gKAaRy cgyNEA"
@@ -224,14 +224,14 @@ exports[`Snapshot Avaliation view matches the snapshot 1`] = `
               </label>
             </div>
             <div
-              className="sc-jrsJWt ifOIGW error"
+              className="sc-jrsJWt fvYlXW error"
             />
           </div>
           <label>
             Coerência das Avaliações:
           </label>
           <div
-            className="sc-pNWdM ehCoNQ"
+            className="sc-pNWdM eUdqmP"
           >
             <div
               className="sc-gKAaRy cgyNEA"
@@ -308,14 +308,14 @@ exports[`Snapshot Avaliation view matches the snapshot 1`] = `
               </label>
             </div>
             <div
-              className="sc-jrsJWt ifOIGW error"
+              className="sc-jrsJWt fvYlXW error"
             />
           </div>
           <label>
             Disponibilidade:
           </label>
           <div
-            className="sc-pNWdM ehCoNQ"
+            className="sc-pNWdM eUdqmP"
           >
             <div
               className="sc-gKAaRy cgyNEA"
@@ -392,7 +392,7 @@ exports[`Snapshot Avaliation view matches the snapshot 1`] = `
               </label>
             </div>
             <div
-              className="sc-jrsJWt ifOIGW error"
+              className="sc-jrsJWt fvYlXW error"
             />
           </div>
         </div>
@@ -400,7 +400,7 @@ exports[`Snapshot Avaliation view matches the snapshot 1`] = `
           Postagem:
         </p>
         <div
-          className="sc-bdnxRM emIYuX"
+          className="sc-bdnxRM fGJwKM"
           direction="row"
         >
           <button
@@ -422,19 +422,19 @@ exports[`Snapshot Avaliation view matches the snapshot 1`] = `
           Descrição/Comentários:
         </p>
         <div
-          className="sc-pNWdM ehCoNQ"
+          className="sc-pNWdM eUdqmP"
         >
           <textarea
-            className="sc-hKFxyN cqPLvi"
+            className="sc-hKFxyN cqWcJi"
             data-testid="form-aval-2"
             name="comments"
           />
           <div
-            className="sc-jrsJWt ifOIGW error"
+            className="sc-jrsJWt fvYlXW error"
           />
         </div>
         <div
-          className="sc-iqAclL cnLUtV"
+          className="sc-iqAclL fwgQfe"
         >
           <button
             className="sc-jSFjdj iooaEn"

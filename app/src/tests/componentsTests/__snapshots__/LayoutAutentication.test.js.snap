@@ -5,14 +5,14 @@ exports[`Snapshot LayoutAutentication component matches the snapshot 1`] = `
   className="sc-bdnxRM kFKwhN"
 >
   <div
-    className="sc-gtsrHT eMPPuQ"
+    className="sc-gtsrHT ekXjMP"
   >
     <div
-      className="sc-hKFxyN bIjoSs"
+      className="sc-hKFxyN"
     />
     <img
       alt="Logo"
-      className="sc-dlnjwi iYtYcZ"
+      className="sc-dlnjwi gxtIsz"
       src="Logo.jpg"
     />
   </div>

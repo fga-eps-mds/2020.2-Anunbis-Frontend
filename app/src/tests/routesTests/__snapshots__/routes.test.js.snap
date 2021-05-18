@@ -8,11 +8,11 @@ exports[`routes test matches the snapshot 1`] = `
     className="sc-hhIiOg celdYD"
   >
     <div
-      className="sc-eirqVv kFWhuO"
+      className="sc-eirqVv knwhuz"
     >
       <img
         alt="logo"
-        className="sc-lbVvki bywqR"
+        className="sc-lbVvki iJkZPf"
         onClick={[Function]}
         src="Name_Logo.png"
       />
@@ -48,7 +48,7 @@ exports[`routes test matches the snapshot 1`] = `
       </div>
     </div>
     <div
-      className="sc-oeezt bHubXr"
+      className="sc-oeezt dGsVOw"
       height="22,5px"
     >
       <button

@@ -2,20 +2,20 @@
 
 exports[`Snapshot Authentication view matches the snapshot 1`] = `
 <div
-  className="sc-bdnxRM ivnDX"
+  className="sc-bdnxRM eKuLqM"
 >
   <div
-    className="sc-dlnjwi kpNdnw"
+    className="sc-dlnjwi dCJLA-d"
   >
     <div
-      className="sc-hKFxyN kKsEfH btnLogin"
+      className="sc-hKFxyN dLGJru btnLogin"
       onClick={[Function]}
       selected={true}
     >
       Login
     </div>
     <div
-      className="sc-hKFxyN eJfuaj btnCadastro"
+      className="sc-hKFxyN hLVVlO btnCadastro"
       onClick={[Function]}
       selected={false}
     >
@@ -23,21 +23,21 @@ exports[`Snapshot Authentication view matches the snapshot 1`] = `
     </div>
   </div>
   <div
-    className="sc-gtsrHT eHfyej"
+    className="sc-gtsrHT cSjUqK"
   >
     <form
-      className="sc-fujyAs iUoQcC"
+      className="sc-fujyAs kayyCj"
       onSubmit={[Function]}
     >
       <div
-        className="sc-gKAaRy btmTHI"
+        className="sc-gKAaRy cgnZuv"
       >
         <div
-          className="sc-iCoGMd dBpElD error"
+          className="sc-iCoGMd gQaaRH error"
         />
       </div>
       <div
-        className="sc-gKAaRy btmTHI"
+        className="sc-gKAaRy cgnZuv"
       >
         <input
           className="sc-jrsJWt QesSX"
@@ -46,11 +46,11 @@ exports[`Snapshot Authentication view matches the snapshot 1`] = `
           type="text"
         />
         <div
-          className="sc-iCoGMd dBpElD error"
+          className="sc-iCoGMd gQaaRH error"
         />
       </div>
       <div
-        className="sc-gKAaRy btmTHI"
+        className="sc-gKAaRy cgnZuv"
       >
         <input
           className="sc-jrsJWt QesSX"
@@ -59,11 +59,11 @@ exports[`Snapshot Authentication view matches the snapshot 1`] = `
           type="password"
         />
         <div
-          className="sc-iCoGMd dBpElD error"
+          className="sc-iCoGMd gQaaRH error"
         />
       </div>
       <div
-        className="sc-pNWdM kXmnwj"
+        className="sc-pNWdM eOsaBw"
       >
         <button
           className="sc-jSFjdj jthJeV"

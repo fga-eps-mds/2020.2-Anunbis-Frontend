@@ -192,13 +192,8 @@ function ProfessorSearch() {
           </Feed.Title>
         )}
         {!loading && <Feed.PostsBox posts={posts} key={posts.length} />}
-<<<<<<< HEAD
         {loading && (
-          <LoadingBox>
-=======
-        {loading && professors.length > 0 && (
           <LoadingBox data-testid="load-1">
->>>>>>> (#205) Atualizando testes com a branch develop e formatando arquivos
             <Loading />
           </LoadingBox>
         )}

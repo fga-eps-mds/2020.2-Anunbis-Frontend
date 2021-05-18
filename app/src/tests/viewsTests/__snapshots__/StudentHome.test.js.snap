@@ -2,16 +2,16 @@
 
 exports[`Snapshot StudentHome view matches the snapshot 1`] = `
 <div
-  className="sc-bdnxRM dHvxIB"
+  className="sc-bdnxRM czucyK"
   title="Avaliações Feitas Por Você"
 >
   <div
-    className="sc-gtsrHT iUwlZJ"
+    className="sc-gtsrHT XbvmI"
   >
     Avaliações Feitas Por Você
   </div>
   <div
-    className="sc-eCApnc ekjowF"
+    className="sc-eCApnc hegkdr"
   />
 </div>
 `;
