@@ -31,6 +31,9 @@ export const ProfessorSearchStyle = styled.div`
     color: ${(props) => (props.isValid ? '#FFFDE7' : 'red')};
     border-bottom: 1px solid #fffde7;
     margin: 0px;
+    @media (max-width: 500px) {
+      font-size: 10px;
+    }
   }
   input {
     height: 18px;
@@ -52,7 +55,7 @@ export const End = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  width: 100px;
+  width: min(100%, 100px);
   height: ${(props) => (props.height ? props.height : '10px')};
   margin-left: auto;
   margin-inline-end: 50px;

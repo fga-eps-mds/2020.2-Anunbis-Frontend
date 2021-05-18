@@ -28,6 +28,11 @@ export const Container = styled.div`
       justify-content: center;
       align-items: center;
       border: var(--black);
+      @media (max-width: 460px) {
+        font-size: 11px;
+        width: 20vw;
+        overflow: hidden;
+      }
     }
 
     textarea {
@@ -63,5 +68,9 @@ export const TxtArea = styled.textarea`
 
   &:focus {
     outline-width: 0;
+  }
+
+  @media (max-width: 460px) {
+    width: 75vw;
   }
 `;

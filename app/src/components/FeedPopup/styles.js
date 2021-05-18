@@ -2,13 +2,16 @@ import styled from 'styled-components';
 
 export const Container = styled.div`
   width: 372px;
-  min-height: 380px;
   height: fit-content;
   background-color: #fffde7;
   border-bottom-right-radius: 2%;
   border-bottom-left-radius: 2%;
   display: flex;
   flex-direction: column;
+  @media (max-width: 460px) {
+    font-size: 13px;
+    width: 80vw;
+  }
 `;
 
 export const Header = styled.div`
@@ -36,4 +39,8 @@ export const Title = styled.div`
 export const Content = styled.main`
   align-self: center;
   justify-content: center;
+  margin-bottom: 10px;
+  @media (max-width: 460px) {
+    width: 100%;
+  }
 `;

@@ -11,6 +11,7 @@ import {
   Name,
   Discipline,
   LoadingBox,
+  NotFound,
 } from './styles';
 import BtnOptions from '../../assets/images/Btn_options.png';
 import Users from '../../services/Users';
@@ -112,17 +113,17 @@ function ProfessorSearch() {
 
     api.get(`/professor/${id_professor}`).then((response) => {
       // eslint-disable-line
+      const requestDuration = startRequest - new Date().getTime();
       if (response.status === 200) {
-        const requestDuration = startRequest - new Date().getTime();
         professors[selected.professor] = response.data;
         setProfessors(professors);
-        setTimeout(
-          () => {
-            setLoading(false);
-          },
-          requestDuration > 500 ? 0 : 500 - requestDuration,
-        );
       }
+      setTimeout(
+        () => {
+          setLoading(false);
+        },
+        requestDuration > 500 ? 0 : 500 - requestDuration,
+      );
     });
   }, [newAvaliationState, selected]);
 
@@ -134,6 +135,7 @@ function ProfessorSearch() {
           setProfessors(response.data);
           handleSetSelected(0, -1);
         }
+        if (response.data.length === 0) setLoading(false);
       })
       .catch(() => {
         setProfessors([]);
@@ -145,7 +147,7 @@ function ProfessorSearch() {
       {professors.length > 0 && (
         <Feed
           title="Professores"
-          width="210px"
+          width="min(20vw, 210px)"
           radius="0px 0px 10px 10px"
           key={professors.length}
         >
@@ -164,24 +166,33 @@ function ProfessorSearch() {
       )}
 
       <Feed
-        title={professor ? `${professor.name}` : 'Sem Resultados'}
+        title={professor ? `${professor.name}` : 'Pesquisa de professor'}
         radius="0px 0px 10px 10px"
       >
-        <Feed.Header
-          professor={professor}
-          feedbacks={feedbacks}
-          canAvaliate={Users.STUDENT.isAuthenticated()}
-          onNewAvaliation={() => setNewAvaliationState(!newAvaliationState)}
-        />
         {professors.length > 0 && (
-          <Feed.Title backColor="var(--cian)">
+          <Feed.Header
+            professor={professor}
+            feedbacks={feedbacks}
+            canAvaliate={Users.STUDENT.isAuthenticated()}
+            onNewAvaliation={() => setNewAvaliationState(!newAvaliationState)}
+            backColor="#FFFDE7"
+            border="1px solid var(--black)"
+          />
+        )}
+        {professors.length === 0 && !loading && (
+          <NotFound>
+            <div>Nenhum Professor Encontrado!</div>
+          </NotFound>
+        )}
+        {professors.length > 0 && (
+          <Feed.Title zIndex="0">
             {posts.length === 0 && !loading
               ? 'Sem Avaliações Ainda'
               : 'Avaliações'}
           </Feed.Title>
         )}
         {!loading && <Feed.PostsBox posts={posts} key={posts.length} />}
-        {loading && professors.length > 0 && (
+        {loading && (
           <LoadingBox>
             <Loading />
           </LoadingBox>

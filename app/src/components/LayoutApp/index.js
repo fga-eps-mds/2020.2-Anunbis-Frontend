@@ -29,7 +29,7 @@ function ProfessorSearch({ history }) {
     <ProfessorSearchStyle isValid={isValid}>
       <Input
         type="text"
-        width="400px"
+        width="min(100%, 400px)"
         text="Informe o nome do professor"
         onkeydown={onSubmit}
         onChange={validate}
