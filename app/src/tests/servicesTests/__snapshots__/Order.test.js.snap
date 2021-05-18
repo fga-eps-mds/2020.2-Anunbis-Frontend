@@ -1,0 +1,27 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`orders service test orders must be the same 1`] = `
+Array [
+  Object {
+    "fun": [Function],
+    "id": 0,
+    "name": "Mais popular",
+    "selected": true,
+  },
+  Object {
+    "fun": [Function],
+    "id": 1,
+    "name": "Mais recente",
+  },
+  Object {
+    "fun": [Function],
+    "id": 2,
+    "name": "Maior Nota Geral",
+  },
+  Object {
+    "fun": [Function],
+    "id": 3,
+    "name": "Menor Nota Geral",
+  },
+]
+`;

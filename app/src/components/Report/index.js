@@ -14,7 +14,7 @@ export default function Report({ close }) {
   });
 
   function onSubmit() {
-    console.log('Denuncia realizada.');
+    console.log('Denuncia realizada.'); // eslint-disable-line
   }
 
   return (

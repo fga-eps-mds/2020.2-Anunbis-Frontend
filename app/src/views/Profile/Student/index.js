@@ -12,22 +12,18 @@ const Header = () => {
     getCourses(setCourses);
   }, []);
 
-  function getCourseName() {
-    let cont = 0;
-    let name;
-    while (cont < courses.length) {
-      if (courses[cont].id_course === student.id_course) {
-        name = courses[cont].name;
-      }
-      cont += 1;
-    }
-    return name;
+  function getCourseName(coursesArray) {
+    const result = coursesArray.find(
+      (course) => course.id_course === student.id_course,
+    );
+    return result?.name;
   }
+
   return (
     <Conteiner backColor="#FFFFFF" width="240px" height="115px">
-      <p>Nome Completo: {student.name}</p>
-      <p>E-mail: {student.email}</p>
-      <p>Curso: {getCourseName()}</p>
+      <p>Nome Completo: {student?.name}</p>
+      <p>E-mail: {student?.email}</p>
+      <p>Curso: {getCourseName(courses)}</p>
     </Conteiner>
   );
 };
@@ -38,7 +34,6 @@ const Body = () => {
   useEffect(() => {
     getPosts(setPosts);
   }, []);
-  console.log(posts);
 
   function countAgree() {
     return posts.reduce(
@@ -67,7 +62,7 @@ const Body = () => {
         {countAgree()}
       </p>
       <p>
-        Quantidade de pessoas que discordaram com suas avaliações:{' '}
+        Quantidade de pessoas que discordaram de suas avaliações:{' '}
         {countDisagree()}
       </p>
     </Conteiner>

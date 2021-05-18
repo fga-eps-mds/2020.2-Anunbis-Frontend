@@ -24,7 +24,6 @@ export default function ResetPassword({ onClick }) {
   }
 
   function onSubmit(data) {
-    console.log(data);
     const body = {
       password: data.new_password,
     };
@@ -34,7 +33,7 @@ export default function ResetPassword({ onClick }) {
         setFeedBack(makeFeedback());
       })
       .catch((error) => {
-        console.log(error);
+        console.log(error); // eslint-disable-line
       });
   }
 

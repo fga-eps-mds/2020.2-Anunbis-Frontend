@@ -27,7 +27,9 @@ export default function RegisterProfessor({ onRegister }) {
       .post('/professor', body)
       .then((response) => {
         if (response.status === 201) {
-          onRegister('Confirme o seu cadastro com o e-mail de verificação enviado ao seu e-mail.');
+          onRegister(
+            'Confirme o seu cadastro com o e-mail de verificação enviado ao seu e-mail.',
+          );
         }
       })
       .catch((error) => {
@@ -82,7 +84,7 @@ export default function RegisterProfessor({ onRegister }) {
         <Button
           text="CANCELAR"
           backColor="#FFF9C4"
-          onClick={() => history.push('/')}
+          onClick={() => history?.push('/')}
         />
         <Button
           text="CONFIRMAR"

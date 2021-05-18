@@ -1,0 +1,450 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Snapshot Avaliation view matches the snapshot 1`] = `
+<div
+  className="sc-crzoAE feGJIF"
+>
+  <div
+    className="sc-dIsUp hJMXzL"
+  >
+    <div
+      className="sc-bqGGPW dAWHJi"
+    >
+      Avaliação
+    </div>
+    <button
+      className="sc-jSFjdj iYEbuK"
+      radius="0px"
+    >
+      X
+    </button>
+  </div>
+  <main
+    className="sc-ksluID dqykrH"
+  >
+    <div
+      className="sc-bdnxRM kjrnMz"
+    >
+      <form
+        className="sc-kEqXSa cgEWQw"
+        data-testid="form-aval-1"
+        onSubmit={[Function]}
+      >
+        <p
+          className="sc-dlnjwi djLcli"
+        />
+        <div
+          className="sc-pNWdM eUdqmP"
+        >
+          <select
+            className="sc-eCApnc jaaHNR"
+            id="diciplines"
+            name="id_course"
+          >
+            <option
+              disabled={true}
+              selected={true}
+              value=""
+            >
+              Selecione um Curso
+            </option>
+          </select>
+          <div
+            className="sc-jrsJWt fvYlXW error"
+          />
+        </div>
+        <p>
+          Notas:
+        </p>
+        <div
+          className="sc-gtsrHT kavaLt"
+        >
+          <label>
+            Didática:
+          </label>
+          <div
+            className="sc-pNWdM eUdqmP"
+          >
+            <div
+              className="sc-gKAaRy cgyNEA"
+            >
+              <label
+                className="sc-fujyAs exNMkG"
+              >
+                <input
+                  checked={false}
+                  data-testid="input-stars-1"
+                  name="didactic"
+                  onChange={[Function]}
+                  type="checkbox"
+                />
+                <span
+                  className="sc-iCoGMd iNWuFv"
+                />
+              </label>
+              <label
+                className="sc-fujyAs exNMkG"
+              >
+                <input
+                  checked={false}
+                  data-testid="input-stars-2"
+                  name="didactic"
+                  onChange={[Function]}
+                  type="checkbox"
+                />
+                <span
+                  className="sc-iCoGMd iNWuFv"
+                />
+              </label>
+              <label
+                className="sc-fujyAs exNMkG"
+              >
+                <input
+                  checked={false}
+                  data-testid="input-stars-3"
+                  name="didactic"
+                  onChange={[Function]}
+                  type="checkbox"
+                />
+                <span
+                  className="sc-iCoGMd iNWuFv"
+                />
+              </label>
+              <label
+                className="sc-fujyAs exNMkG"
+              >
+                <input
+                  checked={false}
+                  data-testid="input-stars-4"
+                  name="didactic"
+                  onChange={[Function]}
+                  type="checkbox"
+                />
+                <span
+                  className="sc-iCoGMd iNWuFv"
+                />
+              </label>
+              <label
+                className="sc-fujyAs exNMkG"
+              >
+                <input
+                  checked={false}
+                  data-testid="input-stars-5"
+                  name="didactic"
+                  onChange={[Function]}
+                  type="checkbox"
+                />
+                <span
+                  className="sc-iCoGMd iNWuFv"
+                />
+              </label>
+            </div>
+            <div
+              className="sc-jrsJWt fvYlXW error"
+            />
+          </div>
+          <label>
+            Metodologia:
+          </label>
+          <div
+            className="sc-pNWdM eUdqmP"
+          >
+            <div
+              className="sc-gKAaRy cgyNEA"
+            >
+              <label
+                className="sc-fujyAs exNMkG"
+              >
+                <input
+                  checked={false}
+                  data-testid="input-stars-1"
+                  name="metod"
+                  onChange={[Function]}
+                  type="checkbox"
+                />
+                <span
+                  className="sc-iCoGMd iNWuFv"
+                />
+              </label>
+              <label
+                className="sc-fujyAs exNMkG"
+              >
+                <input
+                  checked={false}
+                  data-testid="input-stars-2"
+                  name="metod"
+                  onChange={[Function]}
+                  type="checkbox"
+                />
+                <span
+                  className="sc-iCoGMd iNWuFv"
+                />
+              </label>
+              <label
+                className="sc-fujyAs exNMkG"
+              >
+                <input
+                  checked={false}
+                  data-testid="input-stars-3"
+                  name="metod"
+                  onChange={[Function]}
+                  type="checkbox"
+                />
+                <span
+                  className="sc-iCoGMd iNWuFv"
+                />
+              </label>
+              <label
+                className="sc-fujyAs exNMkG"
+              >
+                <input
+                  checked={false}
+                  data-testid="input-stars-4"
+                  name="metod"
+                  onChange={[Function]}
+                  type="checkbox"
+                />
+                <span
+                  className="sc-iCoGMd iNWuFv"
+                />
+              </label>
+              <label
+                className="sc-fujyAs exNMkG"
+              >
+                <input
+                  checked={false}
+                  data-testid="input-stars-5"
+                  name="metod"
+                  onChange={[Function]}
+                  type="checkbox"
+                />
+                <span
+                  className="sc-iCoGMd iNWuFv"
+                />
+              </label>
+            </div>
+            <div
+              className="sc-jrsJWt fvYlXW error"
+            />
+          </div>
+          <label>
+            Coerência das Avaliações:
+          </label>
+          <div
+            className="sc-pNWdM eUdqmP"
+          >
+            <div
+              className="sc-gKAaRy cgyNEA"
+            >
+              <label
+                className="sc-fujyAs exNMkG"
+              >
+                <input
+                  checked={false}
+                  data-testid="input-stars-1"
+                  name="avaliations"
+                  onChange={[Function]}
+                  type="checkbox"
+                />
+                <span
+                  className="sc-iCoGMd iNWuFv"
+                />
+              </label>
+              <label
+                className="sc-fujyAs exNMkG"
+              >
+                <input
+                  checked={false}
+                  data-testid="input-stars-2"
+                  name="avaliations"
+                  onChange={[Function]}
+                  type="checkbox"
+                />
+                <span
+                  className="sc-iCoGMd iNWuFv"
+                />
+              </label>
+              <label
+                className="sc-fujyAs exNMkG"
+              >
+                <input
+                  checked={false}
+                  data-testid="input-stars-3"
+                  name="avaliations"
+                  onChange={[Function]}
+                  type="checkbox"
+                />
+                <span
+                  className="sc-iCoGMd iNWuFv"
+                />
+              </label>
+              <label
+                className="sc-fujyAs exNMkG"
+              >
+                <input
+                  checked={false}
+                  data-testid="input-stars-4"
+                  name="avaliations"
+                  onChange={[Function]}
+                  type="checkbox"
+                />
+                <span
+                  className="sc-iCoGMd iNWuFv"
+                />
+              </label>
+              <label
+                className="sc-fujyAs exNMkG"
+              >
+                <input
+                  checked={false}
+                  data-testid="input-stars-5"
+                  name="avaliations"
+                  onChange={[Function]}
+                  type="checkbox"
+                />
+                <span
+                  className="sc-iCoGMd iNWuFv"
+                />
+              </label>
+            </div>
+            <div
+              className="sc-jrsJWt fvYlXW error"
+            />
+          </div>
+          <label>
+            Disponibilidade:
+          </label>
+          <div
+            className="sc-pNWdM eUdqmP"
+          >
+            <div
+              className="sc-gKAaRy cgyNEA"
+            >
+              <label
+                className="sc-fujyAs exNMkG"
+              >
+                <input
+                  checked={false}
+                  data-testid="input-stars-1"
+                  name="disponibility"
+                  onChange={[Function]}
+                  type="checkbox"
+                />
+                <span
+                  className="sc-iCoGMd iNWuFv"
+                />
+              </label>
+              <label
+                className="sc-fujyAs exNMkG"
+              >
+                <input
+                  checked={false}
+                  data-testid="input-stars-2"
+                  name="disponibility"
+                  onChange={[Function]}
+                  type="checkbox"
+                />
+                <span
+                  className="sc-iCoGMd iNWuFv"
+                />
+              </label>
+              <label
+                className="sc-fujyAs exNMkG"
+              >
+                <input
+                  checked={false}
+                  data-testid="input-stars-3"
+                  name="disponibility"
+                  onChange={[Function]}
+                  type="checkbox"
+                />
+                <span
+                  className="sc-iCoGMd iNWuFv"
+                />
+              </label>
+              <label
+                className="sc-fujyAs exNMkG"
+              >
+                <input
+                  checked={false}
+                  data-testid="input-stars-4"
+                  name="disponibility"
+                  onChange={[Function]}
+                  type="checkbox"
+                />
+                <span
+                  className="sc-iCoGMd iNWuFv"
+                />
+              </label>
+              <label
+                className="sc-fujyAs exNMkG"
+              >
+                <input
+                  checked={false}
+                  data-testid="input-stars-5"
+                  name="disponibility"
+                  onChange={[Function]}
+                  type="checkbox"
+                />
+                <span
+                  className="sc-iCoGMd iNWuFv"
+                />
+              </label>
+            </div>
+            <div
+              className="sc-jrsJWt fvYlXW error"
+            />
+          </div>
+        </div>
+        <p>
+          Postagem:
+        </p>
+        <div
+          className="sc-bdnxRM fGJwKM"
+          direction="row"
+        >
+          <button
+            className="sc-jSFjdj jYSBhf"
+            onClick={[Function]}
+            type="button"
+          >
+            PÚBLICA
+          </button>
+          <button
+            className="sc-jSFjdj fTYZxU"
+            onClick={[Function]}
+            type="button"
+          >
+            ANÔNIMA
+          </button>
+        </div>
+        <p>
+          Descrição/Comentários:
+        </p>
+        <div
+          className="sc-pNWdM eUdqmP"
+        >
+          <textarea
+            className="sc-hKFxyN cqWcJi"
+            data-testid="form-aval-2"
+            name="comments"
+          />
+          <div
+            className="sc-jrsJWt fvYlXW error"
+          />
+        </div>
+        <div
+          className="sc-iqAclL fwgQfe"
+        >
+          <button
+            className="sc-jSFjdj iooaEn"
+            type="submit"
+          >
+            POSTAR
+          </button>
+        </div>
+      </form>
+    </div>
+  </main>
+</div>
+`;

@@ -57,7 +57,7 @@ const MenuContent = ({ menu, setMenu }) => {
     setMessage(msg);
     setMenu(0);
   }
-  
+
   return (
     <Content>
       {menu === 0 && <Login msg={message} />}

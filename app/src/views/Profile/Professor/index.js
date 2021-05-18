@@ -7,8 +7,8 @@ const Header = () => {
   const professor = Users.whoAuthenticated().data();
   return (
     <Conteiner backColor="#FFFFFF" width="240px" height="115px">
-      <p>Nome Completo: {professor.name}</p>
-      <p>E-mail: {professor.email}</p>
+      <p>Nome Completo: {professor?.name}</p>
+      <p>E-mail: {professor?.email}</p>
     </Conteiner>
   );
 };
@@ -27,7 +27,6 @@ const Body = () => {
       : 0;
   }
 
-  console.log(posts);
   return (
     <Conteiner
       txtAlign="center"

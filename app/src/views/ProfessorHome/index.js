@@ -164,7 +164,7 @@ export default function ProfessorHome() {
                   <DisciplineContent key={dis} discipline={disciplines[dis]} />
                 ))}
               {loading && (
-                <LoadingBox>
+                <LoadingBox data-testid="loading">
                   <Loading />
                 </LoadingBox>
               )}

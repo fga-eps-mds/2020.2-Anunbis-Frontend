@@ -12,7 +12,7 @@ export default function ExcludeAccount(props) {
   function deleteAcc() {
     api.delete(`${Users.whoAuthenticated().localStorageName}`).then(() => {
       logOut();
-      history.push('/');
+      history?.push('/');
     });
   }
 

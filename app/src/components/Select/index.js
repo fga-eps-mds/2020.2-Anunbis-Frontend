@@ -1,3 +1,4 @@
+/* eslint-disable */
 import React from 'react';
 import { SelectStyle } from './styles';
 
@@ -12,7 +13,7 @@ export default function Select({
   error,
   onChange,
   display,
-  borderBottom,
+  testid,
 }) {
   return (
     <SelectStyle
@@ -24,7 +25,7 @@ export default function Select({
       error={error}
       onChange={onChange}
       display={display}
-      borderBottom={borderBottom}
+      data-testid={testid}
     >
       <option value="" disabled selected>
         {text}

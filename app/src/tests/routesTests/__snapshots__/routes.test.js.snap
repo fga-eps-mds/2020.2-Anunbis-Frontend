@@ -1,0 +1,351 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`routes test matches the snapshot 1`] = `
+<div
+  className="sc-kHWWYL qfIhI"
+>
+  <div
+    className="sc-hhIiOg celdYD"
+  >
+    <div
+      className="sc-eirqVv knwhuz"
+    >
+      <img
+        alt="logo"
+        className="sc-lbVvki iJkZPf"
+        onClick={[Function]}
+        src="Name_Logo.png"
+      />
+    </div>
+    <div
+      className="sc-daBunf ogmIm"
+    >
+      <div>
+        <a
+          className="sc-jUfyBS eQteNX"
+          href="#begin"
+        >
+          Inicio
+        </a>
+        <a
+          className="sc-jUfyBS zLefr"
+          href="#howItWorks"
+        >
+          Como Funciona?
+        </a>
+        <a
+          className="sc-jUfyBS zLefr"
+          href="#team"
+        >
+          Equipe
+        </a>
+        <a
+          className="sc-jUfyBS zLefr"
+          href="#contact"
+        >
+          Contato
+        </a>
+      </div>
+    </div>
+    <div
+      className="sc-oeezt dGsVOw"
+      height="22,5px"
+    >
+      <button
+        className="sc-jSFjdj cqlLXG sc-jQAxuV hnKKYE"
+        onClick={[Function]}
+      >
+        Login
+      </button>
+    </div>
+  </div>
+  <main
+    className="sc-hOPeYd cxjnly"
+  >
+    <span
+      style={
+        Object {
+          "height": "100%",
+          "width": "100%",
+        }
+      }
+    >
+      <div
+        className="sc-fuISkM hukoD"
+        display="flex"
+        id="begin"
+      >
+        <div
+          className="sc-gsWcmt sLMvG"
+        >
+          <label>
+            Onde a união faz a força
+          </label>
+          <p>
+            Alunos trocando experiências e opiniões sobre disciplinas e professores para manter a comunidade acadêmica da Universidade de Brasilia unida e bem informada.
+          </p>
+          <button
+            className="sc-jSFjdj reucO sc-jQAxuV haqzN"
+            onClick={[Function]}
+            width="160px"
+          >
+            Cadastre-se
+          </button>
+        </div>
+        <img
+          alt="Logo"
+          className="sc-GvhzO dyIZo"
+          height="80%"
+          src="LogoHome.svg"
+        />
+      </div>
+    </span>
+    <span
+      style={
+        Object {
+          "height": "100%",
+          "width": "100%",
+        }
+      }
+    >
+      <div
+        className="sc-fuISkM hukoD"
+        display="flex"
+        id="howItWorks"
+      >
+        <div
+          className="sc-gsWcmt kdSygF"
+        >
+          <label>
+            Como funciona?
+          </label>
+          <p>
+            Os alunos podem escrever avaliações públicas sobre os professores optando por manter ou não o anonimato. Os demais alunos podem ver as avaliações, concordar ou discordar. Todas as notas e comentários são de livre acesso para todos os usuários, incluindo professores.
+          </p>
+        </div>
+        <img
+          alt="Puzzle"
+          className="sc-GvhzO elJxWj"
+          height="80%"
+          src="Puzzle.svg"
+        />
+      </div>
+    </span>
+    <span
+      style={
+        Object {
+          "height": "100%",
+          "width": "100%",
+        }
+      }
+    >
+      <div
+        className="sc-fuISkM fGJTsr"
+        direction="column"
+      >
+        <div
+          className="sc-fuISkM hScIjT"
+          display="flex"
+          height="50%"
+          id="team"
+        >
+          <div
+            className="sc-gsWcmt kdSygF"
+          >
+            <label>
+              Equipe
+            </label>
+            <p>
+              O Anunbis é um projeto criado e desenvolvido por alunos de Métodos de Desenvolvimento de Software (MDS) da Faculdade do Gama (FGA), da Universidade de Brasília (UnB).
+            </p>
+          </div>
+          <img
+            alt="Team"
+            className="sc-GvhzO bmeLgC"
+            height="75%"
+            src="Teamwork.svg"
+          />
+        </div>
+        <div
+          className="sc-fuISkM igAhwW"
+          display="flex"
+          height="100px"
+        >
+          <div
+            className="sc-gsWcmt kdSygF"
+          >
+            <label>
+              Membros
+            </label>
+          </div>
+        </div>
+        <div
+          className="sc-fcmMJX iEJdtD"
+        >
+          <div
+            className="sc-bXexck ehXMPz"
+          >
+            <a
+              href="https://github.com/RcleydsonR"
+              rel="noreferrer"
+              target="_blank"
+            >
+              <div>
+                Rafael Cleydson
+              </div>
+              <img
+                alt="Rafael Cleydson"
+                src="Rafael.jpeg"
+              />
+            </a>
+          </div>
+          <div
+            className="sc-bXexck ehXMPz"
+          >
+            <a
+              href="https://github.com/Balbinoo"
+              rel="noreferrer"
+              target="_blank"
+            >
+              <div>
+                Rodrigo Balbino
+              </div>
+              <img
+                alt="Rodrigo Balbino"
+                src="Rodrigo.jpeg"
+              />
+            </a>
+          </div>
+          <div
+            className="sc-bXexck ehXMPz"
+          >
+            <a
+              href="https://github.com/mangabeiras"
+              rel="noreferrer"
+              target="_blank"
+            >
+              <div>
+                Roberto Santana
+              </div>
+              <img
+                alt="Roberto Santana"
+                src="Roberto.jpeg"
+              />
+            </a>
+          </div>
+          <div
+            className="sc-bXexck ehXMPz"
+          >
+            <a
+              href="https://github.com/oEduardoAfonso"
+              rel="noreferrer"
+              target="_blank"
+            >
+              <div>
+                Eduardo Afonso
+              </div>
+              <img
+                alt="Eduardo Afonso"
+                src="Eduardo.jpeg"
+              />
+            </a>
+          </div>
+          <div
+            className="sc-bXexck ehXMPz"
+          >
+            <a
+              href="https://github.com/thiagohdaqw"
+              rel="noreferrer"
+              target="_blank"
+            >
+              <div>
+                Thiago Paiva
+              </div>
+              <img
+                alt="Thiago Paiva"
+                src="Thiago.jpeg"
+              />
+            </a>
+          </div>
+          <div
+            className="sc-bXexck ehXMPz"
+          >
+            <a
+              href="https://github.com/victorhugo21"
+              rel="noreferrer"
+              target="_blank"
+            >
+              <div>
+                Victor Hugo
+              </div>
+              <img
+                alt="Victor Hugo"
+                src="Victor.jpeg"
+              />
+            </a>
+          </div>
+        </div>
+      </div>
+    </span>
+    <span
+      style={
+        Object {
+          "height": "100%",
+          "width": "100%",
+        }
+      }
+    >
+      <div
+        className="sc-fuISkM hukoD"
+        display="flex"
+        id="contact"
+      >
+        <div
+          className="sc-gsWcmt kdSygF"
+        >
+          <label>
+            Contate-nos
+          </label>
+          <p>
+            Deseja elogiar, sugerir mudanças, ou contribuir? Entre em contato conosco através do email ou acesse nosso repositório no github.
+          </p>
+          <a
+            href="mailto:anunbis.team@gmail.com"
+          >
+            anunbis.team@gmail.com
+          </a>
+          <a
+            href="https://github.com/fga-eps-mds/2020.2-Anunbis"
+            rel="noreferrer"
+            target="_blank"
+          >
+            Repositório Back-end
+          </a>
+          <a
+            href="https://github.com/fga-eps-mds/2020.2-Anunbis-FrontEnd"
+            rel="noreferrer"
+            target="_blank"
+          >
+            Repositório Front-end
+          </a>
+        </div>
+        <img
+          alt="Img"
+          className="sc-GvhzO gUQymK"
+          height="50%"
+          src="Communication.svg"
+        />
+      </div>
+    </span>
+    <main
+      className="sc-dsXzNU doRKqV"
+    >
+      <p>
+        🄯 Anunbis 2021
+      </p>
+    </main>
+  </main>
+</div>
+`;
+
+exports[`routes test matches the snapshot 2`] = `[Function]`;

@@ -17,7 +17,7 @@ function ProfessorSearch({ history }) {
   const [isValid, setIsValid] = React.useState(false);
   const onSubmit = (data) => {
     if (data.key === 'Enter' && isValid) {
-      history.push(`/user/professor/search/${data.target.value.trim()}`);
+      history?.push(`/user/professor/search/${data.target.value.trim()}`);
     }
   };
   const validate = (e) => {
@@ -53,7 +53,7 @@ export default function LayoutApp({ children }) {
             padding="3px"
             onClick={() => {
               setMenuOptions('');
-              history.push('/user/profile');
+              history?.push('/user/profile');
             }}
           />
           <Button
@@ -87,6 +87,7 @@ export default function LayoutApp({ children }) {
             padding="0px"
             backColor="#212121"
             onClick={() => makeMenuOptions()}
+            data-testid="btn-layout-1"
           />
           {menuOptions}
         </End>

@@ -1,0 +1,74 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Snapshot Post component matches the snapshot 1`] = `
+<div
+  className="sc-gtsrHT dDYQua"
+>
+  <div
+    className="sc-dlnjwi ekUVhp"
+  >
+    <div
+      className="sc-jSFjdj cLRgwt"
+    >
+      [
+      ]
+      <br />
+      <br />
+      Data: 
+      <br />
+      <div
+        className="sc-gKAaRy ifsQra"
+      />
+    </div>
+    <div
+      className="sc-iCoGMd lbslSD"
+    >
+      <label>
+        <b>
+          Nota Geral:
+        </b>
+         
+      </label>
+      <label>
+        <b />
+      </label>
+      <label>
+        Didatica:
+      </label>
+      <label />
+      <label>
+        Metodologia:
+      </label>
+      <label />
+      <label>
+        Avaliações Coerentes:
+      </label>
+      <label />
+      <label>
+        Disponibilidade:
+      </label>
+      <label />
+    </div>
+    <button
+      className="sc-bdnxRM bPQZrU"
+      onClick={[Function]}
+      type="button"
+    />
+  </div>
+  <div
+    className="sc-hKFxyN cRgYqC"
+  />
+  <div
+    className="sc-eCApnc ijfCNI"
+  >
+    <button
+      className="sc-bdnxRM ikeTfa"
+      onClick={[Function]}
+    />
+    <button
+      className="sc-bdnxRM iINuJo"
+      onClick={[Function]}
+    />
+  </div>
+</div>
+`;

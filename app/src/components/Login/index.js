@@ -73,26 +73,29 @@ function Login({ msg }) {
 }
 
 function VerifyMail({ email }) {
-  const [message, setMessage] = React.useState()
+  const [message, setMessage] = React.useState();
 
   function sendVerifyMail() {
     setMessage('Enviando email...');
 
-    api.post('/auth/email', { email })
-      .then(response => {
-        if (response.status === 200)
-          setMessage('E-mail de confirmação enviado.')
-      })
+    api.post('/auth/email', { email }).then((response) => {
+      if (response.status === 200) setMessage('E-mail de confirmação enviado.');
+    });
   }
 
-  return <VerifyMailStyle>
-    {
-      message
-      || <>Cadastro ainda não confirmado. <button type='submit' onClick={sendVerifyMail}>Clique aqui</button> para reenviar o e-mail de verificação.</>
-    }
-  </VerifyMailStyle>
+  return (
+    <VerifyMailStyle>
+      {message || (
+        <>
+          Cadastro ainda não confirmado.{' '}
+          <button type="submit" onClick={sendVerifyMail}>
+            Clique aqui
+          </button>{' '}
+          para reenviar o e-mail de verificação.
+        </>
+      )}
+    </VerifyMailStyle>
+  );
 }
-
-
 
 export default Login;

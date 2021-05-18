@@ -1,0 +1,122 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Snapshot Report component matches the snapshot 1`] = `
+<div
+  className="sc-hKFxyN eFovYf"
+>
+  <div
+    className="sc-eCApnc foDSAG"
+  >
+    <div
+      className="sc-jSFjdj eKGict"
+    >
+      Denuncia
+    </div>
+    <button
+      className="sc-bdnxRM jAGuyW"
+      radius="0px"
+    >
+      X
+    </button>
+  </div>
+  <main
+    className="sc-gKAaRy bXsuMg"
+  >
+    <form
+      className="sc-pNWdM dYxkWR"
+      onSubmit={[Function]}
+    >
+      <div
+        className="sc-iCoGMd hziUSP"
+      >
+        <div
+          className="sc-kEqXSa gBjBKd"
+        >
+          <p>
+            Motivo da Denuncia:
+          </p>
+          <label
+            className="sc-dlnjwi itVsq"
+          >
+            <input
+              name="option"
+              type="checkbox"
+            />
+            <span
+              className="sc-gtsrHT ewUAES"
+            />
+            Linguagem ofensiva
+          </label>
+          <label
+            className="sc-dlnjwi itVsq"
+          >
+            <input
+              name="option"
+              type="checkbox"
+            />
+            <span
+              className="sc-gtsrHT ewUAES"
+            />
+            Comentário preconceituoso
+          </label>
+          <label
+            className="sc-dlnjwi itVsq"
+          >
+            <input
+              name="option"
+              type="checkbox"
+            />
+            <span
+              className="sc-gtsrHT ewUAES"
+            />
+            Críticas não relacionadas a disciplina
+          </label>
+          <label
+            className="sc-dlnjwi itVsq"
+          >
+            <input
+              name="option"
+              type="checkbox"
+            />
+            <span
+              className="sc-gtsrHT ewUAES"
+            />
+            Outros
+          </label>
+        </div>
+        <div
+          className="sc-fujyAs FaHra error"
+        />
+      </div>
+      <div
+        className="sc-dIsUp"
+      >
+        <p>
+          Detalhe os motivos:
+        </p>
+        <div
+          className="sc-iCoGMd hziUSP"
+        >
+          <textarea
+            className="sc-crzoAE idzbNo"
+            name="details"
+          />
+          <div
+            className="sc-fujyAs FaHra error"
+          />
+        </div>
+      </div>
+      <div
+        className="sc-iqAclL iPqpGC"
+      >
+        <button
+          className="sc-bdnxRM KjNCJ"
+          type="submit"
+        >
+          DENUNCIAR
+        </button>
+      </div>
+    </form>
+  </main>
+</div>
+`;
