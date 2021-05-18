@@ -110,7 +110,8 @@ function ProfessorSearch() {
     const { id_professor } = professors[selected.professor]; // eslint-disable-line
     const startRequest = new Date().getTime();
 
-    api.get(`/professor/${id_professor}`).then((response) => { // eslint-disable-line
+    api.get(`/professor/${id_professor}`).then((response) => {
+      // eslint-disable-line
       if (response.status === 200) {
         const requestDuration = startRequest - new Date().getTime();
         professors[selected.professor] = response.data;
