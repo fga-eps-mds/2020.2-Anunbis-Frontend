@@ -55,6 +55,7 @@ const DisciplinePosts = ({ discipline }) => (
 );
 
 function sortPostsByDiscipline(posts) {
+  console.log(posts);
   const disciplines = {};
   const arrayFeedbacks = {};
   if (Object.keys(posts).length !== 0) {
@@ -164,7 +165,7 @@ export default function ProfessorHome() {
                   <DisciplineContent key={dis} discipline={disciplines[dis]} />
                 ))}
               {loading && (
-                <LoadingBox>
+                <LoadingBox data-testid="loading">
                   <Loading />
                 </LoadingBox>
               )}
