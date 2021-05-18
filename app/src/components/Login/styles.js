@@ -1,23 +1,26 @@
 import styled from 'styled-components';
 
-export const Erro = styled.div`
-  display: flex;
-  flex-direction: row;
-  color: black;
-  font-size: 14px;
-  font-family: Arial, Helvetica, sans-serif;
-  background: #f3c2c2;
-  border: 1px solid rgba(255, 245, 157, 0.6);
-  box-sizing: border-box;
-  border-radius: 5px;
-  box-shadow: 2px 2px grey;
-  Button {
-    background: #f3c2c2;
-    color: #cf5858;
+export const Message = styled.div`
+  color: white;
+  font-size: 16px;
+  border-radius: 2px;
+  text-shadow: rgba(0, 0, 0, 50%) 0px 0px 5px;
+  font-weight: bold;
+  display: block;
+  background: #ffab42;
+  padding: 10px;
+  box-shadow: 2px 2px rgba(0, 0, 0, 25%);
+  max-width: 75%;
+  text-align: center;
+`;
+
+export const VerifyMailStyle = styled.p`
+  button {
+    background: transparent;
     border: none;
-    box-sizing: border-box;
-    border-radius: 3px;
-    padding: 5px 5px;
-    margin-right: 2px;
+    font: inherit;
+    color: inherit;
+    text-shadow: inherit;
+    text-decoration: underline;
   }
 `;

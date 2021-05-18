@@ -12,6 +12,7 @@ import RegisterProfessor from '../../components/RegisterProfessor';
 
 function Authentication() {
   const [menu, setMenu] = React.useState(0);
+
   return (
     <AuthenticationStyle>
       <Menu menu={menu} setMenu={setMenu} />
@@ -49,25 +50,34 @@ const Menu = ({ menu, setMenu }) => (
   </MenuOptions>
 );
 
-const MenuContent = ({ menu, setMenu }) => (
-  <Content>
-    {menu === 0 && <Login />}
-    {menu >= 1 && <Register menu={menu} setMenu={setMenu} />}
-  </Content>
-);
+const MenuContent = ({ menu, setMenu }) => {
+  const [message, setMessage] = React.useState();
 
-const Register = ({ menu, setMenu }) => (
+  function onRegister(msg) {
+    setMessage(msg);
+    setMenu(0);
+  }
+  
+  return (
+    <Content>
+      {menu === 0 && <Login msg={message} />}
+      {menu >= 1 && <Register menu={menu} onRegister={onRegister} />}
+    </Content>
+  );
+};
+
+const Register = ({ menu, onRegister }) => (
   <>
     {menu === 1 && (
       <>
-        <Title>Cadastro de Aluno</Title>{' '}
-        <RegisterStudent redirect={() => setMenu(0)} />
+        <Title>Cadastro de Aluno</Title>
+        <RegisterStudent onRegister={onRegister} />
       </>
     )}
     {menu === 2 && (
       <>
         <Title>Cadastro de Professor</Title>
-        <RegisterProfessor redirect={() => setMenu(0)} />
+        <RegisterProfessor onRegister={onRegister} />
       </>
     )}
   </>

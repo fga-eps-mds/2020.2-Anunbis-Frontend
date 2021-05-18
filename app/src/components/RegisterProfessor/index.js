@@ -8,7 +8,7 @@ import Button from '../Button';
 import schema from './validations';
 import api from '../../services/Api';
 
-export default function RegisterProfessor({ redirect }) {
+export default function RegisterProfessor({ onRegister }) {
   const history = useHistory();
   const [errorDB, setErrorDB] = React.useState('');
   const { register, handleSubmit, errors } = useForm({
@@ -27,7 +27,7 @@ export default function RegisterProfessor({ redirect }) {
       .post('/professor', body)
       .then((response) => {
         if (response.status === 201) {
-          redirect();
+          onRegister('Confirme o seu cadastro com o e-mail de verificação enviado ao seu e-mail.');
         }
       })
       .catch((error) => {
