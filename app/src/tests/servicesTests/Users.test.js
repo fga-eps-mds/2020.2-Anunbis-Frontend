@@ -1,10 +1,9 @@
-import renderer from 'react-test-renderer';
-import Users, { getToken } from '../../services/Users';
+import Users from '../../services/Users';
 import { sendLogin } from '../../services/Auth';
-import mock from '../../mock';
+import mock from '../mock';
 import { waitFor } from '@testing-library/react';
-import { validStudent, validProfessor } from '../../mock/fixtures/stored_users';
-import mockLogin from '../../mock/fixtures/login';
+import { validStudent, validProfessor } from '../mock/fixtures/stored_users';
+import mockLogin from '../mock/fixtures/login';
 
 describe('Test Api', () => {
   it('must return professor for the all functions', async () => {

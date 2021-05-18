@@ -1,11 +1,10 @@
-import renderer from 'react-test-renderer';
 import { render, screen, waitFor } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import ExcludeAccount from '../../components/ExcludeAccount';
-import mock from '../../mock';
+import mock from '../mock';
 import { sendLogin } from '../../services/Auth';
-import { validStudent } from '../../mock/fixtures/stored_users';
-import mockLogin from '../../mock/fixtures/login';
+import { validStudent } from '../mock/fixtures/stored_users';
+import mockLogin from '../mock/fixtures/login';
 
 mock.onDelete('student').reply(204);
 

@@ -1,22 +1,15 @@
-import renderer from 'react-test-renderer';
-import { render, screen, waitFor, fireEvent } from '@testing-library/react';
+import { render, screen, waitFor } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import Login from '../../components/Login';
-import mock from '../../mock';
+import mock from '../mock';
 import '@testing-library/jest-dom';
-import mockLogin from '../../mock/fixtures/login';
-import { validStudent } from '../../mock/fixtures/stored_users';
+import mockLogin from '../mock/fixtures/login';
+import { validStudent } from '../mock/fixtures/stored_users';
 import { sendLogin } from '../../services/Auth';
 
 mock.onPost('/auth/email').reply(200);
 
 describe('Test Login component', () => {
-  describe('Snapshot test', () => {
-    it('matches the snapshot', () => {
-      const tree = renderer.create(<Login />).toJSON();
-      expect(tree).toMatchSnapshot();
-    });
-  });
   describe('Form submit tests', () => {
     it('To submit email and password valid but without email confirmation ', async () => {
       const callback = jest.fn();

@@ -1,7 +1,7 @@
 import { screen, render, waitFor, cleanup } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import RegisterProfessor from '../../components/RegisterProfessor';
-import mock from '../../mock/index';
+import mock from '../mock/index';
 import '@testing-library/jest-dom/extend-expect';
 
 const mockPost = (number) => {

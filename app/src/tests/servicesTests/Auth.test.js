@@ -1,8 +1,8 @@
 import { sendLogin } from '../../services/Auth';
-import mock from '../../mock/index';
+import mock from '../mock/index';
 import { waitFor } from '@testing-library/react';
-import { validStudent, validProfessor } from '../../mock/fixtures/stored_users';
-import mockLogin from '../../mock/fixtures/login';
+import { validStudent, validProfessor } from '../mock/fixtures/stored_users';
+import mockLogin from '../mock/fixtures/login';
 
 describe('Snapshot Auth component', () => {
   it('Write user student on localStorage', async () => {

@@ -1,5 +1,5 @@
-import mock from '../../mock';
-import { validPost } from '../../mock/fixtures/stored_post';
+import mock from '../mock';
+import { validPost } from '../mock/fixtures/stored_post';
 import ProfessorHome from '../../views/ProfessorHome';
 import { render, fireEvent, screen, waitFor } from '@testing-library/react';
 import '@testing-library/jest-dom';

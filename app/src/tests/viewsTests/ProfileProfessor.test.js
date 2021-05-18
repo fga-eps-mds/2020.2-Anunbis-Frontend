@@ -1,11 +1,11 @@
 import ProfileProfessor from '../../views/Profile/Professor';
-import mock from '../../mock/index';
-import { validPost } from '../../mock/fixtures/stored_post';
+import mock from '../mock/index';
+import { validPost } from '../mock/fixtures/stored_post';
 import { render, screen, waitFor } from '@testing-library/react';
 import '@testing-library/jest-dom';
 import { sendLogin } from '../../services/Auth';
-import { validProfessor } from '../../mock/fixtures/stored_users';
-import mockLogin from '../../mock/fixtures/login';
+import { validProfessor } from '../mock/fixtures/stored_users';
+import mockLogin from '../mock/fixtures/login';
 
 mock.onGet('post').reply(200, [validPost]);
 

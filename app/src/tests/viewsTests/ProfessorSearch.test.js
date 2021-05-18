@@ -2,9 +2,9 @@ import { Router, Route } from 'react-router-dom';
 import { render, fireEvent, screen, waitFor } from '@testing-library/react';
 import { createMemoryHistory } from 'history';
 import ProfessorSearch from '../../views/ProfessorSearch';
-import mock from '../../mock';
+import mock from '../mock';
 import '@testing-library/jest-dom';
-import validPost from '../../mock/fixtures/stored_post';
+import validPost from '../mock/fixtures/stored_post';
 
 const response = {
   name: 'TestName',

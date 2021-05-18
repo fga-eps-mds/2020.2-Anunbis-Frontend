@@ -1,6 +1,6 @@
 import renderer from 'react-test-renderer';
-import mock from '../../mock';
-import { validPost } from '../../mock/fixtures/stored_post';
+import mock from '../mock';
+import { validPost } from '../mock/fixtures/stored_post';
 import StudentHome from '../../views/StudentHome';
 
 mock.onGet('post').reply(200, validPost);
