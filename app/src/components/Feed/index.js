@@ -95,7 +95,7 @@ function PostsBox({ posts, canReport }) {
         </OrderDiv>
       )}
       {orderedPost?.map((post) => (
-        <Post key={post.id_post} post={post} canReport={canReport} />
+        <Post key={post?.id_post} post={post} canReport={canReport} />
       ))}
     </DivContent>
   );

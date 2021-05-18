@@ -52,5 +52,25 @@ describe('Snapshot ProfessorSearch with Posts', () => {
       fireEvent.click(screen.queryByText('[1] Test Discipline 1'));
       expect(screen.queryByTestId('load-1')).toBeInTheDocument();
     })
+
+    it('LoadingBox must appear and then disappear on render', async() => { 
+      const history = createMemoryHistory();
+      history.push(`/user/professor/search/TestName`);
+      
+      render(
+      <Router history={history}>
+        <Route path='/user/professor/search/:professorName'>
+          <ProfessorSearch history={history} />
+        </Route>
+      </Router>)
+
+      await waitFor(() => {
+        expect(screen.queryByTestId('load-1')).toBeInTheDocument();
+      })
+  
+      await waitFor(() => {
+        expect(screen.queryByTestId('load-1')).not.toBeInTheDocument();
+      })
+    })
   })
 });
