@@ -2,45 +2,45 @@
 
 exports[`routes test matches the snapshot 1`] = `
 <div
-  className="sc-bTDOke korWLh"
+  className="sc-kHWWYL qfIhI"
 >
   <div
-    className="sc-oeezt kdwVFa"
+    className="sc-hhIiOg celdYD"
   >
     <div
-      className="sc-hhIiOg eBufed"
+      className="sc-eirqVv kFWhuO"
     >
       <img
         alt="logo"
-        className="sc-eirqVv icQDVm"
+        className="sc-lbVvki bywqR"
         onClick={[Function]}
         src="Name_Logo.png"
       />
     </div>
     <div
-      className="sc-dsXzNU bTCCXS"
+      className="sc-daBunf ogmIm"
     >
       <div>
         <a
-          className="sc-daBunf cQpnxA"
+          className="sc-jUfyBS eQteNX"
           href="#begin"
         >
           Inicio
         </a>
         <a
-          className="sc-daBunf bIDNJs"
+          className="sc-jUfyBS zLefr"
           href="#howItWorks"
         >
           Como Funciona?
         </a>
         <a
-          className="sc-daBunf bIDNJs"
+          className="sc-jUfyBS zLefr"
           href="#team"
         >
           Equipe
         </a>
         <a
-          className="sc-daBunf bIDNJs"
+          className="sc-jUfyBS zLefr"
           href="#contact"
         >
           Contato
@@ -48,11 +48,11 @@ exports[`routes test matches the snapshot 1`] = `
       </div>
     </div>
     <div
-      className="sc-eJocfa bkAGsi"
+      className="sc-oeezt bHubXr"
       height="22,5px"
     >
       <button
-        className="sc-jSFjdj cqlLXG sc-jUfyBS cPkUE"
+        className="sc-jSFjdj cqlLXG sc-jQAxuV hnKKYE"
         onClick={[Function]}
       >
         Login
@@ -60,7 +60,7 @@ exports[`routes test matches the snapshot 1`] = `
     </div>
   </div>
   <main
-    className="sc-kHWWYL hVtwYv"
+    className="sc-hOPeYd cxjnly"
   >
     <span
       style={
@@ -71,12 +71,12 @@ exports[`routes test matches the snapshot 1`] = `
       }
     >
       <div
-        className="sc-jQAxuV clydMZ"
+        className="sc-fuISkM hukoD"
         display="flex"
         id="begin"
       >
         <div
-          className="sc-GvhzO fqyVSX"
+          className="sc-gsWcmt sLMvG"
         >
           <label>
             Onde a união faz a força
@@ -85,7 +85,7 @@ exports[`routes test matches the snapshot 1`] = `
             Alunos trocando experiências e opiniões sobre disciplinas e professores para manter a comunidade acadêmica da Universidade de Brasilia unida e bem informada.
           </p>
           <button
-            className="sc-jSFjdj reucO sc-jUfyBS eEJnx"
+            className="sc-jSFjdj reucO sc-jQAxuV haqzN"
             onClick={[Function]}
             width="160px"
           >
@@ -94,7 +94,7 @@ exports[`routes test matches the snapshot 1`] = `
         </div>
         <img
           alt="Logo"
-          className="sc-fcmMJX kaeCOr"
+          className="sc-GvhzO dyIZo"
           height="80%"
           src="LogoHome.svg"
         />
@@ -109,12 +109,12 @@ exports[`routes test matches the snapshot 1`] = `
       }
     >
       <div
-        className="sc-jQAxuV clydMZ"
+        className="sc-fuISkM hukoD"
         display="flex"
         id="howItWorks"
       >
         <div
-          className="sc-GvhzO hDRvGY"
+          className="sc-gsWcmt kdSygF"
         >
           <label>
             Como funciona?
@@ -125,7 +125,7 @@ exports[`routes test matches the snapshot 1`] = `
         </div>
         <img
           alt="Puzzle"
-          className="sc-fcmMJX eqZZIQ"
+          className="sc-GvhzO elJxWj"
           height="80%"
           src="Puzzle.svg"
         />
@@ -140,17 +140,17 @@ exports[`routes test matches the snapshot 1`] = `
       }
     >
       <div
-        className="sc-jQAxuV bQTcXZ"
+        className="sc-fuISkM fGJTsr"
         direction="column"
       >
         <div
-          className="sc-jQAxuV iLPjrR"
+          className="sc-fuISkM hScIjT"
           display="flex"
           height="50%"
           id="team"
         >
           <div
-            className="sc-GvhzO hDRvGY"
+            className="sc-gsWcmt kdSygF"
           >
             <label>
               Equipe
@@ -161,18 +161,18 @@ exports[`routes test matches the snapshot 1`] = `
           </div>
           <img
             alt="Team"
-            className="sc-fcmMJX kJctbB"
+            className="sc-GvhzO bmeLgC"
             height="75%"
             src="Teamwork.svg"
           />
         </div>
         <div
-          className="sc-jQAxuV etOdLI"
+          className="sc-fuISkM igAhwW"
           display="flex"
           height="100px"
         >
           <div
-            className="sc-GvhzO hDRvGY"
+            className="sc-gsWcmt kdSygF"
           >
             <label>
               Membros
@@ -180,10 +180,10 @@ exports[`routes test matches the snapshot 1`] = `
           </div>
         </div>
         <div
-          className="sc-fuISkM doSTgj"
+          className="sc-fcmMJX iEJdtD"
         >
           <div
-            className="sc-gsWcmt hkODdp"
+            className="sc-bXexck ehXMPz"
           >
             <a
               href="https://github.com/RcleydsonR"
@@ -200,7 +200,7 @@ exports[`routes test matches the snapshot 1`] = `
             </a>
           </div>
           <div
-            className="sc-gsWcmt hkODdp"
+            className="sc-bXexck ehXMPz"
           >
             <a
               href="https://github.com/Balbinoo"
@@ -217,7 +217,7 @@ exports[`routes test matches the snapshot 1`] = `
             </a>
           </div>
           <div
-            className="sc-gsWcmt hkODdp"
+            className="sc-bXexck ehXMPz"
           >
             <a
               href="https://github.com/mangabeiras"
@@ -234,7 +234,7 @@ exports[`routes test matches the snapshot 1`] = `
             </a>
           </div>
           <div
-            className="sc-gsWcmt hkODdp"
+            className="sc-bXexck ehXMPz"
           >
             <a
               href="https://github.com/oEduardoAfonso"
@@ -251,7 +251,7 @@ exports[`routes test matches the snapshot 1`] = `
             </a>
           </div>
           <div
-            className="sc-gsWcmt hkODdp"
+            className="sc-bXexck ehXMPz"
           >
             <a
               href="https://github.com/thiagohdaqw"
@@ -268,7 +268,7 @@ exports[`routes test matches the snapshot 1`] = `
             </a>
           </div>
           <div
-            className="sc-gsWcmt hkODdp"
+            className="sc-bXexck ehXMPz"
           >
             <a
               href="https://github.com/victorhugo21"
@@ -296,12 +296,12 @@ exports[`routes test matches the snapshot 1`] = `
       }
     >
       <div
-        className="sc-jQAxuV clydMZ"
+        className="sc-fuISkM hukoD"
         display="flex"
         id="contact"
       >
         <div
-          className="sc-GvhzO hDRvGY"
+          className="sc-gsWcmt kdSygF"
         >
           <label>
             Contate-nos
@@ -331,14 +331,14 @@ exports[`routes test matches the snapshot 1`] = `
         </div>
         <img
           alt="Img"
-          className="sc-fcmMJX jddsLl"
+          className="sc-GvhzO gUQymK"
           height="50%"
           src="Communication.svg"
         />
       </div>
     </span>
     <main
-      className="sc-hOPeYd iMpuqo"
+      className="sc-dsXzNU doRKqV"
     >
       <p>
         🄯 Anunbis 2021

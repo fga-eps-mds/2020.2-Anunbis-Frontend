@@ -5,8 +5,8 @@ import { useHistory } from 'react-router-dom';
 import schema from './validations';
 import Form from '../Form';
 import Input from '../Input';
-import Select from '../Select';
 import Button from '../Button';
+import Select from '../Select';
 import api from '../../services/Api';
 import { getCourses } from '../../services/Courses';
 
@@ -43,7 +43,9 @@ export default function RegisterStudent({ onRegister }) {
       .post('/student', body)
       .then((response) => {
         if (response.status === 201) {
-          onRegister('Confirme o seu cadastro com o e-mail de verificação enviado ao seu e-mail.');
+          onRegister(
+            'Confirme o seu cadastro com o e-mail de verificação enviado ao seu e-mail.',
+          );
         }
       })
       .catch((error) => {
@@ -66,7 +68,7 @@ export default function RegisterStudent({ onRegister }) {
           name="id_course"
           register={register}
           error={errors.id_course !== undefined}
-          testid='select-courses'
+          testid="select-courses"
         />
       </Form.Field>
       <Form.Field errorMsg={errors.reg_student?.message}>

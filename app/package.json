@@ -8,7 +8,7 @@
     "@testing-library/react": "^11.2.5",
     "@testing-library/user-event": "^12.8.3",
     "axios": "^0.21.1",
-    "json-server": "^0.16.3",
+    "axios-mock-adapter": "^1.19.0",
     "react": "^17.0.1",
     "react-dom": "^17.0.1",
     "react-google-charts": "^3.0.15",
@@ -63,7 +63,6 @@
   },
   "devDependencies": {
     "@testing-library/react-hooks": "^5.1.2",
-    "axios-mock-adapter": "^1.19.0",
     "eslint": "^7.25.0",
     "eslint-config-airbnb": "^18.2.1",
     "eslint-config-prettier": "^8.3.0",

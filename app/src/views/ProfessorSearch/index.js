@@ -36,7 +36,7 @@ const ProfessorFound = ({
           src={BtnOptions}
           onClick={() => setShowDisciplines(!showDisciplines)}
           rotate={showDisciplines ? '90deg' : ''}
-          data-testid='img-1'
+          data-testid="img-1"
         />
         <Name onClick={onClick}>{professor.name}</Name>
       </FoundHeader>
@@ -57,7 +57,7 @@ const ProfessorFound = ({
 function getPostsByDiscipline(professor, disciplineSelected) {
   const { discipline_code } = professor.disciplines[disciplineSelected]; // eslint-disable-line
   return professor.posts.filter(
-    (post) => post?.discipline.discipline_code === discipline_code,
+    (post) => post?.discipline.discipline_code === discipline_code, // eslint-disable-line
   );
 }
 
@@ -142,7 +142,7 @@ function ProfessorSearch() {
         setProfessors([]);
       });
   }, [professorName]);
-  
+
   return (
     <Container hasProfessors={professors.length > 0}>
       {professors.length > 0 && (
@@ -192,8 +192,13 @@ function ProfessorSearch() {
           </Feed.Title>
         )}
         {!loading && <Feed.PostsBox posts={posts} key={posts.length} />}
+<<<<<<< HEAD
         {loading && (
           <LoadingBox>
+=======
+        {loading && professors.length > 0 && (
+          <LoadingBox data-testid="load-1">
+>>>>>>> (#205) Atualizando testes com a branch develop e formatando arquivos
             <Loading />
           </LoadingBox>
         )}

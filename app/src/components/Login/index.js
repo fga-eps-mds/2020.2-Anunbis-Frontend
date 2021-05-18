@@ -20,22 +20,6 @@ function Login({ msg }) {
     resolver: yupResolver(schema),
   });
 
-<<<<<<< HEAD
-=======
-  function createSpanError() {
-    setErroLogin(
-      <Erro>
-        Email ou Senha Inválidos
-        <Button
-          type="button"
-          onClick={() => setErroLogin('')}
-          text="X"
-        />
-      </Erro>,
-    );
-  }
-
->>>>>>> (#205) Refatorando tests e alguns valores de data-testid
   useEffect(() => {
     logOut();
   });
@@ -89,26 +73,29 @@ function Login({ msg }) {
 }
 
 function VerifyMail({ email }) {
-  const [message, setMessage] = React.useState()
+  const [message, setMessage] = React.useState();
 
   function sendVerifyMail() {
     setMessage('Enviando email...');
 
-    api.post('/auth/email', { email })
-      .then(response => {
-        if (response.status === 200)
-          setMessage('E-mail de confirmação enviado.')
-      })
+    api.post('/auth/email', { email }).then((response) => {
+      if (response.status === 200) setMessage('E-mail de confirmação enviado.');
+    });
   }
 
-  return <VerifyMailStyle>
-    {
-      message
-      || <>Cadastro ainda não confirmado. <button type='submit' onClick={sendVerifyMail}>Clique aqui</button> para reenviar o e-mail de verificação.</>
-    }
-  </VerifyMailStyle>
+  return (
+    <VerifyMailStyle>
+      {message || (
+        <>
+          Cadastro ainda não confirmado.{' '}
+          <button type="submit" onClick={sendVerifyMail}>
+            Clique aqui
+          </button>{' '}
+          para reenviar o e-mail de verificação.
+        </>
+      )}
+    </VerifyMailStyle>
+  );
 }
-
-
 
 export default Login;

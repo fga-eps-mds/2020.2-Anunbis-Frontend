@@ -33,7 +33,7 @@ export default function ResetPassword({ onClick }) {
         setFeedBack(makeFeedback());
       })
       .catch((error) => {
-        console.log(error);
+        console.log(error); // eslint-disable-line
       });
   }
 

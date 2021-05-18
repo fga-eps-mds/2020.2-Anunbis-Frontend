@@ -55,7 +55,6 @@ const DisciplinePosts = ({ discipline }) => (
 );
 
 function sortPostsByDiscipline(posts) {
-  console.log(posts);
   const disciplines = {};
   const arrayFeedbacks = {};
   if (Object.keys(posts).length !== 0) {

@@ -7,37 +7,40 @@ import { sendLogin } from '../../services/Auth';
 import { validProfessor } from '../../mock/fixtures/stored_users';
 import mockLogin from '../../mock/fixtures/login';
 
-mock.onGet('post').reply(200,
-  [validPost]
-)
-
+mock.onGet('post').reply(200, [validPost]);
 
 describe('Snapshot Professor Profile view', () => {
   it('Testing the useEffect of Header', async () => {
     const callback = jest.fn();
-    
-    mockLogin('professor');
-    sendLogin(validProfessor.email, validProfessor.password, callback, {})
+
+    mockLogin('professor', 200);
+    sendLogin(validProfessor.email, validProfessor.password, callback, {});
 
     await waitFor(() => {
-      expect(callback).toHaveBeenCalled()
-    })
+      expect(callback).toHaveBeenCalled();
+    });
 
-    render(<ProfileProfessor.Header />)
+    render(<ProfileProfessor.Header />);
 
     await waitFor(() => {
-      expect(screen.getByText('Nome Completo: Professor Teste')).toBeInTheDocument()
-      expect(screen.getByText('E-mail: 12345678911@unb.br')).toBeInTheDocument()
-    })
-
+      expect(
+        screen.getByText('Nome Completo: Professor Teste'),
+      ).toBeInTheDocument();
+      expect(
+        screen.getByText('E-mail: 12345678911@unb.br'),
+      ).toBeInTheDocument();
+    });
   });
   it('Testing the useEffect of Body', async () => {
-    render(<ProfileProfessor.Body />)
+    render(<ProfileProfessor.Body />);
 
     await waitFor(() => {
-      expect(screen.getByText('Quantidade de avaliações recebidas: 1')).toBeInTheDocument()
-      expect(screen.getByText('Pontuação média recebida: 2.5')).toBeInTheDocument()
-
-    })
+      expect(
+        screen.getByText('Quantidade de avaliações recebidas: 1'),
+      ).toBeInTheDocument();
+      expect(
+        screen.getByText('Pontuação média recebida: 2.5'),
+      ).toBeInTheDocument();
+    });
   });
 });

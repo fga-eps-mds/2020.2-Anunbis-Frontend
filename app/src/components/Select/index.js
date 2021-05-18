@@ -13,7 +13,7 @@ export default function Select({
   error,
   onChange,
   display,
-  testid
+  testid,
 }) {
   return (
     <SelectStyle

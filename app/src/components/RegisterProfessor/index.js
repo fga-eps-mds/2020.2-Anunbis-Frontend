@@ -27,7 +27,9 @@ export default function RegisterProfessor({ onRegister }) {
       .post('/professor', body)
       .then((response) => {
         if (response.status === 201) {
-          onRegister('Confirme o seu cadastro com o e-mail de verificação enviado ao seu e-mail.');
+          onRegister(
+            'Confirme o seu cadastro com o e-mail de verificação enviado ao seu e-mail.',
+          );
         }
       })
       .catch((error) => {
@@ -40,12 +42,7 @@ export default function RegisterProfessor({ onRegister }) {
   return (
     <Form onSubmit={handleSubmit(onSubmit)}>
       <Form.Field errorMsg={errors.name?.message}>
-        <Input
-          type="text"
-          text="Nome"
-          name="name"
-          register={register}
-        />
+        <Input type="text" text="Nome" name="name" register={register} />
       </Form.Field>
       <Form.Field errorMsg={errors.reg_professor?.message}>
         <Input

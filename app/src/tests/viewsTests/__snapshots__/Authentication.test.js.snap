@@ -32,7 +32,6 @@ exports[`Snapshot Authentication view matches the snapshot 1`] = `
       <div
         className="sc-gKAaRy btmTHI"
       >
-        <div />
         <div
           className="sc-iCoGMd dBpElD error"
         />
@@ -46,7 +45,6 @@ exports[`Snapshot Authentication view matches the snapshot 1`] = `
           placeholder="Email Instuticional"
           type="text"
         />
-         
         <div
           className="sc-iCoGMd dBpElD error"
         />
@@ -60,7 +58,6 @@ exports[`Snapshot Authentication view matches the snapshot 1`] = `
           placeholder="Senha"
           type="password"
         />
-         
         <div
           className="sc-iCoGMd dBpElD error"
         />

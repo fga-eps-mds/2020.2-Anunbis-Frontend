@@ -13,7 +13,9 @@ const Header = () => {
   }, []);
 
   function getCourseName(coursesArray) {
-    const result = coursesArray.find(course => course.id_course === student.id_course)
+    const result = coursesArray.find(
+      (course) => course.id_course === student.id_course,
+    );
     return result?.name;
   }
 

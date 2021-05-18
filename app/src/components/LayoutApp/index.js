@@ -87,7 +87,7 @@ export default function LayoutApp({ children }) {
             padding="0px"
             backColor="#212121"
             onClick={() => makeMenuOptions()}
-            data-testid='btn-layout-1'
+            data-testid="btn-layout-1"
           />
           {menuOptions}
         </End>
