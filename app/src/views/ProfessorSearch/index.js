@@ -36,6 +36,7 @@ const ProfessorFound = ({
           src={BtnOptions}
           onClick={() => setShowDisciplines(!showDisciplines)}
           rotate={showDisciplines ? '90deg' : ''}
+          data-testid='img-1'
         />
         <Name onClick={onClick}>{professor.name}</Name>
       </FoundHeader>
@@ -56,7 +57,7 @@ const ProfessorFound = ({
 function getPostsByDiscipline(professor, disciplineSelected) {
   const { discipline_code } = professor.disciplines[disciplineSelected]; // eslint-disable-line
   return professor.posts.filter(
-    (post) => post.discipline.discipline_code === discipline_code, // eslint-disable-line
+    (post) => post?.discipline.discipline_code === discipline_code,
   );
 }
 
@@ -125,7 +126,7 @@ function ProfessorSearch() {
         requestDuration > 500 ? 0 : 500 - requestDuration,
       );
     });
-  }, [newAvaliationState, selected]);
+  }, [professors, newAvaliationState, selected]);
 
   React.useEffect(() => {
     api
@@ -141,7 +142,7 @@ function ProfessorSearch() {
         setProfessors([]);
       });
   }, [professorName]);
-
+  
   return (
     <Container hasProfessors={professors.length > 0}>
       {professors.length > 0 && (
@@ -164,7 +165,6 @@ function ProfessorSearch() {
           ))}
         </Feed>
       )}
-
       <Feed
         title={professor ? `${professor.name}` : 'Pesquisa de professor'}
         radius="0px 0px 10px 10px"
