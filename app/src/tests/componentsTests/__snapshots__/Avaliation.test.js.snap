@@ -38,7 +38,6 @@ exports[`Snapshot Avaliation view matches the snapshot 1`] = `
         >
           <select
             className="sc-eCApnc bNkTt"
-            data-testid="select-aval-1"
             id="diciplines"
             name="id_course"
           >
