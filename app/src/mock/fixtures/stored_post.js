@@ -6,7 +6,7 @@ export const validPost  = {
         disponibility: 3,
         feedbacks: { agrees: 2, disagrees: 1, is_agreed: true, is_disagreed: true },
         id_post: 1,
-        id_professor: 5,
+        id_professor: 1,
         is_anonymous: true,
         metod: 2,
         post_date: "2021-05-09",

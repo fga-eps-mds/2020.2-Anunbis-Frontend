@@ -4,7 +4,7 @@ export const validStudent = {
     password: '12345678',
     reg_student: '123456789',
     response: {
-        name: 'Estudante teste',
+        name: 'Estudante Teste',
         reg_student: '123456789',
         email: '123456789@aluno.unb.br',
         id_course: '1'

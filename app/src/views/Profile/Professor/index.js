@@ -27,7 +27,6 @@ const Body = () => {
       : 0;
   }
 
-  console.log(posts);
   return (
     <Conteiner
       txtAlign="center"
