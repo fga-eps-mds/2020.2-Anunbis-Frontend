@@ -50,3 +50,11 @@ export const Title = styled.div`
     display: none;
   }
 `;
+
+export const MsgLoading = styled.div`
+  color: black;
+  width: 70%;
+  display: flex;
+  align-self: center;
+  justify-content: center;
+`;

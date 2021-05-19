@@ -9,6 +9,7 @@ import Users from '../../services/Users';
 export default function Profile() {
   const [excludeAcc, setExcludeAcc] = React.useState('');
   const [resetPassword, setResetPassword] = React.useState('');
+ 
   const ProfileSpecific =
     Users.whoAuthenticated() === Users.STUDENT
       ? ProfileStudent
@@ -24,7 +25,7 @@ export default function Profile() {
 
   return (
     <Conteiner display="flex" backColor="#E0E0E0">
-      {resetPassword}
+      {resetPassword} 
       {excludeAcc}
       <Title>Configurações de conta</Title>
       <ProfileSpecific.Header />

@@ -5,10 +5,12 @@ import {
   Content,
   Option,
   Title,
+  MsgLoading,
 } from './styles';
 import Login from '../../components/Login';
 import RegisterStudent from '../../components/RegisterStudent';
 import RegisterProfessor from '../../components/RegisterProfessor';
+import Loading from '../../components/Loading';
 
 function Authentication() {
   const [menu, setMenu] = React.useState(0);
@@ -52,32 +54,50 @@ const Menu = ({ menu, setMenu }) => (
 
 const MenuContent = ({ menu, setMenu }) => {
   const [message, setMessage] = React.useState();
+  const [loading, setLoading] = React.useState({
+    animation: false,
+    message: 'Carregando',
+  });
 
   function onRegister(msg) {
     setMessage(msg);
     setMenu(0);
+    setLoading({
+      animation: false,
+      message: '',
+    });
   }
 
   return (
     <Content>
-      {menu === 0 && <Login msg={message} />}
-      {menu >= 1 && <Register menu={menu} onRegister={onRegister} />}
+      {loading.animation && (
+        <>
+          <Loading />
+          <MsgLoading>{loading.message}</MsgLoading>
+        </>
+      )}
+      {!loading.animation && menu === 0 && (
+        <Login msg={message} setLoading={setLoading} />
+      )}
+      {!loading.animation && menu >= 1 && (
+        <Register menu={menu} onRegister={onRegister} setLoading={setLoading} />
+      )}
     </Content>
   );
 };
 
-const Register = ({ menu, onRegister }) => (
+const Register = ({ menu, onRegister, setLoading }) => (
   <>
     {menu === 1 && (
       <>
         <Title>Cadastro de Aluno</Title>
-        <RegisterStudent onRegister={onRegister} />
+        <RegisterStudent onRegister={onRegister} setLoading={setLoading} />
       </>
     )}
     {menu === 2 && (
       <>
         <Title>Cadastro de Professor</Title>
-        <RegisterProfessor onRegister={onRegister} />
+        <RegisterProfessor onRegister={onRegister} setLoading={setLoading} />
       </>
     )}
   </>

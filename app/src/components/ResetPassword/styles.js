@@ -78,3 +78,11 @@ export const FeedBack = styled.div`
   width: fit-content;
   color: red;
 `;
+
+export const MsgLoading = styled.div`
+  color: black;
+  width: 100%;
+  display: flex;
+  align-self: center;
+  justify-content: center;
+`;
