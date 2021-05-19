@@ -59,7 +59,7 @@ export const Discipline = styled.div`
     white-space: nowrap;
     text-overflow: ellipsis;
     overflow: hidden;
-  }
+  } 
 `;
 
 export const LoadingBox = styled.div`

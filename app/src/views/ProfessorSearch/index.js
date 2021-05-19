@@ -148,7 +148,7 @@ function ProfessorSearch() {
       {professors.length > 0 && (
         <Feed
           title="Professores"
-          width="min(20vw, 210px)"
+          width="min(20vw, 220px)"
           radius="0px 0px 10px 10px"
           key={professors.length}
         >

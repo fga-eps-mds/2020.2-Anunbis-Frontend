@@ -12,6 +12,7 @@ export const Container = styled.div`
   justify-content: center;
   box-shadow: 5px 5px 5px rgba(0, 0, 0, 50%);
   overflow-y: auto;
+  overflow-x: hidden;
   @media (max-width: 760px) {
     width: 100%;
   }
