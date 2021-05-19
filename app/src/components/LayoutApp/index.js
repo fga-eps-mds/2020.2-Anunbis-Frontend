@@ -61,7 +61,7 @@ export default function LayoutApp({ children }) {
             text="SOBRE"
             padding="3px"
             onClick={() => {
-              history.push('/');
+              history?.push('/');
             }}
           />
           <Button
@@ -70,7 +70,7 @@ export default function LayoutApp({ children }) {
             padding="3px"
             onClick={() => {
               logOut();
-              history.push('/');
+              history?.push('/');
             }}
           />
         </MenuOptions>,

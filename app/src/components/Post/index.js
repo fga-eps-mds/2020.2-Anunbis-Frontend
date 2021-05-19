@@ -86,6 +86,7 @@ const Feedbacks = ({ post, Onclick }) => {
         backColor="rgba(255, 0, 0, 0)"
         shadow="1px 1px 1px rgba(0, 0, 0, 20%)"
         onClick={() => clickAgree()}
+        data-testid="btn-agree"
       />
       <Button
         text={countDisagrees}
@@ -93,6 +94,7 @@ const Feedbacks = ({ post, Onclick }) => {
         backColor="rgba(255, 0, 0, 0)"
         shadow="1px 1px 1px rgba(0, 0, 0, 20%)"
         onClick={() => clickDisagree()}
+        data-testid="btn-disagree"
       />
     </FeedbacksDiv>
   );
