@@ -26,47 +26,47 @@ exports[`Snapshot Authentication view matches the snapshot 1`] = `
     className="sc-gtsrHT cSjUqK"
   >
     <form
-      className="sc-fujyAs kayyCj"
+      className="sc-pNWdM dYxkWR"
       onSubmit={[Function]}
     >
       <div
-        className="sc-gKAaRy cgnZuv"
+        className="sc-iCoGMd hziUSP"
       >
         <div
-          className="sc-iCoGMd gQaaRH error"
+          className="sc-fujyAs FaHra error"
         />
       </div>
       <div
-        className="sc-gKAaRy cgnZuv"
+        className="sc-iCoGMd hziUSP"
       >
         <input
-          className="sc-jrsJWt QesSX"
+          className="sc-kEqXSa jidDKw"
           name="email"
           placeholder="Email Instuticional"
           type="text"
         />
         <div
-          className="sc-iCoGMd gQaaRH error"
+          className="sc-fujyAs FaHra error"
         />
       </div>
       <div
-        className="sc-gKAaRy cgnZuv"
+        className="sc-iCoGMd hziUSP"
       >
         <input
-          className="sc-jrsJWt QesSX"
+          className="sc-kEqXSa jidDKw"
           name="password"
           placeholder="Senha"
           type="password"
         />
         <div
-          className="sc-iCoGMd gQaaRH error"
+          className="sc-fujyAs FaHra error"
         />
       </div>
       <div
-        className="sc-pNWdM eOsaBw"
+        className="sc-jrsJWt fipJRe"
       >
         <button
-          className="sc-jSFjdj jthJeV"
+          className="sc-gKAaRy gEhsKJ"
         >
           CONFIRMAR
         </button>

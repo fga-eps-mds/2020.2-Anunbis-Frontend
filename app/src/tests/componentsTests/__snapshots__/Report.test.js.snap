@@ -39,7 +39,7 @@ exports[`Snapshot Report component matches the snapshot 1`] = `
             className="sc-dlnjwi itVsq"
           >
             <input
-              name="option"
+              name="offensive"
               type="checkbox"
             />
             <span
@@ -51,7 +51,7 @@ exports[`Snapshot Report component matches the snapshot 1`] = `
             className="sc-dlnjwi itVsq"
           >
             <input
-              name="option"
+              name="prejudice"
               type="checkbox"
             />
             <span
@@ -63,7 +63,7 @@ exports[`Snapshot Report component matches the snapshot 1`] = `
             className="sc-dlnjwi itVsq"
           >
             <input
-              name="option"
+              name="unrelated"
               type="checkbox"
             />
             <span
@@ -75,7 +75,7 @@ exports[`Snapshot Report component matches the snapshot 1`] = `
             className="sc-dlnjwi itVsq"
           >
             <input
-              name="option"
+              name="others"
               type="checkbox"
             />
             <span
@@ -111,6 +111,7 @@ exports[`Snapshot Report component matches the snapshot 1`] = `
       >
         <button
           className="sc-bdnxRM KjNCJ"
+          disabled={false}
           type="submit"
         >
           DENUNCIAR
