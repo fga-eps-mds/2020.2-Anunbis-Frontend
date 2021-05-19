@@ -117,8 +117,19 @@ function Home() {
         <ObserveableComponent onVisible={() => setWhatSelected(3)}>
           <Contact isVisible={whatSelected === 3} />
         </ObserveableComponent>
+
         <Footer>
           <p>&#127279; Anunbis 2021</p>
+          <div>
+            Icons made by
+            <a href="https://www.freepik.com" title="Freepik">
+              Freepik
+            </a>{' '}
+            from{' '}
+            <a href="https://www.flaticon.com/" title="Flaticon">
+              www.flaticon.com
+            </a>
+          </div>
         </Footer>
       </Main>
     </Container>
