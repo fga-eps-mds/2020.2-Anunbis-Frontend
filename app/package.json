@@ -7,6 +7,7 @@
     "@testing-library/jest-dom": "^5.11.9",
     "@testing-library/react": "^11.2.5",
     "@testing-library/user-event": "^12.8.3",
+    "@testing-library/react-hooks": "^5.1.2",
     "axios": "^0.21.1",
     "axios-mock-adapter": "^1.19.0",
     "react": "^17.0.1",
@@ -63,7 +64,6 @@
     ]
   },
   "devDependencies": {
-    "@testing-library/react-hooks": "^5.1.2",
     "eslint": "^7.25.0",
     "eslint-config-airbnb": "^18.2.1",
     "eslint-config-prettier": "^8.3.0",
