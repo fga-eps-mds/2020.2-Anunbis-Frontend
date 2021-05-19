@@ -45,10 +45,10 @@ export default function ResetPassword({ onClick }) {
       .catch((error) => {
         console.log(error); // eslint-disable-line
       });
-      setLoading({
-        animation: false,
-        message: '',
-      });
+    setLoading({
+      animation: false,
+      message: '',
+    });
   }
 
   return (
@@ -56,41 +56,47 @@ export default function ResetPassword({ onClick }) {
       <Header>
         <div>REDEFINIÇÃO DE SENHA</div>
       </Header>
-      {loading.animation && <><Loading/><MsgLoading>{loading.message}</MsgLoading></>}
-      {!loading.animation && 
-      <Form onSubmit={handleSubmit(onSubmit)}>
-        <Form.Field errorMsg={errors.new_password?.message}>
-          <Input
-            type="password"
-            text="Digite a nova senha"
-            name="new_password"
-            register={register}
-          />
-        </Form.Field>
-        <Form.Field errorMsg={errors.confirm_new_password?.message}>
-          <Input
-            type="password"
-            text="Repita a nova senha"
-            name="confirm_new_password"
-            register={register}
-          />
-        </Form.Field>
-        {feedBack}
-        <Form.Footer>
-          <Btn
-            text="CANCELAR"
-            backColor="#26A69A"
-            padding="3px 3px"
-            onClick={() => onClick()}
-          />
-          <Btn
-            type="submit"
-            text="ALTERAR"
-            backColor="#26A69A"
-            padding="3px 6px"
-          />
-        </Form.Footer>
-      </Form>}
+      {loading.animation && (
+        <>
+          <Loading />
+          <MsgLoading>{loading.message}</MsgLoading>
+        </>
+      )}
+      {!loading.animation && (
+        <Form onSubmit={handleSubmit(onSubmit)}>
+          <Form.Field errorMsg={errors.new_password?.message}>
+            <Input
+              type="password"
+              text="Digite a nova senha"
+              name="new_password"
+              register={register}
+            />
+          </Form.Field>
+          <Form.Field errorMsg={errors.confirm_new_password?.message}>
+            <Input
+              type="password"
+              text="Repita a nova senha"
+              name="confirm_new_password"
+              register={register}
+            />
+          </Form.Field>
+          {feedBack}
+          <Form.Footer>
+            <Btn
+              text="CANCELAR"
+              backColor="#26A69A"
+              padding="3px 3px"
+              onClick={() => onClick()}
+            />
+            <Btn
+              type="submit"
+              text="ALTERAR"
+              backColor="#26A69A"
+              padding="3px 6px"
+            />
+          </Form.Footer>
+        </Form>
+      )}
     </Container>
   );
 }

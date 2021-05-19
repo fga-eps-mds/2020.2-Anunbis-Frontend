@@ -1,6 +1,7 @@
 import React from 'react';
 import { useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
+import api from '../../services/Api';
 import Button from '../Button';
 import Checkbox from '../Checkbox';
 import FeedPopup from '../FeedPopup';
@@ -8,13 +9,26 @@ import Form from '../Form';
 import { Options, Footer, TxtArea, Details } from './styles';
 import schema from './validations';
 
-export default function Report({ close }) {
+export default function Report({ close, post }) {
   const { register, handleSubmit, errors } = useForm({
     resolver: yupResolver(schema),
   });
+  const [disabled, setDisabled] = React.useState(false);
 
-  function onSubmit() {
-    console.log('Denuncia realizada.'); // eslint-disable-line
+  function onSubmit(data) {
+    setDisabled(true);
+    const body = {
+      content: data.details,
+      id_post: post.id_post,
+      offensive: data.offensive,
+      others: data.others,
+      prejudice: data.prejudice,
+      unrelated: data.unrelated,
+    };
+    api
+      .post('/report', body)
+      .then(() => close())
+      .catch(() => close());
   }
 
   return (
@@ -25,20 +39,20 @@ export default function Report({ close }) {
             <p>Motivo da Denuncia:</p>
             <Checkbox
               text="Linguagem ofensiva"
-              name="option"
+              name="offensive"
               register={register}
             />
             <Checkbox
               text="Comentário preconceituoso"
-              name="option"
+              name="prejudice"
               register={register}
             />
             <Checkbox
               text="Críticas não relacionadas a disciplina"
-              name="option"
+              name="unrelated"
               register={register}
             />
-            <Checkbox text="Outros" name="option" register={register} />
+            <Checkbox text="Outros" name="others" register={register} />
           </Options>
         </Form.Field>
         <Details>
@@ -48,7 +62,12 @@ export default function Report({ close }) {
           </Form.Field>
         </Details>
         <Footer>
-          <Button type="submit" text="DENUNCIAR" backColor="#F44336" />
+          <Button
+            type="submit"
+            text="DENUNCIAR"
+            backColor="#F44336"
+            disabled={disabled}
+          />
         </Footer>
       </Form>
     </FeedPopup>
