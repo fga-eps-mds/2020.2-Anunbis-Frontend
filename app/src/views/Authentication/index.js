@@ -76,8 +76,8 @@ const MenuContent = ({ menu, setMenu }) => {
           <MsgLoading>{loading.message}</MsgLoading>
         </>
       )}
-      {!loading.animation && menu === 0 && (
-        <Login msg={message} setLoading={setLoading} />
+      {menu === 0 && (
+        <Login message={message} setLoading={setLoading} setMessage={setMessage}/>
       )}
       {!loading.animation && menu >= 1 && (
         <Register menu={menu} onRegister={onRegister} setLoading={setLoading} />

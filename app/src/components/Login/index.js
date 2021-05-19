@@ -11,9 +11,8 @@ import Users from '../../services/Users';
 import { Message, VerifyMailStyle } from './styles';
 import api from '../../services/Api';
 
-function Login({ msg, setLoading }) {
+function Login({ message, setLoading, setMessage }) {
   const history = useHistory();
-  const [message, setMessage] = React.useState(msg);
   const [cursor, setCursor] = React.useState();
   // const [isLoading, setIsLoading ] = React.useState(setLoading);
   const { register, handleSubmit, errors } = useForm({
