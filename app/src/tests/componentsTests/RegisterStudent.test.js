@@ -13,13 +13,13 @@ mock.onGet('/course').reply(200, [
 ]);
 
 const mockPost = (number) => {
-    mock.onPost('/student').reply(number, {
-      name: 'Estudante teste',
-      reg_student: '123456789',
-      email: '123456789@aluno.unb.br',
-      id_course: '1',
-      password: '12345678',
-    });
+  mock.onPost('/student').reply(number, {
+    name: 'Estudante teste',
+    reg_student: '123456789',
+    email: '123456789@aluno.unb.br',
+    id_course: '1',
+    password: '12345678',
+  });
 };
 
 describe('Testing forms functionability', () => {
@@ -35,7 +35,7 @@ describe('Testing forms functionability', () => {
     mockPost(201);
     const setLoading = jest.fn();
     const redirect = jest.fn();
-    render(<RegisterStudent onRegister={redirect} setLoading={setLoading}/>);
+    render(<RegisterStudent onRegister={redirect} setLoading={setLoading} />);
 
     const inputName = screen.getByPlaceholderText('Nome');
     const inputReg = screen.getByPlaceholderText('Matrícula');
@@ -71,7 +71,7 @@ describe('Testing forms functionability', () => {
     mockPost(409);
     const redirect = jest.fn();
     const setLoading = jest.fn();
-    render(<RegisterStudent onRegister={redirect} setLoading={setLoading}/>);
+    render(<RegisterStudent onRegister={redirect} setLoading={setLoading} />);
 
     const inputName = screen.getByPlaceholderText('Nome');
     const inputReg = screen.getByPlaceholderText('Matrícula');

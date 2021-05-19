@@ -18,14 +18,20 @@ describe('Test Login component', () => {
       const callback = jest.fn();
       const message = '';
 
-      render(<Login message={message} setLoading={setLoading} setMessage={setMessage} />);
+      render(
+        <Login
+          message={message}
+          setLoading={setLoading}
+          setMessage={setMessage}
+        />,
+      );
       const inputEmail = screen.getByPlaceholderText('Email Instuticional');
       const inputPassword = screen.getByPlaceholderText('Senha');
       const btnConfirm = screen.getByText('CONFIRMAR');
 
       userEvent.type(inputEmail, validStudent.email);
       userEvent.type(inputPassword, validStudent.password);
-      sendLogin(validStudent.email, validStudent.password, callback, () => { });
+      sendLogin(validStudent.email, validStudent.password, callback, () => {});
 
       await waitFor(() => {
         expect(callback).toHaveBeenCalled();
@@ -48,7 +54,13 @@ describe('Test Login component', () => {
       const setMessage = jest.fn();
       const message = '';
 
-      render(<Login message={message} setLoading={setLoading} setMessage={setMessage} />);
+      render(
+        <Login
+          message={message}
+          setLoading={setLoading}
+          setMessage={setMessage}
+        />,
+      );
       const inputEmail = screen.getByPlaceholderText('Email Instuticional');
       const inputPassword = screen.getByPlaceholderText('Senha');
       const btnConfirm = screen.getByText('CONFIRMAR');

@@ -77,7 +77,11 @@ const MenuContent = ({ menu, setMenu }) => {
         </>
       )}
       {menu === 0 && (
-        <Login message={message} setLoading={setLoading} setMessage={setMessage}/>
+        <Login
+          message={message}
+          setLoading={setLoading}
+          setMessage={setMessage}
+        />
       )}
       {!loading.animation && menu >= 1 && (
         <Register menu={menu} onRegister={onRegister} setLoading={setLoading} />

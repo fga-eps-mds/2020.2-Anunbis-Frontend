@@ -35,7 +35,9 @@ describe('test of UX', () => {
       mockPost(201);
       const redirect = jest.fn();
       const setLoading = jest.fn();
-      render(<RegisterProfessor onRegister={redirect} setLoading={setLoading} />);
+      render(
+        <RegisterProfessor onRegister={redirect} setLoading={setLoading} />,
+      );
 
       const inputName = screen.getByPlaceholderText('Nome');
       const inputReg = screen.getByPlaceholderText('Matrícula');
