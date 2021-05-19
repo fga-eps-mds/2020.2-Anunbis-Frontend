@@ -13,23 +13,13 @@ mock.onGet('/course').reply(200, [
 ]);
 
 const mockPost = (number) => {
-  if (number === 409) {
-    mock.onPost('/student').reply(409, {
+    mock.onPost('/student').reply(number, {
       name: 'Estudante teste',
       reg_student: '123456789',
       email: '123456789@aluno.unb.br',
       id_course: '1',
       password: '12345678',
     });
-  } else {
-    mock.onPost('/student').reply(201, {
-      name: 'Estudante teste',
-      reg_student: '123456789',
-      email: '123456789@aluno.unb.br',
-      id_course: '1',
-      password: '12345678',
-    });
-  }
 };
 
 describe('Testing forms functionability', () => {
@@ -42,9 +32,10 @@ describe('Testing forms functionability', () => {
   });
 
   it('Submit Valid student', async () => {
-    const redirect = jest.fn();
     mockPost(201);
-    render(<RegisterStudent onRegister={redirect} />);
+    const setLoading = jest.fn();
+    const redirect = jest.fn();
+    render(<RegisterStudent onRegister={redirect} setLoading={setLoading}/>);
 
     const inputName = screen.getByPlaceholderText('Nome');
     const inputReg = screen.getByPlaceholderText('Matrícula');
@@ -67,15 +58,20 @@ describe('Testing forms functionability', () => {
       { target: { selected: true } },
     );
     userEvent.click(btnConfirm);
+
+    await waitFor(() => {
+      expect(setLoading).toHaveBeenCalled();
+    });
 
     await waitFor(() => {
       expect(redirect).toHaveBeenCalled();
     });
   });
-  it('ErrorDB must appear on Repeated Student ', async () => {
+  it('Error must appear on Repeated Student ', async () => {
     mockPost(409);
-
-    render(<RegisterStudent />);
+    const redirect = jest.fn();
+    const setLoading = jest.fn();
+    render(<RegisterStudent onRegister={redirect} setLoading={setLoading}/>);
 
     const inputName = screen.getByPlaceholderText('Nome');
     const inputReg = screen.getByPlaceholderText('Matrícula');
@@ -101,7 +97,11 @@ describe('Testing forms functionability', () => {
     userEvent.click(btnConfirm);
 
     await waitFor(() => {
-      expect(screen.getByText('Estudante já cadastrado')).toBeInTheDocument();
+      expect(setLoading).toHaveBeenCalled();
+    });
+
+    await waitFor(() => {
+      expect(redirect).toHaveBeenCalled();
     });
   });
 });
