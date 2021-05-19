@@ -39,7 +39,7 @@ describe('test of UX', () => {
         <RegisterProfessor onRegister={redirect} setLoading={setLoading} />,
       );
 
-      const inputName = screen.getByPlaceholderText('Nome');
+      const inputName = screen.getByPlaceholderText('Nome Completo');
       const inputReg = screen.getByPlaceholderText('Matrícula');
       const inputEmail = screen.getByPlaceholderText('Email Institucional');
       const inputPassword = screen.getByPlaceholderText('Senha');
@@ -69,7 +69,7 @@ describe('test of UX', () => {
     const setLoading = jest.fn();
     render(<RegisterProfessor onRegister={redirect} setLoading={setLoading} />);
 
-    const inputName = screen.getByPlaceholderText('Nome');
+    const inputName = screen.getByPlaceholderText('Nome Completo');
     const inputReg = screen.getByPlaceholderText('Matrícula');
     const inputEmail = screen.getByPlaceholderText('Email Institucional');
     const inputPassword = screen.getByPlaceholderText('Senha');

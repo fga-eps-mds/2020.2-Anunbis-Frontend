@@ -16,6 +16,7 @@ export const FieldContainer = styled.div`
     @media (max-width: 300px) {
       width: 100%;
     }
+    max-width: min(33vw, 180px);
   }
 `;
 

@@ -5,7 +5,7 @@ exports[`Snapshot Report component matches the snapshot 1`] = `
   className="sc-hKFxyN eFovYf"
 >
   <div
-    className="sc-eCApnc foDSAG"
+    className="sc-eCApnc bUEhGN"
   >
     <div
       className="sc-jSFjdj eKGict"
@@ -27,7 +27,7 @@ exports[`Snapshot Report component matches the snapshot 1`] = `
       onSubmit={[Function]}
     >
       <div
-        className="sc-iCoGMd hziUSP"
+        className="sc-iCoGMd hjTovw"
       >
         <div
           className="sc-kEqXSa gBjBKd"
@@ -95,7 +95,7 @@ exports[`Snapshot Report component matches the snapshot 1`] = `
           Detalhe os motivos:
         </p>
         <div
-          className="sc-iCoGMd hziUSP"
+          className="sc-iCoGMd hjTovw"
         >
           <textarea
             className="sc-crzoAE idzbNo"

@@ -25,6 +25,7 @@ export const Header = styled.div`
     margin-inline: 0px;
     color: #fffde7;
     border: 0px;
+    box-shadow: none;
   }
 `;
 

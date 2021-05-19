@@ -87,7 +87,7 @@ export default function Avaliation({ close, professor }) {
               <Select
                 id="diciplines"
                 backColor="var(--transparent)"
-                text="Selecione um Curso"
+                text="Selecione uma Disciplina"
                 options={disciplinesOptions(disciplines)}
                 name="id_course"
                 register={register}

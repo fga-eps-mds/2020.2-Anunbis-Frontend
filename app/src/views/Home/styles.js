@@ -49,9 +49,11 @@ export const Main = styled.main`
 export const Footer = styled.main`
   background: #212121;
   color: #ffffff;
-  width: 100%;
   height: 40px;
   margin-top: auto;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
 
   p {
     font-family: 'Roboto';
@@ -60,6 +62,11 @@ export const Footer = styled.main`
     font-size: 20px;
     line-height: 40px;
     margin-left: 25px;
+  }
+
+  div {
+    margin-left: auto;
+    margin-right: 25px;
   }
 `;
 export const Middle = styled.div`
