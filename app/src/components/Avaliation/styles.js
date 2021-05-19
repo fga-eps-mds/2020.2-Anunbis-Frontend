@@ -74,3 +74,11 @@ export const TxtArea = styled.textarea`
     width: 75vw;
   }
 `;
+
+export const MsgLoading = styled.div`
+  color: black;
+  width: 100%;
+  display: flex;
+  align-self: center;
+  justify-content: center;
+`;
