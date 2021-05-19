@@ -76,7 +76,7 @@ const MenuContent = ({ menu, setMenu }) => {
           <MsgLoading>{loading.message}</MsgLoading>
         </>
       )}
-      {menu === 0 && (
+      {!loading.animation && menu === 0 && (
         <Login
           message={message}
           setLoading={setLoading}
