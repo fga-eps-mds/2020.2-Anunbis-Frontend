@@ -53,3 +53,11 @@ export const BtsExclude = styled.div`
     }
   }
 `;
+
+export const MsgLoading = styled.div`
+  color: black;
+  width: 100%;
+  display: flex;
+  align-self: center;
+  justify-content: center;
+`;

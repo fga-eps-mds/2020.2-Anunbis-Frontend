@@ -10,10 +10,9 @@ import Select from '../Select';
 import api from '../../services/Api';
 import { getCourses } from '../../services/Courses';
 
-export default function RegisterStudent({ onRegister }) {
+export default function RegisterStudent({ onRegister, setLoading }) {
   const history = useHistory();
   const [courses, setCourses] = React.useState([]);
-  const [errorDB, setErrorDB] = React.useState('');
   const { register, handleSubmit, errors } = useForm({
     resolver: yupResolver(schema),
   });
@@ -31,6 +30,10 @@ export default function RegisterStudent({ onRegister }) {
   }, []);
 
   function onSubmit(data) {
+    setLoading({
+      animation: true,
+      message: 'Registrando estudante',
+    });
     const body = {
       reg_student: Number(data.reg_student),
       name: data.name,
@@ -50,7 +53,7 @@ export default function RegisterStudent({ onRegister }) {
       })
       .catch((error) => {
         if (error.response.status === 409) {
-          setErrorDB('Estudante já cadastrado');
+          onRegister('Estudante já cadastrado');
         }
       });
   }
@@ -102,9 +105,6 @@ export default function RegisterStudent({ onRegister }) {
           name="co_password"
           register={register}
         />
-      </Form.Field>
-      <Form.Field>
-        <div className="errorDB">{errorDB}</div>
       </Form.Field>
       <Form.Footer>
         <Button

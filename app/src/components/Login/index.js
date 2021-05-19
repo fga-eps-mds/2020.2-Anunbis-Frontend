@@ -11,11 +11,10 @@ import Users from '../../services/Users';
 import { Message, VerifyMailStyle } from './styles';
 import api from '../../services/Api';
 
-function Login({ msg }) {
+function Login({ message, setLoading, setMessage }) {
   const history = useHistory();
-  const [message, setMessage] = React.useState(msg);
   const [cursor, setCursor] = React.useState();
-
+  // const [isLoading, setIsLoading ] = React.useState(setLoading);
   const { register, handleSubmit, errors } = useForm({
     resolver: yupResolver(schema),
   });
@@ -25,6 +24,10 @@ function Login({ msg }) {
   });
 
   function onSubmit(data) {
+    setLoading({
+      animation: true,
+      message: 'Logando',
+    });
     setCursor('wait');
     sendLogin(
       data.email,
@@ -38,10 +41,18 @@ function Login({ msg }) {
           setCursor('pointer');
           setMessage(<VerifyMail email={data.email} />);
         }
+        setLoading({
+          animation: false,
+          message: '',
+        });
       },
       () => {
         setCursor('');
         setMessage('Email ou senha inválido');
+        setLoading({
+          animation: false,
+          message: '',
+        });
       },
     );
   }

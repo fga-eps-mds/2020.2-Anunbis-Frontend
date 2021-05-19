@@ -8,14 +8,17 @@ import Button from '../Button';
 import schema from './validations';
 import api from '../../services/Api';
 
-export default function RegisterProfessor({ onRegister }) {
+export default function RegisterProfessor({ onRegister, setLoading }) {
   const history = useHistory();
-  const [errorDB, setErrorDB] = React.useState('');
   const { register, handleSubmit, errors } = useForm({
     resolver: yupResolver(schema),
   });
 
   function onSubmit(data) {
+    setLoading({
+      animation: true,
+      message: 'Registrando professor',
+    });
     const body = {
       name: data.name,
       email: data.email,
@@ -34,7 +37,7 @@ export default function RegisterProfessor({ onRegister }) {
       })
       .catch((error) => {
         if (error.response.status === 409) {
-          setErrorDB('Professor já cadastrado');
+          onRegister('Professor já cadastrado');
         }
       });
   }
@@ -76,9 +79,6 @@ export default function RegisterProfessor({ onRegister }) {
           name="co_password"
           register={register}
         />
-      </Form.Field>
-      <Form.Field>
-        <div className="errorDB">{errorDB}</div>
       </Form.Field>
       <Form.Footer>
         <Button

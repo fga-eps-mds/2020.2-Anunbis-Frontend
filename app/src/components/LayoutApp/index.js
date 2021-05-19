@@ -60,7 +60,9 @@ export default function LayoutApp({ children }) {
             backColor="#FFD54F"
             text="SOBRE"
             padding="3px"
-            onClick={() => {}}
+            onClick={() => {
+              history.push('/');
+            }}
           />
           <Button
             backColor="#FFD54F"

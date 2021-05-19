@@ -2,31 +2,31 @@
 
 exports[`Snapshot Avaliation view matches the snapshot 1`] = `
 <div
-  className="sc-crzoAE feGJIF"
+  className="sc-dIsUp fRtNem"
 >
   <div
-    className="sc-dIsUp hJMXzL"
+    className="sc-bqGGPW bxpOfc"
   >
     <div
-      className="sc-bqGGPW dAWHJi"
+      className="sc-ksluID jmZjcu"
     >
       Avaliação
     </div>
     <button
-      className="sc-jSFjdj iYEbuK"
+      className="sc-gKAaRy fAVUpm"
       radius="0px"
     >
       X
     </button>
   </div>
   <main
-    className="sc-ksluID dqykrH"
+    className="sc-hBMUJo xxXJc"
   >
     <div
       className="sc-bdnxRM kjrnMz"
     >
       <form
-        className="sc-kEqXSa cgEWQw"
+        className="sc-iqAclL kCPDqH"
         data-testid="form-aval-1"
         onSubmit={[Function]}
       >
@@ -34,10 +34,10 @@ exports[`Snapshot Avaliation view matches the snapshot 1`] = `
           className="sc-dlnjwi djLcli"
         />
         <div
-          className="sc-pNWdM eUdqmP"
+          className="sc-jrsJWt dYGnEt"
         >
           <select
-            className="sc-eCApnc jaaHNR"
+            className="sc-jSFjdj evAqHY"
             id="diciplines"
             name="id_course"
           >
@@ -50,7 +50,7 @@ exports[`Snapshot Avaliation view matches the snapshot 1`] = `
             </option>
           </select>
           <div
-            className="sc-jrsJWt fvYlXW error"
+            className="sc-kEqXSa jZzZSJ error"
           />
         </div>
         <p>
@@ -63,13 +63,13 @@ exports[`Snapshot Avaliation view matches the snapshot 1`] = `
             Didática:
           </label>
           <div
-            className="sc-pNWdM eUdqmP"
+            className="sc-jrsJWt dYGnEt"
           >
             <div
-              className="sc-gKAaRy cgyNEA"
+              className="sc-iCoGMd jliwfQ"
             >
               <label
-                className="sc-fujyAs exNMkG"
+                className="sc-pNWdM knJCVU"
               >
                 <input
                   checked={false}
@@ -79,11 +79,11 @@ exports[`Snapshot Avaliation view matches the snapshot 1`] = `
                   type="checkbox"
                 />
                 <span
-                  className="sc-iCoGMd iNWuFv"
+                  className="sc-fujyAs gDRUGy"
                 />
               </label>
               <label
-                className="sc-fujyAs exNMkG"
+                className="sc-pNWdM knJCVU"
               >
                 <input
                   checked={false}
@@ -93,11 +93,11 @@ exports[`Snapshot Avaliation view matches the snapshot 1`] = `
                   type="checkbox"
                 />
                 <span
-                  className="sc-iCoGMd iNWuFv"
+                  className="sc-fujyAs gDRUGy"
                 />
               </label>
               <label
-                className="sc-fujyAs exNMkG"
+                className="sc-pNWdM knJCVU"
               >
                 <input
                   checked={false}
@@ -107,11 +107,11 @@ exports[`Snapshot Avaliation view matches the snapshot 1`] = `
                   type="checkbox"
                 />
                 <span
-                  className="sc-iCoGMd iNWuFv"
+                  className="sc-fujyAs gDRUGy"
                 />
               </label>
               <label
-                className="sc-fujyAs exNMkG"
+                className="sc-pNWdM knJCVU"
               >
                 <input
                   checked={false}
@@ -121,11 +121,11 @@ exports[`Snapshot Avaliation view matches the snapshot 1`] = `
                   type="checkbox"
                 />
                 <span
-                  className="sc-iCoGMd iNWuFv"
+                  className="sc-fujyAs gDRUGy"
                 />
               </label>
               <label
-                className="sc-fujyAs exNMkG"
+                className="sc-pNWdM knJCVU"
               >
                 <input
                   checked={false}
@@ -135,25 +135,25 @@ exports[`Snapshot Avaliation view matches the snapshot 1`] = `
                   type="checkbox"
                 />
                 <span
-                  className="sc-iCoGMd iNWuFv"
+                  className="sc-fujyAs gDRUGy"
                 />
               </label>
             </div>
             <div
-              className="sc-jrsJWt fvYlXW error"
+              className="sc-kEqXSa jZzZSJ error"
             />
           </div>
           <label>
             Metodologia:
           </label>
           <div
-            className="sc-pNWdM eUdqmP"
+            className="sc-jrsJWt dYGnEt"
           >
             <div
-              className="sc-gKAaRy cgyNEA"
+              className="sc-iCoGMd jliwfQ"
             >
               <label
-                className="sc-fujyAs exNMkG"
+                className="sc-pNWdM knJCVU"
               >
                 <input
                   checked={false}
@@ -163,11 +163,11 @@ exports[`Snapshot Avaliation view matches the snapshot 1`] = `
                   type="checkbox"
                 />
                 <span
-                  className="sc-iCoGMd iNWuFv"
+                  className="sc-fujyAs gDRUGy"
                 />
               </label>
               <label
-                className="sc-fujyAs exNMkG"
+                className="sc-pNWdM knJCVU"
               >
                 <input
                   checked={false}
@@ -177,11 +177,11 @@ exports[`Snapshot Avaliation view matches the snapshot 1`] = `
                   type="checkbox"
                 />
                 <span
-                  className="sc-iCoGMd iNWuFv"
+                  className="sc-fujyAs gDRUGy"
                 />
               </label>
               <label
-                className="sc-fujyAs exNMkG"
+                className="sc-pNWdM knJCVU"
               >
                 <input
                   checked={false}
@@ -191,11 +191,11 @@ exports[`Snapshot Avaliation view matches the snapshot 1`] = `
                   type="checkbox"
                 />
                 <span
-                  className="sc-iCoGMd iNWuFv"
+                  className="sc-fujyAs gDRUGy"
                 />
               </label>
               <label
-                className="sc-fujyAs exNMkG"
+                className="sc-pNWdM knJCVU"
               >
                 <input
                   checked={false}
@@ -205,11 +205,11 @@ exports[`Snapshot Avaliation view matches the snapshot 1`] = `
                   type="checkbox"
                 />
                 <span
-                  className="sc-iCoGMd iNWuFv"
+                  className="sc-fujyAs gDRUGy"
                 />
               </label>
               <label
-                className="sc-fujyAs exNMkG"
+                className="sc-pNWdM knJCVU"
               >
                 <input
                   checked={false}
@@ -219,25 +219,25 @@ exports[`Snapshot Avaliation view matches the snapshot 1`] = `
                   type="checkbox"
                 />
                 <span
-                  className="sc-iCoGMd iNWuFv"
+                  className="sc-fujyAs gDRUGy"
                 />
               </label>
             </div>
             <div
-              className="sc-jrsJWt fvYlXW error"
+              className="sc-kEqXSa jZzZSJ error"
             />
           </div>
           <label>
             Coerência das Avaliações:
           </label>
           <div
-            className="sc-pNWdM eUdqmP"
+            className="sc-jrsJWt dYGnEt"
           >
             <div
-              className="sc-gKAaRy cgyNEA"
+              className="sc-iCoGMd jliwfQ"
             >
               <label
-                className="sc-fujyAs exNMkG"
+                className="sc-pNWdM knJCVU"
               >
                 <input
                   checked={false}
@@ -247,11 +247,11 @@ exports[`Snapshot Avaliation view matches the snapshot 1`] = `
                   type="checkbox"
                 />
                 <span
-                  className="sc-iCoGMd iNWuFv"
+                  className="sc-fujyAs gDRUGy"
                 />
               </label>
               <label
-                className="sc-fujyAs exNMkG"
+                className="sc-pNWdM knJCVU"
               >
                 <input
                   checked={false}
@@ -261,11 +261,11 @@ exports[`Snapshot Avaliation view matches the snapshot 1`] = `
                   type="checkbox"
                 />
                 <span
-                  className="sc-iCoGMd iNWuFv"
+                  className="sc-fujyAs gDRUGy"
                 />
               </label>
               <label
-                className="sc-fujyAs exNMkG"
+                className="sc-pNWdM knJCVU"
               >
                 <input
                   checked={false}
@@ -275,11 +275,11 @@ exports[`Snapshot Avaliation view matches the snapshot 1`] = `
                   type="checkbox"
                 />
                 <span
-                  className="sc-iCoGMd iNWuFv"
+                  className="sc-fujyAs gDRUGy"
                 />
               </label>
               <label
-                className="sc-fujyAs exNMkG"
+                className="sc-pNWdM knJCVU"
               >
                 <input
                   checked={false}
@@ -289,11 +289,11 @@ exports[`Snapshot Avaliation view matches the snapshot 1`] = `
                   type="checkbox"
                 />
                 <span
-                  className="sc-iCoGMd iNWuFv"
+                  className="sc-fujyAs gDRUGy"
                 />
               </label>
               <label
-                className="sc-fujyAs exNMkG"
+                className="sc-pNWdM knJCVU"
               >
                 <input
                   checked={false}
@@ -303,25 +303,25 @@ exports[`Snapshot Avaliation view matches the snapshot 1`] = `
                   type="checkbox"
                 />
                 <span
-                  className="sc-iCoGMd iNWuFv"
+                  className="sc-fujyAs gDRUGy"
                 />
               </label>
             </div>
             <div
-              className="sc-jrsJWt fvYlXW error"
+              className="sc-kEqXSa jZzZSJ error"
             />
           </div>
           <label>
             Disponibilidade:
           </label>
           <div
-            className="sc-pNWdM eUdqmP"
+            className="sc-jrsJWt dYGnEt"
           >
             <div
-              className="sc-gKAaRy cgyNEA"
+              className="sc-iCoGMd jliwfQ"
             >
               <label
-                className="sc-fujyAs exNMkG"
+                className="sc-pNWdM knJCVU"
               >
                 <input
                   checked={false}
@@ -331,11 +331,11 @@ exports[`Snapshot Avaliation view matches the snapshot 1`] = `
                   type="checkbox"
                 />
                 <span
-                  className="sc-iCoGMd iNWuFv"
+                  className="sc-fujyAs gDRUGy"
                 />
               </label>
               <label
-                className="sc-fujyAs exNMkG"
+                className="sc-pNWdM knJCVU"
               >
                 <input
                   checked={false}
@@ -345,11 +345,11 @@ exports[`Snapshot Avaliation view matches the snapshot 1`] = `
                   type="checkbox"
                 />
                 <span
-                  className="sc-iCoGMd iNWuFv"
+                  className="sc-fujyAs gDRUGy"
                 />
               </label>
               <label
-                className="sc-fujyAs exNMkG"
+                className="sc-pNWdM knJCVU"
               >
                 <input
                   checked={false}
@@ -359,11 +359,11 @@ exports[`Snapshot Avaliation view matches the snapshot 1`] = `
                   type="checkbox"
                 />
                 <span
-                  className="sc-iCoGMd iNWuFv"
+                  className="sc-fujyAs gDRUGy"
                 />
               </label>
               <label
-                className="sc-fujyAs exNMkG"
+                className="sc-pNWdM knJCVU"
               >
                 <input
                   checked={false}
@@ -373,11 +373,11 @@ exports[`Snapshot Avaliation view matches the snapshot 1`] = `
                   type="checkbox"
                 />
                 <span
-                  className="sc-iCoGMd iNWuFv"
+                  className="sc-fujyAs gDRUGy"
                 />
               </label>
               <label
-                className="sc-fujyAs exNMkG"
+                className="sc-pNWdM knJCVU"
               >
                 <input
                   checked={false}
@@ -387,12 +387,12 @@ exports[`Snapshot Avaliation view matches the snapshot 1`] = `
                   type="checkbox"
                 />
                 <span
-                  className="sc-iCoGMd iNWuFv"
+                  className="sc-fujyAs gDRUGy"
                 />
               </label>
             </div>
             <div
-              className="sc-jrsJWt fvYlXW error"
+              className="sc-kEqXSa jZzZSJ error"
             />
           </div>
         </div>
@@ -404,14 +404,14 @@ exports[`Snapshot Avaliation view matches the snapshot 1`] = `
           direction="row"
         >
           <button
-            className="sc-jSFjdj jYSBhf"
+            className="sc-gKAaRy hWtowf"
             onClick={[Function]}
             type="button"
           >
             PÚBLICA
           </button>
           <button
-            className="sc-jSFjdj fTYZxU"
+            className="sc-gKAaRy cMTpRk"
             onClick={[Function]}
             type="button"
           >
@@ -422,7 +422,7 @@ exports[`Snapshot Avaliation view matches the snapshot 1`] = `
           Descrição/Comentários:
         </p>
         <div
-          className="sc-pNWdM eUdqmP"
+          className="sc-jrsJWt dYGnEt"
         >
           <textarea
             className="sc-hKFxyN cqWcJi"
@@ -430,14 +430,14 @@ exports[`Snapshot Avaliation view matches the snapshot 1`] = `
             name="comments"
           />
           <div
-            className="sc-jrsJWt fvYlXW error"
+            className="sc-kEqXSa jZzZSJ error"
           />
         </div>
         <div
-          className="sc-iqAclL fwgQfe"
+          className="sc-crzoAE VYTpw"
         >
           <button
-            className="sc-jSFjdj iooaEn"
+            className="sc-gKAaRy iwnWRD"
             type="submit"
           >
             POSTAR

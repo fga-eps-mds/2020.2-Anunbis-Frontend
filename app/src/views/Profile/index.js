@@ -9,6 +9,7 @@ import Users from '../../services/Users';
 export default function Profile() {
   const [excludeAcc, setExcludeAcc] = React.useState('');
   const [resetPassword, setResetPassword] = React.useState('');
+
   const ProfileSpecific =
     Users.whoAuthenticated() === Users.STUDENT
       ? ProfileStudent
