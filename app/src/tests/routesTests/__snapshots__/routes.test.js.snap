@@ -338,11 +338,29 @@ exports[`routes test matches the snapshot 1`] = `
       </div>
     </span>
     <main
-      className="sc-fcmMJX bekQOw"
+      className="sc-fcmMJX ljRJGn"
     >
       <p>
         🄯 Anunbis 2021
       </p>
+      <div>
+        Icons made by
+        <a
+          href="https://www.freepik.com"
+          title="Freepik"
+        >
+          Freepik
+        </a>
+         
+        from
+         
+        <a
+          href="https://www.flaticon.com/"
+          title="Flaticon"
+        >
+          www.flaticon.com
+        </a>
+      </div>
     </main>
   </main>
 </div>

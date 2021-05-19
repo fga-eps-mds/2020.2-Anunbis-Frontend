@@ -5,7 +5,7 @@ exports[`Snapshot Avaliation view matches the snapshot 1`] = `
   className="sc-dIsUp fRtNem"
 >
   <div
-    className="sc-bqGGPW bxpOfc"
+    className="sc-bqGGPW bgpPWP"
   >
     <div
       className="sc-ksluID jmZjcu"
@@ -34,7 +34,7 @@ exports[`Snapshot Avaliation view matches the snapshot 1`] = `
           className="sc-dlnjwi djLcli"
         />
         <div
-          className="sc-jrsJWt dYGnEt"
+          className="sc-jrsJWt blFCga"
         >
           <select
             className="sc-jSFjdj evAqHY"
@@ -46,7 +46,7 @@ exports[`Snapshot Avaliation view matches the snapshot 1`] = `
               selected={true}
               value=""
             >
-              Selecione um Curso
+              Selecione uma Disciplina
             </option>
           </select>
           <div
@@ -63,7 +63,7 @@ exports[`Snapshot Avaliation view matches the snapshot 1`] = `
             Didática:
           </label>
           <div
-            className="sc-jrsJWt dYGnEt"
+            className="sc-jrsJWt blFCga"
           >
             <div
               className="sc-iCoGMd jliwfQ"
@@ -147,7 +147,7 @@ exports[`Snapshot Avaliation view matches the snapshot 1`] = `
             Metodologia:
           </label>
           <div
-            className="sc-jrsJWt dYGnEt"
+            className="sc-jrsJWt blFCga"
           >
             <div
               className="sc-iCoGMd jliwfQ"
@@ -231,7 +231,7 @@ exports[`Snapshot Avaliation view matches the snapshot 1`] = `
             Coerência das Avaliações:
           </label>
           <div
-            className="sc-jrsJWt dYGnEt"
+            className="sc-jrsJWt blFCga"
           >
             <div
               className="sc-iCoGMd jliwfQ"
@@ -315,7 +315,7 @@ exports[`Snapshot Avaliation view matches the snapshot 1`] = `
             Disponibilidade:
           </label>
           <div
-            className="sc-jrsJWt dYGnEt"
+            className="sc-jrsJWt blFCga"
           >
             <div
               className="sc-iCoGMd jliwfQ"
@@ -422,7 +422,7 @@ exports[`Snapshot Avaliation view matches the snapshot 1`] = `
           Descrição/Comentários:
         </p>
         <div
-          className="sc-jrsJWt dYGnEt"
+          className="sc-jrsJWt blFCga"
         >
           <textarea
             className="sc-hKFxyN cqWcJi"
