@@ -24,3 +24,12 @@ export const LoadingDiv = styled.div`
   display: grid;
   grid-template-columns: auto auto auto;
 `;
+
+export const LoadingBox = styled.div`
+  width: 100%;
+  height: 20vh;
+  background: ${(props) => (props.backColor ? props.backColor : '')};
+  display: flex;
+  justify-content: center;
+  align-items: center;
+`;
