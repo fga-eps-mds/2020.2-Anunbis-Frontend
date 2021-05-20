@@ -1,0 +1,17 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Snapshot StudentHome view matches the snapshot 1`] = `
+<div
+  className="sc-bdnxRM iEIydW"
+  title="Avaliações Feitas Por Você"
+>
+  <div
+    className="sc-gtsrHT XbvmI"
+  >
+    Avaliações Feitas Por Você
+  </div>
+  <div
+    className="sc-eCApnc hegkdr"
+  />
+</div>
+`;

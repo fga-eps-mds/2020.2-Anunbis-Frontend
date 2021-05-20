@@ -1,0 +1,54 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Snapshot Profile view matches the snapshot 1`] = `
+<div
+  className="sc-dIsUp joMOBp"
+  display="flex"
+>
+  
+  
+  <h4
+    className="sc-hBMUJo CSbtl"
+  >
+    Configurações de conta
+  </h4>
+  <div
+    className="sc-fFSPTT iRkqee"
+    height="115px"
+    width="240px"
+  >
+    <p>
+      Nome Completo: 
+    </p>
+    <p>
+      E-mail: 
+    </p>
+  </div>
+  <button
+    className="sc-jSFjdj cjmoSN sc-bqGGPW gxWuCk"
+    onClick={[Function]}
+  >
+    ALTERAR SENHA
+  </button>
+  <div
+    className="sc-fFSPTT dqAmUg"
+    height="115px"
+    width="430px"
+  >
+    <p>
+      Quantidade de avaliações recebidas: 
+      0
+    </p>
+    <p>
+      Pontuação média recebida: 
+      0
+    </p>
+  </div>
+  <button
+    className="sc-jSFjdj kZEVrR sc-ksluID dbTocj"
+    onClick={[Function]}
+  >
+    EXCLUIR CONTA
+  </button>
+</div>
+`;

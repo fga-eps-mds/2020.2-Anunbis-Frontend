@@ -1,0 +1,77 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Snapshot Authentication view matches the snapshot 1`] = `
+<div
+  className="sc-bdnxRM eKuLqM"
+>
+  <div
+    className="sc-dlnjwi dCJLA-d"
+  >
+    <div
+      className="sc-hKFxyN dLGJru btnLogin"
+      onClick={[Function]}
+      selected={true}
+    >
+      Login
+    </div>
+    <div
+      className="sc-hKFxyN hLVVlO btnCadastro"
+      onClick={[Function]}
+      selected={false}
+    >
+      Cadastro
+    </div>
+  </div>
+  <div
+    className="sc-gtsrHT cSjUqK"
+  >
+    <form
+      className="sc-pNWdM dYxkWR"
+      onSubmit={[Function]}
+    >
+      <div
+        className="sc-iCoGMd hjTovw"
+      >
+        <div
+          className="sc-fujyAs FaHra error"
+        />
+      </div>
+      <div
+        className="sc-iCoGMd hjTovw"
+      >
+        <input
+          className="sc-kEqXSa jidDKw"
+          name="email"
+          placeholder="Email Instuticional"
+          type="text"
+        />
+        <div
+          className="sc-fujyAs FaHra error"
+        />
+      </div>
+      <div
+        className="sc-iCoGMd hjTovw"
+      >
+        <input
+          className="sc-kEqXSa jidDKw"
+          name="password"
+          placeholder="Senha"
+          type="password"
+        />
+        <div
+          className="sc-fujyAs FaHra error"
+        />
+      </div>
+      <div
+        className="sc-jrsJWt fipJRe"
+      >
+        <button
+          className="sc-gKAaRy gEhsKJ"
+        >
+          CONFIRMAR
+        </button>
+      </div>
+    </form>
+  </div>
+</div>
+`;

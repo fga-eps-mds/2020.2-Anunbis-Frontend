@@ -1,0 +1,450 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Snapshot Avaliation view matches the snapshot 1`] = `
+<div
+  className="sc-dIsUp fRtNem"
+>
+  <div
+    className="sc-bqGGPW bgpPWP"
+  >
+    <div
+      className="sc-ksluID jmZjcu"
+    >
+      Avaliação
+    </div>
+    <button
+      className="sc-gKAaRy fAVUpm"
+      radius="0px"
+    >
+      X
+    </button>
+  </div>
+  <main
+    className="sc-hBMUJo xxXJc"
+  >
+    <div
+      className="sc-bdnxRM kjrnMz"
+    >
+      <form
+        className="sc-iqAclL kCPDqH"
+        data-testid="form-aval-1"
+        onSubmit={[Function]}
+      >
+        <p
+          className="sc-dlnjwi djLcli"
+        />
+        <div
+          className="sc-jrsJWt blFCga"
+        >
+          <select
+            className="sc-jSFjdj evAqHY"
+            id="diciplines"
+            name="id_course"
+          >
+            <option
+              disabled={true}
+              selected={true}
+              value=""
+            >
+              Selecione uma Disciplina
+            </option>
+          </select>
+          <div
+            className="sc-kEqXSa jZzZSJ error"
+          />
+        </div>
+        <p>
+          Notas:
+        </p>
+        <div
+          className="sc-gtsrHT kavaLt"
+        >
+          <label>
+            Didática:
+          </label>
+          <div
+            className="sc-jrsJWt blFCga"
+          >
+            <div
+              className="sc-iCoGMd jliwfQ"
+            >
+              <label
+                className="sc-pNWdM knJCVU"
+              >
+                <input
+                  checked={false}
+                  data-testid="input-stars-1"
+                  name="didactic"
+                  onChange={[Function]}
+                  type="checkbox"
+                />
+                <span
+                  className="sc-fujyAs gDRUGy"
+                />
+              </label>
+              <label
+                className="sc-pNWdM knJCVU"
+              >
+                <input
+                  checked={false}
+                  data-testid="input-stars-2"
+                  name="didactic"
+                  onChange={[Function]}
+                  type="checkbox"
+                />
+                <span
+                  className="sc-fujyAs gDRUGy"
+                />
+              </label>
+              <label
+                className="sc-pNWdM knJCVU"
+              >
+                <input
+                  checked={false}
+                  data-testid="input-stars-3"
+                  name="didactic"
+                  onChange={[Function]}
+                  type="checkbox"
+                />
+                <span
+                  className="sc-fujyAs gDRUGy"
+                />
+              </label>
+              <label
+                className="sc-pNWdM knJCVU"
+              >
+                <input
+                  checked={false}
+                  data-testid="input-stars-4"
+                  name="didactic"
+                  onChange={[Function]}
+                  type="checkbox"
+                />
+                <span
+                  className="sc-fujyAs gDRUGy"
+                />
+              </label>
+              <label
+                className="sc-pNWdM knJCVU"
+              >
+                <input
+                  checked={false}
+                  data-testid="input-stars-5"
+                  name="didactic"
+                  onChange={[Function]}
+                  type="checkbox"
+                />
+                <span
+                  className="sc-fujyAs gDRUGy"
+                />
+              </label>
+            </div>
+            <div
+              className="sc-kEqXSa jZzZSJ error"
+            />
+          </div>
+          <label>
+            Metodologia:
+          </label>
+          <div
+            className="sc-jrsJWt blFCga"
+          >
+            <div
+              className="sc-iCoGMd jliwfQ"
+            >
+              <label
+                className="sc-pNWdM knJCVU"
+              >
+                <input
+                  checked={false}
+                  data-testid="input-stars-1"
+                  name="metod"
+                  onChange={[Function]}
+                  type="checkbox"
+                />
+                <span
+                  className="sc-fujyAs gDRUGy"
+                />
+              </label>
+              <label
+                className="sc-pNWdM knJCVU"
+              >
+                <input
+                  checked={false}
+                  data-testid="input-stars-2"
+                  name="metod"
+                  onChange={[Function]}
+                  type="checkbox"
+                />
+                <span
+                  className="sc-fujyAs gDRUGy"
+                />
+              </label>
+              <label
+                className="sc-pNWdM knJCVU"
+              >
+                <input
+                  checked={false}
+                  data-testid="input-stars-3"
+                  name="metod"
+                  onChange={[Function]}
+                  type="checkbox"
+                />
+                <span
+                  className="sc-fujyAs gDRUGy"
+                />
+              </label>
+              <label
+                className="sc-pNWdM knJCVU"
+              >
+                <input
+                  checked={false}
+                  data-testid="input-stars-4"
+                  name="metod"
+                  onChange={[Function]}
+                  type="checkbox"
+                />
+                <span
+                  className="sc-fujyAs gDRUGy"
+                />
+              </label>
+              <label
+                className="sc-pNWdM knJCVU"
+              >
+                <input
+                  checked={false}
+                  data-testid="input-stars-5"
+                  name="metod"
+                  onChange={[Function]}
+                  type="checkbox"
+                />
+                <span
+                  className="sc-fujyAs gDRUGy"
+                />
+              </label>
+            </div>
+            <div
+              className="sc-kEqXSa jZzZSJ error"
+            />
+          </div>
+          <label>
+            Coerência das Avaliações:
+          </label>
+          <div
+            className="sc-jrsJWt blFCga"
+          >
+            <div
+              className="sc-iCoGMd jliwfQ"
+            >
+              <label
+                className="sc-pNWdM knJCVU"
+              >
+                <input
+                  checked={false}
+                  data-testid="input-stars-1"
+                  name="avaliations"
+                  onChange={[Function]}
+                  type="checkbox"
+                />
+                <span
+                  className="sc-fujyAs gDRUGy"
+                />
+              </label>
+              <label
+                className="sc-pNWdM knJCVU"
+              >
+                <input
+                  checked={false}
+                  data-testid="input-stars-2"
+                  name="avaliations"
+                  onChange={[Function]}
+                  type="checkbox"
+                />
+                <span
+                  className="sc-fujyAs gDRUGy"
+                />
+              </label>
+              <label
+                className="sc-pNWdM knJCVU"
+              >
+                <input
+                  checked={false}
+                  data-testid="input-stars-3"
+                  name="avaliations"
+                  onChange={[Function]}
+                  type="checkbox"
+                />
+                <span
+                  className="sc-fujyAs gDRUGy"
+                />
+              </label>
+              <label
+                className="sc-pNWdM knJCVU"
+              >
+                <input
+                  checked={false}
+                  data-testid="input-stars-4"
+                  name="avaliations"
+                  onChange={[Function]}
+                  type="checkbox"
+                />
+                <span
+                  className="sc-fujyAs gDRUGy"
+                />
+              </label>
+              <label
+                className="sc-pNWdM knJCVU"
+              >
+                <input
+                  checked={false}
+                  data-testid="input-stars-5"
+                  name="avaliations"
+                  onChange={[Function]}
+                  type="checkbox"
+                />
+                <span
+                  className="sc-fujyAs gDRUGy"
+                />
+              </label>
+            </div>
+            <div
+              className="sc-kEqXSa jZzZSJ error"
+            />
+          </div>
+          <label>
+            Disponibilidade:
+          </label>
+          <div
+            className="sc-jrsJWt blFCga"
+          >
+            <div
+              className="sc-iCoGMd jliwfQ"
+            >
+              <label
+                className="sc-pNWdM knJCVU"
+              >
+                <input
+                  checked={false}
+                  data-testid="input-stars-1"
+                  name="disponibility"
+                  onChange={[Function]}
+                  type="checkbox"
+                />
+                <span
+                  className="sc-fujyAs gDRUGy"
+                />
+              </label>
+              <label
+                className="sc-pNWdM knJCVU"
+              >
+                <input
+                  checked={false}
+                  data-testid="input-stars-2"
+                  name="disponibility"
+                  onChange={[Function]}
+                  type="checkbox"
+                />
+                <span
+                  className="sc-fujyAs gDRUGy"
+                />
+              </label>
+              <label
+                className="sc-pNWdM knJCVU"
+              >
+                <input
+                  checked={false}
+                  data-testid="input-stars-3"
+                  name="disponibility"
+                  onChange={[Function]}
+                  type="checkbox"
+                />
+                <span
+                  className="sc-fujyAs gDRUGy"
+                />
+              </label>
+              <label
+                className="sc-pNWdM knJCVU"
+              >
+                <input
+                  checked={false}
+                  data-testid="input-stars-4"
+                  name="disponibility"
+                  onChange={[Function]}
+                  type="checkbox"
+                />
+                <span
+                  className="sc-fujyAs gDRUGy"
+                />
+              </label>
+              <label
+                className="sc-pNWdM knJCVU"
+              >
+                <input
+                  checked={false}
+                  data-testid="input-stars-5"
+                  name="disponibility"
+                  onChange={[Function]}
+                  type="checkbox"
+                />
+                <span
+                  className="sc-fujyAs gDRUGy"
+                />
+              </label>
+            </div>
+            <div
+              className="sc-kEqXSa jZzZSJ error"
+            />
+          </div>
+        </div>
+        <p>
+          Postagem:
+        </p>
+        <div
+          className="sc-bdnxRM fGJwKM"
+          direction="row"
+        >
+          <button
+            className="sc-gKAaRy hWtowf"
+            onClick={[Function]}
+            type="button"
+          >
+            PÚBLICA
+          </button>
+          <button
+            className="sc-gKAaRy cMTpRk"
+            onClick={[Function]}
+            type="button"
+          >
+            ANÔNIMA
+          </button>
+        </div>
+        <p>
+          Descrição/Comentários:
+        </p>
+        <div
+          className="sc-jrsJWt blFCga"
+        >
+          <textarea
+            className="sc-hKFxyN cqWcJi"
+            data-testid="form-aval-2"
+            name="comments"
+          />
+          <div
+            className="sc-kEqXSa jZzZSJ error"
+          />
+        </div>
+        <div
+          className="sc-crzoAE VYTpw"
+        >
+          <button
+            className="sc-gKAaRy iwnWRD"
+            type="submit"
+          >
+            POSTAR
+          </button>
+        </div>
+      </form>
+    </div>
+  </main>
+</div>
+`;

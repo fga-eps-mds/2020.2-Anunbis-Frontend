@@ -12,6 +12,12 @@
 </h1>
 
 <p align="center">
+    <a href="https://codeclimate.com/github/fga-eps-mds/2020.2-Anunbis-Frontend/maintainability">
+        <img src="https://api.codeclimate.com/v1/badges/5d38500c8879b69f74d1/maintainability" />
+    </a>
+    <a href="https://codecov.io/gh/fga-eps-mds/2020.2-Anunbis-Frontend">
+        <img src="https://codecov.io/gh/fga-eps-mds/2020.2-Anunbis-Frontend/branch/develop/graph/badge.svg?token=1CPJBAE1ZU"/>
+    </a>
     <a href="http://isitmaintained.com/project/fga-eps-mds/2020.2-Anunbis">
     <img alt="Average time to resolve an issue" src="http://isitmaintained.com/badge/resolution/fga-eps-mds/2020.2-Anunbis.svg">
     <a href="http://isitmaintained.com/project/fga-eps-mds/2020.2-Anunbis">

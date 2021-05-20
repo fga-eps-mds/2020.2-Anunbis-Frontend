@@ -1,0 +1,28 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Snapshot ProfessorBox component matches the snapshot 1`] = `
+<div
+  className="sc-hHEiqL cRfAQS"
+>
+  <header
+    className="sc-fKgJPI ctsYtX"
+  >
+    <div
+      className="sc-dlMDgC eDxiqV"
+    >
+      <span />
+      <span>
+        Nota: 
+      </span>
+    </div>
+    <button
+      className="sc-bdnxRM bSShnC"
+    >
+      AVALIAR
+    </button>
+  </header>
+  <div
+    className="sc-kfYoZR eaqZXy"
+  />
+</div>
+`;

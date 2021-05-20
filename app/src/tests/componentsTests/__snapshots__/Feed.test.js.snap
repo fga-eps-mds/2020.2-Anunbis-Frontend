@@ -1,0 +1,64 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Snapshot Feed component matches the snapshot 1`] = `
+<div
+  className="sc-bdnxRM iEIydW"
+>
+  <div
+    className="sc-gtsrHT XbvmI"
+  />
+</div>
+`;
+
+exports[`Snapshot Feed component matches the snapshot 2`] = `
+<div
+  className="sc-eCApnc hegkdr"
+/>
+`;
+
+exports[`Snapshot Feed component matches the snapshot 3`] = `
+<div
+  className="sc-gtsrHT XbvmI"
+/>
+`;
+
+exports[`Snapshot Feed component matches the snapshot 4`] = `
+<div
+  className="sc-dlnjwi ksIhXd"
+>
+  <div
+    className="sc-hKFxyN cSsQWB"
+  >
+    <label>
+      Nota Geral: 
+    </label>
+    <label>
+      Não avaliado
+    </label>
+    <label>
+      Didática: 
+    </label>
+    <label>
+      0
+    </label>
+    <label>
+      Metodologia: 
+    </label>
+    <label>
+      0
+    </label>
+    <label>
+      Avaliações Coerentes: 
+    </label>
+    <label>
+      0
+    </label>
+    <label>
+      Disponibilidade: 
+    </label>
+    <label>
+      0
+    </label>
+  </div>
+</div>
+`;
