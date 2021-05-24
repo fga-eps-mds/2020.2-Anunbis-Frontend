@@ -74,6 +74,15 @@ Acesso a aplicação:
 
 `localhost:3000`
 
+Outros comandos:
+
+* `make install` Instala as dependências da aplicação.
+* `make up` Executa a aplicação.
+* `make down` Reseta a aplicação.
+* `make test` Executa todos os testes.
+* `make lint` Formata os arquivos JavaScript para atender a os padrões [eslint](https://eslint.org/docs/user-guide/getting-started).
+* `make format` Formata os arquivos JavaScript de acordo com [prettier](https://prettier.io/docs/en/index.html).
+
 ### Back-end
 
 Clonar o repositório:
@@ -87,7 +96,8 @@ Execução do conteiner:
 Acesso  a aplicação:
 
 `localhost:5000`
-
+## Como Contribuir
+Para contribuir com o projeto, por favor acesse nosso processo de contribuição:[Como Contribuir](https://fga-eps-mds.github.io/2020.2-Anunbis/como_contribuir/)
 ## Equipe
 <table>
     <tr>
